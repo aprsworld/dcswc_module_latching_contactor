@@ -1,0 +1,72 @@
+#include <18F14K22.h>
+#device ADC=10
+#device *=16
+#use delay(clock=16MHz)
+#use i2c(SLAVE, I2C1, address=0x34, FORCE_HW)
+/* Linux / i2cdetect will use the CCS address >>1. So 0x34 becomes 0x1a */
+
+#fuses INTRC_IO
+#fuses NOPLLEN
+#fuses NOFCMEN
+#fuses NOIESO
+#fuses PUT
+#fuses BROWNOUT
+#fuses WDT4096
+#fuses NOHFOFST
+#fuses NOMCLR
+#fuses STVREN
+#fuses NOLVP
+#fuses NOXINST
+#fuses NODEBUG
+#fuses NOPROTECT
+#fuses NOWRT
+#fuses NOWRTC 
+#fuses NOWRTB
+#fuses NOWRTD
+#fuses NOEBTR
+#fuses NOEBTRB
+
+#use standard_io(ALL)
+
+#use rs232(UART1,stream=STREAM_FTDI,baud=9600,errors)	
+
+/* program config CRC of 0 and a serial_prefix of 'A' ... that will trigger a write default on first boot */
+#ROM 0xF00000 = { 0x00, 0x00, 0x40, 0x00 }
+
+
+
+
+#define SW_OVERRIDE_A        PIN_A5
+#define SW_OVERRIDE_B        PIN_A4
+#define BRIDGE_B_A           PIN_C5
+#define BRIDGE_A_B           PIN_C4
+#define BRIDGE_A_A           PIN_C3
+#define BRIDGE_B_B           PIN_C6
+#define AN_DIP               PIN_C7
+#define SER_TO_PC            PIN_B7
+#define AN_VTEMP             PIN_A2
+#define AN_IN_VOLTS          PIN_C0
+#define LED_A                PIN_C1
+#define LED_B                PIN_C2
+#define I2C_SDA              PIN_B4
+#define SER_FROM_PC          PIN_B5
+#define I2C_SCL              PIN_B6
+
+
+/* 
+Parameters are stored in EEPROM
+*/
+#define PARAM_CRC_ADDRESS  0x00
+#define PARAM_ADDRESS      PARAM_CRC_ADDRESS+2
+
+
+#define POWER_FLAG_POS_HTD            6
+#define POWER_FLAG_POS_LTD            5
+#define POWER_FLAG_POS_HVD            4
+#define POWER_FLAG_POS_LVD            3
+#define POWER_FLAG_POS_WRITE_WATCHDOG 2
+#define POWER_FLAG_POS_READ_WATCHDOG  1
+#define POWER_FLAG_POS_COMMAND_OFF    0
+
+
+#define CONTACTOR_POWER_SAVE_MS       200 /* milliseconds for contactor be on. Must be >0 and <= 255 */
