@@ -1,0 +1,57 @@
+ÀÄdcswc_module_latching_contactor
+   ÃÄMAIN  0/652  Ram=5
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄ@cinit2  (Inline)  Ram=0
+   ³  ÃÄinit  0/276  Ram=34
+   ³  ³  ÀÄ@const804  0/26  Ram=0
+   ³  ÃÄread_param_file  0/58  Ram=3
+   ³  ³  ÃÄEEPROMDataRead  0/128  Ram=12
+   ³  ³  ³  ÀÄxor_crc  (Inline)  Ram=2
+   ³  ³  ÀÄwrite_default_param_file  0/96  Ram=0
+   ³  ³     ÀÄwrite_param_file  0/72  Ram=3
+   ³  ³        ÀÄEEPROMDataWrite  0/152  Ram=10
+   ³  ³           ÀÄxor_crc  (Inline)  Ram=2
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@PSTRINGC_9600_31759_31757  0/36  Ram=2
+   ³  ÃÄadc_update  0/150  Ram=2
+   ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ³  ÀÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄperiodic_millisecond  0/608  Ram=2
+   ³  ³  ÃÄadc_get  0/124  Ram=8
+   ³  ³  ÀÄadc_get  0/124  Ram=8
+   ³  ÃÄ@GETCH_BIU_1  0/24  Ram=0
+   ³  ÃÄread_dip_switch  0/112  Ram=2
+   ³  ³  ÀÄ@delay_ms1  0/40  Ram=1
+   ³  ÃÄ@PSTRINGCN_9600_31759_31757  0/32  Ram=3
+   ³  ÃÄ@PRINTF_U_9600_31759_31757  0/110  Ram=2
+   ³  ³  ÃÄ@DIV88  0/40  Ram=3
+   ³  ³  ÀÄ@DIV88  0/40  Ram=3
+   ³  ÃÄadc_get  0/124  Ram=8
+   ³  ÃÄ@PSTRINGCN_9600_31759_31757  0/32  Ram=3
+   ³  ÃÄ@PRINTF_LU_9600_31759_31757  0/172  Ram=9
+   ³  ÃÄadc_get  0/124  Ram=8
+   ³  ÃÄ@PSTRINGCN_9600_31759_31757  0/32  Ram=3
+   ³  ÃÄ@PRINTF_LU_9600_31759_31757  0/172  Ram=9
+   ³  ÃÄadc_get  0/124  Ram=8
+   ³  ÃÄ@PSTRINGCN_9600_31759_31757  0/32  Ram=3
+   ³  ÃÄ@PRINTF_LU_9600_31759_31757  0/172  Ram=9
+   ³  ÃÄcontactor_on_a  0/16  Ram=0
+   ³  ÃÄcontactor_off_a  0/16  Ram=0
+   ³  ÃÄcontactor_on_b  0/16  Ram=0
+   ³  ÃÄcontactor_off_b  0/16  Ram=0
+   ³  ÃÄadc_update  0/150  Ram=2
+   ³  ³  ÀÄ*
+   ³  ÃÄwrite_param_file  0/72  Ram=3
+   ³  ³  ÀÄ*
+   ³  ÀÄwrite_default_param_file  0/96  Ram=0
+   ³     ÀÄ*
+   ÃÄisr_timer2  0/8  Ram=0
+   ÀÄssp_interrupt  0/170  Ram=4
+      ÃÄwrite_i2c  0/370  Ram=3
+      ÃÄmap_i2c  0/614  Ram=1
+      ³  ÃÄadc_get  0/124  Ram=8
+      ³  ÀÄadc_get  0/124  Ram=8
+      ÃÄ@I2C_WRITE_129  0/22  Ram=1
+      ÀÄ@I2C_WRITE_129  0/22  Ram=1

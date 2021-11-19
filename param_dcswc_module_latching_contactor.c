@@ -38,9 +38,9 @@ void write_param_file() {
 void write_default_param_file() {
 	current.default_params_written=1;
 
-	/* red LED for 1.5 seconds */
-	timers.led_on_green=150;
-
+	/* both LEDs on */
+	timers.led_on_a=150;
+	timers.led_on_b=150;
 
 	config.serial_prefix='P';
 	config.serial_number=9873;

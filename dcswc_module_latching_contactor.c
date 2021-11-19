@@ -31,7 +31,7 @@ typedef struct {
 
 typedef struct {
 	/* circular buffer for ADC readings */
-	int16 adc_buffer[2][16];
+	int16 adc_buffer[3][16];
 	int8  adc_buffer_index;
 
 	int16 sequence_number;
@@ -85,7 +85,8 @@ typedef struct {
 	int1 now_reset_config;
 
 	/* timers */
-	int8 led_on_green;
+	int8 led_on_a;
+	int8 led_on_b;
 
 	int16 command_off_seconds;			/* counts down. Off at zero. */
 	int16 command_off_hold_seconds;     /* counts down. Off at zero. */
@@ -196,18 +197,20 @@ int8 read_dip_switch(void) {
 	adc=read_adc();
 
 	/* (note that table is sorted by vout reading 
-	SW3.1 SW3.2 VOUT ADC
-    0     0     5.0  1024
-	1     0     3.3  768
-	0     1     2.5  512
-	1     1     2.0  416
+	SW3.1 (LSB) SW3.2 (MSB) VALUE ADC
+    OFF         OFF         0     1023
+	OFF         ON          2     682
+    ON          OFF         1     511
+	ON          ON          3     409
 	*/
 
-	if ( adc > 960 )
+	return adc;
+
+	if ( adc > (1023-64) )
 		return 0;
-	if ( adc > 704 )
+	if ( adc > (682-64) )
 		return 2;
-	if ( adc > 448 )
+	if ( adc > (511-64) )
 		return 1;
 
 	return 3;
@@ -257,12 +260,18 @@ void periodic_millisecond(void) {
 	}
 #endif
 
-	/* green LED control */
-	if ( 0==timers.led_on_green ) {
+	/* LED control */
+	if ( 0==timers.led_on_a ) {
 		output_low(LED_A);
 	} else {
 		output_high(LED_A);
-		timers.led_on_green--;
+		timers.led_on_a--;
+	}
+	if ( 0==timers.led_on_b ) {
+		output_low(LED_B);
+	} else {
+		output_high(LED_B);
+		timers.led_on_b--;
 	}
 
 	/* some other random stuff that we don't need to do every cycle in main */
@@ -416,6 +425,10 @@ void periodic_millisecond(void) {
 			}
 		}
 
+		/* TODO: implement Low Temperature Disconnect (LTD) and High Temperature Disconnect (HTD) */
+
+		/* TODO: implement Command On */
+
 
 #if 0
 		/* actually control the power switches */
@@ -468,9 +481,8 @@ void main(void) {
 	if ( config.startup_power_on_delay > 100 )
 		config.startup_power_on_delay=100;
 
-	last_a=read_dip_switch()+2; 
 	/* flash on startup */
-	for ( i=0 ; i<last_a ; i++ ) {
+	for ( i=0 ; i<config.startup_power_on_delay ; i++ ) {
 		restart_wdt();
 		output_high(LED_A);
 		delay_ms(200);
@@ -482,7 +494,7 @@ void main(void) {
 
 	fprintf(STREAM_FTDI,"# dcswc_module_latching_contactor\r\n");
 
-	timers.led_on_green=500;
+	timers.led_on_a=500;
 
 	enable_interrupts(GLOBAL);
 
@@ -508,16 +520,19 @@ void main(void) {
 		if ( kbhit() ) {
 			getc();
 			fprintf(STREAM_FTDI,"# read_dip_switch()=%u\r\n",read_dip_switch());
+			fprintf(STREAM_FTDI,"#    vin adc=%lu\r\n",adc_get(0));
+			fprintf(STREAM_FTDI,"#   temp adc=%lu\r\n",adc_get(1));
+			fprintf(STREAM_FTDI,"# dip sw adc=%lu\r\n",adc_get(2));
 		}
 
 		if ( input(SW_OVERRIDE_A) != last_a ) {
 			last_a=input(SW_OVERRIDE_A);
 
 			if ( last_a ) {
-				timers.led_on_green=500;
+				timers.led_on_a=500;
 				contactor_on_a();
 			} else {
-				timers.led_on_green=0;
+				timers.led_on_a=0;
 				contactor_off_a();
 			}
 		}
@@ -527,10 +542,10 @@ void main(void) {
 			last_B=input(SW_OVERRIDE_B);
 
 			if ( last_b ) {
-				timers.led_on_green=500;
+				timers.led_on_b=500;
 				contactor_on_b();
 			} else {
-				timers.led_on_green=0;
+				timers.led_on_b=0;
 				contactor_off_b();
 			}
 		}

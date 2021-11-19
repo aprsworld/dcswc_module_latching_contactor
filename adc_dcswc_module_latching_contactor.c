@@ -35,4 +35,8 @@ void adc_update(void) {
 	set_adc_channel(2);
 	delay_ms(1);
 	current.adc_buffer[1][current.adc_buffer_index] = read_adc();
+
+	set_adc_channel(9);
+	delay_ms(1);
+	current.adc_buffer[2][current.adc_buffer_index] = read_adc();
 }
