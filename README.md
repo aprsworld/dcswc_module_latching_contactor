@@ -1,9 +1,16 @@
 # DCSWC Module, Latching Contactor
 PIC18F14K22 micro controller
 
+2 x half bridge drivers for latching contactors
+1 x temperature sensor
+1 x analog input
+2 x switch inputs
+2 x LED outputs
+2 x onboard DIP switch
+
 ## I2C Interface
 
-The pzPowerI2C micro controller is connected to the Raspberry Pi with a I2C interface. The pzPowerI2C acts as a I2C slave.
+The microcontroller acts as a I2C slave on the DCSWC bus. 
 
 ## Hardware Notes
 
