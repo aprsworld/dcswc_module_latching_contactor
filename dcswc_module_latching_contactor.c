@@ -2,21 +2,12 @@
 
 
 typedef struct {
-	int8 serial_prefix;
-	int16 serial_number;
-
 	int16 adc_sample_ticks;
 
 	int16 startup_power_on_delay;
 
 	/* command_off in current */
 	int16 command_off_hold_time;
-
-	int16 read_watchdog_off_threshold;
-	int16 read_watchdog_off_hold_time;
-
-	int16 write_watchdog_off_threshold;
-	int16 write_watchdog_off_hold_time;
 
 	int16 lvd_disconnect_adc;
 	int16 lvd_disconnect_delay;
@@ -68,8 +59,6 @@ typedef struct {
 		0 pi (host)
 	*/
 
-	/* magnet sensor on board */
-	int8 latch_sw_magnet;
 
 	int8 default_params_written;
 } struct_current;
@@ -90,12 +79,6 @@ typedef struct {
 
 	int16 command_off_seconds;			/* counts down. Off at zero. */
 	int16 command_off_hold_seconds;     /* counts down. Off at zero. */
-
-	int16 read_watchdog_seconds;  		/* counts up */
-	int16 read_watchdog_hold_seconds; 	/* counts down. Off at zero */
-
-	int16 write_watchdog_seconds; 		/* counts up */
-	int16 write_watchdog_hold_seconds; 	/* counts down. Off at zero */
 
 	int16 lvd_disconnect_delay_seconds;	/* counts down */
 	int8  lvd_reconnect_delay_seconds;	/* counts down */
@@ -253,13 +236,6 @@ void periodic_millisecond(void) {
 
 	timers.now_millisecond=0;
 
-#if 0
-	/* set magnet latch. Reset by writing 0 to magnet latch register */
-	if ( ! input(SW_MAGNET) ) {
-		current.latch_sw_magnet=1;
-	}
-#endif
-
 	/* LED control */
 	if ( 0==timers.led_on_a ) {
 		output_low(LED_A);
@@ -321,58 +297,6 @@ void periodic_millisecond(void) {
 					}
 				}		
 			}
-		}
-
-		/* watchdog counters */
-		if ( timers.read_watchdog_seconds != 65535 ) {
-			timers.read_watchdog_seconds++;
-		}
-		if ( timers.write_watchdog_seconds != 65535 ) {
-			timers.write_watchdog_seconds++;
-		}
-
-		/* read watchdog */
-		if ( timers.read_watchdog_seconds > config.read_watchdog_off_threshold ) {
-			/* watchdog counter is above threshold */
-			if ( ! bit_test(current.power_off_flags,POWER_FLAG_POS_READ_WATCHDOG) ) {
-				/* not currently set, so we set it and start the countdown */
-				bit_set(current.power_off_flags,POWER_FLAG_POS_READ_WATCHDOG);
-				timers.read_watchdog_hold_seconds=config.read_watchdog_off_hold_time;
-			} else {
-				/* set, so we clear it once countdown has elapsed */
-				if ( 0==timers.read_watchdog_hold_seconds ) {
-					/* countdown elapsed, clear the flag and reset the timer */
-					bit_clear(current.power_off_flags,POWER_FLAG_POS_READ_WATCHDOG);
-					timers.read_watchdog_seconds=0;
-				} else {
-					timers.read_watchdog_hold_seconds--;
-				}			
-			}	
-		} else {
-			/* watchdog was cleared elsewhere */
-			bit_clear(current.power_off_flags,POWER_FLAG_POS_READ_WATCHDOG);
-		}
-
-		/* write watchdog */
-		if ( timers.write_watchdog_seconds > config.write_watchdog_off_threshold ) {
-			/* watchdog counter is above threshold */
-			if ( ! bit_test(current.power_off_flags,POWER_FLAG_POS_WRITE_WATCHDOG) ) {
-				/* not currently set, so we set it and start the countdown */
-				bit_set(current.power_off_flags,POWER_FLAG_POS_WRITE_WATCHDOG);
-				timers.write_watchdog_hold_seconds=config.write_watchdog_off_hold_time;
-			} else {
-				/* set, so we clear it once countdown has elapsed */
-				if ( 0==timers.write_watchdog_hold_seconds ) {
-					/* countdown elapsed, clear the flag and reset the timer */
-					bit_clear(current.power_off_flags,POWER_FLAG_POS_WRITE_WATCHDOG);
-					timers.write_watchdog_seconds=0;
-				} else {
-					timers.write_watchdog_hold_seconds--;
-				}			
-			}	
-		} else {
-			/* watchdog was cleared elsewhere */
-			bit_clear(current.power_off_flags,POWER_FLAG_POS_WRITE_WATCHDOG);
 		}
 
 		/* LVD. 65535 disables */
@@ -492,7 +416,7 @@ void main(void) {
 
 	delay_ms(1000);
 
-	fprintf(STREAM_FTDI,"# dcswc_module_latching_contactor\r\n");
+	fprintf(STREAM_FTDI,"# dcswc_module_latching_contactor %s\r\n",__DATE__);
 
 	timers.led_on_a=500;
 

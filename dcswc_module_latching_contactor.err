@@ -1,5 +1,5 @@
-Compiling C:\Users\James Jarvis\Desktop\planetPrecision\dcswc_module_latching_contactor\dcswc_module_latching_contactor on 19-Nov-21 at 06:15
->>> Warning 216 "C:\Users\James Jarvis\Desktop\planetPrecision\dcswc_module_latching_contactor\dcswc_module_latching_contactor.c" Line 569(1,2): Interrupts disabled during call to prevent re-entrancy:  (adc_get)
-      Memory usage:   ROM=29%      RAM=40% - 49%
-      0 Errors,  1 Warnings.
-Build Successful.
+Compiling C:\Users\James Jarvis\Desktop\planetPrecision\dcswc_module_latching_contactor\dcswc_module_latching_contactor on 14-Jan-22 at 10:36
+>>> Warning 225 "C:\Users\James Jarvis\Desktop\planetPrecision\dcswc_module_latching_contactor\registers_dcswc_module_latching_contactor.h" Line 8(34,48): Duplicate #define
+*** Error 56 "C:\Users\James Jarvis\Desktop\planetPrecision\dcswc_module_latching_contactor\interrupt_dcswc_module_latching_contactor.c" Line 65(8,29): Element is not a member
+      1 Errors,  1 Warnings.
+Build Failed.

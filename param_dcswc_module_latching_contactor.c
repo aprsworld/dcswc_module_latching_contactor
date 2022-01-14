@@ -42,21 +42,11 @@ void write_default_param_file() {
 	timers.led_on_a=150;
 	timers.led_on_b=150;
 
-	config.serial_prefix='P';
-	config.serial_number=9873;
-
 	config.adc_sample_ticks=20;
 
 	config.startup_power_on_delay=5;
 
 	config.command_off_hold_time=2;
-
-	config.read_watchdog_off_threshold=65535;
-	config.read_watchdog_off_hold_time=2;
-
-
-	config.write_watchdog_off_threshold=65535;
-	config.write_watchdog_off_hold_time=2;
 
 	config.lvd_disconnect_adc=190;
 	config.lvd_disconnect_delay=65535;
