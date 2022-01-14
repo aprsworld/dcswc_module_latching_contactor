@@ -1,15 +1,8 @@
 #include "registers_dcswc_module_latching_contactor.h"
 
 void write_i2c(int8 address, int16 value) {
-	switch ( address ) {
-		case I2C_REG_LED_A: 
-			timers.led_on_a=make8(value,0);
-			break;
-		case I2C_REG_LED_B: 
-			timers.led_on_b=make8(value,0);
-			break;
 
-
+#if 0
 		case I2C_REG_COMMAND_OFF:
 			timers.command_off_seconds=value;
 			break;
@@ -55,6 +48,7 @@ void write_i2c(int8 address, int16 value) {
 		default:
 			/* do nothing */
 	}
+#endif
 
 }
 
@@ -63,9 +57,10 @@ int16 map_i2c(int8 addr) {
 
 	timers.led_on_a=100;
 
-
-
 	switch ( addr ) {
+#if 0
+
+
 		/* analog channels */
 		/* input voltage */
 		case I2C_REG_VOLTAGE_INPUT_NOW: 
@@ -132,10 +127,12 @@ int16 map_i2c(int8 addr) {
 		case I2C_REG_CONFIG_HVD_RECONNECT_VOLTAGE:
 			return (int16) config.hvd_reconnect_adc;
 
+#endif
 
 		/* we should have range checked, and never gotten here ... or read unimplemented (future) register */
 		default: return (int16) addr;
 	}
+
 
 }
 

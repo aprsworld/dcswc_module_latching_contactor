@@ -2,8 +2,11 @@
 #device ADC=10
 #device *=16
 #use delay(clock=16MHz)
-#use i2c(SLAVE, I2C1, address=0x34, FORCE_HW)
-/* Linux / i2cdetect will use the CCS address >>1. So 0x34 becomes 0x1a */
+
+/* hardware I2C port is slave and is connected to DCSWC bus */
+#use i2c(stream=STREAM_SLAVE,SLAVE, I2C1, FORCE_HW)
+/* slave address set based on dip switch in init() */
+
 
 #fuses INTRC_IO
 #fuses NOPLLEN
@@ -11,7 +14,7 @@
 #fuses NOIESO
 #fuses PUT
 #fuses BROWNOUT
-#fuses WDT4096
+#fuses WDT512
 #fuses NOHFOFST
 #fuses NOMCLR
 #fuses STVREN
@@ -60,13 +63,17 @@ Parameters are stored in EEPROM
 #define PARAM_ADDRESS      PARAM_CRC_ADDRESS+2
 
 
-#define POWER_FLAG_POS_HTD            6
-#define POWER_FLAG_POS_LTD            5
-#define POWER_FLAG_POS_HVD            4
-#define POWER_FLAG_POS_LVD            3
-#define POWER_FLAG_POS_WRITE_WATCHDOG 2
-#define POWER_FLAG_POS_READ_WATCHDOG  1
-#define POWER_FLAG_POS_COMMAND_OFF    0
+
+/* bit positions for a channel state byte */
+#define CH_STATE_BIT_FUTURE   7  /* reserved for future use */
+#define CH_STATE_BIT_HTD      6  /* high temperature disconnect */
+#define CH_STATE_BIT_LTD      5  /* low temperature disconnect */
+#define CH_STATE_BIT_HVD      4  /* high voltage disconnect */
+#define CH_STATE_BIT_LVD      3  /* low voltage disconnect */
+#define CH_STATE_BIT_CMD_OFF  2  /* commanded off */
+#define CH_STATE_BIT_CMD_ON   1  /* commanded on (takes presedence over commanded off) */
+#define CH_STATE_BIT_OVERRIDE 0  /* override switch */
+      
 
 
 #define CONTACTOR_POWER_SAVE_MS       200 /* milliseconds for contactor be on. Must be >0 and <= 255 */

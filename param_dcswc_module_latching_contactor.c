@@ -36,6 +36,8 @@ void write_param_file() {
 }
 
 void write_default_param_file() {
+	int8 i;
+
 	current.default_params_written=1;
 
 	/* both LEDs on */
@@ -45,17 +47,20 @@ void write_default_param_file() {
 	config.adc_sample_ticks=20;
 
 	config.startup_power_on_delay=5;
+	config.reconnect_delay=5;
 
 	config.command_off_hold_time=2;
 
-	config.lvd_disconnect_adc=190;
-	config.lvd_disconnect_delay=65535;
-	config.lvd_reconnect_adc=200;
+	for ( i=0 ; i<2 ; i++ ) {
+		config.ch[i].lvd_disconnect_adc=190;
+		config.ch[i].lvd_disconnect_delay=65535;
+		config.ch[i].lvd_reconnect_adc=200;
 
-	config.hvd_disconnect_adc=1000;
-	config.hvd_disconnect_delay=65535;
-	config.hvd_reconnect_adc=900;
-
+		config.ch[i].hvd_disconnect_adc=1000;
+		config.ch[i].hvd_disconnect_delay=65535;
+		config.ch[i].hvd_reconnect_adc=900;
+	}
+	
 	/* write them so next time we use from EEPROM */
 	write_param_file();
 

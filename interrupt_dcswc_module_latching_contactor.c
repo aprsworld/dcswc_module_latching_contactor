@@ -60,9 +60,6 @@ void ssp_interrupt () {
 
 		address++;
 	}
-
-	/* reset watchdog timer */
-	timers.read_watchdog_seconds=0;
 }
 
 
