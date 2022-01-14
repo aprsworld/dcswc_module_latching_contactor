@@ -1,13 +1,25 @@
 #include "dcswc_module_latching_contactor.h"
 
 typedef struct {
+	/* low voltage disconnect */
 	int16 lvd_disconnect_adc;
 	int16 lvd_disconnect_delay;
 	int16 lvd_reconnect_adc;
 
+	/* high voltage disconnect */
 	int16 hvd_disconnect_adc;
 	int16 hvd_disconnect_delay;
 	int16 hvd_reconnect_adc;
+
+	/* low temperature disconnect */
+	int16 ltd_disconnect_adc;
+	int16 ltd_disconnect_delay;
+	int16 ltd_reconnect_adc;
+
+	/* high voltage disconnect */
+	int16 htd_disconnect_adc;
+	int16 htd_disconnect_delay;
+	int16 htd_reconnect_adc;
 } struct_config_channel;
 
 typedef struct {
@@ -16,7 +28,6 @@ typedef struct {
 	int16 startup_power_on_delay;
 	int8 reconnect_delay;
 
-	/* command_off in current */
 	int16 command_off_hold_time;
 	int16 command_on_hold_time;
 
@@ -70,12 +81,18 @@ typedef struct {
 	int1 now_write_config;
 	int1 now_reset_config;
 
+	/* contactor states */
+	int1 contactor_a;
+	int1 contactor_b;
+
 	/* timers */
 	int8 led_on_a;
 	int8 led_on_b;
 
 	int8  contactor_a_powersave;        /* counts down. Off at zero. */
 	int8  contactor_b_powersave;        /* counts down. Off at zero. */
+
+
 
 } struct_time_keep;
 
@@ -106,8 +123,6 @@ int8 read_dip_switch(void) {
 	ON          ON          3     409
 	*/
 
-//	return adc;
-
 	if ( adc > (1023-64) )
 		return 0;
 	if ( adc > (682-64) )
@@ -119,31 +134,55 @@ int8 read_dip_switch(void) {
 }
 
 void contactor_on_a(void) {
+	/* only turn on contactor if it isn't on or needs a refresh */
+	if ( 1 == timers.contactor_a )
+		return;
+
 	timers.contactor_a_powersave=CONTACTOR_POWER_SAVE_MS;
 
 	output_high(BRIDGE_A_A);
 	output_low(BRIDGE_A_B);
+
+	timers.contactor_a=1;
 }
 
 void contactor_off_a(void) {
+	/* only turn off contactor if it isn't on or needs a refresh */
+	if ( 0 == timers.contactor_a )
+		return;
+
 	timers.contactor_a_powersave=CONTACTOR_POWER_SAVE_MS;
 
 	output_low(BRIDGE_A_A);
 	output_high(BRIDGE_A_B);
+
+	timers.contactor_a=0;
 }
 
 void contactor_on_b(void) {
+	/* only turn on contactor if it isn't on or needs a refresh */
+	if ( 1 == timers.contactor_b )
+		return;
+
 	timers.contactor_b_powersave=CONTACTOR_POWER_SAVE_MS;
 
 	output_high(BRIDGE_B_A);
 	output_low(BRIDGE_B_B);
+
+	timers.contactor_b=1;
 }
 
 void contactor_off_b(void) {
+	/* only turn off contactor if it isn't on or needs a refresh */
+	if ( 0 == timers.contactor_b )
+		return;
+
 	timers.contactor_b_powersave=CONTACTOR_POWER_SAVE_MS;
 
 	output_low(BRIDGE_B_A);
 	output_high(BRIDGE_B_B);
+
+	timers.contactor_b=0;
 }
 
 void contactor_logic(int8 c) {
@@ -230,6 +269,11 @@ void contactor_logic(int8 c) {
 	/* TODO: implement Low Temperature Disconnect (LTD) and High Temperature Disconnect (HTD) */
 }
 
+void contactor_set() {
+
+
+}
+
 
 void periodic_millisecond(void) {
 	static int8 uptimeticks=0;
@@ -273,6 +317,8 @@ void periodic_millisecond(void) {
 	}
 
 
+
+
 	/* seconds */
 	ticks++;
 	if ( 1000 == ticks ) {
@@ -283,18 +329,7 @@ void periodic_millisecond(void) {
 		contactor_logic(1);
 
 		/* set contactor outputs */
-#if 0
-		/* actually control the power switches */
-		if ( current.power_off_flags ) {
-			output_low(PI_POWER_EN);
-			output_low(WIFI_POWER_EN);
-		} else {
-			output_high(PI_POWER_EN);
-			output_high(WIFI_POWER_EN);
-		}
-#endif
-
-
+		contactor_set();
 		
 		/* uptime counter */
 		uptimeTicks++;
@@ -481,13 +516,6 @@ void main(void) {
 				fprintf(STREAM_FTDI,"#  hvd_reconnect_delay_seconds=%u\r\n",channel[i].hvd_reconnect_delay_seconds);
 			}
 
-#if 0
-	int16 lvd_disconnect_delay_seconds;	/* counts down */
-	int8  lvd_reconnect_delay_seconds;	/* counts down */
-
-	int16 hvd_disconnect_delay_seconds;	/* counts down */
-	int8  hvd_reconnect_delay_seconds;	/* counts down */
-#endif
 		}
 
 		if ( input(SW_OVERRIDE_A) != last_a ) {

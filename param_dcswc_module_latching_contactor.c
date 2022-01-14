@@ -52,13 +52,13 @@ void write_default_param_file() {
 	config.command_off_hold_time=2;
 
 	for ( i=0 ; i<2 ; i++ ) {
-		config.ch[i].lvd_disconnect_adc=190;
-		config.ch[i].lvd_disconnect_delay=65535;
-		config.ch[i].lvd_reconnect_adc=200;
+		config.ch[i].lvd_disconnect_adc=303;
+		config.ch[i].lvd_disconnect_delay=40;
+		config.ch[i].lvd_reconnect_adc=308;
 
-		config.ch[i].hvd_disconnect_adc=1000;
-		config.ch[i].hvd_disconnect_delay=65535;
-		config.ch[i].hvd_reconnect_adc=900;
+		config.ch[i].hvd_disconnect_adc=410;
+		config.ch[i].hvd_disconnect_delay=15;
+		config.ch[i].hvd_reconnect_adc=385;
 	}
 	
 	/* write them so next time we use from EEPROM */
