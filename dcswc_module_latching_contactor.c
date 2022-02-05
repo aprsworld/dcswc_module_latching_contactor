@@ -92,16 +92,15 @@ typedef struct {
 
 	int1 now_debug_dump;
 
-	/* contactor states */
-	int1 contactor_a;
-	int1 contactor_b;
+	int1 contactor[2]; 	/* contactor states */
+
 
 	/* timers */
 	int8 led_on_a;
 	int8 led_on_b;
 
-	int8  contactor_a_powersave;        /* counts down. Off at zero. */
-	int8  contactor_b_powersave;        /* counts down. Off at zero. */
+
+	int8 contactor_powersave[2]; /* counts down. Off at zero. */
 } struct_time_keep;
 
 /* global structures */
@@ -117,56 +116,42 @@ struct_channel channel[2]={0};
 #include "debug_dcswc_module_latching_contactor.c"
 
 
-void contactor_on_a(void) {
+void contactor_on(int8 c) {
 	/* only turn on contactor if it isn't on or needs a refresh */
-	if ( 1 == timers.contactor_a )
+	if ( 1 == timers.contactor[c] )
 		return;
 
-	timers.contactor_a_powersave=CONTACTOR_POWER_SAVE_MS;
+	timers.contactor_powersave[c]=CONTACTOR_POWER_SAVE_MS;
 
-	output_high(BRIDGE_A_A);
-	output_low(BRIDGE_A_B);
+	if ( 0==c ) {
+		/* contactor A pins */
+		output_high(BRIDGE_A_A);
+		output_low(BRIDGE_A_B);
+	} else {
+		/* contactor B pins */
+		output_high(BRIDGE_B_A);
+		output_low(BRIDGE_B_B);
+	}
 
-	timers.contactor_a=1;
+	timers.contactor[c]=1;
 }
 
-void contactor_off_a(void) {
+void contactor_off(int8 c) {
 	/* only turn off contactor if it isn't on or needs a refresh */
-	if ( 0 == timers.contactor_a )
+	if ( 0 == timers.contactor[c] )
 		return;
 
-	timers.contactor_a_powersave=CONTACTOR_POWER_SAVE_MS;
+	timers.contactor_powersave[c]=CONTACTOR_POWER_SAVE_MS;
 
-	output_low(BRIDGE_A_A);
-	output_high(BRIDGE_A_B);
+	if ( 0==c ) {
+		output_low(BRIDGE_A_A);
+		output_high(BRIDGE_A_B);
+	} else {
+		output_low(BRIDGE_B_A);
+		output_high(BRIDGE_B_B);
+	}
 
-	timers.contactor_a=0;
-}
-
-void contactor_on_b(void) {
-	/* only turn on contactor if it isn't on or needs a refresh */
-	if ( 1 == timers.contactor_b )
-		return;
-
-	timers.contactor_b_powersave=CONTACTOR_POWER_SAVE_MS;
-
-	output_high(BRIDGE_B_A);
-	output_low(BRIDGE_B_B);
-
-	timers.contactor_b=1;
-}
-
-void contactor_off_b(void) {
-	/* only turn off contactor if it isn't on or needs a refresh */
-	if ( 0 == timers.contactor_b )
-		return;
-
-	timers.contactor_b_powersave=CONTACTOR_POWER_SAVE_MS;
-
-	output_low(BRIDGE_B_A);
-	output_high(BRIDGE_B_B);
-
-	timers.contactor_b=0;
+	timers.contactor[c]=0;
 }
 
 void contactor_set(int8 c) {
@@ -183,14 +168,21 @@ void contactor_set(int8 c) {
 		state=0;
 	}
 
+	if ( 0==state ) {
+		contactor_off(c);
+	} else {
+		contactor_on(c);
+	}
 
 }
 
 void contactor_logic(int8 c) {
 	int16 adc;
 
-	/* TODO: implement override switch */
-
+	/* override button / switch */
+	if ( (0==c && 0==input(SW_OVERRIDE_A)) || (1==c && 0==input(SW_OVERRIDE_B)) ) {
+		bit_set(channel[c].state,CH_STATE_BIT_OVERRIDE);
+	}
 
 	/* command on. 65535 disables */
 	if ( 65535 != channel[c].command_on_seconds ) {
@@ -352,17 +344,17 @@ void periodic_millisecond(void) {
 	}
 
 	/* contactor timeout */
-	if ( 0 == timers.contactor_a_powersave ) {
+	if ( 0 == timers.contactor_powersave[0] ) {
 		output_low(BRIDGE_A_A);
 		output_low(BRIDGE_A_B);
 	} else {
-		timers.contactor_a_powersave--;
+		timers.contactor_powersave[0]--;
 	}
-	if ( 0 == timers.contactor_b_powersave ) {
+	if ( 0 == timers.contactor_powersave[1] ) {
 		output_low(BRIDGE_B_A);
 		output_low(BRIDGE_B_B);
 	} else {
-		timers.contactor_b_powersave--;
+		timers.contactor_powersave[1]--;
 	}
 
 
@@ -377,7 +369,7 @@ void periodic_millisecond(void) {
 		contactor_logic(0);
 		contactor_logic(1);
 
-		/* set contactor outputs */
+		/* set contactor outputs based on their state bit field */
 		contactor_set(0);
 		contactor_set(1);		
 
@@ -546,7 +538,7 @@ void main(void) {
 			debug_dump();
 		}
 
-#if 1
+#if 0
 		if ( input(SW_OVERRIDE_A) != last_a ) {
 			last_a=input(SW_OVERRIDE_A);
 
