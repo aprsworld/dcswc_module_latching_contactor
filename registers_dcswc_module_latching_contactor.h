@@ -7,38 +7,121 @@
 #define I2C_REG_VOLTAGE_INPUT_NOW             3  /* 10 bit input voltage ADC latest value */
 #define I2C_REG_TEMPERATURE_BOARD_NOW         4  /* 10 bit NTC thermistor ADC latest value */
 
-/* command can only come from I2C interface */
-#define I2C_REG_COMMAND_ON_A                  5  /* R/W seconds */
-#define I2C_REG_COMMAND_ON_B                  6
 
-#define I2C_REG_COMMAND_OFF_A                 7  /* R/W seconds */
-#define I2C_REG_COMMAND_OFF_B                 8
+/* channel 0 / A */
+/* command can only come from I2C interface */
+#define I2C_REG_CH0_COMMAND_ON                5  /* R/W seconds */
+#define I2C_REG_CH0_COMMAND_ON_HOLD           6
+
+#define I2C_REG_CH0_COMMAND_OFF               7  /* R/W seconds */
+#define I2C_REG_CH0_COMMAND_OFF_HOLD          8
 
 /* low voltage disconnect */
-#define I2C_REG_LVD_DISCONNECT_A              9  /* R seconds */
-#define I2C_REG_LVD_DISCONNECT_B              10
+#define I2C_REG_CH0_LVD_DISCONNECT            9  /* R seconds */
+#define I2C_REG_CH0_LVD_RECONNECT             10 
 
 /* high voltage disconnect */
-#define I2C_REG_HVD_DISCONNECT_A              11 /* R seconds */
-#define I2C_REG_HVD_DISCONNECT_B              12
+#define I2C_REG_CH0_HVD_DISCONNECT            11 /* R seconds */
+#define I2C_REG_CH0_HVD_RECONNECT             12
 
 /* low temperature disconnect */
-#define I2C_REG_LTD_DISCONNECT_A              9  /* R seconds */
-#define I2C_REG_LTD_DISCONNECT_B              10
+#define I2C_REG_CH0_LTD_DISCONNECT            13  /* R seconds */
+#define I2C_REG_CH0_LTD_RECONNECT             14
 
 /* high temperature disconnect */
-#define I2C_REG_HTD_DISCONNECT_A              11 /* R seconds */
-#define I2C_REG_HTD_DISCONNECT_B              12
+#define I2C_REG_CH0_HTD_DISCONNECT            15 /* R seconds */
+#define I2C_REG_CH0_HTD_RECONNECT             16
 
 /* reserved for future, unimplemented */
-#define I2C_REG_FUT_DISCONNECT_A              13 /* R seconds */
-#define I2C_REG_FUT_DISCONNECT_B              14
+#define I2C_REG_CH0_FUT_DISCONNECT            17 /* R seconds */
+#define I2C_REG_CH0_FUT_RECONNECT             18
 
+/* channel 1 / B */
+/* command can only come from I2C interface */
+#define I2C_REG_CH1_COMMAND_ON                19 /* R/W seconds */
+#define I2C_REG_CH1_COMMAND_ON_HOLD           20
 
-#define I2C_REG_SEQUENCE_NUMBER               8  /* R */
-#define I2C_REG_TIME_INTERVAL_MILLISECONDS    9
-#define I2C_REG_TIME_UPTIME_MINUTES           10
-#define I2C_REG_DEFAULT_PARAMS_WRITTEN        13
+#define I2C_REG_CH1_COMMAND_OFF               21 /* R/W seconds */
+#define I2C_REG_CH1_COMMAND_OFF_HOLD          22
+
+/* low voltage disconnect */
+#define I2C_REG_CH1_LVD_DISCONNECT            23 /* R seconds */
+#define I2C_REG_CH1_LVD_RECONNECT             24 
+
+/* high voltage disconnect */
+#define I2C_REG_CH1_HVD_DISCONNECT            25 /* R seconds */
+#define I2C_REG_CH1_HVD_RECONNECT             26
+
+/* low temperature disconnect */
+#define I2C_REG_CH1_LTD_DISCONNECT            27  /* R seconds */
+#define I2C_REG_CH1_LTD_RECONNECT             28
+
+/* high temperature disconnect */
+#define I2C_REG_CH1_HTD_DISCONNECT            29 /* R seconds */
+#define I2C_REG_CH1_HTD_RECONNECT             30
+
+/* reserved for future, unimplemented */
+#define I2C_REG_CH1_FUT_DISCONNECT            31 /* R seconds */
+#define I2C_REG_CH1_FUT_RECONNECT             32
+
+/* meta */
+#define I2C_REG_SEQUENCE_NUMBER               33 /* R */
+#define I2C_REG_TIME_INTERVAL_MILLISECONDS    34
+#define I2C_REG_TIME_UPTIME_MINUTES           35
+#define I2C_REG_DEFAULT_PARAMS_WRITTEN        36
+
+/* channel configuration */
+/* channel 0 / A */
+#define I2C_REG_CH0_LVD_DISCONNECT_ADC        64
+#define I2C_REG_CH0_LVD_DISCONNECT_DELAY      65
+#define I2C_REG_CH0_LVD_RECONNECT_ADC         66
+#define I2C_REG_CH0_LVD_RECONNECT_DELAY       67
+
+#define I2C_REG_CH0_HVD_DISCONNECT_ADC        68
+#define I2C_REG_CH0_HVD_DISCONNECT_DELAY      69
+#define I2C_REG_CH0_HVD_RECONNECT_ADC         70
+#define I2C_REG_CH0_HVD_RECONNECT_DELAY       71
+
+#define I2C_REG_CH0_LTD_DISCONNECT_ADC        72
+#define I2C_REG_CH0_LTD_DISCONNECT_DELAY      73
+#define I2C_REG_CH0_LTD_RECONNECT_ADC         74
+#define I2C_REG_CH0_LTD_RECONNECT_DELAY       75
+
+#define I2C_REG_CH0_HTD_DISCONNECT_ADC        76
+#define I2C_REG_CH0_HTD_DISCONNECT_DELAY      77
+#define I2C_REG_CH0_HTD_RECONNECT_ADC         78
+#define I2C_REG_CH0_HTD_RECONNECT_DELAY       79
+
+#define I2C_REG_CH0_FUT_DISCONNECT_VALUE      80
+#define I2C_REG_CH0_FUT_DISCONNECT_DELAY      81
+#define I2C_REG_CH0_FUT_RECONNECT_VALUE       82
+#define I2C_REG_CH0_FUT_RECONNECT_DELAY       83
+
+/* channel 1 / B */
+#define I2C_REG_CH1_LVD_DISCONNECT_ADC        84
+#define I2C_REG_CH1_LVD_DISCONNECT_DELAY      85
+#define I2C_REG_CH1_LVD_RECONNECT_ADC         86
+#define I2C_REG_CH1_LVD_RECONNECT_DELAY       87
+
+#define I2C_REG_CH1_HVD_DISCONNECT_ADC        88
+#define I2C_REG_CH1_HVD_DISCONNECT_DELAY      89
+#define I2C_REG_CH1_HVD_RECONNECT_ADC         90
+#define I2C_REG_CH1_HVD_RECONNECT_DELAY       91
+
+#define I2C_REG_CH1_LTD_DISCONNECT_ADC        92
+#define I2C_REG_CH1_LTD_DISCONNECT_DELAY      93
+#define I2C_REG_CH1_LTD_RECONNECT_ADC         94
+#define I2C_REG_CH1_LTD_RECONNECT_DELAY       95
+
+#define I2C_REG_CH1_HTD_DISCONNECT_ADC        96
+#define I2C_REG_CH1_HTD_DISCONNECT_DELAY      97
+#define I2C_REG_CH1_HTD_RECONNECT_ADC         98
+#define I2C_REG_CH1_HTD_RECONNECT_DELAY       99
+
+#define I2C_REG_CH1_FUT_DISCONNECT_VALUE      100
+#define I2C_REG_CH1_FUT_DISCONNECT_DELAY      101
+#define I2C_REG_CH1_FUT_RECONNECT_VALUE       102
+#define I2C_REG_CH1_FUT_RECONNECT_DELAY       103
 
 
 /* configuration */

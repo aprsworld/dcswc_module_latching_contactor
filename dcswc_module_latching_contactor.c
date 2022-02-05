@@ -5,21 +5,25 @@ typedef struct {
 	int16 lvd_disconnect_adc;
 	int16 lvd_disconnect_delay;
 	int16 lvd_reconnect_adc;
+	int16 lvd_reconnect_delay;
 
 	/* high voltage disconnect */
 	int16 hvd_disconnect_adc;
 	int16 hvd_disconnect_delay;
 	int16 hvd_reconnect_adc;
+	int16 hvd_reconnect_delay;
 
 	/* low temperature disconnect */
 	int16 ltd_disconnect_adc;
 	int16 ltd_disconnect_delay;
 	int16 ltd_reconnect_adc;
+	int16 ltd_reconnect_delay;
 
-	/* high voltage disconnect */
+	/* high temperature disconnect */
 	int16 htd_disconnect_adc;
 	int16 htd_disconnect_delay;
 	int16 htd_reconnect_adc;
+	int16 htd_reconnect_delay;
 } struct_config_channel;
 
 typedef struct {
@@ -49,6 +53,12 @@ typedef struct {
 
 	int16 hvd_disconnect_delay_seconds;	/* counts down */
 	int8  hvd_reconnect_delay_seconds;	/* counts down */
+
+	int16 ltd_disconnect_delay_seconds; /* counts down */
+	int16 ltd_reconnect_delay_seconds;  /* counts down */
+
+	int16 htd_disconnect_delay_seconds; /* counts down */
+	int16 htd_reconnect_delay_seconds;  /* counts down */
 } struct_channel;
 
 typedef struct {
@@ -91,9 +101,6 @@ typedef struct {
 
 	int8  contactor_a_powersave;        /* counts down. Off at zero. */
 	int8  contactor_b_powersave;        /* counts down. Off at zero. */
-
-
-
 } struct_time_keep;
 
 /* global structures */

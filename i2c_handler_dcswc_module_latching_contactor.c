@@ -58,37 +58,65 @@ int16 map_i2c(int8 addr) {
 	timers.led_on_a=100;
 
 	switch ( addr ) {
-#if 0
-
-
-		/* analog channels */
-		/* input voltage */
-		case I2C_REG_VOLTAGE_INPUT_NOW: 
-			return (int16) current.adc_buffer[0][current.adc_buffer_index];
 		case I2C_REG_VOLTAGE_INPUT_AVG: 
 			return (int16) adc_get(0);
-
-		/* temperature sensor */
-		case I2C_REG_TEMPERATURE_BOARD_NOW: 
-			return (int16) current.adc_buffer[1][current.adc_buffer_index];
+		case I2C_REG_STATE_CONTACTORS:
+			return (int16) make16(channel[0].state,channel[1].state);
 		case I2C_REG_TEMPERATURE_BOARD_AVG: 
 			return (int16) adc_get(1);
-		
-		/* status */
-		case I2C_REG_SEQUENCE_NUMBER: 
-			return (int16) current.sequence_number++;
-		case I2C_REG_TIME_INTERVAL_MILLISECONDS: 
-			return (int16) current.interval_milliseconds; /* milliseconds since last query */
-		case I2C_REG_TIME_UPTIME_MINUTES: 
-			return (int16) current.uptime_minutes; 
+
+
+		case I2C_REG_VOLTAGE_INPUT_NOW: 
+			return (int16) current.adc_buffer[0][current.adc_buffer_index];
+		case I2C_REG_TEMPERATURE_BOARD_NOW: 
+			return (int16) current.adc_buffer[1][current.adc_buffer_index];
+
+		case I2C_REG_COMMAND_ON_A:
+			return (int16) channel[0].command_on_seconds;
+		case I2C_REG_COMMAND_ON_B:
+			return (int16) channel[1].command_on_seconds;
+
+		case I2C_REG_COMMAND_OFF_A:
+			return (int16) channel[0].command_off_seconds;
+		case I2C_REG_COMMAND_OFF_B:
+			return (int16) channel[1].command_off_seconds;
+
+		case I2C_REG_LVD_DISCONNECT_A:
+			return (int16) channel[0].lvd_disconnect_delay_seconds;
+		case I2C_REG_LVD_DISCONNECT_B:
+			return (int16) channel[1].lvd_disconnect_delay_seconds;
+
+		case I2C_REG_HVD_DISCONNECT_A:
+			return (int16) channel[0].hvd_disconnect_delay_seconds;
+		case I2C_REG_HVD_DISCONNECT_B:
+			return (int16) channel[1].hvd_disconnect_delay_seconds;
+
+		case I2C_REG_LTD_DISCONNECT_A:
+			return (int16) channel[0].ltd_disconnect_delay_seconds;
+		case I2C_REG_LTD_DISCONNECT_B:
+			return (int16) channel[1].ltd_disconnect_delay_seconds;
+
+
+		case I2C_REG_HTD_DISCONNECT_A:
+			return (int16) channel[0].htd_disconnect_delay_seconds;
+		case I2C_REG_HTD_DISCONNECT_B:
+			return (int16) channel[1].htd_disconnect_delay_seconds;
+
+		case I2C_REG_FUT_DISCONNECT_A:
+			return (int16) 0xffff; /* not yet implemented */
+		case I2C_REG_FUT_DISCONNECT_B:
+			return (int16) 0xffff; /* not yet implemented */
+
+		case I2C_REG_SEQUENCE_NUMBER:
+			return (int16) current.sequence_number;
+		case I2C_REG_TIME_INTERVAL_MILLISECONDS:
+			return (int16) current.interval_milliseconds;
+		case I2C_REG_TIME_UPTIME_MINUTES:
+			return (int16) current.uptime_minutes;
 		case I2C_REG_DEFAULT_PARAMS_WRITTEN:
 			return (int16) current.default_params_written;
-		case I2C_REG_COMMAND_OFF:
-			return (int16) timers.command_off_seconds;
-		case I2C_REG_POWER_OFF_FLAGS:
-			return (int16) current.power_off_flags;
 
-
+#if 0		
 		/* configuration */
 		case I2C_REG_CONFIG_HARDWARE_MODEL: 
 			return (int16) 'P';
