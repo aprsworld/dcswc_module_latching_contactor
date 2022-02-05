@@ -73,7 +73,11 @@ Parameters are stored in EEPROM
 #define CH_STATE_BIT_CMD_OFF  2  /* commanded off */
 #define CH_STATE_BIT_CMD_ON   1  /* commanded on (takes presedence over commanded off) */
 #define CH_STATE_BIT_OVERRIDE 0  /* override switch */
-      
+
+/* _OVERRIDE or _CMD_ON set means output on */
+#define CH_STATE_MASK_ON     0b00000011 
+/* _CMD_OFF, _LVD, _HVD, _LTD, _HTD means output off, unless override by on mask */
+#define CH_STATE_MASK_OFF    0b01111100 
 
 #define ADC_SAMPLE_TICKS              20
 #define CONTACTOR_POWER_SAVE_MS       200 /* milliseconds for contactor be on. Must be >0 and <= 255 */

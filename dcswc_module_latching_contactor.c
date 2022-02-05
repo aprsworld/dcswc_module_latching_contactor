@@ -48,10 +48,10 @@ typedef struct {
 	int16 command_off_hold_seconds;     /* counts down. Off at zero. */
 
 	int16 lvd_disconnect_delay_seconds;	/* counts down */
-	int8  lvd_reconnect_delay_seconds;	/* counts down */
+	int16  lvd_reconnect_delay_seconds;	/* counts down */
 
 	int16 hvd_disconnect_delay_seconds;	/* counts down */
-	int8  hvd_reconnect_delay_seconds;	/* counts down */
+	int16  hvd_reconnect_delay_seconds;	/* counts down */
 
 	int16 ltd_disconnect_delay_seconds; /* counts down */
 	int16 ltd_reconnect_delay_seconds;  /* counts down */
@@ -90,6 +90,8 @@ typedef struct {
 	int1 now_write_config;
 	int1 now_reset_config;
 
+	int1 now_debug_dump;
+
 	/* contactor states */
 	int1 contactor_a;
 	int1 contactor_b;
@@ -112,32 +114,8 @@ struct_channel channel[2]={0};
 #include "param_dcswc_module_latching_contactor.c"
 #include "i2c_handler_dcswc_module_latching_contactor.c"
 #include "interrupt_dcswc_module_latching_contactor.c"
+#include "debug_dcswc_module_latching_contactor.c"
 
-
-int8 read_dip_switch(void) {
-	int16 adc;
-
-	set_adc_channel(9);
-	delay_ms(1);
-	adc=read_adc();
-
-	/* (note that table is sorted by vout reading 
-	SW3.1 (LSB) SW3.2 (MSB) VALUE ADC
-    OFF         OFF         0     1023
-	OFF         ON          2     682
-    ON          OFF         1     511
-	ON          ON          3     409
-	*/
-
-	if ( adc > (1023-64) )
-		return 0;
-	if ( adc > (682-64) )
-		return 2;
-	if ( adc > (511-64) )
-		return 1;
-
-	return 3;
-}
 
 void contactor_on_a(void) {
 	/* only turn on contactor if it isn't on or needs a refresh */
@@ -191,8 +169,28 @@ void contactor_off_b(void) {
 	timers.contactor_b=0;
 }
 
+void contactor_set(int8 c) {
+	int1 state=1;
+
+	/* if nothing is set in channel[c].state, contactor is on */
+	state=1; 
+
+	if ( channel[c].state & CH_STATE_MASK_ON ) {
+		/* if override button (switch) is set or we are commanded on, then we will be on */
+		state=1;
+	} else if ( channel[c].state & CH_STATE_MASK_OFF ) {
+		/* if one of the disconnect bits is set, we will be off */
+		state=0;
+	}
+
+
+}
+
 void contactor_logic(int8 c) {
 	int16 adc;
+
+	/* TODO: implement override switch */
+
 
 	/* command on. 65535 disables */
 	if ( 65535 != channel[c].command_on_seconds ) {
@@ -320,13 +318,10 @@ void contactor_logic(int8 c) {
 	}
 
 
-	/* TODO: implement Low Temperature Disconnect (LTD) and High Temperature Disconnect (HTD) */
+	/* TODO: implement High Temperature Disconnect (HTD) */
 }
 
-void contactor_set() {
 
-
-}
 
 
 void periodic_millisecond(void) {
@@ -383,8 +378,9 @@ void periodic_millisecond(void) {
 		contactor_logic(1);
 
 		/* set contactor outputs */
-		contactor_set();
-		
+		contactor_set(0);
+		contactor_set(1);		
+
 		/* uptime counter */
 		uptimeTicks++;
 		if ( 60 == uptimeTicks ) {
@@ -544,32 +540,13 @@ void main(void) {
 			periodic_millisecond();
 		}
 
-		if ( kbhit() ) {
-			getc();
-			fprintf(STREAM_FTDI,"# read_dip_switch()=%u\r\n",read_dip_switch());
-			fprintf(STREAM_FTDI,"#    vin adc=%lu\r\n",adc_get(0));
-			fprintf(STREAM_FTDI,"#   temp adc=%lu\r\n",adc_get(1));
-			fprintf(STREAM_FTDI,"# dip sw adc=%lu\r\n",adc_get(2));
+		if ( timers.now_debug_dump ) {
+			timers.now_debug_dump=0;
 
-			for ( i=0 ; i<2 ; i++ ) {
-				restart_wdt();
-				fprintf(STREAM_FTDI,"# channel[%u]\r\n",i);
-				fprintf(STREAM_FTDI,"#                        state=0x%02x\r\n",channel[i].state);
-				fprintf(STREAM_FTDI,"#           command_on_seconds=%lu\r\n",channel[i].command_on_seconds);
-				fprintf(STREAM_FTDI,"#      command_on_hold_seconds=%lu\r\n",channel[i].command_on_hold_seconds);
-
-				fprintf(STREAM_FTDI,"#          command_off_seconds=%lu\r\n",channel[i].command_off_seconds);
-				fprintf(STREAM_FTDI,"#     command_off_hold_seconds=%lu\r\n",channel[i].command_off_hold_seconds);
-
-				fprintf(STREAM_FTDI,"# lvd_disconnect_delay_seconds=%lu\r\n",channel[i].lvd_disconnect_delay_seconds);
-				fprintf(STREAM_FTDI,"#  lvd_reconnect_delay_seconds=%u\r\n",channel[i].lvd_reconnect_delay_seconds);
-
-				fprintf(STREAM_FTDI,"# hvd_disconnect_delay_seconds=%lu\r\n",channel[i].hvd_disconnect_delay_seconds);
-				fprintf(STREAM_FTDI,"#  hvd_reconnect_delay_seconds=%u\r\n",channel[i].hvd_reconnect_delay_seconds);
-			}
-
+			debug_dump();
 		}
 
+#if 1
 		if ( input(SW_OVERRIDE_A) != last_a ) {
 			last_a=input(SW_OVERRIDE_A);
 
@@ -594,7 +571,7 @@ void main(void) {
 				contactor_off_b();
 			}
 		}
-
+#endif
 
 
 		if ( timers.now_adc_sample ) {

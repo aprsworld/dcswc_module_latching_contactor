@@ -1,11 +1,71 @@
 #include "registers_dcswc_module_latching_contactor.h"
 
-void write_i2c(int8 address, int16 value) {
+void write_i2c(int8 addr, int16 value) {
+	int8 c;
 
-#if 0
-		case I2C_REG_COMMAND_OFF:
-			timers.command_off_seconds=value;
-			break;
+	/* c is the channel we are accessing based on register range */
+	if ( addr >= I2C_REG_CH1_COMMAND_ON && addr <= I2C_REG_CH1_FUT_RECONNECT ) {
+		/* channel 1 status region */
+		c=1;
+		/* remap down to channel 0 region */
+		addr -= (I2C_REG_CH1_COMMAND_ON - I2C_REG_CH0_COMMAND_ON);
+	} else if ( addr >= I2C_REG_CH1_COMMAND_ON_HOLD && addr <= I2C_REG_CH1_FUT_RECONNECT_DELAY ) {
+		/* channel 1 configuration region */
+		c=1;
+		/* remap down to channel 0 region */
+		addr -= (I2C_REG_CH1_COMMAND_ON_HOLD - I2C_REG_CH0_COMMAND_ON_HOLD );
+	} else {
+		c=0;
+	}
+
+	switch ( addr ) {
+		case I2C_REG_CH0_COMMAND_ON:
+			channel[c].command_on_seconds=value;
+		case I2C_REG_CH0_COMMAND_ON_HOLD:
+			channel[c].command_on_hold_seconds=value;
+	
+		case I2C_REG_CH0_COMMAND_OFF:
+			channel[c].command_off_seconds=value;
+		case I2C_REG_CH0_COMMAND_OFF_HOLD:
+			channel[c].command_off_hold_seconds=value;
+
+		case I2C_REG_CH0_LVD_DISCONNECT_ADC:
+			config.ch[c].lvd_disconnect_adc=value;
+		case I2C_REG_CH0_LVD_DISCONNECT_DELAY:
+			config.ch[c].lvd_disconnect_delay=value;
+		case I2C_REG_CH0_LVD_RECONNECT_ADC:
+			config.ch[c].lvd_reconnect_adc=value;
+		case I2C_REG_CH0_LVD_RECONNECT_DELAY:
+			config.ch[c].lvd_reconnect_delay=value;
+
+		case I2C_REG_CH0_HVD_DISCONNECT_ADC:
+			config.ch[c].hvd_disconnect_adc=value;
+		case I2C_REG_CH0_HVD_DISCONNECT_DELAY:
+			config.ch[c].hvd_disconnect_delay=value;
+		case I2C_REG_CH0_HVD_RECONNECT_ADC:
+			config.ch[c].hvd_reconnect_adc=value;
+		case I2C_REG_CH0_HVD_RECONNECT_DELAY:
+			config.ch[c].hvd_reconnect_delay=value;
+
+		case I2C_REG_CH0_LTD_DISCONNECT_ADC:
+			config.ch[c].ltd_disconnect_adc=value;
+		case I2C_REG_CH0_LTD_DISCONNECT_DELAY:
+			config.ch[c].ltd_disconnect_delay=value;
+		case I2C_REG_CH0_LTD_RECONNECT_ADC:
+			config.ch[c].ltd_reconnect_adc=value;
+		case I2C_REG_CH0_LTD_RECONNECT_DELAY:
+			config.ch[c].ltd_reconnect_delay=value;
+
+		case I2C_REG_CH0_HTD_DISCONNECT_ADC:
+			config.ch[c].htd_disconnect_adc=value;
+		case I2C_REG_CH0_HTD_DISCONNECT_DELAY:
+			config.ch[c].htd_disconnect_delay=value;
+		case I2C_REG_CH0_HTD_RECONNECT_ADC:
+			config.ch[c].htd_reconnect_adc=value;
+		case I2C_REG_CH0_HTD_RECONNECT_DELAY:
+			config.ch[c].htd_reconnect_delay=value;
+
+		/* don't need to implement FUT ... there is nowhere for it to go anyhow */
 
 		case I2C_REG_CONFIG_PARAM_WRITE:
 			if ( 1 == value ) {
@@ -18,37 +78,9 @@ void write_i2c(int8 address, int16 value) {
 				reset_cpu();
 			}
 			break;
-		case I2C_REG_CONFIG_TICKS_ADC:
-			config.adc_sample_ticks=value;
-			break;
-		case I2C_REG_CONFIG_STARTUP_POWER_ON_DELAY:
-			config.startup_power_on_delay=value;
-			break;
-		case I2C_REG_CONFIG_COMMAND_OFF_HOLD_TIME:
-			config.command_off_hold_time=value;
-			break;
-		case I2C_REG_CONFIG_LVD_DISCONNECT_VOLTAGE:
-			config.lvd_disconnect_adc=value;
-			break;
-		case I2C_REG_CONFIG_LVD_DISCONNECT_DELAY:
-			config.lvd_disconnect_delay=value;
-			break;
-		case I2C_REG_CONFIG_LVD_RECONNECT_VOLTAGE:
-			config.lvd_reconnect_adc=value;
-			break;
-		case I2C_REG_CONFIG_HVD_DISCONNECT_VOLTAGE:
-			config.hvd_disconnect_adc=value;
-			break;
-		case I2C_REG_CONFIG_HVD_DISCONNECT_DELAY:
-			config.hvd_disconnect_delay=value;
-			break;
-		case I2C_REG_CONFIG_HVD_RECONNECT_VOLTAGE:
-			config.hvd_reconnect_adc=value;
-			break;
 		default:
 			/* do nothing */
 	}
-#endif
 
 }
 

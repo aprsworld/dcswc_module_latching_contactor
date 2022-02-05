@@ -38,3 +38,28 @@ void adc_update(void) {
 	delay_ms(1);
 	current.adc_buffer[2][current.adc_buffer_index] = read_adc();
 }
+
+int8 read_dip_switch(void) {
+	int16 adc;
+
+	set_adc_channel(9);
+	delay_ms(1);
+	adc=read_adc();
+
+	/* (note that table is sorted by vout reading 
+	SW3.1 (LSB) SW3.2 (MSB) VALUE ADC
+    OFF         OFF         0     1023
+	OFF         ON          2     682
+    ON          OFF         1     511
+	ON          ON          3     409
+	*/
+
+	if ( adc > (1023-64) )
+		return 0;
+	if ( adc > (682-64) )
+		return 2;
+	if ( adc > (511-64) )
+		return 1;
+
+	return 3;
+}
