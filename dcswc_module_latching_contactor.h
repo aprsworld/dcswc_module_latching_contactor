@@ -75,5 +75,5 @@ Parameters are stored in EEPROM
 #define CH_STATE_BIT_OVERRIDE 0  /* override switch */
       
 
-
+#define ADC_SAMPLE_TICKS              20
 #define CONTACTOR_POWER_SAVE_MS       200 /* milliseconds for contactor be on. Must be >0 and <= 255 */

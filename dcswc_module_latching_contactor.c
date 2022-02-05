@@ -1,6 +1,12 @@
 #include "dcswc_module_latching_contactor.h"
 
 typedef struct {
+	/* command on hold time */
+	int16 command_on_hold_time;
+
+	/* command off hold time */
+	int16 command_off_hold_time;
+
 	/* low voltage disconnect */
 	int16 lvd_disconnect_adc;
 	int16 lvd_disconnect_delay;
@@ -27,14 +33,7 @@ typedef struct {
 } struct_config_channel;
 
 typedef struct {
-	int16 adc_sample_ticks;
-
-	int16 startup_power_on_delay;
-	int8 reconnect_delay;
-
-	int16 command_off_hold_time;
-	int16 command_on_hold_time;
-
+	/* not much going on here */
 	struct_config_channel ch[2];
 } struct_config;
 
@@ -195,7 +194,30 @@ void contactor_off_b(void) {
 void contactor_logic(int8 c) {
 	int16 adc;
 
-	/* TODO: implement Command On.  */
+	/* command on. 65535 disables */
+	if ( 65535 != channel[c].command_on_seconds ) {
+		if ( channel[c].command_on_seconds > 0 ) {
+			/* waiting to power on */
+			channel[c].command_on_seconds--;
+		} else {
+			/* timer at zero, ready to power on or already powered on */
+			if ( ! bit_test(channel[c].state,CH_STATE_BIT_CMD_ON) ) {
+				/* not currently set, so we set it and start the countdown */
+				bit_set(channel[c].state,CH_STATE_BIT_CMD_ON);
+				channel[c].command_on_hold_seconds=config.ch[c].command_on_hold_time;
+			} else {
+				/* set, so we clear it once countdown has elapsed */
+				if ( 0==channel[c].command_on_hold_seconds ) {
+					/* countdown elapsed, clear the flag and reset the timer */
+					bit_clear(channel[c].state,CH_STATE_BIT_CMD_ON);
+					channel[c].command_on_seconds=65535;
+				} else {
+					channel[c].command_on_hold_seconds--;
+				}
+			}		
+		}
+	}
+
 
 	/* command off. 65535 disables */
 	if ( 65535 != channel[c].command_off_seconds ) {
@@ -207,7 +229,7 @@ void contactor_logic(int8 c) {
 			if ( ! bit_test(channel[c].state,CH_STATE_BIT_CMD_OFF) ) {
 				/* not currently set, so we set it and start the countdown */
 				bit_set(channel[c].state,CH_STATE_BIT_CMD_OFF);
-				channel[c].command_off_hold_seconds=config.command_off_hold_time;
+				channel[c].command_off_hold_seconds=config.ch[c].command_off_hold_time;
 			} else {
 				/* set, so we clear it once countdown has elapsed */
 				if ( 0==channel[c].command_off_hold_seconds ) {
@@ -233,7 +255,7 @@ void contactor_logic(int8 c) {
 				bit_clear(channel[c].state,CH_STATE_BIT_LVD);
 			}
 		} else {
-			channel[c].lvd_reconnect_delay_seconds=config.reconnect_delay; /* 5 seconds countdown before reconnecting */
+			channel[c].lvd_reconnect_delay_seconds=config.ch[c].lvd_reconnect_delay;
 		}
 
 		if ( adc < config.ch[c].lvd_disconnect_adc ) {
@@ -258,7 +280,7 @@ void contactor_logic(int8 c) {
 				bit_clear(channel[c].state,CH_STATE_BIT_HVD);
 			}
 		} else {
-			channel[c].hvd_reconnect_delay_seconds=config.reconnect_delay; /* 5 seconds countdown before reconnecting */
+			channel[c].hvd_reconnect_delay_seconds=config.ch[c].hvd_reconnect_delay;
 		}
 
 		if ( adc > config.ch[c].hvd_disconnect_adc ) {
@@ -269,6 +291,31 @@ void contactor_logic(int8 c) {
 			}
 		} else {
 			channel[c].hvd_disconnect_delay_seconds=config.ch[c].hvd_disconnect_delay;
+		}
+	}
+
+	/* LTD. 65535 disables */
+	if ( 65535 != config.ch[c].ltd_disconnect_delay ) {
+		adc=adc_get(1);
+
+		if ( adc < config.ch[c].ltd_reconnect_adc ) {
+			if ( channel[c].ltd_reconnect_delay_seconds > 0 ) {
+				channel[c].ltd_reconnect_delay_seconds--;
+			} else {
+				bit_clear(channel[c].state,CH_STATE_BIT_LTD);
+			}
+		} else {
+			channel[c].ltd_reconnect_delay_seconds=config.ch[c].ltd_reconnect_delay;
+		}
+
+		if ( adc > config.ch[c].ltd_disconnect_adc ) {
+			if ( channel[c].ltd_disconnect_delay_seconds > 0 ) {
+				channel[c].ltd_disconnect_delay_seconds--;
+			} else {
+				bit_set(channel[c].state,CH_STATE_BIT_LTD);
+			}
+		} else {
+			channel[c].ltd_disconnect_delay_seconds=config.ch[c].ltd_disconnect_delay;
 		}
 	}
 
@@ -355,7 +402,7 @@ void periodic_millisecond(void) {
 
 	/* ADC sampling trigger */
 	adcTicks++;
-	if ( adcTicks == config.adc_sample_ticks ) {
+	if ( ADC_SAMPLE_TICKS == adcTicks ) {
 		adcTicks=0;
 		timers.now_adc_sample=1;
 	}
@@ -437,7 +484,7 @@ void init(void) {
 	enable_interrupts(INT_TIMER2);
 
 	/* set I2C slave address, which is always an even number */
-	i2c_slaveaddr(0x3e + (read_dip_switch()<<1) );
+	i2c_slaveaddr(STREAM_SLAVE,0x3e + (read_dip_switch()<<1) );
 }
 
 
@@ -451,11 +498,9 @@ void main(void) {
 	/* read parameters from EEPROM and write defaults if CRC doesn't match */
 	read_param_file();
 
-	if ( config.startup_power_on_delay > 100 )
-		config.startup_power_on_delay=100;
 
 	/* flash on startup */
-	for ( i=0 ; i<config.startup_power_on_delay ; i++ ) {
+	for ( i=0 ; i<5 ; i++ ) {
 		restart_wdt();
 		output_high(LED_A);
 		delay_ms(200);

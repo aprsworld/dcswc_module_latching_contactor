@@ -44,12 +44,6 @@ void write_default_param_file() {
 	timers.led_on_a=150;
 	timers.led_on_b=150;
 
-	config.adc_sample_ticks=20;
-
-	config.startup_power_on_delay=5;
-	config.reconnect_delay=5;
-
-	config.command_off_hold_time=2;
 
 	for ( i=0 ; i<2 ; i++ ) {
 		config.ch[i].lvd_disconnect_adc=303;

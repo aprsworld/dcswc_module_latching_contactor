@@ -1,5 +1,3 @@
-// const int8 adcChannelMap[8]={AN_IN_VOLTS, AN_TEMPERATURE, AN_WIND_DIR_0, AN_WIND_DIR_1, AN_USER_USER_0, AN_USER_USER_1, AN_USER_USER_2, AN_USER_USER_3};
-
 int16 adc_get(int8 ch) {
 	int16 sum;
 	int8 i;
