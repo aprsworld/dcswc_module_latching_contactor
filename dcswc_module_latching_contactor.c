@@ -325,7 +325,7 @@ void contactor_logic(int8 c) {
 
 
 void led_status_second_update(void) {
-	static int1 second=0;
+	static int8 second=0;
 	static int8 cycle=0;
 	int8 led;
 
@@ -341,32 +341,36 @@ void led_status_second_update(void) {
 
 			/* if bit is set, then we blink the number of times+1 of the bit we are in. So bit 1 set means we blink 2 times */
 			if ( bit_test(channel[led].state,cycle) ) {
-				timers.led_blink[led]=cycle+1;
+				timers.led_blink[led]=cycle+1;      /* number of blinks */
+				timers.led_on[led]=BLINK_ON_TIME;   /* how long to be on */
 			} else {
 				timers.led_blink[led]=0;
 			}
 		} else if ( 8 == cycle ) {
 			/* solid light to mark start of next cycle */
 			timers.led_blink[led]=255;
-		} else {
+		} else if ( 9 == cycle ) {
 			/* solid on if contactor state is on, otherwise off */
 			if ( timers.contactor[led] ) {
 				timers.led_blink[led]=255;
 			} else {
 				timers.led_blink[led]=0;
 			}
+		} else {
+			/* blank period before starting the bit field */
+			timers.led_blink[led]=0;
 		}
 	}
 
 	fprintf(STREAM_FTDI,"# LED %u A=%03u (0x%02X) B=%03u (0x%02X)\r\n",cycle,timers.led_blink[0],channel[0].state,timers.led_blink[1],channel[1].state);
 
-	if ( 9 == cycle ) {
+	if ( 10 == cycle ) {
 		cycle=0; 
 	} else {
 		cycle++;
 	}
 
-	second=1;
+	second++;
 }
 
 void led_on(int8 c) {
@@ -388,8 +392,6 @@ void periodic_millisecond(void) {
 	static int16 adcTicks=0;
 	static int16 ticks=0;
 
-	static int8 led[2]={0};
-	static int8 led_state[2]={0};
 	int8 i;
 
 
@@ -402,30 +404,26 @@ void periodic_millisecond(void) {
 		} else if ( 0 == timers.led_blink[i] ) {
 			led_off(i);
 		} else {
-			/* should be blinking */
-			if ( 1 == led_state[i] ) {
-				if ( 0 == led[i] ) {
-					/* have been on, now we are going to rest */
-					led_state[i]=0;
-					led[i]=BLINK_OFF_TIME;
-					led_off(i);
+			/* led_blink[i] is somewhere between 1 and 254 */
+			if ( timers.led_on[i] > 0 ) {
+				led_on(i);
+				timers.led_on[i]--;
 
-					if ( timers.led_blink[i] > 0 ) {
-						timers.led_blink[i]--;
-					}
-				} else {
-					led[i]--;
-					led_on(i);
+				if ( 0==timers.led_on[i] ) {
+					/* hit zero, switch to our off timer */
+					timers.led_off[i]=BLINK_OFF_TIME;
 				}
-			} else {
-				if ( 0 == led[i] ) {
-					/* have been off, now we are going to turn on */
-					led_state[i]=1;
-					led[i]=BLINK_ON_TIME;
-					led_on(i);
-				} else {
-					led[i]--;
-					led_off(i);
+			}
+
+			if ( timers.led_off[i] > 0 ) {
+				led_off(i);
+				timers.led_off[i]--;
+
+				if ( 0==timers.led_off[i] ) {
+					/* hit zero, preload for next */
+					timers.led_on[i]=BLINK_ON_TIME;
+					/* done with this blink cycle */	
+					timers.led_blink[i]--;
 				}
 			}
 		}

@@ -1,15 +1,15 @@
-CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
+CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 15:35
 
                Filename:   C:\Users\James Jarvis\Desktop\planetPrecision\dcswc_module_latching_contactor\dcswc_module_latching_contactor.lst
 
-               ROM used:   12304 bytes (79%)
-                           Largest free fragment is 3244
-               RAM used:   287 (56%) at main() level
-                           315 (62%) worst case
+               ROM used:   12282 bytes (79%)
+                           Largest free fragment is 3266
+               RAM used:   283 (55%) at main() level
+                           311 (61%) worst case
                Stack used: 2 locations (0 in main + 2 for interrupts)
                Stack size: 30
 
-0000:  GOTO   2E1A
+0000:  GOTO   2E06
 *
 0008:  MOVWF  04
 000A:  MOVFF  FD8,05
@@ -785,16 +785,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 14CA:  DATA 00,00
 *
 1BA2:  TBLRD*+
-1BA4:  MOVFF  FF6,122
-1BA8:  MOVFF  FF7,123
+1BA4:  MOVFF  FF6,11E
+1BA8:  MOVFF  FF7,11F
 1BAC:  MOVF   FF5,W
 1BAE:  BTFSS  F9E.4
 1BB0:  BRA    1BAE
 1BB2:  MOVWF  FAD
-1BB4:  MOVFF  122,FF6
-1BB8:  MOVFF  123,FF7
+1BB4:  MOVFF  11E,FF6
+1BB8:  MOVFF  11F,FF7
 1BBC:  MOVLB  1
-1BBE:  DECFSZ x21,F
+1BBE:  DECFSZ x1D,F
 1BC0:  BRA    1BC4
 1BC2:  BRA    1BC8
 1BC4:  MOVLB  0
@@ -804,81 +804,81 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1BCC:  TBLRD*+
 1BCE:  MOVF   FF5,F
 1BD0:  BZ    1BEC
-1BD2:  MOVFF  FF6,11F
-1BD6:  MOVFF  FF7,120
+1BD2:  MOVFF  FF6,11B
+1BD6:  MOVFF  FF7,11C
 1BDA:  MOVF   FF5,W
 1BDC:  BTFSS  F9E.4
 1BDE:  BRA    1BDC
 1BE0:  MOVWF  FAD
-1BE2:  MOVFF  11F,FF6
-1BE6:  MOVFF  120,FF7
+1BE2:  MOVFF  11B,FF6
+1BE6:  MOVFF  11C,FF7
 1BEA:  BRA    1BCC
 1BEC:  RETURN 0
 *
 2972:  MOVLB  1
-2974:  MOVF   x24,W
+2974:  MOVF   x20,W
 2976:  CLRF   01
-2978:  SUBWF  x23,W
+2978:  SUBWF  x1F,W
 297A:  BC    2982
-297C:  MOVFF  123,00
+297C:  MOVFF  11F,00
 2980:  BRA    299A
 2982:  CLRF   00
 2984:  MOVLW  08
-2986:  MOVWF  x25
-2988:  RLCF   x23,F
+2986:  MOVWF  x21
+2988:  RLCF   x1F,F
 298A:  RLCF   00,F
-298C:  MOVF   x24,W
+298C:  MOVF   x20,W
 298E:  SUBWF  00,W
 2990:  BTFSC  FD8.0
 2992:  MOVWF  00
 2994:  RLCF   01,F
-2996:  DECFSZ x25,F
+2996:  DECFSZ x21,F
 2998:  BRA    2988
 299A:  MOVLB  0
 299C:  RETURN 0
 299E:  MOVF   01,W
-29A0:  MOVFF  121,123
+29A0:  MOVFF  11D,11F
 29A4:  MOVLW  64
 29A6:  MOVLB  1
-29A8:  MOVWF  x24
+29A8:  MOVWF  x20
 29AA:  MOVLB  0
 29AC:  RCALL  2972
-29AE:  MOVFF  00,121
+29AE:  MOVFF  00,11D
 29B2:  MOVF   01,W
 29B4:  MOVLW  30
 29B6:  BNZ   29C8
 29B8:  MOVLB  1
-29BA:  BTFSS  x22.1
+29BA:  BTFSS  x1E.1
 29BC:  BRA    29DA
-29BE:  BTFSC  x22.3
+29BE:  BTFSC  x1E.3
 29C0:  BRA    29DA
-29C2:  BTFSC  x22.4
+29C2:  BTFSC  x1E.4
 29C4:  MOVLW  20
 29C6:  BRA    29D0
 29C8:  MOVLB  1
-29CA:  BCF    x22.3
-29CC:  BCF    x22.4
-29CE:  BSF    x22.0
+29CA:  BCF    x1E.3
+29CC:  BCF    x1E.4
+29CE:  BSF    x1E.0
 29D0:  ADDWF  01,F
 29D2:  MOVF   01,W
 29D4:  BTFSS  F9E.4
 29D6:  BRA    29D4
 29D8:  MOVWF  FAD
-29DA:  MOVFF  121,123
+29DA:  MOVFF  11D,11F
 29DE:  MOVLW  0A
-29E0:  MOVWF  x24
+29E0:  MOVWF  x20
 29E2:  MOVLB  0
 29E4:  RCALL  2972
-29E6:  MOVFF  00,121
+29E6:  MOVFF  00,11D
 29EA:  MOVF   01,W
 29EC:  MOVLW  30
 29EE:  BNZ   2A00
 29F0:  MOVLB  1
-29F2:  BTFSC  x22.3
+29F2:  BTFSC  x1E.3
 29F4:  BRA    2A0C
-29F6:  BTFSS  x22.0
+29F6:  BTFSS  x1E.0
 29F8:  BRA    2A0C
-29FA:  BTFSC  x22.4
+29FA:  BTFSC  x1E.4
 29FC:  MOVLW  20
 29FE:  MOVLB  0
 2A00:  ADDWF  01,F
@@ -888,19 +888,19 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2A08:  MOVWF  FAD
 2A0A:  MOVLB  1
 2A0C:  MOVLW  30
-2A0E:  ADDWF  x21,F
-2A10:  MOVF   x21,W
+2A0E:  ADDWF  x1D,F
+2A10:  MOVF   x1D,W
 2A12:  BTFSS  F9E.4
 2A14:  BRA    2A12
 2A16:  MOVWF  FAD
 2A18:  MOVLB  0
 2A1A:  RETURN 0
 2A1C:  MOVLB  1
-2A1E:  BTFSC  x22.7
+2A1E:  BTFSC  x1E.7
 2A20:  BRA    2A42
 2A22:  MOVLW  0F
 2A24:  MOVWF  00
-2A26:  SWAPF  x21,W
+2A26:  SWAPF  x1D,W
 2A28:  ANDWF  00,F
 2A2A:  MOVLW  0A
 2A2C:  SUBWF  00,W
@@ -908,23 +908,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2A30:  MOVLW  30
 2A32:  ADDWF  00,F
 2A34:  BRA    2A3A
-2A36:  MOVF   x22,W
+2A36:  MOVF   x1E,W
 2A38:  ADDWF  00,F
 2A3A:  MOVF   00,W
 2A3C:  BTFSS  F9E.4
 2A3E:  BRA    2A3C
 2A40:  MOVWF  FAD
 2A42:  MOVLW  0F
-2A44:  ANDWF  x21,F
+2A44:  ANDWF  x1D,F
 2A46:  MOVLW  0A
-2A48:  SUBWF  x21,W
+2A48:  SUBWF  x1D,W
 2A4A:  BC    2A50
 2A4C:  MOVLW  30
 2A4E:  BRA    2A54
-2A50:  BCF    x22.7
-2A52:  MOVF   x22,W
-2A54:  ADDWF  x21,F
-2A56:  MOVF   x21,W
+2A50:  BCF    x1E.7
+2A52:  MOVF   x1E,W
+2A54:  ADDWF  x1D,F
+2A56:  MOVF   x1D,W
 2A58:  BTFSS  F9E.4
 2A5A:  BRA    2A58
 2A5C:  MOVWF  FAD
@@ -939,7 +939,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 *
 14CC:  MOVLW  01
 14CE:  MOVWF  FEA
-14D0:  MOVLW  2C
+14D0:  MOVLW  28
 14D2:  MOVWF  FE9
 14D4:  MOVF   FEF,W
 14D6:  BZ    14F4
@@ -963,7 +963,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... #use i2c(stream=STREAM_SLAVE,SLAVE, I2C1, FORCE_HW)
 *
 0E74:  MOVF   FC9,W
-0E76:  MOVFF  131,FC9
+0E76:  MOVFF  12D,FC9
 0E7A:  BSF    FC6.4
 0E7C:  BCF    F9E.3
 0E7E:  BTFSC  FC7.0
@@ -1000,15 +1000,15 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 
 .................... #use rs232(UART1,stream=STREAM_FTDI,baud=57600,errors)	
 *
-2E02:  BTFSS  F9E.5
-2E04:  BRA    2E02
-2E06:  MOVFF  FAB,1A
-2E0A:  MOVFF  FAE,01
-2E0E:  BTFSS  1A.1
-2E10:  BRA    2E16
-2E12:  BCF    FAB.4
-2E14:  BSF    FAB.4
-2E16:  GOTO   2FE8 (RETURN)
+2DEE:  BTFSS  F9E.5
+2DF0:  BRA    2DEE
+2DF2:  MOVFF  FAB,1A
+2DF6:  MOVFF  FAE,01
+2DFA:  BTFSS  1A.1
+2DFC:  BRA    2E02
+2DFE:  BCF    FAB.4
+2E00:  BSF    FAB.4
+2E02:  GOTO   2FD2 (RETURN)
 .................... 
 .................... /* program config CRC of 0 and a serial_prefix of 'A' ... that will trigger a write default on first boot */
 .................... #ROM 0xF00000 = { 0x00, 0x00, 0x40, 0x00 }
@@ -1060,8 +1060,8 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... #define CONTACTOR_POWER_SAVE_MS       200 /* milliseconds for contactor be on. Must be >0 and <= 255 */
 .................... #define CONTACTOR_REFRESH_CYCLES      10  /* re-appply contactor coil voltage every N cycles. 65525 disables */
 .................... 
-.................... #define BLINK_ON_TIME                 220
-.................... #define BLINK_OFF_TIME                50
+.................... #define BLINK_ON_TIME                 250
+.................... #define BLINK_OFF_TIME                100
 .................... 
 .................... 
 .................... typedef struct {
@@ -1183,7 +1183,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	p = current.adc_buffer[ch];
 *
 0594:  MOVLB  1
-0596:  MOVF   x33,W
+0596:  MOVF   x2F,W
 0598:  MULLW  20
 059A:  MOVF   FF3,W
 059C:  CLRF   03
@@ -1191,53 +1191,53 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 05A0:  MOVWF  01
 05A2:  MOVLW  00
 05A4:  ADDWFC 03,F
-05A6:  MOVFF  01,137
-05AA:  MOVFF  03,138
+05A6:  MOVFF  01,133
+05AA:  MOVFF  03,134
 .................... 
 .................... 	// Calculate the mean.  This is done by summing up the
 .................... 	// values and dividing by the number of elements.
 .................... 	sum = 0;
-05AE:  CLRF   x35
-05B0:  CLRF   x34
+05AE:  CLRF   x31
+05B0:  CLRF   x30
 .................... 	for( i = 0; i < 16 ; i++ ) {
-05B2:  CLRF   x36
-05B4:  MOVF   x36,W
+05B2:  CLRF   x32
+05B4:  MOVF   x32,W
 05B6:  SUBLW  0F
 05B8:  BNC   05E4
 .................... //		sum += current.adc_buffer[ch][i];
 .................... 		sum += p[i];
 05BA:  CLRF   03
-05BC:  MOVFF  136,02
+05BC:  MOVFF  132,02
 05C0:  BCF    FD8.0
 05C2:  RLCF   02,F
 05C4:  RLCF   03,F
 05C6:  MOVF   02,W
-05C8:  ADDWF  x37,W
+05C8:  ADDWF  x33,W
 05CA:  MOVWF  FE9
-05CC:  MOVF   x38,W
+05CC:  MOVF   x34,W
 05CE:  ADDWFC 03,W
 05D0:  MOVWF  FEA
 05D2:  MOVFF  FEC,03
 05D6:  MOVF   FED,F
 05D8:  MOVF   FEF,W
-05DA:  ADDWF  x34,F
+05DA:  ADDWF  x30,F
 05DC:  MOVF   03,W
-05DE:  ADDWFC x35,F
-05E0:  INCF   x36,F
+05DE:  ADDWFC x31,F
+05E0:  INCF   x32,F
 05E2:  BRA    05B4
 .................... 	}
 .................... 
 .................... 	/* divide sum by our 16 samples and round by adding 8 */
 .................... 	return ( (sum+8) >> 4 );
 05E4:  MOVLW  08
-05E6:  ADDWF  x34,W
-05E8:  MOVWF  x39
+05E6:  ADDWF  x30,W
+05E8:  MOVWF  x35
 05EA:  MOVLW  00
-05EC:  ADDWFC x35,W
-05EE:  MOVWF  x3A
-05F0:  RRCF   x3A,W
+05EC:  ADDWFC x31,W
+05EE:  MOVWF  x36
+05F0:  RRCF   x36,W
 05F2:  MOVWF  03
-05F4:  RRCF   x39,W
+05F4:  RRCF   x35,W
 05F6:  MOVWF  02
 05F8:  RRCF   03,F
 05FA:  RRCF   02,F
@@ -1300,7 +1300,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	delay_ms(1);
 1C2E:  MOVLW  01
 1C30:  MOVLB  1
-1C32:  MOVWF  x2C
+1C32:  MOVWF  x28
 1C34:  MOVLB  0
 1C36:  RCALL  14CC
 .................... 	current.adc_buffer[1][current.adc_buffer_index] = read_adc();
@@ -1328,7 +1328,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	delay_ms(1);
 1C62:  MOVLW  01
 1C64:  MOVLB  1
-1C66:  MOVWF  x2C
+1C66:  MOVWF  x28
 1C68:  MOVLB  0
 1C6A:  RCALL  14CC
 .................... 	current.adc_buffer[2][current.adc_buffer_index] = read_adc();
@@ -1362,15 +1362,15 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	delay_ms(1);
 1502:  MOVLW  01
 1504:  MOVLB  1
-1506:  MOVWF  x2C
+1506:  MOVWF  x28
 1508:  MOVLB  0
 150A:  RCALL  14CC
 .................... 	adc=read_adc();
 150C:  BSF    FC2.1
 150E:  BTFSC  FC2.1
 1510:  BRA    150E
-1512:  MOVFF  FC4,12B
-1516:  MOVFF  FC3,12A
+1512:  MOVFF  FC4,127
+1516:  MOVFF  FC3,126
 .................... 
 .................... 	/* (note that table is sorted by vout reading 
 .................... 	SW3.1 (LSB) SW3.2 (MSB) VALUE ADC
@@ -1382,12 +1382,12 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 
 .................... 	if ( adc > (1023-64) )
 151A:  MOVLB  1
-151C:  MOVF   x2B,W
+151C:  MOVF   x27,W
 151E:  SUBLW  02
 1520:  BC    1532
 1522:  XORLW  FF
 1524:  BNZ   152C
-1526:  MOVF   x2A,W
+1526:  MOVF   x26,W
 1528:  SUBLW  BF
 152A:  BC    1532
 .................... 		return 0;
@@ -1395,12 +1395,12 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 152E:  MOVWF  01
 1530:  BRA    1562
 .................... 	if ( adc > (682-64) )
-1532:  MOVF   x2B,W
+1532:  MOVF   x27,W
 1534:  SUBLW  01
 1536:  BC    1548
 1538:  XORLW  FF
 153A:  BNZ   1542
-153C:  MOVF   x2A,W
+153C:  MOVF   x26,W
 153E:  SUBLW  6A
 1540:  BC    1548
 .................... 		return 2;
@@ -1408,12 +1408,12 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1544:  MOVWF  01
 1546:  BRA    1562
 .................... 	if ( adc > (511-64) )
-1548:  MOVF   x2B,W
+1548:  MOVF   x27,W
 154A:  SUBLW  00
 154C:  BC    155E
 154E:  XORLW  FF
 1550:  BNZ   1558
-1552:  MOVF   x2A,W
+1552:  MOVF   x26,W
 1554:  SUBLW  BF
 1556:  BC    155E
 .................... 		return 1;
@@ -1433,127 +1433,127 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... char xor_crc(char oldcrc, char data) {
 .................... 	return oldcrc ^ data;
 *
-1892:  MOVF   x2C,W
-1894:  XORWF  x2D,W
+1892:  MOVF   x28,W
+1894:  XORWF  x29,W
 1896:  MOVWF  01
 *
-18E0:  MOVF   x2C,W
-18E2:  XORWF  x2D,W
+18E0:  MOVF   x28,W
+18E2:  XORWF  x29,W
 18E4:  MOVWF  01
 .................... }
 .................... 
 .................... char EEPROMDataRead( int16 address, int8 *data, int16 count ) {
 *
 182A:  MOVLB  1
-182C:  CLRF   x28
+182C:  CLRF   x24
 .................... 	char crc=0;
 .................... 
 .................... 	while ( count-- != 0 ) {
-182E:  MOVFF  127,12A
-1832:  MOVF   x26,W
+182E:  MOVFF  123,126
+1832:  MOVF   x22,W
 1834:  BTFSC  FD8.2
-1836:  DECF   x27,F
-1838:  DECF   x26,F
-183A:  MOVWF  x29
-183C:  MOVF   x29,F
+1836:  DECF   x23,F
+1838:  DECF   x22,F
+183A:  MOVWF  x25
+183C:  MOVF   x25,F
 183E:  BNZ   1844
-1840:  MOVF   x2A,F
+1840:  MOVF   x26,F
 1842:  BZ    18A4
 .................... 		*data = read_eeprom( address++ );
-1844:  MOVFF  125,03
-1848:  MOVF   x24,W
+1844:  MOVFF  121,03
+1848:  MOVF   x20,W
 184A:  MOVWF  FE9
 184C:  MOVFF  03,FEA
-1850:  MOVF   x23,W
+1850:  MOVF   x1F,W
 1852:  MOVWF  03
-1854:  MOVF   x22,W
-1856:  INCF   x22,F
+1854:  MOVF   x1E,W
+1856:  INCF   x1E,F
 1858:  BTFSC  FD8.2
-185A:  INCF   x23,F
-185C:  MOVWF  x2B
-185E:  MOVFF  03,12C
-1862:  MOVFF  FF2,12D
+185A:  INCF   x1F,F
+185C:  MOVWF  x27
+185E:  MOVFF  03,128
+1862:  MOVFF  FF2,129
 1866:  BCF    FF2.7
-1868:  MOVFF  12B,FA9
+1868:  MOVFF  127,FA9
 186C:  BCF    FA6.6
 186E:  BCF    FA6.7
 1870:  BSF    FA6.0
 1872:  MOVF   FA8,W
-1874:  BTFSC  x2D.7
+1874:  BTFSC  x29.7
 1876:  BSF    FF2.7
 1878:  MOVWF  FEF
 .................... 		crc = xor_crc(crc,*data);
-187A:  MOVFF  125,03
-187E:  MOVF   x24,W
+187A:  MOVFF  121,03
+187E:  MOVF   x20,W
 1880:  MOVWF  FE9
 1882:  MOVFF  03,FEA
-1886:  MOVFF  FEF,129
-188A:  MOVFF  128,12C
-188E:  MOVFF  129,12D
+1886:  MOVFF  FEF,125
+188A:  MOVFF  124,128
+188E:  MOVFF  125,129
 *
-1898:  MOVFF  01,128
+1898:  MOVFF  01,124
 .................... 		data++;
-189C:  INCF   x24,F
+189C:  INCF   x20,F
 189E:  BTFSC  FD8.2
-18A0:  INCF   x25,F
+18A0:  INCF   x21,F
 18A2:  BRA    182E
 .................... 	}
 .................... 	return crc;
-18A4:  MOVFF  128,01
+18A4:  MOVFF  124,01
 18A8:  MOVLB  0
 18AA:  GOTO   1B78 (RETURN)
 .................... }
 .................... 
 .................... char EEPROMDataWrite( int16 address, int8 *data, int16 count ) {
 18AE:  MOVLB  1
-18B0:  CLRF   x2A
+18B0:  CLRF   x26
 .................... 	char crc=0;
 .................... 
 .................... 	while ( count-- != 0 ) {
-18B2:  MOVFF  129,12C
-18B6:  MOVF   x28,W
+18B2:  MOVFF  125,128
+18B6:  MOVF   x24,W
 18B8:  BTFSC  FD8.2
-18BA:  DECF   x29,F
-18BC:  DECF   x28,F
-18BE:  MOVWF  x2B
-18C0:  MOVF   x2B,F
+18BA:  DECF   x25,F
+18BC:  DECF   x24,F
+18BE:  MOVWF  x27
+18C0:  MOVF   x27,F
 18C2:  BNZ   18C8
-18C4:  MOVF   x2C,F
+18C4:  MOVF   x28,F
 18C6:  BZ    1940
 .................... 		/* restart_wdt() */
 .................... 		crc = xor_crc(crc,*data);
-18C8:  MOVFF  127,03
-18CC:  MOVF   x26,W
+18C8:  MOVFF  123,03
+18CC:  MOVF   x22,W
 18CE:  MOVWF  FE9
 18D0:  MOVFF  03,FEA
-18D4:  MOVFF  FEF,12B
-18D8:  MOVFF  12A,12C
-18DC:  MOVFF  12B,12D
+18D4:  MOVFF  FEF,127
+18D8:  MOVFF  126,128
+18DC:  MOVFF  127,129
 *
-18E6:  MOVFF  01,12A
+18E6:  MOVFF  01,126
 .................... 		write_eeprom( address++, *data++ );
-18EA:  MOVF   x25,W
+18EA:  MOVF   x21,W
 18EC:  MOVWF  03
-18EE:  MOVF   x24,W
-18F0:  INCF   x24,F
+18EE:  MOVF   x20,W
+18F0:  INCF   x20,F
 18F2:  BTFSC  FD8.2
-18F4:  INCF   x25,F
-18F6:  MOVWF  x2B
-18F8:  MOVFF  03,12C
-18FC:  MOVF   x27,W
+18F4:  INCF   x21,F
+18F6:  MOVWF  x27
+18F8:  MOVFF  03,128
+18FC:  MOVF   x23,W
 18FE:  MOVWF  03
-1900:  MOVF   x26,W
-1902:  INCF   x26,F
+1900:  MOVF   x22,W
+1902:  INCF   x22,F
 1904:  BTFSC  FD8.2
-1906:  INCF   x27,F
+1906:  INCF   x23,F
 1908:  MOVWF  FE9
 190A:  MOVFF  03,FEA
-190E:  MOVFF  FEF,12D
+190E:  MOVFF  FEF,129
 1912:  MOVF   FF2,W
 1914:  MOVWF  00
 1916:  BCF    FF2.7
-1918:  MOVFF  12B,FA9
-191C:  MOVFF  12D,FA8
+1918:  MOVFF  127,FA9
+191C:  MOVFF  129,FA8
 1920:  BCF    FA6.6
 1922:  BCF    FA6.7
 1924:  BSF    FA6.2
@@ -1573,7 +1573,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	}
 .................... 
 .................... 	return crc;
-1940:  MOVFF  12A,01
+1940:  MOVFF  126,01
 1944:  MOVLB  0
 1946:  GOTO   1966 (RETURN)
 .................... }
@@ -1585,25 +1585,25 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	crc = EEPROMDataWrite(PARAM_ADDRESS,(void *)&config,sizeof(config));
 194A:  MOVLB  1
 194C:  MOVLW  1B
-194E:  MOVWF  x22
-1950:  CLRF   x25
+194E:  MOVWF  x1E
+1950:  CLRF   x21
 1952:  MOVLW  02
-1954:  MOVWF  x24
-1956:  CLRF   x27
-1958:  MOVFF  122,126
-195C:  CLRF   x29
+1954:  MOVWF  x20
+1956:  CLRF   x23
+1958:  MOVFF  11E,122
+195C:  CLRF   x25
 195E:  MOVLW  48
-1960:  MOVWF  x28
+1960:  MOVWF  x24
 1962:  MOVLB  0
 1964:  BRA    18AE
-1966:  MOVFF  01,121
+1966:  MOVFF  01,11D
 .................... 	/* write the CRC was calculated on the structure */
 .................... 	write_eeprom(PARAM_CRC_ADDRESS,crc);
 196A:  MOVF   FF2,W
 196C:  MOVWF  00
 196E:  BCF    FF2.7
 1970:  CLRF   FA9
-1972:  MOVFF  121,FA8
+1972:  MOVFF  11D,FA8
 1976:  BCF    FA6.6
 1978:  BCF    FA6.7
 197A:  BSF    FA6.2
@@ -1638,22 +1638,22 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 
 .................... 	for ( i=0 ; i<2 ; i++ ) {
 199E:  MOVLB  1
-19A0:  CLRF   x20
-19A2:  MOVF   x20,W
+19A0:  CLRF   x1C
+19A2:  MOVF   x1C,W
 19A4:  SUBLW  01
 19A6:  BTFSS  FD8.0
 19A8:  BRA    1B56
 .................... 		config.ch[i].lvd_disconnect_adc=606;
-19AA:  MOVF   x20,W
+19AA:  MOVF   x1C,W
 19AC:  MULLW  24
 19AE:  MOVF   FF3,W
-19B0:  CLRF   x22
-19B2:  MOVWF  x21
+19B0:  CLRF   x1E
+19B2:  MOVWF  x1D
 19B4:  MOVLW  04
-19B6:  ADDWF  x21,W
+19B6:  ADDWF  x1D,W
 19B8:  MOVWF  01
 19BA:  MOVLW  00
-19BC:  ADDWFC x22,W
+19BC:  ADDWFC x1E,W
 19BE:  MOVWF  03
 19C0:  MOVF   01,W
 19C2:  ADDLW  1B
@@ -1667,16 +1667,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 19D2:  MOVLW  5E
 19D4:  MOVWF  FEF
 .................... 		config.ch[i].lvd_disconnect_delay=20;
-19D6:  MOVF   x20,W
+19D6:  MOVF   x1C,W
 19D8:  MULLW  24
 19DA:  MOVF   FF3,W
-19DC:  CLRF   x22
-19DE:  MOVWF  x21
+19DC:  CLRF   x1E
+19DE:  MOVWF  x1D
 19E0:  MOVLW  06
-19E2:  ADDWF  x21,W
+19E2:  ADDWF  x1D,W
 19E4:  MOVWF  01
 19E6:  MOVLW  00
-19E8:  ADDWFC x22,W
+19E8:  ADDWFC x1E,W
 19EA:  MOVWF  03
 19EC:  MOVF   01,W
 19EE:  ADDLW  1B
@@ -1689,16 +1689,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 19FC:  MOVLW  14
 19FE:  MOVWF  FEF
 .................... 		config.ch[i].lvd_reconnect_adc=616;
-1A00:  MOVF   x20,W
+1A00:  MOVF   x1C,W
 1A02:  MULLW  24
 1A04:  MOVF   FF3,W
-1A06:  CLRF   x22
-1A08:  MOVWF  x21
+1A06:  CLRF   x1E
+1A08:  MOVWF  x1D
 1A0A:  MOVLW  08
-1A0C:  ADDWF  x21,W
+1A0C:  ADDWF  x1D,W
 1A0E:  MOVWF  01
 1A10:  MOVLW  00
-1A12:  ADDWFC x22,W
+1A12:  ADDWFC x1E,W
 1A14:  MOVWF  03
 1A16:  MOVF   01,W
 1A18:  ADDLW  1B
@@ -1712,16 +1712,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1A28:  MOVLW  68
 1A2A:  MOVWF  FEF
 .................... 		config.ch[i].lvd_reconnect_delay=10;
-1A2C:  MOVF   x20,W
+1A2C:  MOVF   x1C,W
 1A2E:  MULLW  24
 1A30:  MOVF   FF3,W
-1A32:  CLRF   x22
-1A34:  MOVWF  x21
+1A32:  CLRF   x1E
+1A34:  MOVWF  x1D
 1A36:  MOVLW  0A
-1A38:  ADDWF  x21,W
+1A38:  ADDWF  x1D,W
 1A3A:  MOVWF  01
 1A3C:  MOVLW  00
-1A3E:  ADDWFC x22,W
+1A3E:  ADDWFC x1E,W
 1A40:  MOVWF  03
 1A42:  MOVF   01,W
 1A44:  ADDLW  1B
@@ -1736,16 +1736,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		
 .................... 
 .................... 		config.ch[i].hvd_disconnect_adc=700;
-1A56:  MOVF   x20,W
+1A56:  MOVF   x1C,W
 1A58:  MULLW  24
 1A5A:  MOVF   FF3,W
-1A5C:  CLRF   x22
-1A5E:  MOVWF  x21
+1A5C:  CLRF   x1E
+1A5E:  MOVWF  x1D
 1A60:  MOVLW  0C
-1A62:  ADDWF  x21,W
+1A62:  ADDWF  x1D,W
 1A64:  MOVWF  01
 1A66:  MOVLW  00
-1A68:  ADDWFC x22,W
+1A68:  ADDWFC x1E,W
 1A6A:  MOVWF  03
 1A6C:  MOVF   01,W
 1A6E:  ADDLW  1B
@@ -1759,16 +1759,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1A7E:  MOVLW  BC
 1A80:  MOVWF  FEF
 .................... 		config.ch[i].hvd_disconnect_delay=1;
-1A82:  MOVF   x20,W
+1A82:  MOVF   x1C,W
 1A84:  MULLW  24
 1A86:  MOVF   FF3,W
-1A88:  CLRF   x22
-1A8A:  MOVWF  x21
+1A88:  CLRF   x1E
+1A8A:  MOVWF  x1D
 1A8C:  MOVLW  0E
-1A8E:  ADDWF  x21,W
+1A8E:  ADDWF  x1D,W
 1A90:  MOVWF  01
 1A92:  MOVLW  00
-1A94:  ADDWFC x22,W
+1A94:  ADDWFC x1E,W
 1A96:  MOVWF  03
 1A98:  MOVF   01,W
 1A9A:  ADDLW  1B
@@ -1781,16 +1781,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1AA8:  MOVLW  01
 1AAA:  MOVWF  FEF
 .................... 		config.ch[i].hvd_reconnect_adc=650;
-1AAC:  MOVF   x20,W
+1AAC:  MOVF   x1C,W
 1AAE:  MULLW  24
 1AB0:  MOVF   FF3,W
-1AB2:  CLRF   x22
-1AB4:  MOVWF  x21
+1AB2:  CLRF   x1E
+1AB4:  MOVWF  x1D
 1AB6:  MOVLW  10
-1AB8:  ADDWF  x21,W
+1AB8:  ADDWF  x1D,W
 1ABA:  MOVWF  01
 1ABC:  MOVLW  00
-1ABE:  ADDWFC x22,W
+1ABE:  ADDWFC x1E,W
 1AC0:  MOVWF  03
 1AC2:  MOVF   01,W
 1AC4:  ADDLW  1B
@@ -1804,16 +1804,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1AD4:  MOVLW  8A
 1AD6:  MOVWF  FEF
 .................... 		config.ch[i].hvd_reconnect_delay=60;
-1AD8:  MOVF   x20,W
+1AD8:  MOVF   x1C,W
 1ADA:  MULLW  24
 1ADC:  MOVF   FF3,W
-1ADE:  CLRF   x22
-1AE0:  MOVWF  x21
+1ADE:  CLRF   x1E
+1AE0:  MOVWF  x1D
 1AE2:  MOVLW  12
-1AE4:  ADDWF  x21,W
+1AE4:  ADDWF  x1D,W
 1AE6:  MOVWF  01
 1AE8:  MOVLW  00
-1AEA:  ADDWFC x22,W
+1AEA:  ADDWFC x1E,W
 1AEC:  MOVWF  03
 1AEE:  MOVF   01,W
 1AF0:  ADDLW  1B
@@ -1828,16 +1828,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 
 .................... 
 .................... 		config.ch[i].ltd_disconnect_delay=65535;
-1B02:  MOVF   x20,W
+1B02:  MOVF   x1C,W
 1B04:  MULLW  24
 1B06:  MOVF   FF3,W
-1B08:  CLRF   x22
-1B0A:  MOVWF  x21
+1B08:  CLRF   x1E
+1B0A:  MOVWF  x1D
 1B0C:  MOVLW  16
-1B0E:  ADDWF  x21,W
+1B0E:  ADDWF  x1D,W
 1B10:  MOVWF  01
 1B12:  MOVLW  00
-1B14:  ADDWFC x22,W
+1B14:  ADDWFC x1E,W
 1B16:  MOVWF  03
 1B18:  MOVF   01,W
 1B1A:  ADDLW  1B
@@ -1849,16 +1849,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1B26:  MOVF   FED,F
 1B28:  SETF   FEF
 .................... 		config.ch[i].htd_disconnect_delay=65535;
-1B2A:  MOVF   x20,W
+1B2A:  MOVF   x1C,W
 1B2C:  MULLW  24
 1B2E:  MOVF   FF3,W
-1B30:  CLRF   x22
-1B32:  MOVWF  x21
+1B30:  CLRF   x1E
+1B32:  MOVWF  x1D
 1B34:  MOVLW  1E
-1B36:  ADDWF  x21,W
+1B36:  ADDWF  x1D,W
 1B38:  MOVWF  01
 1B3A:  MOVLW  00
-1B3C:  ADDWFC x22,W
+1B3C:  ADDWFC x1E,W
 1B3E:  MOVWF  03
 1B40:  MOVF   01,W
 1B42:  ADDLW  1B
@@ -1869,7 +1869,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1B4C:  SETF   FEC
 1B4E:  MOVF   FED,F
 1B50:  SETF   FEF
-1B52:  INCF   x20,F
+1B52:  INCF   x1C,F
 1B54:  BRA    19A2
 .................... 	}
 .................... 	
@@ -1888,21 +1888,21 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	crc = EEPROMDataRead(PARAM_ADDRESS, (void *)&config, sizeof(config)); 
 1B5C:  MOVLB  1
 1B5E:  MOVLW  1B
-1B60:  MOVWF  x20
-1B62:  CLRF   x23
+1B60:  MOVWF  x1C
+1B62:  CLRF   x1F
 1B64:  MOVLW  02
-1B66:  MOVWF  x22
-1B68:  CLRF   x25
-1B6A:  MOVFF  120,124
-1B6E:  CLRF   x27
+1B66:  MOVWF  x1E
+1B68:  CLRF   x21
+1B6A:  MOVFF  11C,120
+1B6E:  CLRF   x23
 1B70:  MOVLW  48
-1B72:  MOVWF  x26
+1B72:  MOVWF  x22
 1B74:  MOVLB  0
 1B76:  BRA    182A
-1B78:  MOVFF  01,11F
+1B78:  MOVFF  01,11B
 .................... 		
 .................... 	if ( crc != read_eeprom(PARAM_CRC_ADDRESS) ) {
-1B7C:  MOVFF  FF2,120
+1B7C:  MOVFF  FF2,11C
 1B80:  BCF    FF2.7
 1B82:  CLRF   FA9
 1B84:  BCF    FA6.6
@@ -1910,9 +1910,9 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1B88:  BSF    FA6.0
 1B8A:  MOVF   FA8,W
 1B8C:  MOVLB  1
-1B8E:  BTFSC  x20.7
+1B8E:  BTFSC  x1C.7
 1B90:  BSF    FF2.7
-1B92:  SUBWF  x1F,W
+1B92:  SUBWF  x1B,W
 1B94:  BZ    1B9C
 .................... 		write_default_param_file();
 1B96:  MOVLB  0
@@ -1920,7 +1920,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1B9A:  MOVLB  1
 .................... 	}
 1B9C:  MOVLB  0
-1B9E:  GOTO   2EB2 (RETURN)
+1B9E:  GOTO   2E9C (RETURN)
 .................... }
 .................... 
 .................... 
@@ -2081,44 +2081,44 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	if ( addr >= I2C_REG_CH1_COMMAND_ON && addr <= I2C_REG_CH1_FUT_RECONNECT ) {
 *
 00DC:  MOVLB  1
-00DE:  MOVF   x33,W
+00DE:  MOVF   x2F,W
 00E0:  SUBLW  10
 00E2:  BC    00F4
-00E4:  MOVF   x33,W
+00E4:  MOVF   x2F,W
 00E6:  SUBLW  1E
 00E8:  BNC   00F4
 .................... 		/* channel 1 status region */
 .................... 		c=1;
 00EA:  MOVLW  01
-00EC:  MOVWF  x36
+00EC:  MOVWF  x32
 .................... 		/* remap down to channel 0 region */
 .................... 		addr -= (I2C_REG_CH1_COMMAND_ON - I2C_REG_CH0_COMMAND_ON);
 00EE:  MOVLW  0E
-00F0:  SUBWF  x33,F
+00F0:  SUBWF  x2F,F
 .................... 	} else if ( addr >= I2C_REG_CH1_COMMAND_ON_HOLD && addr <= I2C_REG_CH1_FUT_RECONNECT_DELAY ) {
 00F2:  BRA    010C
-00F4:  MOVF   x33,W
+00F4:  MOVF   x2F,W
 00F6:  SUBLW  11
 00F8:  BC    010A
-00FA:  MOVF   x33,W
+00FA:  MOVF   x2F,W
 00FC:  SUBLW  6B
 00FE:  BNC   010A
 .................... 		/* channel 1 configuration region */
 .................... 		c=1;
 0100:  MOVLW  01
-0102:  MOVWF  x36
+0102:  MOVWF  x32
 .................... 		/* remap down to channel 0 region */
 .................... 		addr -= (I2C_REG_CH1_COMMAND_ON_HOLD - I2C_REG_CH0_COMMAND_ON_HOLD );
 0104:  MOVLW  0E
-0106:  SUBWF  x33,F
+0106:  SUBWF  x2F,F
 .................... 	} else {
 0108:  BRA    010C
 .................... 		c=0;
-010A:  CLRF   x36
+010A:  CLRF   x32
 .................... 	}
 .................... 
 .................... 	switch ( addr ) {
-010C:  MOVF   x33,W
+010C:  MOVF   x2F,W
 010E:  XORLW  03
 0110:  MOVLB  0
 0112:  BZ    018A
@@ -2184,16 +2184,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_COMMAND_ON:
 .................... 			channel[c].command_on_seconds=value;
 018A:  MOVLB  1
-018C:  MOVF   x36,W
+018C:  MOVF   x32,W
 018E:  MULLW  19
 0190:  MOVF   FF3,W
-0192:  CLRF   x38
-0194:  MOVWF  x37
+0192:  CLRF   x34
+0194:  MOVWF  x33
 0196:  MOVLW  01
-0198:  ADDWF  x37,W
+0198:  ADDWF  x33,W
 019A:  MOVWF  01
 019C:  MOVLW  00
-019E:  ADDWFC x38,W
+019E:  ADDWFC x34,W
 01A0:  MOVWF  03
 01A2:  MOVF   01,W
 01A4:  ADDLW  DA
@@ -2201,23 +2201,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 01A8:  MOVLW  00
 01AA:  ADDWFC 03,W
 01AC:  MOVWF  FEA
-01AE:  MOVFF  135,FEC
+01AE:  MOVFF  131,FEC
 01B2:  MOVF   FED,F
-01B4:  MOVFF  134,FEF
+01B4:  MOVFF  130,FEF
 01B8:  MOVLB  0
 .................... 		case I2C_REG_CH0_COMMAND_ON_HOLD:
 .................... 			channel[c].command_on_hold_seconds=value;
 01BA:  MOVLB  1
-01BC:  MOVF   x36,W
+01BC:  MOVF   x32,W
 01BE:  MULLW  19
 01C0:  MOVF   FF3,W
-01C2:  CLRF   x38
-01C4:  MOVWF  x37
+01C2:  CLRF   x34
+01C4:  MOVWF  x33
 01C6:  MOVLW  03
-01C8:  ADDWF  x37,W
+01C8:  ADDWF  x33,W
 01CA:  MOVWF  01
 01CC:  MOVLW  00
-01CE:  ADDWFC x38,W
+01CE:  ADDWFC x34,W
 01D0:  MOVWF  03
 01D2:  MOVF   01,W
 01D4:  ADDLW  DA
@@ -2225,24 +2225,24 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 01D8:  MOVLW  00
 01DA:  ADDWFC 03,W
 01DC:  MOVWF  FEA
-01DE:  MOVFF  135,FEC
+01DE:  MOVFF  131,FEC
 01E2:  MOVF   FED,F
-01E4:  MOVFF  134,FEF
+01E4:  MOVFF  130,FEF
 01E8:  MOVLB  0
 .................... 	
 .................... 		case I2C_REG_CH0_COMMAND_OFF:
 .................... 			channel[c].command_off_seconds=value;
 01EA:  MOVLB  1
-01EC:  MOVF   x36,W
+01EC:  MOVF   x32,W
 01EE:  MULLW  19
 01F0:  MOVF   FF3,W
-01F2:  CLRF   x38
-01F4:  MOVWF  x37
+01F2:  CLRF   x34
+01F4:  MOVWF  x33
 01F6:  MOVLW  05
-01F8:  ADDWF  x37,W
+01F8:  ADDWF  x33,W
 01FA:  MOVWF  01
 01FC:  MOVLW  00
-01FE:  ADDWFC x38,W
+01FE:  ADDWFC x34,W
 0200:  MOVWF  03
 0202:  MOVF   01,W
 0204:  ADDLW  DA
@@ -2250,23 +2250,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 0208:  MOVLW  00
 020A:  ADDWFC 03,W
 020C:  MOVWF  FEA
-020E:  MOVFF  135,FEC
+020E:  MOVFF  131,FEC
 0212:  MOVF   FED,F
-0214:  MOVFF  134,FEF
+0214:  MOVFF  130,FEF
 0218:  MOVLB  0
 .................... 		case I2C_REG_CH0_COMMAND_OFF_HOLD:
 .................... 			channel[c].command_off_hold_seconds=value;
 021A:  MOVLB  1
-021C:  MOVF   x36,W
+021C:  MOVF   x32,W
 021E:  MULLW  19
 0220:  MOVF   FF3,W
-0222:  CLRF   x38
-0224:  MOVWF  x37
+0222:  CLRF   x34
+0224:  MOVWF  x33
 0226:  MOVLW  07
-0228:  ADDWF  x37,W
+0228:  ADDWF  x33,W
 022A:  MOVWF  01
 022C:  MOVLW  00
-022E:  ADDWFC x38,W
+022E:  ADDWFC x34,W
 0230:  MOVWF  03
 0232:  MOVF   01,W
 0234:  ADDLW  DA
@@ -2274,24 +2274,24 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 0238:  MOVLW  00
 023A:  ADDWFC 03,W
 023C:  MOVWF  FEA
-023E:  MOVFF  135,FEC
+023E:  MOVFF  131,FEC
 0242:  MOVF   FED,F
-0244:  MOVFF  134,FEF
+0244:  MOVFF  130,FEF
 0248:  MOVLB  0
 .................... 
 .................... 		case I2C_REG_CH0_LVD_DISCONNECT_ADC:
 .................... 			config.ch[c].lvd_disconnect_adc=value;
 024A:  MOVLB  1
-024C:  MOVF   x36,W
+024C:  MOVF   x32,W
 024E:  MULLW  24
 0250:  MOVF   FF3,W
-0252:  CLRF   x38
-0254:  MOVWF  x37
+0252:  CLRF   x34
+0254:  MOVWF  x33
 0256:  MOVLW  04
-0258:  ADDWF  x37,W
+0258:  ADDWF  x33,W
 025A:  MOVWF  01
 025C:  MOVLW  00
-025E:  ADDWFC x38,W
+025E:  ADDWFC x34,W
 0260:  MOVWF  03
 0262:  MOVF   01,W
 0264:  ADDLW  1B
@@ -2299,23 +2299,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 0268:  MOVLW  00
 026A:  ADDWFC 03,W
 026C:  MOVWF  FEA
-026E:  MOVFF  135,FEC
+026E:  MOVFF  131,FEC
 0272:  MOVF   FED,F
-0274:  MOVFF  134,FEF
+0274:  MOVFF  130,FEF
 0278:  MOVLB  0
 .................... 		case I2C_REG_CH0_LVD_DISCONNECT_DELAY:
 .................... 			config.ch[c].lvd_disconnect_delay=value;
 027A:  MOVLB  1
-027C:  MOVF   x36,W
+027C:  MOVF   x32,W
 027E:  MULLW  24
 0280:  MOVF   FF3,W
-0282:  CLRF   x38
-0284:  MOVWF  x37
+0282:  CLRF   x34
+0284:  MOVWF  x33
 0286:  MOVLW  06
-0288:  ADDWF  x37,W
+0288:  ADDWF  x33,W
 028A:  MOVWF  01
 028C:  MOVLW  00
-028E:  ADDWFC x38,W
+028E:  ADDWFC x34,W
 0290:  MOVWF  03
 0292:  MOVF   01,W
 0294:  ADDLW  1B
@@ -2323,23 +2323,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 0298:  MOVLW  00
 029A:  ADDWFC 03,W
 029C:  MOVWF  FEA
-029E:  MOVFF  135,FEC
+029E:  MOVFF  131,FEC
 02A2:  MOVF   FED,F
-02A4:  MOVFF  134,FEF
+02A4:  MOVFF  130,FEF
 02A8:  MOVLB  0
 .................... 		case I2C_REG_CH0_LVD_RECONNECT_ADC:
 .................... 			config.ch[c].lvd_reconnect_adc=value;
 02AA:  MOVLB  1
-02AC:  MOVF   x36,W
+02AC:  MOVF   x32,W
 02AE:  MULLW  24
 02B0:  MOVF   FF3,W
-02B2:  CLRF   x38
-02B4:  MOVWF  x37
+02B2:  CLRF   x34
+02B4:  MOVWF  x33
 02B6:  MOVLW  08
-02B8:  ADDWF  x37,W
+02B8:  ADDWF  x33,W
 02BA:  MOVWF  01
 02BC:  MOVLW  00
-02BE:  ADDWFC x38,W
+02BE:  ADDWFC x34,W
 02C0:  MOVWF  03
 02C2:  MOVF   01,W
 02C4:  ADDLW  1B
@@ -2347,23 +2347,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 02C8:  MOVLW  00
 02CA:  ADDWFC 03,W
 02CC:  MOVWF  FEA
-02CE:  MOVFF  135,FEC
+02CE:  MOVFF  131,FEC
 02D2:  MOVF   FED,F
-02D4:  MOVFF  134,FEF
+02D4:  MOVFF  130,FEF
 02D8:  MOVLB  0
 .................... 		case I2C_REG_CH0_LVD_RECONNECT_DELAY:
 .................... 			config.ch[c].lvd_reconnect_delay=value;
 02DA:  MOVLB  1
-02DC:  MOVF   x36,W
+02DC:  MOVF   x32,W
 02DE:  MULLW  24
 02E0:  MOVF   FF3,W
-02E2:  CLRF   x38
-02E4:  MOVWF  x37
+02E2:  CLRF   x34
+02E4:  MOVWF  x33
 02E6:  MOVLW  0A
-02E8:  ADDWF  x37,W
+02E8:  ADDWF  x33,W
 02EA:  MOVWF  01
 02EC:  MOVLW  00
-02EE:  ADDWFC x38,W
+02EE:  ADDWFC x34,W
 02F0:  MOVWF  03
 02F2:  MOVF   01,W
 02F4:  ADDLW  1B
@@ -2371,24 +2371,24 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 02F8:  MOVLW  00
 02FA:  ADDWFC 03,W
 02FC:  MOVWF  FEA
-02FE:  MOVFF  135,FEC
+02FE:  MOVFF  131,FEC
 0302:  MOVF   FED,F
-0304:  MOVFF  134,FEF
+0304:  MOVFF  130,FEF
 0308:  MOVLB  0
 .................... 
 .................... 		case I2C_REG_CH0_HVD_DISCONNECT_ADC:
 .................... 			config.ch[c].hvd_disconnect_adc=value;
 030A:  MOVLB  1
-030C:  MOVF   x36,W
+030C:  MOVF   x32,W
 030E:  MULLW  24
 0310:  MOVF   FF3,W
-0312:  CLRF   x38
-0314:  MOVWF  x37
+0312:  CLRF   x34
+0314:  MOVWF  x33
 0316:  MOVLW  0C
-0318:  ADDWF  x37,W
+0318:  ADDWF  x33,W
 031A:  MOVWF  01
 031C:  MOVLW  00
-031E:  ADDWFC x38,W
+031E:  ADDWFC x34,W
 0320:  MOVWF  03
 0322:  MOVF   01,W
 0324:  ADDLW  1B
@@ -2396,23 +2396,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 0328:  MOVLW  00
 032A:  ADDWFC 03,W
 032C:  MOVWF  FEA
-032E:  MOVFF  135,FEC
+032E:  MOVFF  131,FEC
 0332:  MOVF   FED,F
-0334:  MOVFF  134,FEF
+0334:  MOVFF  130,FEF
 0338:  MOVLB  0
 .................... 		case I2C_REG_CH0_HVD_DISCONNECT_DELAY:
 .................... 			config.ch[c].hvd_disconnect_delay=value;
 033A:  MOVLB  1
-033C:  MOVF   x36,W
+033C:  MOVF   x32,W
 033E:  MULLW  24
 0340:  MOVF   FF3,W
-0342:  CLRF   x38
-0344:  MOVWF  x37
+0342:  CLRF   x34
+0344:  MOVWF  x33
 0346:  MOVLW  0E
-0348:  ADDWF  x37,W
+0348:  ADDWF  x33,W
 034A:  MOVWF  01
 034C:  MOVLW  00
-034E:  ADDWFC x38,W
+034E:  ADDWFC x34,W
 0350:  MOVWF  03
 0352:  MOVF   01,W
 0354:  ADDLW  1B
@@ -2420,23 +2420,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 0358:  MOVLW  00
 035A:  ADDWFC 03,W
 035C:  MOVWF  FEA
-035E:  MOVFF  135,FEC
+035E:  MOVFF  131,FEC
 0362:  MOVF   FED,F
-0364:  MOVFF  134,FEF
+0364:  MOVFF  130,FEF
 0368:  MOVLB  0
 .................... 		case I2C_REG_CH0_HVD_RECONNECT_ADC:
 .................... 			config.ch[c].hvd_reconnect_adc=value;
 036A:  MOVLB  1
-036C:  MOVF   x36,W
+036C:  MOVF   x32,W
 036E:  MULLW  24
 0370:  MOVF   FF3,W
-0372:  CLRF   x38
-0374:  MOVWF  x37
+0372:  CLRF   x34
+0374:  MOVWF  x33
 0376:  MOVLW  10
-0378:  ADDWF  x37,W
+0378:  ADDWF  x33,W
 037A:  MOVWF  01
 037C:  MOVLW  00
-037E:  ADDWFC x38,W
+037E:  ADDWFC x34,W
 0380:  MOVWF  03
 0382:  MOVF   01,W
 0384:  ADDLW  1B
@@ -2444,23 +2444,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 0388:  MOVLW  00
 038A:  ADDWFC 03,W
 038C:  MOVWF  FEA
-038E:  MOVFF  135,FEC
+038E:  MOVFF  131,FEC
 0392:  MOVF   FED,F
-0394:  MOVFF  134,FEF
+0394:  MOVFF  130,FEF
 0398:  MOVLB  0
 .................... 		case I2C_REG_CH0_HVD_RECONNECT_DELAY:
 .................... 			config.ch[c].hvd_reconnect_delay=value;
 039A:  MOVLB  1
-039C:  MOVF   x36,W
+039C:  MOVF   x32,W
 039E:  MULLW  24
 03A0:  MOVF   FF3,W
-03A2:  CLRF   x38
-03A4:  MOVWF  x37
+03A2:  CLRF   x34
+03A4:  MOVWF  x33
 03A6:  MOVLW  12
-03A8:  ADDWF  x37,W
+03A8:  ADDWF  x33,W
 03AA:  MOVWF  01
 03AC:  MOVLW  00
-03AE:  ADDWFC x38,W
+03AE:  ADDWFC x34,W
 03B0:  MOVWF  03
 03B2:  MOVF   01,W
 03B4:  ADDLW  1B
@@ -2468,24 +2468,24 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 03B8:  MOVLW  00
 03BA:  ADDWFC 03,W
 03BC:  MOVWF  FEA
-03BE:  MOVFF  135,FEC
+03BE:  MOVFF  131,FEC
 03C2:  MOVF   FED,F
-03C4:  MOVFF  134,FEF
+03C4:  MOVFF  130,FEF
 03C8:  MOVLB  0
 .................... 
 .................... 		case I2C_REG_CH0_LTD_DISCONNECT_ADC:
 .................... 			config.ch[c].ltd_disconnect_adc=value;
 03CA:  MOVLB  1
-03CC:  MOVF   x36,W
+03CC:  MOVF   x32,W
 03CE:  MULLW  24
 03D0:  MOVF   FF3,W
-03D2:  CLRF   x38
-03D4:  MOVWF  x37
+03D2:  CLRF   x34
+03D4:  MOVWF  x33
 03D6:  MOVLW  14
-03D8:  ADDWF  x37,W
+03D8:  ADDWF  x33,W
 03DA:  MOVWF  01
 03DC:  MOVLW  00
-03DE:  ADDWFC x38,W
+03DE:  ADDWFC x34,W
 03E0:  MOVWF  03
 03E2:  MOVF   01,W
 03E4:  ADDLW  1B
@@ -2493,23 +2493,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 03E8:  MOVLW  00
 03EA:  ADDWFC 03,W
 03EC:  MOVWF  FEA
-03EE:  MOVFF  135,FEC
+03EE:  MOVFF  131,FEC
 03F2:  MOVF   FED,F
-03F4:  MOVFF  134,FEF
+03F4:  MOVFF  130,FEF
 03F8:  MOVLB  0
 .................... 		case I2C_REG_CH0_LTD_DISCONNECT_DELAY:
 .................... 			config.ch[c].ltd_disconnect_delay=value;
 03FA:  MOVLB  1
-03FC:  MOVF   x36,W
+03FC:  MOVF   x32,W
 03FE:  MULLW  24
 0400:  MOVF   FF3,W
-0402:  CLRF   x38
-0404:  MOVWF  x37
+0402:  CLRF   x34
+0404:  MOVWF  x33
 0406:  MOVLW  16
-0408:  ADDWF  x37,W
+0408:  ADDWF  x33,W
 040A:  MOVWF  01
 040C:  MOVLW  00
-040E:  ADDWFC x38,W
+040E:  ADDWFC x34,W
 0410:  MOVWF  03
 0412:  MOVF   01,W
 0414:  ADDLW  1B
@@ -2517,23 +2517,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 0418:  MOVLW  00
 041A:  ADDWFC 03,W
 041C:  MOVWF  FEA
-041E:  MOVFF  135,FEC
+041E:  MOVFF  131,FEC
 0422:  MOVF   FED,F
-0424:  MOVFF  134,FEF
+0424:  MOVFF  130,FEF
 0428:  MOVLB  0
 .................... 		case I2C_REG_CH0_LTD_RECONNECT_ADC:
 .................... 			config.ch[c].ltd_reconnect_adc=value;
 042A:  MOVLB  1
-042C:  MOVF   x36,W
+042C:  MOVF   x32,W
 042E:  MULLW  24
 0430:  MOVF   FF3,W
-0432:  CLRF   x38
-0434:  MOVWF  x37
+0432:  CLRF   x34
+0434:  MOVWF  x33
 0436:  MOVLW  18
-0438:  ADDWF  x37,W
+0438:  ADDWF  x33,W
 043A:  MOVWF  01
 043C:  MOVLW  00
-043E:  ADDWFC x38,W
+043E:  ADDWFC x34,W
 0440:  MOVWF  03
 0442:  MOVF   01,W
 0444:  ADDLW  1B
@@ -2541,23 +2541,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 0448:  MOVLW  00
 044A:  ADDWFC 03,W
 044C:  MOVWF  FEA
-044E:  MOVFF  135,FEC
+044E:  MOVFF  131,FEC
 0452:  MOVF   FED,F
-0454:  MOVFF  134,FEF
+0454:  MOVFF  130,FEF
 0458:  MOVLB  0
 .................... 		case I2C_REG_CH0_LTD_RECONNECT_DELAY:
 .................... 			config.ch[c].ltd_reconnect_delay=value;
 045A:  MOVLB  1
-045C:  MOVF   x36,W
+045C:  MOVF   x32,W
 045E:  MULLW  24
 0460:  MOVF   FF3,W
-0462:  CLRF   x38
-0464:  MOVWF  x37
+0462:  CLRF   x34
+0464:  MOVWF  x33
 0466:  MOVLW  1A
-0468:  ADDWF  x37,W
+0468:  ADDWF  x33,W
 046A:  MOVWF  01
 046C:  MOVLW  00
-046E:  ADDWFC x38,W
+046E:  ADDWFC x34,W
 0470:  MOVWF  03
 0472:  MOVF   01,W
 0474:  ADDLW  1B
@@ -2565,24 +2565,24 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 0478:  MOVLW  00
 047A:  ADDWFC 03,W
 047C:  MOVWF  FEA
-047E:  MOVFF  135,FEC
+047E:  MOVFF  131,FEC
 0482:  MOVF   FED,F
-0484:  MOVFF  134,FEF
+0484:  MOVFF  130,FEF
 0488:  MOVLB  0
 .................... 
 .................... 		case I2C_REG_CH0_HTD_DISCONNECT_ADC:
 .................... 			config.ch[c].htd_disconnect_adc=value;
 048A:  MOVLB  1
-048C:  MOVF   x36,W
+048C:  MOVF   x32,W
 048E:  MULLW  24
 0490:  MOVF   FF3,W
-0492:  CLRF   x38
-0494:  MOVWF  x37
+0492:  CLRF   x34
+0494:  MOVWF  x33
 0496:  MOVLW  1C
-0498:  ADDWF  x37,W
+0498:  ADDWF  x33,W
 049A:  MOVWF  01
 049C:  MOVLW  00
-049E:  ADDWFC x38,W
+049E:  ADDWFC x34,W
 04A0:  MOVWF  03
 04A2:  MOVF   01,W
 04A4:  ADDLW  1B
@@ -2590,23 +2590,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 04A8:  MOVLW  00
 04AA:  ADDWFC 03,W
 04AC:  MOVWF  FEA
-04AE:  MOVFF  135,FEC
+04AE:  MOVFF  131,FEC
 04B2:  MOVF   FED,F
-04B4:  MOVFF  134,FEF
+04B4:  MOVFF  130,FEF
 04B8:  MOVLB  0
 .................... 		case I2C_REG_CH0_HTD_DISCONNECT_DELAY:
 .................... 			config.ch[c].htd_disconnect_delay=value;
 04BA:  MOVLB  1
-04BC:  MOVF   x36,W
+04BC:  MOVF   x32,W
 04BE:  MULLW  24
 04C0:  MOVF   FF3,W
-04C2:  CLRF   x38
-04C4:  MOVWF  x37
+04C2:  CLRF   x34
+04C4:  MOVWF  x33
 04C6:  MOVLW  1E
-04C8:  ADDWF  x37,W
+04C8:  ADDWF  x33,W
 04CA:  MOVWF  01
 04CC:  MOVLW  00
-04CE:  ADDWFC x38,W
+04CE:  ADDWFC x34,W
 04D0:  MOVWF  03
 04D2:  MOVF   01,W
 04D4:  ADDLW  1B
@@ -2614,23 +2614,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 04D8:  MOVLW  00
 04DA:  ADDWFC 03,W
 04DC:  MOVWF  FEA
-04DE:  MOVFF  135,FEC
+04DE:  MOVFF  131,FEC
 04E2:  MOVF   FED,F
-04E4:  MOVFF  134,FEF
+04E4:  MOVFF  130,FEF
 04E8:  MOVLB  0
 .................... 		case I2C_REG_CH0_HTD_RECONNECT_ADC:
 .................... 			config.ch[c].htd_reconnect_adc=value;
 04EA:  MOVLB  1
-04EC:  MOVF   x36,W
+04EC:  MOVF   x32,W
 04EE:  MULLW  24
 04F0:  MOVF   FF3,W
-04F2:  CLRF   x38
-04F4:  MOVWF  x37
+04F2:  CLRF   x34
+04F4:  MOVWF  x33
 04F6:  MOVLW  20
-04F8:  ADDWF  x37,W
+04F8:  ADDWF  x33,W
 04FA:  MOVWF  01
 04FC:  MOVLW  00
-04FE:  ADDWFC x38,W
+04FE:  ADDWFC x34,W
 0500:  MOVWF  03
 0502:  MOVF   01,W
 0504:  ADDLW  1B
@@ -2638,23 +2638,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 0508:  MOVLW  00
 050A:  ADDWFC 03,W
 050C:  MOVWF  FEA
-050E:  MOVFF  135,FEC
+050E:  MOVFF  131,FEC
 0512:  MOVF   FED,F
-0514:  MOVFF  134,FEF
+0514:  MOVFF  130,FEF
 0518:  MOVLB  0
 .................... 		case I2C_REG_CH0_HTD_RECONNECT_DELAY:
 .................... 			config.ch[c].htd_reconnect_delay=value;
 051A:  MOVLB  1
-051C:  MOVF   x36,W
+051C:  MOVF   x32,W
 051E:  MULLW  24
 0520:  MOVF   FF3,W
-0522:  CLRF   x38
-0524:  MOVWF  x37
+0522:  CLRF   x34
+0524:  MOVWF  x33
 0526:  MOVLW  22
-0528:  ADDWF  x37,W
+0528:  ADDWF  x33,W
 052A:  MOVWF  01
 052C:  MOVLW  00
-052E:  ADDWFC x38,W
+052E:  ADDWFC x34,W
 0530:  MOVWF  03
 0532:  MOVF   01,W
 0534:  ADDLW  1B
@@ -2662,9 +2662,9 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 0538:  MOVLW  00
 053A:  ADDWFC 03,W
 053C:  MOVWF  FEA
-053E:  MOVFF  135,FEC
+053E:  MOVFF  131,FEC
 0542:  MOVF   FED,F
-0544:  MOVFF  134,FEF
+0544:  MOVFF  130,FEF
 0548:  MOVLB  0
 .................... 
 .................... 		/* don't need to implement FUT ... there is nowhere for it to go anyhow */
@@ -2672,9 +2672,9 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CONFIG_PARAM_WRITE:
 .................... 			if ( 1 == value ) {
 054A:  MOVLB  1
-054C:  DECFSZ x34,W
+054C:  DECFSZ x30,W
 054E:  BRA    055C
-0550:  MOVF   x35,F
+0550:  MOVF   x31,F
 0552:  BNZ   055C
 .................... 				timers.now_write_config=1;
 0554:  MOVLB  0
@@ -2682,10 +2682,10 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 			} else if ( 2 == value ) {
 0558:  BRA    0590
 055A:  MOVLB  1
-055C:  MOVF   x34,W
+055C:  MOVF   x30,W
 055E:  SUBLW  02
 0560:  BNZ   056E
-0562:  MOVF   x35,F
+0562:  MOVF   x31,F
 0564:  BNZ   056E
 .................... 				timers.now_reset_config=1;
 0566:  MOVLB  0
@@ -2693,10 +2693,10 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 			} else if ( 1802 == value ) {
 056A:  BRA    0590
 056C:  MOVLB  1
-056E:  MOVF   x34,W
+056E:  MOVF   x30,W
 0570:  SUBLW  0A
 0572:  BNZ   0584
-0574:  MOVF   x35,W
+0574:  MOVF   x31,W
 0576:  SUBLW  07
 0578:  BNZ   0584
 .................... 				current.factory_unlocked =1;
@@ -2706,9 +2706,9 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 			} else if ( 65535 == value ) {
 0580:  BRA    0590
 0582:  MOVLB  1
-0584:  INCFSZ x34,W
+0584:  INCFSZ x30,W
 0586:  BRA    058E
-0588:  INCFSZ x35,W
+0588:  INCFSZ x31,W
 058A:  BRA    058E
 .................... 				reset_cpu();
 058C:  RESET
@@ -2730,44 +2730,44 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	if ( addr >= I2C_REG_CH1_COMMAND_ON && addr <= I2C_REG_CH1_FUT_RECONNECT ) {
 *
 0614:  MOVLB  1
-0616:  MOVF   x31,W
+0616:  MOVF   x2D,W
 0618:  SUBLW  10
 061A:  BC    062C
-061C:  MOVF   x31,W
+061C:  MOVF   x2D,W
 061E:  SUBLW  1E
 0620:  BNC   062C
 .................... 		/* channel 1 status region */
 .................... 		c=1;
 0622:  MOVLW  01
-0624:  MOVWF  x32
+0624:  MOVWF  x2E
 .................... 		/* remap down to channel 0 region */
 .................... 		addr -= (I2C_REG_CH1_COMMAND_ON - I2C_REG_CH0_COMMAND_ON);
 0626:  MOVLW  0E
-0628:  SUBWF  x31,F
+0628:  SUBWF  x2D,F
 .................... 	} else if ( addr >= I2C_REG_CH1_COMMAND_ON_HOLD && addr <= I2C_REG_CH1_FUT_RECONNECT_DELAY ) {
 062A:  BRA    0644
-062C:  MOVF   x31,W
+062C:  MOVF   x2D,W
 062E:  SUBLW  11
 0630:  BC    0642
-0632:  MOVF   x31,W
+0632:  MOVF   x2D,W
 0634:  SUBLW  6B
 0636:  BNC   0642
 .................... 		/* channel 1 configuration region */
 .................... 		c=1;
 0638:  MOVLW  01
-063A:  MOVWF  x32
+063A:  MOVWF  x2E
 .................... 		/* remap down to channel 0 region */
 .................... 		addr -= (I2C_REG_CH1_COMMAND_ON_HOLD - I2C_REG_CH0_COMMAND_ON_HOLD );
 063C:  MOVLW  0E
-063E:  SUBWF  x31,F
+063E:  SUBWF  x2D,F
 .................... 	} else {
 0640:  BRA    0644
 .................... 		c=0;
-0642:  CLRF   x32
+0642:  CLRF   x2E
 .................... 	}
 .................... 
 .................... 	switch ( addr ) {
-0644:  MOVF   x31,W
+0644:  MOVF   x2D,W
 0646:  XORLW  00
 0648:  MOVLB  0
 064A:  BTFSC  FD8.2
@@ -2927,7 +2927,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_VOLTAGE_INPUT_AVG: 
 .................... 			return (int16) adc_get(0);
 077C:  MOVLB  1
-077E:  CLRF   x33
+077E:  CLRF   x2F
 0780:  MOVLB  0
 0782:  RCALL  0594
 0784:  MOVF   02,W
@@ -2942,7 +2942,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 			return (int16) adc_get(1);
 0796:  MOVLW  01
 0798:  MOVLB  1
-079A:  MOVWF  x33
+079A:  MOVWF  x2F
 079C:  MOVLB  0
 079E:  RCALL  0594
 07A0:  MOVF   02,W
@@ -2952,16 +2952,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_COMMAND_ON :
 .................... 			return (int16) channel[c].command_on_seconds;
 07A4:  MOVLB  1
-07A6:  MOVF   x32,W
+07A6:  MOVF   x2E,W
 07A8:  MULLW  19
 07AA:  MOVF   FF3,W
-07AC:  CLRF   x34
-07AE:  MOVWF  x33
+07AC:  CLRF   x30
+07AE:  MOVWF  x2F
 07B0:  MOVLW  01
-07B2:  ADDWF  x33,W
+07B2:  ADDWF  x2F,W
 07B4:  MOVWF  01
 07B6:  MOVLW  00
-07B8:  ADDWFC x34,W
+07B8:  ADDWFC x30,W
 07BA:  MOVWF  03
 07BC:  MOVF   01,W
 07BE:  ADDLW  DA
@@ -2978,16 +2978,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_COMMAND_ON_HOLD:
 .................... 			return (int16) channel[c].command_on_hold_seconds;
 07DA:  MOVLB  1
-07DC:  MOVF   x32,W
+07DC:  MOVF   x2E,W
 07DE:  MULLW  19
 07E0:  MOVF   FF3,W
-07E2:  CLRF   x34
-07E4:  MOVWF  x33
+07E2:  CLRF   x30
+07E4:  MOVWF  x2F
 07E6:  MOVLW  03
-07E8:  ADDWF  x33,W
+07E8:  ADDWF  x2F,W
 07EA:  MOVWF  01
 07EC:  MOVLW  00
-07EE:  ADDWFC x34,W
+07EE:  ADDWFC x30,W
 07F0:  MOVWF  03
 07F2:  MOVF   01,W
 07F4:  ADDLW  DA
@@ -3005,16 +3005,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_COMMAND_OFF:
 .................... 			return (int16) channel[c].command_off_seconds;
 0810:  MOVLB  1
-0812:  MOVF   x32,W
+0812:  MOVF   x2E,W
 0814:  MULLW  19
 0816:  MOVF   FF3,W
-0818:  CLRF   x34
-081A:  MOVWF  x33
+0818:  CLRF   x30
+081A:  MOVWF  x2F
 081C:  MOVLW  05
-081E:  ADDWF  x33,W
+081E:  ADDWF  x2F,W
 0820:  MOVWF  01
 0822:  MOVLW  00
-0824:  ADDWFC x34,W
+0824:  ADDWFC x30,W
 0826:  MOVWF  03
 0828:  MOVF   01,W
 082A:  ADDLW  DA
@@ -3031,16 +3031,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_COMMAND_OFF_HOLD:
 .................... 			return (int16) channel[c].command_off_hold_seconds;
 0846:  MOVLB  1
-0848:  MOVF   x32,W
+0848:  MOVF   x2E,W
 084A:  MULLW  19
 084C:  MOVF   FF3,W
-084E:  CLRF   x34
-0850:  MOVWF  x33
+084E:  CLRF   x30
+0850:  MOVWF  x2F
 0852:  MOVLW  07
-0854:  ADDWF  x33,W
+0854:  ADDWF  x2F,W
 0856:  MOVWF  01
 0858:  MOVLW  00
-085A:  ADDWFC x34,W
+085A:  ADDWFC x30,W
 085C:  MOVWF  03
 085E:  MOVF   01,W
 0860:  ADDLW  DA
@@ -3058,16 +3058,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_LVD_DISCONNECT:
 .................... 			return (int16) channel[c].lvd_disconnect_delay_seconds;
 087C:  MOVLB  1
-087E:  MOVF   x32,W
+087E:  MOVF   x2E,W
 0880:  MULLW  19
 0882:  MOVF   FF3,W
-0884:  CLRF   x34
-0886:  MOVWF  x33
+0884:  CLRF   x30
+0886:  MOVWF  x2F
 0888:  MOVLW  09
-088A:  ADDWF  x33,W
+088A:  ADDWF  x2F,W
 088C:  MOVWF  01
 088E:  MOVLW  00
-0890:  ADDWFC x34,W
+0890:  ADDWFC x30,W
 0892:  MOVWF  03
 0894:  MOVF   01,W
 0896:  ADDLW  DA
@@ -3084,16 +3084,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_LVD_RECONNECT:
 .................... 			return (int16) channel[c].lvd_reconnect_delay_seconds;
 08B2:  MOVLB  1
-08B4:  MOVF   x32,W
+08B4:  MOVF   x2E,W
 08B6:  MULLW  19
 08B8:  MOVF   FF3,W
-08BA:  CLRF   x34
-08BC:  MOVWF  x33
+08BA:  CLRF   x30
+08BC:  MOVWF  x2F
 08BE:  MOVLW  0B
-08C0:  ADDWF  x33,W
+08C0:  ADDWF  x2F,W
 08C2:  MOVWF  01
 08C4:  MOVLW  00
-08C6:  ADDWFC x34,W
+08C6:  ADDWFC x30,W
 08C8:  MOVWF  03
 08CA:  MOVF   01,W
 08CC:  ADDLW  DA
@@ -3111,16 +3111,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_HVD_DISCONNECT:
 .................... 			return (int16) channel[c].hvd_disconnect_delay_seconds;
 08E8:  MOVLB  1
-08EA:  MOVF   x32,W
+08EA:  MOVF   x2E,W
 08EC:  MULLW  19
 08EE:  MOVF   FF3,W
-08F0:  CLRF   x34
-08F2:  MOVWF  x33
+08F0:  CLRF   x30
+08F2:  MOVWF  x2F
 08F4:  MOVLW  0D
-08F6:  ADDWF  x33,W
+08F6:  ADDWF  x2F,W
 08F8:  MOVWF  01
 08FA:  MOVLW  00
-08FC:  ADDWFC x34,W
+08FC:  ADDWFC x30,W
 08FE:  MOVWF  03
 0900:  MOVF   01,W
 0902:  ADDLW  DA
@@ -3137,16 +3137,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_HVD_RECONNECT:
 .................... 			return (int16) channel[c].hvd_reconnect_delay_seconds;
 091E:  MOVLB  1
-0920:  MOVF   x32,W
+0920:  MOVF   x2E,W
 0922:  MULLW  19
 0924:  MOVF   FF3,W
-0926:  CLRF   x34
-0928:  MOVWF  x33
+0926:  CLRF   x30
+0928:  MOVWF  x2F
 092A:  MOVLW  0F
-092C:  ADDWF  x33,W
+092C:  ADDWF  x2F,W
 092E:  MOVWF  01
 0930:  MOVLW  00
-0932:  ADDWFC x34,W
+0932:  ADDWFC x30,W
 0934:  MOVWF  03
 0936:  MOVF   01,W
 0938:  ADDLW  DA
@@ -3164,16 +3164,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_LTD_DISCONNECT:
 .................... 			return (int16) channel[c].ltd_disconnect_delay_seconds;
 0954:  MOVLB  1
-0956:  MOVF   x32,W
+0956:  MOVF   x2E,W
 0958:  MULLW  19
 095A:  MOVF   FF3,W
-095C:  CLRF   x34
-095E:  MOVWF  x33
+095C:  CLRF   x30
+095E:  MOVWF  x2F
 0960:  MOVLW  11
-0962:  ADDWF  x33,W
+0962:  ADDWF  x2F,W
 0964:  MOVWF  01
 0966:  MOVLW  00
-0968:  ADDWFC x34,W
+0968:  ADDWFC x30,W
 096A:  MOVWF  03
 096C:  MOVF   01,W
 096E:  ADDLW  DA
@@ -3190,16 +3190,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_LTD_RECONNECT:
 .................... 			return (int16) channel[c].ltd_reconnect_delay_seconds;
 098A:  MOVLB  1
-098C:  MOVF   x32,W
+098C:  MOVF   x2E,W
 098E:  MULLW  19
 0990:  MOVF   FF3,W
-0992:  CLRF   x34
-0994:  MOVWF  x33
+0992:  CLRF   x30
+0994:  MOVWF  x2F
 0996:  MOVLW  13
-0998:  ADDWF  x33,W
+0998:  ADDWF  x2F,W
 099A:  MOVWF  01
 099C:  MOVLW  00
-099E:  ADDWFC x34,W
+099E:  ADDWFC x30,W
 09A0:  MOVWF  03
 09A2:  MOVF   01,W
 09A4:  ADDLW  DA
@@ -3217,16 +3217,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_HTD_DISCONNECT:
 .................... 			return (int16) channel[c].htd_disconnect_delay_seconds;
 09C0:  MOVLB  1
-09C2:  MOVF   x32,W
+09C2:  MOVF   x2E,W
 09C4:  MULLW  19
 09C6:  MOVF   FF3,W
-09C8:  CLRF   x34
-09CA:  MOVWF  x33
+09C8:  CLRF   x30
+09CA:  MOVWF  x2F
 09CC:  MOVLW  15
-09CE:  ADDWF  x33,W
+09CE:  ADDWF  x2F,W
 09D0:  MOVWF  01
 09D2:  MOVLW  00
-09D4:  ADDWFC x34,W
+09D4:  ADDWFC x30,W
 09D6:  MOVWF  03
 09D8:  MOVF   01,W
 09DA:  ADDLW  DA
@@ -3243,16 +3243,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_HTD_RECONNECT:
 .................... 			return (int16) channel[c].htd_reconnect_delay_seconds;
 09F6:  MOVLB  1
-09F8:  MOVF   x32,W
+09F8:  MOVF   x2E,W
 09FA:  MULLW  19
 09FC:  MOVF   FF3,W
-09FE:  CLRF   x34
-0A00:  MOVWF  x33
+09FE:  CLRF   x30
+0A00:  MOVWF  x2F
 0A02:  MOVLW  17
-0A04:  ADDWF  x33,W
+0A04:  ADDWF  x2F,W
 0A06:  MOVWF  01
 0A08:  MOVLW  00
-0A0A:  ADDWFC x34,W
+0A0A:  ADDWFC x30,W
 0A0C:  MOVWF  03
 0A0E:  MOVF   01,W
 0A10:  ADDLW  DA
@@ -3302,16 +3302,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_COMMAND_ON_HOLD_INITIAL:
 .................... 			return (int16) config.ch[c].command_on_hold_time;
 0A5A:  MOVLB  1
-0A5C:  MOVF   x32,W
+0A5C:  MOVF   x2E,W
 0A5E:  MULLW  24
 0A60:  MOVF   FF3,W
-0A62:  CLRF   x34
-0A64:  MOVWF  x33
+0A62:  CLRF   x30
+0A64:  MOVWF  x2F
 0A66:  MOVLW  1B
-0A68:  ADDWF  x33,W
+0A68:  ADDWF  x2F,W
 0A6A:  MOVWF  FE9
 0A6C:  MOVLW  00
-0A6E:  ADDWFC x34,W
+0A6E:  ADDWFC x30,W
 0A70:  MOVWF  FEA
 0A72:  MOVFF  FEC,03
 0A76:  MOVF   FED,F
@@ -3323,16 +3323,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_COMMAND_OFF_HOLD_INITIAL:
 .................... 			return (int16) config.ch[c].command_off_hold_time;
 0A84:  MOVLB  1
-0A86:  MOVF   x32,W
+0A86:  MOVF   x2E,W
 0A88:  MULLW  24
 0A8A:  MOVF   FF3,W
-0A8C:  CLRF   x34
-0A8E:  MOVWF  x33
+0A8C:  CLRF   x30
+0A8E:  MOVWF  x2F
 0A90:  MOVLW  02
-0A92:  ADDWF  x33,W
+0A92:  ADDWF  x2F,W
 0A94:  MOVWF  01
 0A96:  MOVLW  00
-0A98:  ADDWFC x34,W
+0A98:  ADDWFC x30,W
 0A9A:  MOVWF  03
 0A9C:  MOVF   01,W
 0A9E:  ADDLW  1B
@@ -3350,16 +3350,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_LVD_DISCONNECT_ADC:
 .................... 			return (int16) config.ch[c].lvd_disconnect_adc;
 0ABA:  MOVLB  1
-0ABC:  MOVF   x32,W
+0ABC:  MOVF   x2E,W
 0ABE:  MULLW  24
 0AC0:  MOVF   FF3,W
-0AC2:  CLRF   x34
-0AC4:  MOVWF  x33
+0AC2:  CLRF   x30
+0AC4:  MOVWF  x2F
 0AC6:  MOVLW  04
-0AC8:  ADDWF  x33,W
+0AC8:  ADDWF  x2F,W
 0ACA:  MOVWF  01
 0ACC:  MOVLW  00
-0ACE:  ADDWFC x34,W
+0ACE:  ADDWFC x30,W
 0AD0:  MOVWF  03
 0AD2:  MOVF   01,W
 0AD4:  ADDLW  1B
@@ -3376,16 +3376,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_LVD_DISCONNECT_DELAY:
 .................... 			return (int16) config.ch[c].lvd_disconnect_delay;
 0AF0:  MOVLB  1
-0AF2:  MOVF   x32,W
+0AF2:  MOVF   x2E,W
 0AF4:  MULLW  24
 0AF6:  MOVF   FF3,W
-0AF8:  CLRF   x34
-0AFA:  MOVWF  x33
+0AF8:  CLRF   x30
+0AFA:  MOVWF  x2F
 0AFC:  MOVLW  06
-0AFE:  ADDWF  x33,W
+0AFE:  ADDWF  x2F,W
 0B00:  MOVWF  01
 0B02:  MOVLW  00
-0B04:  ADDWFC x34,W
+0B04:  ADDWFC x30,W
 0B06:  MOVWF  03
 0B08:  MOVF   01,W
 0B0A:  ADDLW  1B
@@ -3402,16 +3402,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_LVD_RECONNECT_ADC:
 .................... 			return (int16) config.ch[c].lvd_reconnect_adc;
 0B26:  MOVLB  1
-0B28:  MOVF   x32,W
+0B28:  MOVF   x2E,W
 0B2A:  MULLW  24
 0B2C:  MOVF   FF3,W
-0B2E:  CLRF   x34
-0B30:  MOVWF  x33
+0B2E:  CLRF   x30
+0B30:  MOVWF  x2F
 0B32:  MOVLW  08
-0B34:  ADDWF  x33,W
+0B34:  ADDWF  x2F,W
 0B36:  MOVWF  01
 0B38:  MOVLW  00
-0B3A:  ADDWFC x34,W
+0B3A:  ADDWFC x30,W
 0B3C:  MOVWF  03
 0B3E:  MOVF   01,W
 0B40:  ADDLW  1B
@@ -3428,16 +3428,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_LVD_RECONNECT_DELAY:
 .................... 			return (int16) config.ch[c].lvd_reconnect_delay;
 0B5C:  MOVLB  1
-0B5E:  MOVF   x32,W
+0B5E:  MOVF   x2E,W
 0B60:  MULLW  24
 0B62:  MOVF   FF3,W
-0B64:  CLRF   x34
-0B66:  MOVWF  x33
+0B64:  CLRF   x30
+0B66:  MOVWF  x2F
 0B68:  MOVLW  0A
-0B6A:  ADDWF  x33,W
+0B6A:  ADDWF  x2F,W
 0B6C:  MOVWF  01
 0B6E:  MOVLW  00
-0B70:  ADDWFC x34,W
+0B70:  ADDWFC x30,W
 0B72:  MOVWF  03
 0B74:  MOVF   01,W
 0B76:  ADDLW  1B
@@ -3455,16 +3455,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_HVD_DISCONNECT_ADC:
 .................... 			return (int16) config.ch[c].hvd_disconnect_adc;
 0B92:  MOVLB  1
-0B94:  MOVF   x32,W
+0B94:  MOVF   x2E,W
 0B96:  MULLW  24
 0B98:  MOVF   FF3,W
-0B9A:  CLRF   x34
-0B9C:  MOVWF  x33
+0B9A:  CLRF   x30
+0B9C:  MOVWF  x2F
 0B9E:  MOVLW  0C
-0BA0:  ADDWF  x33,W
+0BA0:  ADDWF  x2F,W
 0BA2:  MOVWF  01
 0BA4:  MOVLW  00
-0BA6:  ADDWFC x34,W
+0BA6:  ADDWFC x30,W
 0BA8:  MOVWF  03
 0BAA:  MOVF   01,W
 0BAC:  ADDLW  1B
@@ -3481,16 +3481,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_HVD_DISCONNECT_DELAY:
 .................... 			return (int16) config.ch[c].hvd_disconnect_delay;
 0BC8:  MOVLB  1
-0BCA:  MOVF   x32,W
+0BCA:  MOVF   x2E,W
 0BCC:  MULLW  24
 0BCE:  MOVF   FF3,W
-0BD0:  CLRF   x34
-0BD2:  MOVWF  x33
+0BD0:  CLRF   x30
+0BD2:  MOVWF  x2F
 0BD4:  MOVLW  0E
-0BD6:  ADDWF  x33,W
+0BD6:  ADDWF  x2F,W
 0BD8:  MOVWF  01
 0BDA:  MOVLW  00
-0BDC:  ADDWFC x34,W
+0BDC:  ADDWFC x30,W
 0BDE:  MOVWF  03
 0BE0:  MOVF   01,W
 0BE2:  ADDLW  1B
@@ -3507,16 +3507,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_HVD_RECONNECT_ADC:
 .................... 			return (int16) config.ch[c].hvd_reconnect_adc;
 0BFE:  MOVLB  1
-0C00:  MOVF   x32,W
+0C00:  MOVF   x2E,W
 0C02:  MULLW  24
 0C04:  MOVF   FF3,W
-0C06:  CLRF   x34
-0C08:  MOVWF  x33
+0C06:  CLRF   x30
+0C08:  MOVWF  x2F
 0C0A:  MOVLW  10
-0C0C:  ADDWF  x33,W
+0C0C:  ADDWF  x2F,W
 0C0E:  MOVWF  01
 0C10:  MOVLW  00
-0C12:  ADDWFC x34,W
+0C12:  ADDWFC x30,W
 0C14:  MOVWF  03
 0C16:  MOVF   01,W
 0C18:  ADDLW  1B
@@ -3533,16 +3533,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_HVD_RECONNECT_DELAY:
 .................... 			return (int16) config.ch[c].hvd_reconnect_delay;
 0C34:  MOVLB  1
-0C36:  MOVF   x32,W
+0C36:  MOVF   x2E,W
 0C38:  MULLW  24
 0C3A:  MOVF   FF3,W
-0C3C:  CLRF   x34
-0C3E:  MOVWF  x33
+0C3C:  CLRF   x30
+0C3E:  MOVWF  x2F
 0C40:  MOVLW  12
-0C42:  ADDWF  x33,W
+0C42:  ADDWF  x2F,W
 0C44:  MOVWF  01
 0C46:  MOVLW  00
-0C48:  ADDWFC x34,W
+0C48:  ADDWFC x30,W
 0C4A:  MOVWF  03
 0C4C:  MOVF   01,W
 0C4E:  ADDLW  1B
@@ -3560,16 +3560,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_LTD_DISCONNECT_ADC:
 .................... 			return (int16) config.ch[c].ltd_disconnect_adc;
 0C6A:  MOVLB  1
-0C6C:  MOVF   x32,W
+0C6C:  MOVF   x2E,W
 0C6E:  MULLW  24
 0C70:  MOVF   FF3,W
-0C72:  CLRF   x34
-0C74:  MOVWF  x33
+0C72:  CLRF   x30
+0C74:  MOVWF  x2F
 0C76:  MOVLW  14
-0C78:  ADDWF  x33,W
+0C78:  ADDWF  x2F,W
 0C7A:  MOVWF  01
 0C7C:  MOVLW  00
-0C7E:  ADDWFC x34,W
+0C7E:  ADDWFC x30,W
 0C80:  MOVWF  03
 0C82:  MOVF   01,W
 0C84:  ADDLW  1B
@@ -3586,16 +3586,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_LTD_DISCONNECT_DELAY:
 .................... 			return (int16) config.ch[c].ltd_disconnect_delay;
 0CA0:  MOVLB  1
-0CA2:  MOVF   x32,W
+0CA2:  MOVF   x2E,W
 0CA4:  MULLW  24
 0CA6:  MOVF   FF3,W
-0CA8:  CLRF   x34
-0CAA:  MOVWF  x33
+0CA8:  CLRF   x30
+0CAA:  MOVWF  x2F
 0CAC:  MOVLW  16
-0CAE:  ADDWF  x33,W
+0CAE:  ADDWF  x2F,W
 0CB0:  MOVWF  01
 0CB2:  MOVLW  00
-0CB4:  ADDWFC x34,W
+0CB4:  ADDWFC x30,W
 0CB6:  MOVWF  03
 0CB8:  MOVF   01,W
 0CBA:  ADDLW  1B
@@ -3612,16 +3612,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_LTD_RECONNECT_ADC:
 .................... 			return (int16) config.ch[c].ltd_reconnect_adc;
 0CD6:  MOVLB  1
-0CD8:  MOVF   x32,W
+0CD8:  MOVF   x2E,W
 0CDA:  MULLW  24
 0CDC:  MOVF   FF3,W
-0CDE:  CLRF   x34
-0CE0:  MOVWF  x33
+0CDE:  CLRF   x30
+0CE0:  MOVWF  x2F
 0CE2:  MOVLW  18
-0CE4:  ADDWF  x33,W
+0CE4:  ADDWF  x2F,W
 0CE6:  MOVWF  01
 0CE8:  MOVLW  00
-0CEA:  ADDWFC x34,W
+0CEA:  ADDWFC x30,W
 0CEC:  MOVWF  03
 0CEE:  MOVF   01,W
 0CF0:  ADDLW  1B
@@ -3638,16 +3638,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_LTD_RECONNECT_DELAY:
 .................... 			return (int16) config.ch[c].ltd_reconnect_delay;
 0D0C:  MOVLB  1
-0D0E:  MOVF   x32,W
+0D0E:  MOVF   x2E,W
 0D10:  MULLW  24
 0D12:  MOVF   FF3,W
-0D14:  CLRF   x34
-0D16:  MOVWF  x33
+0D14:  CLRF   x30
+0D16:  MOVWF  x2F
 0D18:  MOVLW  1A
-0D1A:  ADDWF  x33,W
+0D1A:  ADDWF  x2F,W
 0D1C:  MOVWF  01
 0D1E:  MOVLW  00
-0D20:  ADDWFC x34,W
+0D20:  ADDWFC x30,W
 0D22:  MOVWF  03
 0D24:  MOVF   01,W
 0D26:  ADDLW  1B
@@ -3665,16 +3665,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_HTD_DISCONNECT_ADC:
 .................... 			return (int16) config.ch[c].ltd_disconnect_adc;
 0D42:  MOVLB  1
-0D44:  MOVF   x32,W
+0D44:  MOVF   x2E,W
 0D46:  MULLW  24
 0D48:  MOVF   FF3,W
-0D4A:  CLRF   x34
-0D4C:  MOVWF  x33
+0D4A:  CLRF   x30
+0D4C:  MOVWF  x2F
 0D4E:  MOVLW  14
-0D50:  ADDWF  x33,W
+0D50:  ADDWF  x2F,W
 0D52:  MOVWF  01
 0D54:  MOVLW  00
-0D56:  ADDWFC x34,W
+0D56:  ADDWFC x30,W
 0D58:  MOVWF  03
 0D5A:  MOVF   01,W
 0D5C:  ADDLW  1B
@@ -3691,16 +3691,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_HTD_DISCONNECT_DELAY:
 .................... 			return (int16) config.ch[c].ltd_disconnect_delay;
 0D78:  MOVLB  1
-0D7A:  MOVF   x32,W
+0D7A:  MOVF   x2E,W
 0D7C:  MULLW  24
 0D7E:  MOVF   FF3,W
-0D80:  CLRF   x34
-0D82:  MOVWF  x33
+0D80:  CLRF   x30
+0D82:  MOVWF  x2F
 0D84:  MOVLW  16
-0D86:  ADDWF  x33,W
+0D86:  ADDWF  x2F,W
 0D88:  MOVWF  01
 0D8A:  MOVLW  00
-0D8C:  ADDWFC x34,W
+0D8C:  ADDWFC x30,W
 0D8E:  MOVWF  03
 0D90:  MOVF   01,W
 0D92:  ADDLW  1B
@@ -3717,16 +3717,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_HTD_RECONNECT_ADC:
 .................... 			return (int16) config.ch[c].ltd_reconnect_adc;
 0DAE:  MOVLB  1
-0DB0:  MOVF   x32,W
+0DB0:  MOVF   x2E,W
 0DB2:  MULLW  24
 0DB4:  MOVF   FF3,W
-0DB6:  CLRF   x34
-0DB8:  MOVWF  x33
+0DB6:  CLRF   x30
+0DB8:  MOVWF  x2F
 0DBA:  MOVLW  18
-0DBC:  ADDWF  x33,W
+0DBC:  ADDWF  x2F,W
 0DBE:  MOVWF  01
 0DC0:  MOVLW  00
-0DC2:  ADDWFC x34,W
+0DC2:  ADDWFC x30,W
 0DC4:  MOVWF  03
 0DC6:  MOVF   01,W
 0DC8:  ADDLW  1B
@@ -3743,16 +3743,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		case I2C_REG_CH0_HTD_RECONNECT_DELAY:
 .................... 			return (int16) config.ch[c].ltd_reconnect_delay;	
 0DE4:  MOVLB  1
-0DE6:  MOVF   x32,W
+0DE6:  MOVF   x2E,W
 0DE8:  MULLW  24
 0DEA:  MOVF   FF3,W
-0DEC:  CLRF   x34
-0DEE:  MOVWF  x33
+0DEC:  CLRF   x30
+0DEE:  MOVWF  x2F
 0DF0:  MOVLW  1A
-0DF2:  ADDWF  x33,W
+0DF2:  ADDWF  x2F,W
 0DF4:  MOVWF  01
 0DF6:  MOVLW  00
-0DF8:  ADDWFC x34,W
+0DF8:  ADDWFC x30,W
 0DFA:  MOVWF  03
 0DFC:  MOVF   01,W
 0DFE:  ADDLW  1B
@@ -3896,7 +3896,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 
 .................... 	/* state variable used below is not incremented */
 .................... 	state=sstate;
-0E9A:  MOVFF  10C,12E
+0E9A:  MOVFF  10C,12A
 .................... 
 .................... 	/* increment the state counter for next pass through unless it will overflow us into another state */
 .................... 	if ( sstate != 0x7f && sstate != 0xff) {
@@ -3929,17 +3929,17 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	*/
 .................... 
 .................... 	if ( state <= 0x80 ) {                      
-0EAE:  MOVF   x2E,W
+0EAE:  MOVF   x2A,W
 0EB0:  SUBLW  80
 0EB2:  BNC   0F16
 .................... 		/* I2C master is sending us data */
 .................... 		if ( 0x80 == state ) {
-0EB4:  MOVF   x2E,W
+0EB4:  MOVF   x2A,W
 0EB6:  SUBLW  80
 0EB8:  BNZ   0EC0
 .................... 			/* i2c_read(2) casues the function to read the SSPBUF without releasing the clock */
 .................... 			incoming = i2c_read(STREAM_SLAVE,2);
-0EBA:  MOVFF  FC9,12F
+0EBA:  MOVFF  FC9,12B
 .................... 		} else {
 0EBE:  BRA    0ECC
 .................... 			incoming = i2c_read(STREAM_SLAVE);
@@ -3948,48 +3948,48 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 0EC4:  BRA    0EC2
 0EC6:  MOVF   FC9,W
 0EC8:  BSF    FC6.4
-0ECA:  MOVWF  x2F
+0ECA:  MOVWF  x2B
 .................... 		}
 .................... 
 .................... 		if ( 1 == state ) {             
-0ECC:  DECFSZ x2E,W
+0ECC:  DECFSZ x2A,W
 0ECE:  BRA    0ED8
 .................... 			address = incoming<<1;
 0ED0:  BCF    FD8.0
-0ED2:  RLCF   x2F,W
+0ED2:  RLCF   x2B,W
 0ED4:  MOVWF  x10
 .................... 		} else if ( state >= 2 && 0x80 != state ) {
 0ED6:  BRA    0F16
-0ED8:  MOVF   x2E,W
+0ED8:  MOVF   x2A,W
 0EDA:  SUBLW  01
 0EDC:  BC    0F16
-0EDE:  MOVF   x2E,W
+0EDE:  MOVF   x2A,W
 0EE0:  SUBLW  80
 0EE2:  BZ    0F16
 .................... 			/* received byte is data */
 .................... 		
 .................... 			/* save MSB and we'll process it on next */
 .................... 			if ( 2 == state ) {
-0EE4:  MOVF   x2E,W
+0EE4:  MOVF   x2A,W
 0EE6:  SUBLW  02
 0EE8:  BNZ   0EF0
 .................... 				lastMSB=incoming;
-0EEA:  MOVFF  12F,10F
+0EEA:  MOVFF  12B,10F
 .................... 			} else if ( 3 == state ) {
 0EEE:  BRA    0F16
-0EF0:  MOVF   x2E,W
+0EF0:  MOVF   x2A,W
 0EF2:  SUBLW  03
 0EF4:  BNZ   0F16
 .................... 				/* 16 bit value made of previous byte and this byte */
 .................... 				write_i2c(address>>1,make16(lastMSB,incoming));
 0EF6:  BCF    FD8.0
 0EF8:  RRCF   x10,W
-0EFA:  MOVWF  x30
-0EFC:  MOVFF  10F,132
-0F00:  MOVFF  12F,131
-0F04:  MOVWF  x33
-0F06:  MOVFF  10F,135
-0F0A:  MOVFF  12F,134
+0EFA:  MOVWF  x2C
+0EFC:  MOVFF  10F,12E
+0F00:  MOVFF  12B,12D
+0F04:  MOVWF  x2F
+0F06:  MOVFF  10F,131
+0F0A:  MOVFF  12B,130
 0F0E:  MOVLB  0
 0F10:  GOTO   00DC
 0F14:  MOVLB  1
@@ -4002,7 +4002,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 
 .................... 
 .................... 	if ( state >= 0x80 ) {
-0F16:  MOVF   x2E,W
+0F16:  MOVF   x2A,W
 0F18:  SUBLW  7F
 0F1A:  BC    0F54
 .................... 		/* I2C master is requesting data from us */
@@ -4014,8 +4014,8 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 			lastValue=map_i2c(address>>1);
 0F20:  BCF    FD8.0
 0F22:  RRCF   x10,W
-0F24:  MOVWF  x30
-0F26:  MOVWF  x31
+0F24:  MOVWF  x2C
+0F26:  MOVWF  x2D
 0F28:  MOVLB  0
 0F2A:  GOTO   0614
 0F2E:  MOVFF  02,10E
@@ -4023,16 +4023,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 
 .................... 			/* send the MSB */
 .................... 			i2c_write(STREAM_SLAVE,make8(lastValue,1));
-0F36:  MOVFF  10E,130
-0F3A:  MOVFF  10E,131
+0F36:  MOVFF  10E,12C
+0F3A:  MOVFF  10E,12D
 0F3E:  RCALL  0E74
 .................... 		} else {
 0F40:  BRA    0F50
 0F42:  MOVLB  1
 .................... 			/* send LSB of 16 bit register on odd address */
 .................... 			i2c_write(STREAM_SLAVE,make8(lastValue,0));
-0F44:  MOVFF  10D,130
-0F48:  MOVFF  10D,131
+0F44:  MOVFF  10D,12C
+0F48:  MOVFF  10D,12D
 0F4C:  MOVLB  0
 0F4E:  RCALL  0E74
 .................... 		}
@@ -4127,7 +4127,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 *
 28B8:  CLRF   03
 28BA:  MOVLB  1
-28BC:  MOVF   x22,W
+28BC:  MOVF   x1E,W
 28BE:  ADDLW  D6
 28C0:  MOVWF  FE9
 28C2:  MOVLW  00
@@ -4143,7 +4143,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	/* we start the powersave count down */
 .................... 	timers.contactor_powersave[c]=CONTACTOR_POWER_SAVE_MS;
 28D0:  CLRF   03
-28D2:  MOVF   x22,W
+28D2:  MOVF   x1E,W
 28D4:  ADDLW  D8
 28D6:  MOVWF  FE9
 28D8:  MOVLW  00
@@ -4154,7 +4154,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 
 .................... 	/* control the actual coil depending on what channel we are on */
 .................... 	if ( 0==c ) {
-28E2:  MOVF   x22,F
+28E2:  MOVF   x1E,F
 28E4:  BNZ   28F0
 .................... 		/* contactor A pins */
 .................... 		output_low(BRIDGE_A_A);
@@ -4177,7 +4177,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	/* save state for next time */
 .................... 	timers.contactor[c]=1;
 28F8:  CLRF   03
-28FA:  MOVF   x22,W
+28FA:  MOVF   x1E,W
 28FC:  ADDLW  D6
 28FE:  MOVWF  FE9
 2900:  MOVLW  00
@@ -4195,7 +4195,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 *
 2864:  CLRF   03
 2866:  MOVLB  1
-2868:  MOVF   x22,W
+2868:  MOVF   x1E,W
 286A:  ADDLW  D6
 286C:  MOVWF  FE9
 286E:  MOVLW  00
@@ -4210,7 +4210,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	/* we start the powersave count down */
 .................... 	timers.contactor_powersave[c]=CONTACTOR_POWER_SAVE_MS;
 287A:  CLRF   03
-287C:  MOVF   x22,W
+287C:  MOVF   x1E,W
 287E:  ADDLW  D8
 2880:  MOVWF  FE9
 2882:  MOVLW  00
@@ -4221,7 +4221,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 
 .................... 	/* control the actual coil depending on what channel we are on */
 .................... 	if ( 0==c ) {
-288C:  MOVF   x22,F
+288C:  MOVF   x1E,F
 288E:  BNZ   289A
 .................... 		output_high(BRIDGE_A_A);
 2890:  BCF    F94.3
@@ -4242,7 +4242,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	/* save state for next time */
 .................... 	timers.contactor[c]=0;
 28A2:  CLRF   03
-28A4:  MOVF   x22,W
+28A4:  MOVF   x1E,W
 28A6:  ADDLW  D6
 28A8:  MOVWF  FE9
 28AA:  MOVLW  00
@@ -4257,24 +4257,24 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 *
 2910:  MOVLW  01
 2912:  MOVLB  1
-2914:  MOVWF  x21
+2914:  MOVWF  x1D
 .................... 	int8 state=1;
 .................... 
 .................... 	/* if nothing is set in channel[c].state, contactor is on */
 .................... 	state=1; 
-2916:  MOVWF  x21
+2916:  MOVWF  x1D
 .................... 
 .................... 	if ( channel[c].state & CH_STATE_MASK_ON ) {
-2918:  MOVF   x20,W
+2918:  MOVF   x1C,W
 291A:  MULLW  19
 291C:  MOVF   FF3,W
-291E:  CLRF   x23
-2920:  MOVWF  x22
+291E:  CLRF   x1F
+2920:  MOVWF  x1E
 2922:  MOVLW  DA
-2924:  ADDWF  x22,W
+2924:  ADDWF  x1E,W
 2926:  MOVWF  FE9
 2928:  MOVLW  00
-292A:  ADDWFC x23,W
+292A:  ADDWFC x1F,W
 292C:  MOVWF  FEA
 292E:  MOVF   FEF,W
 2930:  ANDLW  03
@@ -4282,40 +4282,40 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		/* if override button (switch) is set or we are commanded on, then we will be on */
 .................... 		state=1;
 2934:  MOVLW  01
-2936:  MOVWF  x21
+2936:  MOVWF  x1D
 .................... 	} else if ( channel[c].state & CH_STATE_MASK_OFF ) {
 2938:  BRA    2958
-293A:  MOVF   x20,W
+293A:  MOVF   x1C,W
 293C:  MULLW  19
 293E:  MOVF   FF3,W
-2940:  CLRF   x23
-2942:  MOVWF  x22
+2940:  CLRF   x1F
+2942:  MOVWF  x1E
 2944:  MOVLW  DA
-2946:  ADDWF  x22,W
+2946:  ADDWF  x1E,W
 2948:  MOVWF  FE9
 294A:  MOVLW  00
-294C:  ADDWFC x23,W
+294C:  ADDWFC x1F,W
 294E:  MOVWF  FEA
 2950:  MOVF   FEF,W
 2952:  ANDLW  7C
 2954:  BZ    2958
 .................... 		/* if one of the disconnect bits is set, we will be off */
 .................... 		state=0;
-2956:  CLRF   x21
+2956:  CLRF   x1D
 .................... 	}
 .................... 
 .................... 	if ( 0==state ) {
-2958:  MOVF   x21,F
+2958:  MOVF   x1D,F
 295A:  BNZ   2968
 .................... 		contactor_off(c);
-295C:  MOVFF  120,122
+295C:  MOVFF  11C,11E
 2960:  MOVLB  0
 2962:  BRA    2864
 .................... 	} else {
 2964:  BRA    2970
 2966:  MOVLB  1
 .................... 		contactor_on(c);
-2968:  MOVFF  120,122
+2968:  MOVFF  11C,11E
 296C:  MOVLB  0
 296E:  BRA    28B8
 .................... 	}
@@ -4330,43 +4330,43 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	if ( (0==c && 0==input(SW_OVERRIDE_A)) || (1==c && 0==input(SW_OVERRIDE_B)) ) {
 *
 1CB4:  MOVLB  1
-1CB6:  MOVF   x20,F
+1CB6:  MOVF   x1C,F
 1CB8:  BNZ   1CC0
 1CBA:  BSF    F92.5
 1CBC:  BTFSS  F80.5
 1CBE:  BRA    1CCA
-1CC0:  DECFSZ x20,W
+1CC0:  DECFSZ x1C,W
 1CC2:  BRA    1CE8
 1CC4:  BSF    F92.4
 1CC6:  BTFSC  F80.4
 1CC8:  BRA    1CE8
 .................... 		bit_set(channel[c].state,CH_STATE_BIT_OVERRIDE);
-1CCA:  MOVF   x20,W
+1CCA:  MOVF   x1C,W
 1CCC:  MULLW  19
 1CCE:  MOVF   FF3,W
-1CD0:  CLRF   x24
-1CD2:  MOVWF  x23
+1CD0:  CLRF   x20
+1CD2:  MOVWF  x1F
 1CD4:  MOVLW  DA
-1CD6:  ADDWF  x23,W
+1CD6:  ADDWF  x1F,W
 1CD8:  MOVWF  01
 1CDA:  MOVLW  00
-1CDC:  ADDWFC x24,W
+1CDC:  ADDWFC x20,W
 1CDE:  MOVFF  01,FE9
 1CE2:  MOVWF  FEA
 1CE4:  BSF    FEF.0
 .................... 	} else {
 1CE6:  BRA    1D04
 .................... 		bit_clear(channel[c].state,CH_STATE_BIT_OVERRIDE);
-1CE8:  MOVF   x20,W
+1CE8:  MOVF   x1C,W
 1CEA:  MULLW  19
 1CEC:  MOVF   FF3,W
-1CEE:  CLRF   x24
-1CF0:  MOVWF  x23
+1CEE:  CLRF   x20
+1CF0:  MOVWF  x1F
 1CF2:  MOVLW  DA
-1CF4:  ADDWF  x23,W
+1CF4:  ADDWF  x1F,W
 1CF6:  MOVWF  01
 1CF8:  MOVLW  00
-1CFA:  ADDWFC x24,W
+1CFA:  ADDWFC x20,W
 1CFC:  MOVFF  01,FE9
 1D00:  MOVWF  FEA
 1D02:  BCF    FEF.0
@@ -4374,16 +4374,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 
 .................... 	/* command on. 65535 disables */
 .................... 	if ( 65535 != channel[c].command_on_seconds ) {
-1D04:  MOVF   x20,W
+1D04:  MOVF   x1C,W
 1D06:  MULLW  19
 1D08:  MOVF   FF3,W
-1D0A:  CLRF   x24
-1D0C:  MOVWF  x23
+1D0A:  CLRF   x20
+1D0C:  MOVWF  x1F
 1D0E:  MOVLW  01
-1D10:  ADDWF  x23,W
+1D10:  ADDWF  x1F,W
 1D12:  MOVWF  01
 1D14:  MOVLW  00
-1D16:  ADDWFC x24,W
+1D16:  ADDWFC x20,W
 1D18:  MOVWF  03
 1D1A:  MOVF   01,W
 1D1C:  ADDLW  DA
@@ -4400,16 +4400,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1D34:  BRA    1D38
 1D36:  BRA    1ECE
 .................... 		if ( channel[c].command_on_seconds > 0 ) {
-1D38:  MOVF   x20,W
+1D38:  MOVF   x1C,W
 1D3A:  MULLW  19
 1D3C:  MOVF   FF3,W
-1D3E:  CLRF   x24
-1D40:  MOVWF  x23
+1D3E:  CLRF   x20
+1D40:  MOVWF  x1F
 1D42:  MOVLW  01
-1D44:  ADDWF  x23,W
+1D44:  ADDWF  x1F,W
 1D46:  MOVWF  01
 1D48:  MOVLW  00
-1D4A:  ADDWFC x24,W
+1D4A:  ADDWFC x20,W
 1D4C:  MOVWF  03
 1D4E:  MOVF   01,W
 1D50:  ADDLW  DA
@@ -4417,25 +4417,25 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1D54:  MOVLW  00
 1D56:  ADDWFC 03,W
 1D58:  MOVWF  FEA
-1D5A:  MOVFF  FEC,124
+1D5A:  MOVFF  FEC,120
 1D5E:  MOVF   FED,F
-1D60:  MOVFF  FEF,123
-1D64:  MOVF   x23,F
+1D60:  MOVFF  FEF,11F
+1D64:  MOVF   x1F,F
 1D66:  BNZ   1D6C
-1D68:  MOVF   x24,F
+1D68:  MOVF   x20,F
 1D6A:  BZ    1D9A
 .................... 			/* waiting to power on */
 .................... 			channel[c].command_on_seconds--;
-1D6C:  MOVF   x20,W
+1D6C:  MOVF   x1C,W
 1D6E:  MULLW  19
 1D70:  MOVF   FF3,W
-1D72:  CLRF   x24
-1D74:  MOVWF  x23
+1D72:  CLRF   x20
+1D74:  MOVWF  x1F
 1D76:  MOVLW  01
-1D78:  ADDWF  x23,W
+1D78:  ADDWF  x1F,W
 1D7A:  MOVWF  01
 1D7C:  MOVLW  00
-1D7E:  ADDWFC x24,W
+1D7E:  ADDWFC x20,W
 1D80:  MOVWF  03
 1D82:  MOVF   01,W
 1D84:  ADDLW  DA
@@ -4452,86 +4452,86 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1D98:  BRA    1ECE
 .................... 			/* timer at zero, ready to power on or already powered on */
 .................... 			if ( ! bit_test(channel[c].state,CH_STATE_BIT_CMD_ON) ) {
-1D9A:  MOVF   x20,W
+1D9A:  MOVF   x1C,W
 1D9C:  MULLW  19
 1D9E:  MOVF   FF3,W
-1DA0:  CLRF   x24
-1DA2:  MOVWF  x23
+1DA0:  CLRF   x20
+1DA2:  MOVWF  x1F
 1DA4:  MOVLW  DA
-1DA6:  ADDWF  x23,W
+1DA6:  ADDWF  x1F,W
 1DA8:  MOVWF  FE9
 1DAA:  MOVLW  00
-1DAC:  ADDWFC x24,W
+1DAC:  ADDWFC x20,W
 1DAE:  MOVWF  FEA
-1DB0:  MOVFF  FEF,125
-1DB4:  BTFSC  x25.1
+1DB0:  MOVFF  FEF,121
+1DB4:  BTFSC  x21.1
 1DB6:  BRA    1E2C
 .................... 				/* not currently set, so we set it and start the countdown */
 .................... 				bit_set(channel[c].state,CH_STATE_BIT_CMD_ON);
-1DB8:  MOVF   x20,W
+1DB8:  MOVF   x1C,W
 1DBA:  MULLW  19
 1DBC:  MOVF   FF3,W
-1DBE:  CLRF   x24
-1DC0:  MOVWF  x23
+1DBE:  CLRF   x20
+1DC0:  MOVWF  x1F
 1DC2:  MOVLW  DA
-1DC4:  ADDWF  x23,W
+1DC4:  ADDWF  x1F,W
 1DC6:  MOVWF  01
 1DC8:  MOVLW  00
-1DCA:  ADDWFC x24,W
+1DCA:  ADDWFC x20,W
 1DCC:  MOVFF  01,FE9
 1DD0:  MOVWF  FEA
 1DD2:  BSF    FEF.1
 .................... 				channel[c].command_on_hold_seconds=config.ch[c].command_on_hold_time;
-1DD4:  MOVF   x20,W
+1DD4:  MOVF   x1C,W
 1DD6:  MULLW  19
 1DD8:  MOVF   FF3,W
-1DDA:  CLRF   x24
-1DDC:  MOVWF  x23
+1DDA:  CLRF   x20
+1DDC:  MOVWF  x1F
 1DDE:  MOVLW  03
-1DE0:  ADDWF  x23,W
+1DE0:  ADDWF  x1F,W
 1DE2:  MOVWF  01
 1DE4:  MOVLW  00
-1DE6:  ADDWFC x24,W
+1DE6:  ADDWFC x20,W
 1DE8:  MOVWF  03
 1DEA:  MOVF   01,W
 1DEC:  ADDLW  DA
 1DEE:  MOVWF  01
 1DF0:  MOVLW  00
 1DF2:  ADDWFC 03,F
-1DF4:  MOVFF  03,124
-1DF8:  MOVF   x20,W
+1DF4:  MOVFF  03,120
+1DF8:  MOVF   x1C,W
 1DFA:  MULLW  24
 1DFC:  MOVF   FF3,W
-1DFE:  CLRF   x26
-1E00:  MOVWF  x25
+1DFE:  CLRF   x22
+1E00:  MOVWF  x21
 1E02:  MOVLW  1B
-1E04:  ADDWF  x25,W
+1E04:  ADDWF  x21,W
 1E06:  MOVWF  FE9
 1E08:  MOVLW  00
-1E0A:  ADDWFC x26,W
+1E0A:  ADDWFC x22,W
 1E0C:  MOVWF  FEA
 1E0E:  MOVFF  FEC,03
 1E12:  MOVF   FED,F
-1E14:  MOVFF  FEF,127
-1E18:  MOVFF  124,FEA
+1E14:  MOVFF  FEF,123
+1E18:  MOVFF  120,FEA
 1E1C:  MOVFF  01,FE9
 1E20:  MOVFF  03,FEC
 1E24:  MOVF   FED,F
-1E26:  MOVFF  127,FEF
+1E26:  MOVFF  123,FEF
 .................... 			} else {
 1E2A:  BRA    1ECE
 .................... 				/* set, so we clear it once countdown has elapsed */
 .................... 				if ( 0==channel[c].command_on_hold_seconds ) {
-1E2C:  MOVF   x20,W
+1E2C:  MOVF   x1C,W
 1E2E:  MULLW  19
 1E30:  MOVF   FF3,W
-1E32:  CLRF   x24
-1E34:  MOVWF  x23
+1E32:  CLRF   x20
+1E34:  MOVWF  x1F
 1E36:  MOVLW  03
-1E38:  ADDWF  x23,W
+1E38:  ADDWF  x1F,W
 1E3A:  MOVWF  01
 1E3C:  MOVLW  00
-1E3E:  ADDWFC x24,W
+1E3E:  ADDWFC x20,W
 1E40:  MOVWF  03
 1E42:  MOVF   01,W
 1E44:  ADDLW  DA
@@ -4547,30 +4547,30 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1E5A:  BNZ   1EA2
 .................... 					/* countdown elapsed, clear the flag and reset the timer */
 .................... 					bit_clear(channel[c].state,CH_STATE_BIT_CMD_ON);
-1E5C:  MOVF   x20,W
+1E5C:  MOVF   x1C,W
 1E5E:  MULLW  19
 1E60:  MOVF   FF3,W
-1E62:  CLRF   x24
-1E64:  MOVWF  x23
+1E62:  CLRF   x20
+1E64:  MOVWF  x1F
 1E66:  MOVLW  DA
-1E68:  ADDWF  x23,W
+1E68:  ADDWF  x1F,W
 1E6A:  MOVWF  01
 1E6C:  MOVLW  00
-1E6E:  ADDWFC x24,W
+1E6E:  ADDWFC x20,W
 1E70:  MOVFF  01,FE9
 1E74:  MOVWF  FEA
 1E76:  BCF    FEF.1
 .................... 					channel[c].command_on_seconds=65535;
-1E78:  MOVF   x20,W
+1E78:  MOVF   x1C,W
 1E7A:  MULLW  19
 1E7C:  MOVF   FF3,W
-1E7E:  CLRF   x24
-1E80:  MOVWF  x23
+1E7E:  CLRF   x20
+1E80:  MOVWF  x1F
 1E82:  MOVLW  01
-1E84:  ADDWF  x23,W
+1E84:  ADDWF  x1F,W
 1E86:  MOVWF  01
 1E88:  MOVLW  00
-1E8A:  ADDWFC x24,W
+1E8A:  ADDWFC x20,W
 1E8C:  MOVWF  03
 1E8E:  MOVF   01,W
 1E90:  ADDLW  DA
@@ -4584,16 +4584,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 				} else {
 1EA0:  BRA    1ECE
 .................... 					channel[c].command_on_hold_seconds--;
-1EA2:  MOVF   x20,W
+1EA2:  MOVF   x1C,W
 1EA4:  MULLW  19
 1EA6:  MOVF   FF3,W
-1EA8:  CLRF   x24
-1EAA:  MOVWF  x23
+1EA8:  CLRF   x20
+1EAA:  MOVWF  x1F
 1EAC:  MOVLW  03
-1EAE:  ADDWF  x23,W
+1EAE:  ADDWF  x1F,W
 1EB0:  MOVWF  01
 1EB2:  MOVLW  00
-1EB4:  ADDWFC x24,W
+1EB4:  ADDWFC x20,W
 1EB6:  MOVWF  03
 1EB8:  MOVF   01,W
 1EBA:  ADDLW  DA
@@ -4614,16 +4614,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 
 .................... 	/* command off. 65535 disables */
 .................... 	if ( 65535 != channel[c].command_off_seconds ) {
-1ECE:  MOVF   x20,W
+1ECE:  MOVF   x1C,W
 1ED0:  MULLW  19
 1ED2:  MOVF   FF3,W
-1ED4:  CLRF   x24
-1ED6:  MOVWF  x23
+1ED4:  CLRF   x20
+1ED6:  MOVWF  x1F
 1ED8:  MOVLW  05
-1EDA:  ADDWF  x23,W
+1EDA:  ADDWF  x1F,W
 1EDC:  MOVWF  01
 1EDE:  MOVLW  00
-1EE0:  ADDWFC x24,W
+1EE0:  ADDWFC x20,W
 1EE2:  MOVWF  03
 1EE4:  MOVF   01,W
 1EE6:  ADDLW  DA
@@ -4640,16 +4640,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1EFE:  BRA    1F02
 1F00:  BRA    20A8
 .................... 		if ( channel[c].command_off_seconds > 0 ) {
-1F02:  MOVF   x20,W
+1F02:  MOVF   x1C,W
 1F04:  MULLW  19
 1F06:  MOVF   FF3,W
-1F08:  CLRF   x24
-1F0A:  MOVWF  x23
+1F08:  CLRF   x20
+1F0A:  MOVWF  x1F
 1F0C:  MOVLW  05
-1F0E:  ADDWF  x23,W
+1F0E:  ADDWF  x1F,W
 1F10:  MOVWF  01
 1F12:  MOVLW  00
-1F14:  ADDWFC x24,W
+1F14:  ADDWFC x20,W
 1F16:  MOVWF  03
 1F18:  MOVF   01,W
 1F1A:  ADDLW  DA
@@ -4657,25 +4657,25 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1F1E:  MOVLW  00
 1F20:  ADDWFC 03,W
 1F22:  MOVWF  FEA
-1F24:  MOVFF  FEC,124
+1F24:  MOVFF  FEC,120
 1F28:  MOVF   FED,F
-1F2A:  MOVFF  FEF,123
-1F2E:  MOVF   x23,F
+1F2A:  MOVFF  FEF,11F
+1F2E:  MOVF   x1F,F
 1F30:  BNZ   1F36
-1F32:  MOVF   x24,F
+1F32:  MOVF   x20,F
 1F34:  BZ    1F64
 .................... 			/* waiting to power off */
 .................... 			channel[c].command_off_seconds--;
-1F36:  MOVF   x20,W
+1F36:  MOVF   x1C,W
 1F38:  MULLW  19
 1F3A:  MOVF   FF3,W
-1F3C:  CLRF   x24
-1F3E:  MOVWF  x23
+1F3C:  CLRF   x20
+1F3E:  MOVWF  x1F
 1F40:  MOVLW  05
-1F42:  ADDWF  x23,W
+1F42:  ADDWF  x1F,W
 1F44:  MOVWF  01
 1F46:  MOVLW  00
-1F48:  ADDWFC x24,W
+1F48:  ADDWFC x20,W
 1F4A:  MOVWF  03
 1F4C:  MOVF   01,W
 1F4E:  ADDLW  DA
@@ -4692,64 +4692,64 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1F62:  BRA    20A8
 .................... 			/* timer at zero, ready to power off or already powered off */
 .................... 			if ( ! bit_test(channel[c].state,CH_STATE_BIT_CMD_OFF) ) {
-1F64:  MOVF   x20,W
+1F64:  MOVF   x1C,W
 1F66:  MULLW  19
 1F68:  MOVF   FF3,W
-1F6A:  CLRF   x24
-1F6C:  MOVWF  x23
+1F6A:  CLRF   x20
+1F6C:  MOVWF  x1F
 1F6E:  MOVLW  DA
-1F70:  ADDWF  x23,W
+1F70:  ADDWF  x1F,W
 1F72:  MOVWF  FE9
 1F74:  MOVLW  00
-1F76:  ADDWFC x24,W
+1F76:  ADDWFC x20,W
 1F78:  MOVWF  FEA
-1F7A:  MOVFF  FEF,125
-1F7E:  BTFSC  x25.2
+1F7A:  MOVFF  FEF,121
+1F7E:  BTFSC  x21.2
 1F80:  BRA    2006
 .................... 				/* not currently set, so we set it and start the countdown */
 .................... 				bit_set(channel[c].state,CH_STATE_BIT_CMD_OFF);
-1F82:  MOVF   x20,W
+1F82:  MOVF   x1C,W
 1F84:  MULLW  19
 1F86:  MOVF   FF3,W
-1F88:  CLRF   x24
-1F8A:  MOVWF  x23
+1F88:  CLRF   x20
+1F8A:  MOVWF  x1F
 1F8C:  MOVLW  DA
-1F8E:  ADDWF  x23,W
+1F8E:  ADDWF  x1F,W
 1F90:  MOVWF  01
 1F92:  MOVLW  00
-1F94:  ADDWFC x24,W
+1F94:  ADDWFC x20,W
 1F96:  MOVFF  01,FE9
 1F9A:  MOVWF  FEA
 1F9C:  BSF    FEF.2
 .................... 				channel[c].command_off_hold_seconds=config.ch[c].command_off_hold_time;
-1F9E:  MOVF   x20,W
+1F9E:  MOVF   x1C,W
 1FA0:  MULLW  19
 1FA2:  MOVF   FF3,W
-1FA4:  CLRF   x24
-1FA6:  MOVWF  x23
+1FA4:  CLRF   x20
+1FA6:  MOVWF  x1F
 1FA8:  MOVLW  07
-1FAA:  ADDWF  x23,W
+1FAA:  ADDWF  x1F,W
 1FAC:  MOVWF  01
 1FAE:  MOVLW  00
-1FB0:  ADDWFC x24,W
+1FB0:  ADDWFC x20,W
 1FB2:  MOVWF  03
 1FB4:  MOVF   01,W
 1FB6:  ADDLW  DA
 1FB8:  MOVWF  01
 1FBA:  MOVLW  00
 1FBC:  ADDWFC 03,F
-1FBE:  MOVFF  01,123
-1FC2:  MOVFF  03,124
-1FC6:  MOVF   x20,W
+1FBE:  MOVFF  01,11F
+1FC2:  MOVFF  03,120
+1FC6:  MOVF   x1C,W
 1FC8:  MULLW  24
 1FCA:  MOVF   FF3,W
-1FCC:  CLRF   x26
-1FCE:  MOVWF  x25
+1FCC:  CLRF   x22
+1FCE:  MOVWF  x21
 1FD0:  MOVLW  02
-1FD2:  ADDWF  x25,W
+1FD2:  ADDWF  x21,W
 1FD4:  MOVWF  01
 1FD6:  MOVLW  00
-1FD8:  ADDWFC x26,W
+1FD8:  ADDWFC x22,W
 1FDA:  MOVWF  03
 1FDC:  MOVF   01,W
 1FDE:  ADDLW  1B
@@ -4759,26 +4759,26 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1FE6:  MOVWF  FEA
 1FE8:  MOVFF  FEC,03
 1FEC:  MOVF   FED,F
-1FEE:  MOVFF  FEF,125
-1FF2:  MOVFF  124,FEA
-1FF6:  MOVFF  123,FE9
+1FEE:  MOVFF  FEF,121
+1FF2:  MOVFF  120,FEA
+1FF6:  MOVFF  11F,FE9
 1FFA:  MOVFF  03,FEC
 1FFE:  MOVF   FED,F
-2000:  MOVFF  125,FEF
+2000:  MOVFF  121,FEF
 .................... 			} else {
 2004:  BRA    20A8
 .................... 				/* set, so we clear it once countdown has elapsed */
 .................... 				if ( 0==channel[c].command_off_hold_seconds ) {
-2006:  MOVF   x20,W
+2006:  MOVF   x1C,W
 2008:  MULLW  19
 200A:  MOVF   FF3,W
-200C:  CLRF   x24
-200E:  MOVWF  x23
+200C:  CLRF   x20
+200E:  MOVWF  x1F
 2010:  MOVLW  07
-2012:  ADDWF  x23,W
+2012:  ADDWF  x1F,W
 2014:  MOVWF  01
 2016:  MOVLW  00
-2018:  ADDWFC x24,W
+2018:  ADDWFC x20,W
 201A:  MOVWF  03
 201C:  MOVF   01,W
 201E:  ADDLW  DA
@@ -4794,30 +4794,30 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2034:  BNZ   207C
 .................... 					/* countdown elapsed, clear the flag and reset the timer */
 .................... 					bit_clear(channel[c].state,CH_STATE_BIT_CMD_OFF);
-2036:  MOVF   x20,W
+2036:  MOVF   x1C,W
 2038:  MULLW  19
 203A:  MOVF   FF3,W
-203C:  CLRF   x24
-203E:  MOVWF  x23
+203C:  CLRF   x20
+203E:  MOVWF  x1F
 2040:  MOVLW  DA
-2042:  ADDWF  x23,W
+2042:  ADDWF  x1F,W
 2044:  MOVWF  01
 2046:  MOVLW  00
-2048:  ADDWFC x24,W
+2048:  ADDWFC x20,W
 204A:  MOVFF  01,FE9
 204E:  MOVWF  FEA
 2050:  BCF    FEF.2
 .................... 					channel[c].command_off_seconds=65535;
-2052:  MOVF   x20,W
+2052:  MOVF   x1C,W
 2054:  MULLW  19
 2056:  MOVF   FF3,W
-2058:  CLRF   x24
-205A:  MOVWF  x23
+2058:  CLRF   x20
+205A:  MOVWF  x1F
 205C:  MOVLW  05
-205E:  ADDWF  x23,W
+205E:  ADDWF  x1F,W
 2060:  MOVWF  01
 2062:  MOVLW  00
-2064:  ADDWFC x24,W
+2064:  ADDWFC x20,W
 2066:  MOVWF  03
 2068:  MOVF   01,W
 206A:  ADDLW  DA
@@ -4831,16 +4831,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 				} else {
 207A:  BRA    20A8
 .................... 					channel[c].command_off_hold_seconds--;
-207C:  MOVF   x20,W
+207C:  MOVF   x1C,W
 207E:  MULLW  19
 2080:  MOVF   FF3,W
-2082:  CLRF   x24
-2084:  MOVWF  x23
+2082:  CLRF   x20
+2084:  MOVWF  x1F
 2086:  MOVLW  07
-2088:  ADDWF  x23,W
+2088:  ADDWF  x1F,W
 208A:  MOVWF  01
 208C:  MOVLW  00
-208E:  ADDWFC x24,W
+208E:  ADDWFC x20,W
 2090:  MOVWF  03
 2092:  MOVF   01,W
 2094:  ADDLW  DA
@@ -4861,16 +4861,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 
 .................... 	/* LVD. 65535 disables */
 .................... 	if ( 65535 != config.ch[c].lvd_disconnect_delay ) {
-20A8:  MOVF   x20,W
+20A8:  MOVF   x1C,W
 20AA:  MULLW  24
 20AC:  MOVF   FF3,W
-20AE:  CLRF   x24
-20B0:  MOVWF  x23
+20AE:  CLRF   x20
+20B0:  MOVWF  x1F
 20B2:  MOVLW  06
-20B4:  ADDWF  x23,W
+20B4:  ADDWF  x1F,W
 20B6:  MOVWF  01
 20B8:  MOVLW  00
-20BA:  ADDWFC x24,W
+20BA:  ADDWFC x20,W
 20BC:  MOVWF  03
 20BE:  MOVF   01,W
 20C0:  ADDLW  1B
@@ -4891,26 +4891,26 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 20E0:  BSF    19.7
 20E2:  BCF    FF2.7
 .................... 		adc=adc_get(0);
-20E4:  CLRF   x33
+20E4:  CLRF   x2F
 20E6:  MOVLB  0
 20E8:  CALL   0594
 20EC:  BTFSC  19.7
 20EE:  BSF    FF2.7
-20F0:  MOVFF  02,122
-20F4:  MOVFF  01,121
+20F0:  MOVFF  02,11E
+20F4:  MOVFF  01,11D
 .................... 
 .................... 		if ( adc > config.ch[c].lvd_reconnect_adc ) {
 20F8:  MOVLB  1
-20FA:  MOVF   x20,W
+20FA:  MOVF   x1C,W
 20FC:  MULLW  24
 20FE:  MOVF   FF3,W
-2100:  CLRF   x24
-2102:  MOVWF  x23
+2100:  CLRF   x20
+2102:  MOVWF  x1F
 2104:  MOVLW  08
-2106:  ADDWF  x23,W
+2106:  ADDWF  x1F,W
 2108:  MOVWF  01
 210A:  MOVLW  00
-210C:  ADDWFC x24,W
+210C:  ADDWFC x20,W
 210E:  MOVWF  03
 2110:  MOVF   01,W
 2112:  ADDLW  1B
@@ -4922,23 +4922,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2120:  MOVF   FED,F
 2122:  MOVFF  FEF,01
 2126:  MOVF   03,W
-2128:  SUBWF  x22,W
+2128:  SUBWF  x1E,W
 212A:  BNC   21B4
 212C:  BNZ   2134
-212E:  MOVF   x21,W
+212E:  MOVF   x1D,W
 2130:  SUBWF  01,W
 2132:  BC    21B4
 .................... 			if ( channel[c].lvd_reconnect_delay_seconds > 0 ) {
-2134:  MOVF   x20,W
+2134:  MOVF   x1C,W
 2136:  MULLW  19
 2138:  MOVF   FF3,W
-213A:  CLRF   x24
-213C:  MOVWF  x23
+213A:  CLRF   x20
+213C:  MOVWF  x1F
 213E:  MOVLW  0B
-2140:  ADDWF  x23,W
+2140:  ADDWF  x1F,W
 2142:  MOVWF  01
 2144:  MOVLW  00
-2146:  ADDWFC x24,W
+2146:  ADDWFC x20,W
 2148:  MOVWF  03
 214A:  MOVF   01,W
 214C:  ADDLW  DA
@@ -4946,24 +4946,24 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2150:  MOVLW  00
 2152:  ADDWFC 03,W
 2154:  MOVWF  FEA
-2156:  MOVFF  FEC,124
+2156:  MOVFF  FEC,120
 215A:  MOVF   FED,F
-215C:  MOVFF  FEF,123
-2160:  MOVF   x23,F
+215C:  MOVFF  FEF,11F
+2160:  MOVF   x1F,F
 2162:  BNZ   2168
-2164:  MOVF   x24,F
+2164:  MOVF   x20,F
 2166:  BZ    2196
 .................... 				channel[c].lvd_reconnect_delay_seconds--;
-2168:  MOVF   x20,W
+2168:  MOVF   x1C,W
 216A:  MULLW  19
 216C:  MOVF   FF3,W
-216E:  CLRF   x24
-2170:  MOVWF  x23
+216E:  CLRF   x20
+2170:  MOVWF  x1F
 2172:  MOVLW  0B
-2174:  ADDWF  x23,W
+2174:  ADDWF  x1F,W
 2176:  MOVWF  01
 2178:  MOVLW  00
-217A:  ADDWFC x24,W
+217A:  ADDWFC x20,W
 217C:  MOVWF  03
 217E:  MOVF   01,W
 2180:  ADDLW  DA
@@ -4979,16 +4979,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 			} else {
 2194:  BRA    21B2
 .................... 				bit_clear(channel[c].state,CH_STATE_BIT_LVD);
-2196:  MOVF   x20,W
+2196:  MOVF   x1C,W
 2198:  MULLW  19
 219A:  MOVF   FF3,W
-219C:  CLRF   x24
-219E:  MOVWF  x23
+219C:  CLRF   x20
+219E:  MOVWF  x1F
 21A0:  MOVLW  DA
-21A2:  ADDWF  x23,W
+21A2:  ADDWF  x1F,W
 21A4:  MOVWF  01
 21A6:  MOVLW  00
-21A8:  ADDWFC x24,W
+21A8:  ADDWFC x20,W
 21AA:  MOVFF  01,FE9
 21AE:  MOVWF  FEA
 21B0:  BCF    FEF.3
@@ -4996,34 +4996,34 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		} else {
 21B2:  BRA    221A
 .................... 			channel[c].lvd_reconnect_delay_seconds=config.ch[c].lvd_reconnect_delay;
-21B4:  MOVF   x20,W
+21B4:  MOVF   x1C,W
 21B6:  MULLW  19
 21B8:  MOVF   FF3,W
-21BA:  CLRF   x24
-21BC:  MOVWF  x23
+21BA:  CLRF   x20
+21BC:  MOVWF  x1F
 21BE:  MOVLW  0B
-21C0:  ADDWF  x23,W
+21C0:  ADDWF  x1F,W
 21C2:  MOVWF  01
 21C4:  MOVLW  00
-21C6:  ADDWFC x24,W
+21C6:  ADDWFC x20,W
 21C8:  MOVWF  03
 21CA:  MOVF   01,W
 21CC:  ADDLW  DA
 21CE:  MOVWF  01
 21D0:  MOVLW  00
 21D2:  ADDWFC 03,F
-21D4:  MOVFF  01,123
-21D8:  MOVFF  03,124
-21DC:  MOVF   x20,W
+21D4:  MOVFF  01,11F
+21D8:  MOVFF  03,120
+21DC:  MOVF   x1C,W
 21DE:  MULLW  24
 21E0:  MOVF   FF3,W
-21E2:  CLRF   x26
-21E4:  MOVWF  x25
+21E2:  CLRF   x22
+21E4:  MOVWF  x21
 21E6:  MOVLW  0A
-21E8:  ADDWF  x25,W
+21E8:  ADDWF  x21,W
 21EA:  MOVWF  01
 21EC:  MOVLW  00
-21EE:  ADDWFC x26,W
+21EE:  ADDWFC x22,W
 21F0:  MOVWF  03
 21F2:  MOVF   01,W
 21F4:  ADDLW  1B
@@ -5033,25 +5033,25 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 21FC:  MOVWF  FEA
 21FE:  MOVFF  FEC,03
 2202:  MOVF   FED,F
-2204:  MOVFF  FEF,125
-2208:  MOVFF  124,FEA
-220C:  MOVFF  123,FE9
+2204:  MOVFF  FEF,121
+2208:  MOVFF  120,FEA
+220C:  MOVFF  11F,FE9
 2210:  MOVFF  03,FEC
 2214:  MOVF   FED,F
-2216:  MOVFF  125,FEF
+2216:  MOVFF  121,FEF
 .................... 		}
 .................... 
 .................... 		if ( adc < config.ch[c].lvd_disconnect_adc ) {
-221A:  MOVF   x20,W
+221A:  MOVF   x1C,W
 221C:  MULLW  24
 221E:  MOVF   FF3,W
-2220:  CLRF   x24
-2222:  MOVWF  x23
+2220:  CLRF   x20
+2222:  MOVWF  x1F
 2224:  MOVLW  04
-2226:  ADDWF  x23,W
+2226:  ADDWF  x1F,W
 2228:  MOVWF  01
 222A:  MOVLW  00
-222C:  ADDWFC x24,W
+222C:  ADDWFC x20,W
 222E:  MOVWF  03
 2230:  MOVF   01,W
 2232:  ADDLW  1B
@@ -5062,24 +5062,24 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 223C:  MOVFF  FEC,03
 2240:  MOVF   FED,F
 2242:  MOVFF  FEF,01
-2246:  MOVF   x22,W
+2246:  MOVF   x1E,W
 2248:  SUBWF  03,W
 224A:  BNC   22D4
 224C:  BNZ   2254
 224E:  MOVF   01,W
-2250:  SUBWF  x21,W
+2250:  SUBWF  x1D,W
 2252:  BC    22D4
 .................... 			if ( channel[c].lvd_disconnect_delay_seconds > 0 ) {
-2254:  MOVF   x20,W
+2254:  MOVF   x1C,W
 2256:  MULLW  19
 2258:  MOVF   FF3,W
-225A:  CLRF   x24
-225C:  MOVWF  x23
+225A:  CLRF   x20
+225C:  MOVWF  x1F
 225E:  MOVLW  09
-2260:  ADDWF  x23,W
+2260:  ADDWF  x1F,W
 2262:  MOVWF  01
 2264:  MOVLW  00
-2266:  ADDWFC x24,W
+2266:  ADDWFC x20,W
 2268:  MOVWF  03
 226A:  MOVF   01,W
 226C:  ADDLW  DA
@@ -5087,24 +5087,24 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2270:  MOVLW  00
 2272:  ADDWFC 03,W
 2274:  MOVWF  FEA
-2276:  MOVFF  FEC,124
+2276:  MOVFF  FEC,120
 227A:  MOVF   FED,F
-227C:  MOVFF  FEF,123
-2280:  MOVF   x23,F
+227C:  MOVFF  FEF,11F
+2280:  MOVF   x1F,F
 2282:  BNZ   2288
-2284:  MOVF   x24,F
+2284:  MOVF   x20,F
 2286:  BZ    22B6
 .................... 				channel[c].lvd_disconnect_delay_seconds--;
-2288:  MOVF   x20,W
+2288:  MOVF   x1C,W
 228A:  MULLW  19
 228C:  MOVF   FF3,W
-228E:  CLRF   x24
-2290:  MOVWF  x23
+228E:  CLRF   x20
+2290:  MOVWF  x1F
 2292:  MOVLW  09
-2294:  ADDWF  x23,W
+2294:  ADDWF  x1F,W
 2296:  MOVWF  01
 2298:  MOVLW  00
-229A:  ADDWFC x24,W
+229A:  ADDWFC x20,W
 229C:  MOVWF  03
 229E:  MOVF   01,W
 22A0:  ADDLW  DA
@@ -5120,16 +5120,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 			} else {
 22B4:  BRA    22D2
 .................... 				bit_set(channel[c].state,CH_STATE_BIT_LVD);
-22B6:  MOVF   x20,W
+22B6:  MOVF   x1C,W
 22B8:  MULLW  19
 22BA:  MOVF   FF3,W
-22BC:  CLRF   x24
-22BE:  MOVWF  x23
+22BC:  CLRF   x20
+22BE:  MOVWF  x1F
 22C0:  MOVLW  DA
-22C2:  ADDWF  x23,W
+22C2:  ADDWF  x1F,W
 22C4:  MOVWF  01
 22C6:  MOVLW  00
-22C8:  ADDWFC x24,W
+22C8:  ADDWFC x20,W
 22CA:  MOVFF  01,FE9
 22CE:  MOVWF  FEA
 22D0:  BSF    FEF.3
@@ -5137,34 +5137,34 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		} else {
 22D2:  BRA    233A
 .................... 			channel[c].lvd_disconnect_delay_seconds=config.ch[c].lvd_disconnect_delay;
-22D4:  MOVF   x20,W
+22D4:  MOVF   x1C,W
 22D6:  MULLW  19
 22D8:  MOVF   FF3,W
-22DA:  CLRF   x24
-22DC:  MOVWF  x23
+22DA:  CLRF   x20
+22DC:  MOVWF  x1F
 22DE:  MOVLW  09
-22E0:  ADDWF  x23,W
+22E0:  ADDWF  x1F,W
 22E2:  MOVWF  01
 22E4:  MOVLW  00
-22E6:  ADDWFC x24,W
+22E6:  ADDWFC x20,W
 22E8:  MOVWF  03
 22EA:  MOVF   01,W
 22EC:  ADDLW  DA
 22EE:  MOVWF  01
 22F0:  MOVLW  00
 22F2:  ADDWFC 03,F
-22F4:  MOVFF  01,123
-22F8:  MOVFF  03,124
-22FC:  MOVF   x20,W
+22F4:  MOVFF  01,11F
+22F8:  MOVFF  03,120
+22FC:  MOVF   x1C,W
 22FE:  MULLW  24
 2300:  MOVF   FF3,W
-2302:  CLRF   x26
-2304:  MOVWF  x25
+2302:  CLRF   x22
+2304:  MOVWF  x21
 2306:  MOVLW  06
-2308:  ADDWF  x25,W
+2308:  ADDWF  x21,W
 230A:  MOVWF  01
 230C:  MOVLW  00
-230E:  ADDWFC x26,W
+230E:  ADDWFC x22,W
 2310:  MOVWF  03
 2312:  MOVF   01,W
 2314:  ADDLW  1B
@@ -5174,27 +5174,27 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 231C:  MOVWF  FEA
 231E:  MOVFF  FEC,03
 2322:  MOVF   FED,F
-2324:  MOVFF  FEF,125
-2328:  MOVFF  124,FEA
-232C:  MOVFF  123,FE9
+2324:  MOVFF  FEF,121
+2328:  MOVFF  120,FEA
+232C:  MOVFF  11F,FE9
 2330:  MOVFF  03,FEC
 2334:  MOVF   FED,F
-2336:  MOVFF  125,FEF
+2336:  MOVFF  121,FEF
 .................... 		}
 .................... 	}
 .................... 
 .................... 	/* HVD. 65535 disables */
 .................... 	if ( 65535 != config.ch[c].hvd_disconnect_delay ) {
-233A:  MOVF   x20,W
+233A:  MOVF   x1C,W
 233C:  MULLW  24
 233E:  MOVF   FF3,W
-2340:  CLRF   x24
-2342:  MOVWF  x23
+2340:  CLRF   x20
+2342:  MOVWF  x1F
 2344:  MOVLW  0E
-2346:  ADDWF  x23,W
+2346:  ADDWF  x1F,W
 2348:  MOVWF  01
 234A:  MOVLW  00
-234C:  ADDWFC x24,W
+234C:  ADDWFC x20,W
 234E:  MOVWF  03
 2350:  MOVF   01,W
 2352:  ADDLW  1B
@@ -5215,26 +5215,26 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2372:  BSF    19.7
 2374:  BCF    FF2.7
 .................... 		adc=adc_get(0);
-2376:  CLRF   x33
+2376:  CLRF   x2F
 2378:  MOVLB  0
 237A:  CALL   0594
 237E:  BTFSC  19.7
 2380:  BSF    FF2.7
-2382:  MOVFF  02,122
-2386:  MOVFF  01,121
+2382:  MOVFF  02,11E
+2386:  MOVFF  01,11D
 .................... 
 .................... 		if ( adc < config.ch[c].hvd_reconnect_adc ) {
 238A:  MOVLB  1
-238C:  MOVF   x20,W
+238C:  MOVF   x1C,W
 238E:  MULLW  24
 2390:  MOVF   FF3,W
-2392:  CLRF   x24
-2394:  MOVWF  x23
+2392:  CLRF   x20
+2394:  MOVWF  x1F
 2396:  MOVLW  10
-2398:  ADDWF  x23,W
+2398:  ADDWF  x1F,W
 239A:  MOVWF  01
 239C:  MOVLW  00
-239E:  ADDWFC x24,W
+239E:  ADDWFC x20,W
 23A0:  MOVWF  03
 23A2:  MOVF   01,W
 23A4:  ADDLW  1B
@@ -5245,24 +5245,24 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 23AE:  MOVFF  FEC,03
 23B2:  MOVF   FED,F
 23B4:  MOVFF  FEF,01
-23B8:  MOVF   x22,W
+23B8:  MOVF   x1E,W
 23BA:  SUBWF  03,W
 23BC:  BNC   2446
 23BE:  BNZ   23C6
 23C0:  MOVF   01,W
-23C2:  SUBWF  x21,W
+23C2:  SUBWF  x1D,W
 23C4:  BC    2446
 .................... 			if ( channel[c].hvd_reconnect_delay_seconds > 0 ) {
-23C6:  MOVF   x20,W
+23C6:  MOVF   x1C,W
 23C8:  MULLW  19
 23CA:  MOVF   FF3,W
-23CC:  CLRF   x24
-23CE:  MOVWF  x23
+23CC:  CLRF   x20
+23CE:  MOVWF  x1F
 23D0:  MOVLW  0F
-23D2:  ADDWF  x23,W
+23D2:  ADDWF  x1F,W
 23D4:  MOVWF  01
 23D6:  MOVLW  00
-23D8:  ADDWFC x24,W
+23D8:  ADDWFC x20,W
 23DA:  MOVWF  03
 23DC:  MOVF   01,W
 23DE:  ADDLW  DA
@@ -5270,24 +5270,24 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 23E2:  MOVLW  00
 23E4:  ADDWFC 03,W
 23E6:  MOVWF  FEA
-23E8:  MOVFF  FEC,124
+23E8:  MOVFF  FEC,120
 23EC:  MOVF   FED,F
-23EE:  MOVFF  FEF,123
-23F2:  MOVF   x23,F
+23EE:  MOVFF  FEF,11F
+23F2:  MOVF   x1F,F
 23F4:  BNZ   23FA
-23F6:  MOVF   x24,F
+23F6:  MOVF   x20,F
 23F8:  BZ    2428
 .................... 				channel[c].hvd_reconnect_delay_seconds--;
-23FA:  MOVF   x20,W
+23FA:  MOVF   x1C,W
 23FC:  MULLW  19
 23FE:  MOVF   FF3,W
-2400:  CLRF   x24
-2402:  MOVWF  x23
+2400:  CLRF   x20
+2402:  MOVWF  x1F
 2404:  MOVLW  0F
-2406:  ADDWF  x23,W
+2406:  ADDWF  x1F,W
 2408:  MOVWF  01
 240A:  MOVLW  00
-240C:  ADDWFC x24,W
+240C:  ADDWFC x20,W
 240E:  MOVWF  03
 2410:  MOVF   01,W
 2412:  ADDLW  DA
@@ -5303,16 +5303,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 			} else {
 2426:  BRA    2444
 .................... 				bit_clear(channel[c].state,CH_STATE_BIT_HVD);
-2428:  MOVF   x20,W
+2428:  MOVF   x1C,W
 242A:  MULLW  19
 242C:  MOVF   FF3,W
-242E:  CLRF   x24
-2430:  MOVWF  x23
+242E:  CLRF   x20
+2430:  MOVWF  x1F
 2432:  MOVLW  DA
-2434:  ADDWF  x23,W
+2434:  ADDWF  x1F,W
 2436:  MOVWF  01
 2438:  MOVLW  00
-243A:  ADDWFC x24,W
+243A:  ADDWFC x20,W
 243C:  MOVFF  01,FE9
 2440:  MOVWF  FEA
 2442:  BCF    FEF.4
@@ -5320,34 +5320,34 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		} else {
 2444:  BRA    24AC
 .................... 			channel[c].hvd_reconnect_delay_seconds=config.ch[c].hvd_reconnect_delay;
-2446:  MOVF   x20,W
+2446:  MOVF   x1C,W
 2448:  MULLW  19
 244A:  MOVF   FF3,W
-244C:  CLRF   x24
-244E:  MOVWF  x23
+244C:  CLRF   x20
+244E:  MOVWF  x1F
 2450:  MOVLW  0F
-2452:  ADDWF  x23,W
+2452:  ADDWF  x1F,W
 2454:  MOVWF  01
 2456:  MOVLW  00
-2458:  ADDWFC x24,W
+2458:  ADDWFC x20,W
 245A:  MOVWF  03
 245C:  MOVF   01,W
 245E:  ADDLW  DA
 2460:  MOVWF  01
 2462:  MOVLW  00
 2464:  ADDWFC 03,F
-2466:  MOVFF  01,123
-246A:  MOVFF  03,124
-246E:  MOVF   x20,W
+2466:  MOVFF  01,11F
+246A:  MOVFF  03,120
+246E:  MOVF   x1C,W
 2470:  MULLW  24
 2472:  MOVF   FF3,W
-2474:  CLRF   x26
-2476:  MOVWF  x25
+2474:  CLRF   x22
+2476:  MOVWF  x21
 2478:  MOVLW  12
-247A:  ADDWF  x25,W
+247A:  ADDWF  x21,W
 247C:  MOVWF  01
 247E:  MOVLW  00
-2480:  ADDWFC x26,W
+2480:  ADDWFC x22,W
 2482:  MOVWF  03
 2484:  MOVF   01,W
 2486:  ADDLW  1B
@@ -5357,25 +5357,25 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 248E:  MOVWF  FEA
 2490:  MOVFF  FEC,03
 2494:  MOVF   FED,F
-2496:  MOVFF  FEF,125
-249A:  MOVFF  124,FEA
-249E:  MOVFF  123,FE9
+2496:  MOVFF  FEF,121
+249A:  MOVFF  120,FEA
+249E:  MOVFF  11F,FE9
 24A2:  MOVFF  03,FEC
 24A6:  MOVF   FED,F
-24A8:  MOVFF  125,FEF
+24A8:  MOVFF  121,FEF
 .................... 		}
 .................... 
 .................... 		if ( adc > config.ch[c].hvd_disconnect_adc ) {
-24AC:  MOVF   x20,W
+24AC:  MOVF   x1C,W
 24AE:  MULLW  24
 24B0:  MOVF   FF3,W
-24B2:  CLRF   x24
-24B4:  MOVWF  x23
+24B2:  CLRF   x20
+24B4:  MOVWF  x1F
 24B6:  MOVLW  0C
-24B8:  ADDWF  x23,W
+24B8:  ADDWF  x1F,W
 24BA:  MOVWF  01
 24BC:  MOVLW  00
-24BE:  ADDWFC x24,W
+24BE:  ADDWFC x20,W
 24C0:  MOVWF  03
 24C2:  MOVF   01,W
 24C4:  ADDLW  1B
@@ -5387,23 +5387,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 24D2:  MOVF   FED,F
 24D4:  MOVFF  FEF,01
 24D8:  MOVF   03,W
-24DA:  SUBWF  x22,W
+24DA:  SUBWF  x1E,W
 24DC:  BNC   2566
 24DE:  BNZ   24E6
-24E0:  MOVF   x21,W
+24E0:  MOVF   x1D,W
 24E2:  SUBWF  01,W
 24E4:  BC    2566
 .................... 			if ( channel[c].hvd_disconnect_delay_seconds > 0 ) {
-24E6:  MOVF   x20,W
+24E6:  MOVF   x1C,W
 24E8:  MULLW  19
 24EA:  MOVF   FF3,W
-24EC:  CLRF   x24
-24EE:  MOVWF  x23
+24EC:  CLRF   x20
+24EE:  MOVWF  x1F
 24F0:  MOVLW  0D
-24F2:  ADDWF  x23,W
+24F2:  ADDWF  x1F,W
 24F4:  MOVWF  01
 24F6:  MOVLW  00
-24F8:  ADDWFC x24,W
+24F8:  ADDWFC x20,W
 24FA:  MOVWF  03
 24FC:  MOVF   01,W
 24FE:  ADDLW  DA
@@ -5411,24 +5411,24 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2502:  MOVLW  00
 2504:  ADDWFC 03,W
 2506:  MOVWF  FEA
-2508:  MOVFF  FEC,124
+2508:  MOVFF  FEC,120
 250C:  MOVF   FED,F
-250E:  MOVFF  FEF,123
-2512:  MOVF   x23,F
+250E:  MOVFF  FEF,11F
+2512:  MOVF   x1F,F
 2514:  BNZ   251A
-2516:  MOVF   x24,F
+2516:  MOVF   x20,F
 2518:  BZ    2548
 .................... 				channel[c].hvd_disconnect_delay_seconds--;
-251A:  MOVF   x20,W
+251A:  MOVF   x1C,W
 251C:  MULLW  19
 251E:  MOVF   FF3,W
-2520:  CLRF   x24
-2522:  MOVWF  x23
+2520:  CLRF   x20
+2522:  MOVWF  x1F
 2524:  MOVLW  0D
-2526:  ADDWF  x23,W
+2526:  ADDWF  x1F,W
 2528:  MOVWF  01
 252A:  MOVLW  00
-252C:  ADDWFC x24,W
+252C:  ADDWFC x20,W
 252E:  MOVWF  03
 2530:  MOVF   01,W
 2532:  ADDLW  DA
@@ -5444,16 +5444,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 			} else {
 2546:  BRA    2564
 .................... 				bit_set(channel[c].state,CH_STATE_BIT_HVD);
-2548:  MOVF   x20,W
+2548:  MOVF   x1C,W
 254A:  MULLW  19
 254C:  MOVF   FF3,W
-254E:  CLRF   x24
-2550:  MOVWF  x23
+254E:  CLRF   x20
+2550:  MOVWF  x1F
 2552:  MOVLW  DA
-2554:  ADDWF  x23,W
+2554:  ADDWF  x1F,W
 2556:  MOVWF  01
 2558:  MOVLW  00
-255A:  ADDWFC x24,W
+255A:  ADDWFC x20,W
 255C:  MOVFF  01,FE9
 2560:  MOVWF  FEA
 2562:  BSF    FEF.4
@@ -5461,34 +5461,34 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		} else {
 2564:  BRA    25CC
 .................... 			channel[c].hvd_disconnect_delay_seconds=config.ch[c].hvd_disconnect_delay;
-2566:  MOVF   x20,W
+2566:  MOVF   x1C,W
 2568:  MULLW  19
 256A:  MOVF   FF3,W
-256C:  CLRF   x24
-256E:  MOVWF  x23
+256C:  CLRF   x20
+256E:  MOVWF  x1F
 2570:  MOVLW  0D
-2572:  ADDWF  x23,W
+2572:  ADDWF  x1F,W
 2574:  MOVWF  01
 2576:  MOVLW  00
-2578:  ADDWFC x24,W
+2578:  ADDWFC x20,W
 257A:  MOVWF  03
 257C:  MOVF   01,W
 257E:  ADDLW  DA
 2580:  MOVWF  01
 2582:  MOVLW  00
 2584:  ADDWFC 03,F
-2586:  MOVFF  01,123
-258A:  MOVFF  03,124
-258E:  MOVF   x20,W
+2586:  MOVFF  01,11F
+258A:  MOVFF  03,120
+258E:  MOVF   x1C,W
 2590:  MULLW  24
 2592:  MOVF   FF3,W
-2594:  CLRF   x26
-2596:  MOVWF  x25
+2594:  CLRF   x22
+2596:  MOVWF  x21
 2598:  MOVLW  0E
-259A:  ADDWF  x25,W
+259A:  ADDWF  x21,W
 259C:  MOVWF  01
 259E:  MOVLW  00
-25A0:  ADDWFC x26,W
+25A0:  ADDWFC x22,W
 25A2:  MOVWF  03
 25A4:  MOVF   01,W
 25A6:  ADDLW  1B
@@ -5498,27 +5498,27 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 25AE:  MOVWF  FEA
 25B0:  MOVFF  FEC,03
 25B4:  MOVF   FED,F
-25B6:  MOVFF  FEF,125
-25BA:  MOVFF  124,FEA
-25BE:  MOVFF  123,FE9
+25B6:  MOVFF  FEF,121
+25BA:  MOVFF  120,FEA
+25BE:  MOVFF  11F,FE9
 25C2:  MOVFF  03,FEC
 25C6:  MOVF   FED,F
-25C8:  MOVFF  125,FEF
+25C8:  MOVFF  121,FEF
 .................... 		}
 .................... 	}
 .................... 
 .................... 	/* LTD. 65535 disables */
 .................... 	if ( 65535 != config.ch[c].ltd_disconnect_delay ) {
-25CC:  MOVF   x20,W
+25CC:  MOVF   x1C,W
 25CE:  MULLW  24
 25D0:  MOVF   FF3,W
-25D2:  CLRF   x24
-25D4:  MOVWF  x23
+25D2:  CLRF   x20
+25D4:  MOVWF  x1F
 25D6:  MOVLW  16
-25D8:  ADDWF  x23,W
+25D8:  ADDWF  x1F,W
 25DA:  MOVWF  01
 25DC:  MOVLW  00
-25DE:  ADDWFC x24,W
+25DE:  ADDWFC x20,W
 25E0:  MOVWF  03
 25E2:  MOVF   01,W
 25E4:  ADDLW  1B
@@ -5540,26 +5540,26 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2606:  BCF    FF2.7
 .................... 		adc=adc_get(1);
 2608:  MOVLW  01
-260A:  MOVWF  x33
+260A:  MOVWF  x2F
 260C:  MOVLB  0
 260E:  CALL   0594
 2612:  BTFSC  19.7
 2614:  BSF    FF2.7
-2616:  MOVFF  02,122
-261A:  MOVFF  01,121
+2616:  MOVFF  02,11E
+261A:  MOVFF  01,11D
 .................... 
 .................... 		if ( adc < config.ch[c].ltd_reconnect_adc ) {
 261E:  MOVLB  1
-2620:  MOVF   x20,W
+2620:  MOVF   x1C,W
 2622:  MULLW  24
 2624:  MOVF   FF3,W
-2626:  CLRF   x24
-2628:  MOVWF  x23
+2626:  CLRF   x20
+2628:  MOVWF  x1F
 262A:  MOVLW  18
-262C:  ADDWF  x23,W
+262C:  ADDWF  x1F,W
 262E:  MOVWF  01
 2630:  MOVLW  00
-2632:  ADDWFC x24,W
+2632:  ADDWFC x20,W
 2634:  MOVWF  03
 2636:  MOVF   01,W
 2638:  ADDLW  1B
@@ -5570,24 +5570,24 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2642:  MOVFF  FEC,03
 2646:  MOVF   FED,F
 2648:  MOVFF  FEF,01
-264C:  MOVF   x22,W
+264C:  MOVF   x1E,W
 264E:  SUBWF  03,W
 2650:  BNC   26DA
 2652:  BNZ   265A
 2654:  MOVF   01,W
-2656:  SUBWF  x21,W
+2656:  SUBWF  x1D,W
 2658:  BC    26DA
 .................... 			if ( channel[c].ltd_reconnect_delay_seconds > 0 ) {
-265A:  MOVF   x20,W
+265A:  MOVF   x1C,W
 265C:  MULLW  19
 265E:  MOVF   FF3,W
-2660:  CLRF   x24
-2662:  MOVWF  x23
+2660:  CLRF   x20
+2662:  MOVWF  x1F
 2664:  MOVLW  13
-2666:  ADDWF  x23,W
+2666:  ADDWF  x1F,W
 2668:  MOVWF  01
 266A:  MOVLW  00
-266C:  ADDWFC x24,W
+266C:  ADDWFC x20,W
 266E:  MOVWF  03
 2670:  MOVF   01,W
 2672:  ADDLW  DA
@@ -5595,24 +5595,24 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2676:  MOVLW  00
 2678:  ADDWFC 03,W
 267A:  MOVWF  FEA
-267C:  MOVFF  FEC,124
+267C:  MOVFF  FEC,120
 2680:  MOVF   FED,F
-2682:  MOVFF  FEF,123
-2686:  MOVF   x23,F
+2682:  MOVFF  FEF,11F
+2686:  MOVF   x1F,F
 2688:  BNZ   268E
-268A:  MOVF   x24,F
+268A:  MOVF   x20,F
 268C:  BZ    26BC
 .................... 				channel[c].ltd_reconnect_delay_seconds--;
-268E:  MOVF   x20,W
+268E:  MOVF   x1C,W
 2690:  MULLW  19
 2692:  MOVF   FF3,W
-2694:  CLRF   x24
-2696:  MOVWF  x23
+2694:  CLRF   x20
+2696:  MOVWF  x1F
 2698:  MOVLW  13
-269A:  ADDWF  x23,W
+269A:  ADDWF  x1F,W
 269C:  MOVWF  01
 269E:  MOVLW  00
-26A0:  ADDWFC x24,W
+26A0:  ADDWFC x20,W
 26A2:  MOVWF  03
 26A4:  MOVF   01,W
 26A6:  ADDLW  DA
@@ -5628,16 +5628,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 			} else {
 26BA:  BRA    26D8
 .................... 				bit_clear(channel[c].state,CH_STATE_BIT_LTD);
-26BC:  MOVF   x20,W
+26BC:  MOVF   x1C,W
 26BE:  MULLW  19
 26C0:  MOVF   FF3,W
-26C2:  CLRF   x24
-26C4:  MOVWF  x23
+26C2:  CLRF   x20
+26C4:  MOVWF  x1F
 26C6:  MOVLW  DA
-26C8:  ADDWF  x23,W
+26C8:  ADDWF  x1F,W
 26CA:  MOVWF  01
 26CC:  MOVLW  00
-26CE:  ADDWFC x24,W
+26CE:  ADDWFC x20,W
 26D0:  MOVFF  01,FE9
 26D4:  MOVWF  FEA
 26D6:  BCF    FEF.5
@@ -5645,34 +5645,34 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		} else {
 26D8:  BRA    2740
 .................... 			channel[c].ltd_reconnect_delay_seconds=config.ch[c].ltd_reconnect_delay;
-26DA:  MOVF   x20,W
+26DA:  MOVF   x1C,W
 26DC:  MULLW  19
 26DE:  MOVF   FF3,W
-26E0:  CLRF   x24
-26E2:  MOVWF  x23
+26E0:  CLRF   x20
+26E2:  MOVWF  x1F
 26E4:  MOVLW  13
-26E6:  ADDWF  x23,W
+26E6:  ADDWF  x1F,W
 26E8:  MOVWF  01
 26EA:  MOVLW  00
-26EC:  ADDWFC x24,W
+26EC:  ADDWFC x20,W
 26EE:  MOVWF  03
 26F0:  MOVF   01,W
 26F2:  ADDLW  DA
 26F4:  MOVWF  01
 26F6:  MOVLW  00
 26F8:  ADDWFC 03,F
-26FA:  MOVFF  01,123
-26FE:  MOVFF  03,124
-2702:  MOVF   x20,W
+26FA:  MOVFF  01,11F
+26FE:  MOVFF  03,120
+2702:  MOVF   x1C,W
 2704:  MULLW  24
 2706:  MOVF   FF3,W
-2708:  CLRF   x26
-270A:  MOVWF  x25
+2708:  CLRF   x22
+270A:  MOVWF  x21
 270C:  MOVLW  1A
-270E:  ADDWF  x25,W
+270E:  ADDWF  x21,W
 2710:  MOVWF  01
 2712:  MOVLW  00
-2714:  ADDWFC x26,W
+2714:  ADDWFC x22,W
 2716:  MOVWF  03
 2718:  MOVF   01,W
 271A:  ADDLW  1B
@@ -5682,25 +5682,25 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2722:  MOVWF  FEA
 2724:  MOVFF  FEC,03
 2728:  MOVF   FED,F
-272A:  MOVFF  FEF,125
-272E:  MOVFF  124,FEA
-2732:  MOVFF  123,FE9
+272A:  MOVFF  FEF,121
+272E:  MOVFF  120,FEA
+2732:  MOVFF  11F,FE9
 2736:  MOVFF  03,FEC
 273A:  MOVF   FED,F
-273C:  MOVFF  125,FEF
+273C:  MOVFF  121,FEF
 .................... 		}
 .................... 
 .................... 		if ( adc > config.ch[c].ltd_disconnect_adc ) {
-2740:  MOVF   x20,W
+2740:  MOVF   x1C,W
 2742:  MULLW  24
 2744:  MOVF   FF3,W
-2746:  CLRF   x24
-2748:  MOVWF  x23
+2746:  CLRF   x20
+2748:  MOVWF  x1F
 274A:  MOVLW  14
-274C:  ADDWF  x23,W
+274C:  ADDWF  x1F,W
 274E:  MOVWF  01
 2750:  MOVLW  00
-2752:  ADDWFC x24,W
+2752:  ADDWFC x20,W
 2754:  MOVWF  03
 2756:  MOVF   01,W
 2758:  ADDLW  1B
@@ -5712,23 +5712,23 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2766:  MOVF   FED,F
 2768:  MOVFF  FEF,01
 276C:  MOVF   03,W
-276E:  SUBWF  x22,W
+276E:  SUBWF  x1E,W
 2770:  BNC   27FA
 2772:  BNZ   277A
-2774:  MOVF   x21,W
+2774:  MOVF   x1D,W
 2776:  SUBWF  01,W
 2778:  BC    27FA
 .................... 			if ( channel[c].ltd_disconnect_delay_seconds > 0 ) {
-277A:  MOVF   x20,W
+277A:  MOVF   x1C,W
 277C:  MULLW  19
 277E:  MOVF   FF3,W
-2780:  CLRF   x24
-2782:  MOVWF  x23
+2780:  CLRF   x20
+2782:  MOVWF  x1F
 2784:  MOVLW  11
-2786:  ADDWF  x23,W
+2786:  ADDWF  x1F,W
 2788:  MOVWF  01
 278A:  MOVLW  00
-278C:  ADDWFC x24,W
+278C:  ADDWFC x20,W
 278E:  MOVWF  03
 2790:  MOVF   01,W
 2792:  ADDLW  DA
@@ -5736,24 +5736,24 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2796:  MOVLW  00
 2798:  ADDWFC 03,W
 279A:  MOVWF  FEA
-279C:  MOVFF  FEC,124
+279C:  MOVFF  FEC,120
 27A0:  MOVF   FED,F
-27A2:  MOVFF  FEF,123
-27A6:  MOVF   x23,F
+27A2:  MOVFF  FEF,11F
+27A6:  MOVF   x1F,F
 27A8:  BNZ   27AE
-27AA:  MOVF   x24,F
+27AA:  MOVF   x20,F
 27AC:  BZ    27DC
 .................... 				channel[c].ltd_disconnect_delay_seconds--;
-27AE:  MOVF   x20,W
+27AE:  MOVF   x1C,W
 27B0:  MULLW  19
 27B2:  MOVF   FF3,W
-27B4:  CLRF   x24
-27B6:  MOVWF  x23
+27B4:  CLRF   x20
+27B6:  MOVWF  x1F
 27B8:  MOVLW  11
-27BA:  ADDWF  x23,W
+27BA:  ADDWF  x1F,W
 27BC:  MOVWF  01
 27BE:  MOVLW  00
-27C0:  ADDWFC x24,W
+27C0:  ADDWFC x20,W
 27C2:  MOVWF  03
 27C4:  MOVF   01,W
 27C6:  ADDLW  DA
@@ -5769,16 +5769,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 			} else {
 27DA:  BRA    27F8
 .................... 				bit_set(channel[c].state,CH_STATE_BIT_LTD);
-27DC:  MOVF   x20,W
+27DC:  MOVF   x1C,W
 27DE:  MULLW  19
 27E0:  MOVF   FF3,W
-27E2:  CLRF   x24
-27E4:  MOVWF  x23
+27E2:  CLRF   x20
+27E4:  MOVWF  x1F
 27E6:  MOVLW  DA
-27E8:  ADDWF  x23,W
+27E8:  ADDWF  x1F,W
 27EA:  MOVWF  01
 27EC:  MOVLW  00
-27EE:  ADDWFC x24,W
+27EE:  ADDWFC x20,W
 27F0:  MOVFF  01,FE9
 27F4:  MOVWF  FEA
 27F6:  BSF    FEF.5
@@ -5786,34 +5786,34 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 		} else {
 27F8:  BRA    2860
 .................... 			channel[c].ltd_disconnect_delay_seconds=config.ch[c].ltd_disconnect_delay;
-27FA:  MOVF   x20,W
+27FA:  MOVF   x1C,W
 27FC:  MULLW  19
 27FE:  MOVF   FF3,W
-2800:  CLRF   x24
-2802:  MOVWF  x23
+2800:  CLRF   x20
+2802:  MOVWF  x1F
 2804:  MOVLW  11
-2806:  ADDWF  x23,W
+2806:  ADDWF  x1F,W
 2808:  MOVWF  01
 280A:  MOVLW  00
-280C:  ADDWFC x24,W
+280C:  ADDWFC x20,W
 280E:  MOVWF  03
 2810:  MOVF   01,W
 2812:  ADDLW  DA
 2814:  MOVWF  01
 2816:  MOVLW  00
 2818:  ADDWFC 03,F
-281A:  MOVFF  01,123
-281E:  MOVFF  03,124
-2822:  MOVF   x20,W
+281A:  MOVFF  01,11F
+281E:  MOVFF  03,120
+2822:  MOVF   x1C,W
 2824:  MULLW  24
 2826:  MOVF   FF3,W
-2828:  CLRF   x26
-282A:  MOVWF  x25
+2828:  CLRF   x22
+282A:  MOVWF  x21
 282C:  MOVLW  16
-282E:  ADDWF  x25,W
+282E:  ADDWF  x21,W
 2830:  MOVWF  01
 2832:  MOVLW  00
-2834:  ADDWFC x26,W
+2834:  ADDWFC x22,W
 2836:  MOVWF  03
 2838:  MOVF   01,W
 283A:  ADDLW  1B
@@ -5823,12 +5823,12 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2842:  MOVWF  FEA
 2844:  MOVFF  FEC,03
 2848:  MOVF   FED,F
-284A:  MOVFF  FEF,125
-284E:  MOVFF  124,FEA
-2852:  MOVFF  123,FE9
+284A:  MOVFF  FEF,121
+284E:  MOVFF  120,FEA
+2852:  MOVFF  11F,FE9
 2856:  MOVFF  03,FEC
 285A:  MOVF   FED,F
-285C:  MOVFF  125,FEF
+285C:  MOVFF  121,FEF
 .................... 		}
 .................... 	}
 2860:  MOVLB  0
@@ -5840,7 +5840,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 
 .................... 
 .................... void led_status_second_update(void) {
-.................... 	static int1 second=0;
+.................... 	static int8 second=0;
 .................... 	static int8 cycle=0;
 .................... 	int8 led;
 .................... 
@@ -5848,37 +5848,37 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	if ( second ) {
 *
 2A62:  MOVLB  1
-2A64:  BTFSS  x13.0
-2A66:  BRA    2A6C
+2A64:  MOVF   x13,F
+2A66:  BZ    2A6C
 .................... 		second=0;
-2A68:  BCF    x13.0
+2A68:  CLRF   x13
 .................... 		return;
-2A6A:  BRA    2BEA
+2A6A:  BRA    2C14
 .................... 	}
 .................... 
 .................... 	for ( led=0 ; led<2 ; led++ ) {
-2A6C:  CLRF   x20
-2A6E:  MOVF   x20,W
+2A6C:  CLRF   x1C
+2A6E:  MOVF   x1C,W
 2A70:  SUBLW  01
-2A72:  BNC   2B1E
+2A72:  BNC   2B48
 .................... 		if ( cycle < 8 ) {
 2A74:  MOVF   x14,W
 2A76:  SUBLW  07
-2A78:  BNC   2ACE
+2A78:  BNC   2AE0
 .................... 			/* first 8 cycles are 8 bits of state bit field */
 .................... 
 .................... 			/* if bit is set, then we blink the number of times+1 of the bit we are in. So bit 1 set means we blink 2 times */
 .................... 			if ( bit_test(channel[led].state,cycle) ) {
-2A7A:  MOVF   x20,W
+2A7A:  MOVF   x1C,W
 2A7C:  MULLW  19
 2A7E:  MOVF   FF3,W
-2A80:  CLRF   x22
-2A82:  MOVWF  x21
+2A80:  CLRF   x1E
+2A82:  MOVWF  x1D
 2A84:  MOVLW  DA
-2A86:  ADDWF  x21,W
+2A86:  ADDWF  x1D,W
 2A88:  MOVWF  FE9
 2A8A:  MOVLW  00
-2A8C:  ADDWFC x22,W
+2A8C:  ADDWFC x1E,W
 2A8E:  MOVWF  FEA
 2A90:  MOVFF  FEF,00
 2A94:  MOVF   x14,W
@@ -5889,10 +5889,10 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2A9E:  DECFSZ 01,F
 2AA0:  BRA    2A9A
 2AA2:  BTFSS  00.0
-2AA4:  BRA    2ABC
-.................... 				timers.led_blink[led]=cycle+1;
+2AA4:  BRA    2ACE
+.................... 				timers.led_blink[led]=cycle+1;      /* number of blinks */
 2AA6:  CLRF   03
-2AA8:  MOVF   x20,W
+2AA8:  MOVF   x1C,W
 2AAA:  ADDLW  D0
 2AAC:  MOVWF  FE9
 2AAE:  MOVLW  00
@@ -5901,181 +5901,206 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 2AB4:  MOVLW  01
 2AB6:  ADDWF  x14,W
 2AB8:  MOVWF  FEF
+.................... 				timers.led_on[led]=BLINK_ON_TIME;   /* how long to be on */
+2ABA:  CLRF   03
+2ABC:  MOVF   x1C,W
+2ABE:  ADDLW  D2
+2AC0:  MOVWF  FE9
+2AC2:  MOVLW  00
+2AC4:  ADDWFC 03,W
+2AC6:  MOVWF  FEA
+2AC8:  MOVLW  FA
+2ACA:  MOVWF  FEF
 .................... 			} else {
-2ABA:  BRA    2ACC
+2ACC:  BRA    2ADE
 .................... 				timers.led_blink[led]=0;
-2ABC:  CLRF   03
-2ABE:  MOVF   x20,W
-2AC0:  ADDLW  D0
-2AC2:  MOVWF  FE9
-2AC4:  MOVLW  00
-2AC6:  ADDWFC 03,W
-2AC8:  MOVWF  FEA
-2ACA:  CLRF   FEF
+2ACE:  CLRF   03
+2AD0:  MOVF   x1C,W
+2AD2:  ADDLW  D0
+2AD4:  MOVWF  FE9
+2AD6:  MOVLW  00
+2AD8:  ADDWFC 03,W
+2ADA:  MOVWF  FEA
+2ADC:  CLRF   FEF
 .................... 			}
 .................... 		} else if ( 8 == cycle ) {
-2ACC:  BRA    2B1A
-2ACE:  MOVF   x14,W
-2AD0:  SUBLW  08
-2AD2:  BNZ   2AE6
+2ADE:  BRA    2B44
+2AE0:  MOVF   x14,W
+2AE2:  SUBLW  08
+2AE4:  BNZ   2AF8
 .................... 			/* solid light to mark start of next cycle */
 .................... 			timers.led_blink[led]=255;
-2AD4:  CLRF   03
-2AD6:  MOVF   x20,W
-2AD8:  ADDLW  D0
-2ADA:  MOVWF  FE9
-2ADC:  MOVLW  00
-2ADE:  ADDWFC 03,W
-2AE0:  MOVWF  FEA
-2AE2:  SETF   FEF
-.................... 		} else {
-2AE4:  BRA    2B1A
-.................... 			/* solid on if contactor state is on, otherwise off */
-.................... 			if ( timers.contactor[led] ) {
 2AE6:  CLRF   03
-2AE8:  MOVF   x20,W
-2AEA:  ADDLW  D6
+2AE8:  MOVF   x1C,W
+2AEA:  ADDLW  D0
 2AEC:  MOVWF  FE9
 2AEE:  MOVLW  00
 2AF0:  ADDWFC 03,W
 2AF2:  MOVWF  FEA
-2AF4:  MOVF   FEF,F
-2AF6:  BZ    2B0A
+2AF4:  SETF   FEF
+.................... 		} else if ( 9 == cycle ) {
+2AF6:  BRA    2B44
+2AF8:  MOVF   x14,W
+2AFA:  SUBLW  09
+2AFC:  BNZ   2B34
+.................... 			/* solid on if contactor state is on, otherwise off */
+.................... 			if ( timers.contactor[led] ) {
+2AFE:  CLRF   03
+2B00:  MOVF   x1C,W
+2B02:  ADDLW  D6
+2B04:  MOVWF  FE9
+2B06:  MOVLW  00
+2B08:  ADDWFC 03,W
+2B0A:  MOVWF  FEA
+2B0C:  MOVF   FEF,F
+2B0E:  BZ    2B22
 .................... 				timers.led_blink[led]=255;
-2AF8:  CLRF   03
-2AFA:  MOVF   x20,W
-2AFC:  ADDLW  D0
-2AFE:  MOVWF  FE9
-2B00:  MOVLW  00
-2B02:  ADDWFC 03,W
-2B04:  MOVWF  FEA
-2B06:  SETF   FEF
+2B10:  CLRF   03
+2B12:  MOVF   x1C,W
+2B14:  ADDLW  D0
+2B16:  MOVWF  FE9
+2B18:  MOVLW  00
+2B1A:  ADDWFC 03,W
+2B1C:  MOVWF  FEA
+2B1E:  SETF   FEF
 .................... 			} else {
-2B08:  BRA    2B1A
+2B20:  BRA    2B32
 .................... 				timers.led_blink[led]=0;
-2B0A:  CLRF   03
-2B0C:  MOVF   x20,W
-2B0E:  ADDLW  D0
-2B10:  MOVWF  FE9
-2B12:  MOVLW  00
-2B14:  ADDWFC 03,W
-2B16:  MOVWF  FEA
-2B18:  CLRF   FEF
+2B22:  CLRF   03
+2B24:  MOVF   x1C,W
+2B26:  ADDLW  D0
+2B28:  MOVWF  FE9
+2B2A:  MOVLW  00
+2B2C:  ADDWFC 03,W
+2B2E:  MOVWF  FEA
+2B30:  CLRF   FEF
 .................... 			}
+.................... 		} else {
+2B32:  BRA    2B44
+.................... 			/* blank period before starting the bit field */
+.................... 			timers.led_blink[led]=0;
+2B34:  CLRF   03
+2B36:  MOVF   x1C,W
+2B38:  ADDLW  D0
+2B3A:  MOVWF  FE9
+2B3C:  MOVLW  00
+2B3E:  ADDWFC 03,W
+2B40:  MOVWF  FEA
+2B42:  CLRF   FEF
 .................... 		}
-2B1A:  INCF   x20,F
-2B1C:  BRA    2A6E
+2B44:  INCF   x1C,F
+2B46:  BRA    2A6E
 .................... 	}
 .................... 
 .................... 	fprintf(STREAM_FTDI,"# LED %u A=%03u (0x%02X) B=%03u (0x%02X)\r\n",cycle,timers.led_blink[0],channel[0].state,timers.led_blink[1],channel[1].state);
-2B1E:  MOVLW  F4
-2B20:  MOVWF  FF6
-2B22:  MOVLW  13
-2B24:  MOVWF  FF7
-2B26:  MOVLW  06
-2B28:  MOVWF  x21
-2B2A:  MOVLB  0
-2B2C:  CALL   1BA2
-2B30:  MOVFF  114,121
-2B34:  MOVLW  1B
-2B36:  MOVLB  1
-2B38:  MOVWF  x22
-2B3A:  MOVLB  0
-2B3C:  RCALL  299E
-2B3E:  MOVLW  FC
-2B40:  MOVWF  FF6
-2B42:  MOVLW  13
-2B44:  MOVWF  FF7
-2B46:  MOVLW  03
-2B48:  MOVLB  1
-2B4A:  MOVWF  x21
-2B4C:  MOVLB  0
-2B4E:  CALL   1BA2
-2B52:  MOVFF  D0,121
-2B56:  MOVLW  03
-2B58:  MOVLB  1
-2B5A:  MOVWF  x22
-2B5C:  MOVLB  0
-2B5E:  RCALL  299E
-2B60:  MOVLW  03
-2B62:  MOVWF  FF6
-2B64:  MOVLW  14
-2B66:  MOVWF  FF7
-2B68:  MOVLW  04
-2B6A:  MOVLB  1
-2B6C:  MOVWF  x21
-2B6E:  MOVLB  0
-2B70:  CALL   1BA2
-2B74:  MOVFF  DA,121
-2B78:  MOVLW  37
-2B7A:  MOVLB  1
-2B7C:  MOVWF  x22
-2B7E:  MOVLB  0
-2B80:  RCALL  2A1C
-2B82:  MOVLW  0B
-2B84:  MOVWF  FF6
-2B86:  MOVLW  14
-2B88:  MOVWF  FF7
-2B8A:  MOVLW  04
-2B8C:  MOVLB  1
-2B8E:  MOVWF  x21
-2B90:  MOVLB  0
-2B92:  CALL   1BA2
-2B96:  MOVFF  D1,121
-2B9A:  MOVLW  03
-2B9C:  MOVLB  1
-2B9E:  MOVWF  x22
-2BA0:  MOVLB  0
-2BA2:  RCALL  299E
-2BA4:  MOVLW  13
-2BA6:  MOVWF  FF6
-2BA8:  MOVLW  14
-2BAA:  MOVWF  FF7
-2BAC:  MOVLW  04
-2BAE:  MOVLB  1
-2BB0:  MOVWF  x21
-2BB2:  MOVLB  0
-2BB4:  CALL   1BA2
-2BB8:  MOVFF  F3,121
-2BBC:  MOVLW  37
-2BBE:  MOVLB  1
-2BC0:  MOVWF  x22
-2BC2:  MOVLB  0
-2BC4:  RCALL  2A1C
-2BC6:  MOVLW  1B
-2BC8:  MOVWF  FF6
-2BCA:  MOVLW  14
-2BCC:  MOVWF  FF7
-2BCE:  MOVLW  03
-2BD0:  MOVLB  1
-2BD2:  MOVWF  x21
-2BD4:  MOVLB  0
-2BD6:  CALL   1BA2
+2B48:  MOVLW  F4
+2B4A:  MOVWF  FF6
+2B4C:  MOVLW  13
+2B4E:  MOVWF  FF7
+2B50:  MOVLW  06
+2B52:  MOVWF  x1D
+2B54:  MOVLB  0
+2B56:  CALL   1BA2
+2B5A:  MOVFF  114,11D
+2B5E:  MOVLW  1B
+2B60:  MOVLB  1
+2B62:  MOVWF  x1E
+2B64:  MOVLB  0
+2B66:  RCALL  299E
+2B68:  MOVLW  FC
+2B6A:  MOVWF  FF6
+2B6C:  MOVLW  13
+2B6E:  MOVWF  FF7
+2B70:  MOVLW  03
+2B72:  MOVLB  1
+2B74:  MOVWF  x1D
+2B76:  MOVLB  0
+2B78:  CALL   1BA2
+2B7C:  MOVFF  D0,11D
+2B80:  MOVLW  03
+2B82:  MOVLB  1
+2B84:  MOVWF  x1E
+2B86:  MOVLB  0
+2B88:  RCALL  299E
+2B8A:  MOVLW  03
+2B8C:  MOVWF  FF6
+2B8E:  MOVLW  14
+2B90:  MOVWF  FF7
+2B92:  MOVLW  04
+2B94:  MOVLB  1
+2B96:  MOVWF  x1D
+2B98:  MOVLB  0
+2B9A:  CALL   1BA2
+2B9E:  MOVFF  DA,11D
+2BA2:  MOVLW  37
+2BA4:  MOVLB  1
+2BA6:  MOVWF  x1E
+2BA8:  MOVLB  0
+2BAA:  RCALL  2A1C
+2BAC:  MOVLW  0B
+2BAE:  MOVWF  FF6
+2BB0:  MOVLW  14
+2BB2:  MOVWF  FF7
+2BB4:  MOVLW  04
+2BB6:  MOVLB  1
+2BB8:  MOVWF  x1D
+2BBA:  MOVLB  0
+2BBC:  CALL   1BA2
+2BC0:  MOVFF  D1,11D
+2BC4:  MOVLW  03
+2BC6:  MOVLB  1
+2BC8:  MOVWF  x1E
+2BCA:  MOVLB  0
+2BCC:  RCALL  299E
+2BCE:  MOVLW  13
+2BD0:  MOVWF  FF6
+2BD2:  MOVLW  14
+2BD4:  MOVWF  FF7
+2BD6:  MOVLW  04
+2BD8:  MOVLB  1
+2BDA:  MOVWF  x1D
+2BDC:  MOVLB  0
+2BDE:  CALL   1BA2
+2BE2:  MOVFF  F3,11D
+2BE6:  MOVLW  37
+2BE8:  MOVLB  1
+2BEA:  MOVWF  x1E
+2BEC:  MOVLB  0
+2BEE:  RCALL  2A1C
+2BF0:  MOVLW  1B
+2BF2:  MOVWF  FF6
+2BF4:  MOVLW  14
+2BF6:  MOVWF  FF7
+2BF8:  MOVLW  03
+2BFA:  MOVLB  1
+2BFC:  MOVWF  x1D
+2BFE:  MOVLB  0
+2C00:  CALL   1BA2
 .................... 
-.................... 	if ( 9 == cycle ) {
-2BDA:  MOVLB  1
-2BDC:  MOVF   x14,W
-2BDE:  SUBLW  09
-2BE0:  BNZ   2BE6
+.................... 	if ( 10 == cycle ) {
+2C04:  MOVLB  1
+2C06:  MOVF   x14,W
+2C08:  SUBLW  0A
+2C0A:  BNZ   2C10
 .................... 		cycle=0; 
-2BE2:  CLRF   x14
+2C0C:  CLRF   x14
 .................... 	} else {
-2BE4:  BRA    2BE8
+2C0E:  BRA    2C12
 .................... 		cycle++;
-2BE6:  INCF   x14,F
+2C10:  INCF   x14,F
 .................... 	}
 .................... 
-.................... 	second=1;
-2BE8:  BSF    x13.0
-2BEA:  MOVLB  0
-2BEC:  GOTO   2DCE (RETURN)
+.................... 	second++;
+2C12:  INCF   x13,F
+2C14:  MOVLB  0
+2C16:  GOTO   2DBA (RETURN)
 .................... }
 .................... 
 .................... void led_on(int8 c) {
 .................... 	if ( 0==c ) 
 *
 1C8C:  MOVLB  1
-1C8E:  MOVF   x20,F
+1C8E:  MOVF   x1C,F
 1C90:  BNZ   1C98
 .................... 		output_high(LED_A);
 1C92:  BCF    F94.1
@@ -6092,7 +6117,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... void led_off(int8 c) {
 .................... 	if ( 0==c ) 
 1CA0:  MOVLB  1
-1CA2:  MOVF   x20,F
+1CA2:  MOVF   x1C,F
 1CA4:  BNZ   1CAC
 .................... 		output_low(LED_A);
 1CA6:  BCF    F94.1
@@ -6111,247 +6136,214 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	static int16 adcTicks=0;
 .................... 	static int16 ticks=0;
 .................... 
-.................... 	static int8 led[2]={0};
-.................... 	static int8 led_state[2]={0};
 .................... 	int8 i;
 .................... 
 .................... 
 .................... 	timers.now_millisecond=0;
 *
-2BF0:  BCF    xCF.2
+2C1A:  BCF    xCF.2
 .................... 
 .................... 	/* set LED output */
 .................... 	for ( i=0 ; i<2 ; i++ ) {
-2BF2:  MOVLB  1
-2BF4:  CLRF   x1F
-2BF6:  MOVF   x1F,W
-2BF8:  SUBLW  01
-2BFA:  BTFSS  FD8.0
-2BFC:  BRA    2D3A
+2C1C:  MOVLB  1
+2C1E:  CLRF   x1B
+2C20:  MOVF   x1B,W
+2C22:  SUBLW  01
+2C24:  BTFSS  FD8.0
+2C26:  BRA    2D26
 .................... 		if ( 255 == timers.led_blink[i] ) {
-2BFE:  CLRF   03
-2C00:  MOVF   x1F,W
-2C02:  ADDLW  D0
-2C04:  MOVWF  FE9
-2C06:  MOVLW  00
-2C08:  ADDWFC 03,W
-2C0A:  MOVWF  FEA
-2C0C:  MOVF   FEF,W
-2C0E:  SUBLW  FF
-2C10:  BNZ   2C20
+2C28:  CLRF   03
+2C2A:  MOVF   x1B,W
+2C2C:  ADDLW  D0
+2C2E:  MOVWF  FE9
+2C30:  MOVLW  00
+2C32:  ADDWFC 03,W
+2C34:  MOVWF  FEA
+2C36:  MOVF   FEF,W
+2C38:  SUBLW  FF
+2C3A:  BNZ   2C4A
 .................... 			led_on(i);
-2C12:  MOVFF  11F,120
-2C16:  MOVLB  0
-2C18:  CALL   1C8C
+2C3C:  MOVFF  11B,11C
+2C40:  MOVLB  0
+2C42:  CALL   1C8C
 .................... 		} else if ( 0 == timers.led_blink[i] ) {
-2C1C:  BRA    2D34
-2C1E:  MOVLB  1
-2C20:  CLRF   03
-2C22:  MOVF   x1F,W
-2C24:  ADDLW  D0
-2C26:  MOVWF  FE9
-2C28:  MOVLW  00
-2C2A:  ADDWFC 03,W
-2C2C:  MOVWF  FEA
-2C2E:  MOVF   FEF,W
-2C30:  BNZ   2C40
+2C46:  BRA    2D20
+2C48:  MOVLB  1
+2C4A:  CLRF   03
+2C4C:  MOVF   x1B,W
+2C4E:  ADDLW  D0
+2C50:  MOVWF  FE9
+2C52:  MOVLW  00
+2C54:  ADDWFC 03,W
+2C56:  MOVWF  FEA
+2C58:  MOVF   FEF,W
+2C5A:  BNZ   2C6A
 .................... 			led_off(i);
-2C32:  MOVFF  11F,120
-2C36:  MOVLB  0
-2C38:  CALL   1CA0
+2C5C:  MOVFF  11B,11C
+2C60:  MOVLB  0
+2C62:  CALL   1CA0
 .................... 		} else {
-2C3C:  BRA    2D34
-2C3E:  MOVLB  1
-.................... 			/* should be blinking */
-.................... 			if ( 1 == led_state[i] ) {
-2C40:  CLRF   03
-2C42:  MOVF   x1F,W
-2C44:  ADDLW  1C
-2C46:  MOVWF  FE9
-2C48:  MOVLW  01
-2C4A:  ADDWFC 03,W
-2C4C:  MOVWF  FEA
-2C4E:  MOVF   FEF,W
-2C50:  SUBLW  01
-2C52:  BNZ   2CD6
-.................... 				if ( 0 == led[i] ) {
-2C54:  CLRF   03
-2C56:  MOVF   x1F,W
-2C58:  ADDLW  1A
-2C5A:  MOVWF  FE9
-2C5C:  MOVLW  01
-2C5E:  ADDWFC 03,W
-2C60:  MOVWF  FEA
-2C62:  MOVF   FEF,W
-2C64:  BNZ   2CB8
-.................... 					/* have been on, now we are going to rest */
-.................... 					led_state[i]=0;
-2C66:  CLRF   03
-2C68:  MOVF   x1F,W
-2C6A:  ADDLW  1C
-2C6C:  MOVWF  FE9
-2C6E:  MOVLW  01
-2C70:  ADDWFC 03,W
-2C72:  MOVWF  FEA
-2C74:  CLRF   FEF
-.................... 					led[i]=BLINK_OFF_TIME;
-2C76:  CLRF   03
-2C78:  MOVF   x1F,W
-2C7A:  ADDLW  1A
-2C7C:  MOVWF  FE9
-2C7E:  MOVLW  01
-2C80:  ADDWFC 03,W
-2C82:  MOVWF  FEA
-2C84:  MOVLW  32
-2C86:  MOVWF  FEF
-.................... 					led_off(i);
-2C88:  MOVFF  11F,120
-2C8C:  MOVLB  0
-2C8E:  CALL   1CA0
+2C66:  BRA    2D20
+2C68:  MOVLB  1
+.................... 			/* led_blink[i] is somewhere between 1 and 254 */
+.................... 			if ( timers.led_on[i] > 0 ) {
+2C6A:  CLRF   03
+2C6C:  MOVF   x1B,W
+2C6E:  ADDLW  D2
+2C70:  MOVWF  FE9
+2C72:  MOVLW  00
+2C74:  ADDWFC 03,W
+2C76:  MOVWF  FEA
+2C78:  MOVF   FEF,F
+2C7A:  BZ    2CBC
+.................... 				led_on(i);
+2C7C:  MOVFF  11B,11C
+2C80:  MOVLB  0
+2C82:  CALL   1C8C
+.................... 				timers.led_on[i]--;
+2C86:  CLRF   03
+2C88:  MOVLB  1
+2C8A:  MOVF   x1B,W
+2C8C:  ADDLW  D2
+2C8E:  MOVWF  FE9
+2C90:  MOVLW  00
+2C92:  ADDWFC 03,W
+2C94:  MOVWF  FEA
+2C96:  DECF   FEF,F
 .................... 
-.................... 					if ( timers.led_blink[i] > 0 ) {
-2C92:  CLRF   03
-2C94:  MOVLB  1
-2C96:  MOVF   x1F,W
-2C98:  ADDLW  D0
-2C9A:  MOVWF  FE9
-2C9C:  MOVLW  00
-2C9E:  ADDWFC 03,W
-2CA0:  MOVWF  FEA
-2CA2:  MOVF   FEF,F
-2CA4:  BZ    2CB6
-.................... 						timers.led_blink[i]--;
-2CA6:  CLRF   03
-2CA8:  MOVF   x1F,W
-2CAA:  ADDLW  D0
-2CAC:  MOVWF  FE9
-2CAE:  MOVLW  00
-2CB0:  ADDWFC 03,W
-2CB2:  MOVWF  FEA
-2CB4:  DECF   FEF,F
-.................... 					}
-.................... 				} else {
-2CB6:  BRA    2CD4
-.................... 					led[i]--;
-2CB8:  CLRF   03
-2CBA:  MOVF   x1F,W
-2CBC:  ADDLW  1A
-2CBE:  MOVWF  FE9
-2CC0:  MOVLW  01
-2CC2:  ADDWFC 03,W
-2CC4:  MOVWF  FEA
-2CC6:  DECF   FEF,F
-.................... 					led_on(i);
-2CC8:  MOVFF  11F,120
-2CCC:  MOVLB  0
-2CCE:  CALL   1C8C
-2CD2:  MOVLB  1
+.................... 				if ( 0==timers.led_on[i] ) {
+2C98:  CLRF   03
+2C9A:  MOVF   x1B,W
+2C9C:  ADDLW  D2
+2C9E:  MOVWF  FE9
+2CA0:  MOVLW  00
+2CA2:  ADDWFC 03,W
+2CA4:  MOVWF  FEA
+2CA6:  MOVF   FEF,W
+2CA8:  BNZ   2CBC
+.................... 					/* hit zero, switch to our off timer */
+.................... 					timers.led_off[i]=BLINK_OFF_TIME;
+2CAA:  CLRF   03
+2CAC:  MOVF   x1B,W
+2CAE:  ADDLW  D4
+2CB0:  MOVWF  FE9
+2CB2:  MOVLW  00
+2CB4:  ADDWFC 03,W
+2CB6:  MOVWF  FEA
+2CB8:  MOVLW  64
+2CBA:  MOVWF  FEF
 .................... 				}
-.................... 			} else {
-2CD4:  BRA    2D36
-.................... 				if ( 0 == led[i] ) {
-2CD6:  CLRF   03
-2CD8:  MOVF   x1F,W
-2CDA:  ADDLW  1A
-2CDC:  MOVWF  FE9
-2CDE:  MOVLW  01
-2CE0:  ADDWFC 03,W
-2CE2:  MOVWF  FEA
-2CE4:  MOVF   FEF,W
-2CE6:  BNZ   2D1A
-.................... 					/* have been off, now we are going to turn on */
-.................... 					led_state[i]=1;
-2CE8:  CLRF   03
-2CEA:  MOVF   x1F,W
-2CEC:  ADDLW  1C
-2CEE:  MOVWF  FE9
-2CF0:  MOVLW  01
-2CF2:  ADDWFC 03,W
-2CF4:  MOVWF  FEA
-2CF6:  MOVLW  01
-2CF8:  MOVWF  FEF
-.................... 					led[i]=BLINK_ON_TIME;
-2CFA:  CLRF   03
-2CFC:  MOVF   x1F,W
-2CFE:  ADDLW  1A
-2D00:  MOVWF  FE9
-2D02:  MOVLW  01
-2D04:  ADDWFC 03,W
-2D06:  MOVWF  FEA
-2D08:  MOVLW  DC
-2D0A:  MOVWF  FEF
-.................... 					led_on(i);
-2D0C:  MOVFF  11F,120
-2D10:  MOVLB  0
-2D12:  CALL   1C8C
-.................... 				} else {
-2D16:  BRA    2D34
-2D18:  MOVLB  1
-.................... 					led[i]--;
-2D1A:  CLRF   03
-2D1C:  MOVF   x1F,W
-2D1E:  ADDLW  1A
-2D20:  MOVWF  FE9
-2D22:  MOVLW  01
-2D24:  ADDWFC 03,W
-2D26:  MOVWF  FEA
-2D28:  DECF   FEF,F
-.................... 					led_off(i);
-2D2A:  MOVFF  11F,120
-2D2E:  MOVLB  0
-2D30:  CALL   1CA0
-2D34:  MOVLB  1
+.................... 			}
+.................... 
+.................... 			if ( timers.led_off[i] > 0 ) {
+2CBC:  CLRF   03
+2CBE:  MOVF   x1B,W
+2CC0:  ADDLW  D4
+2CC2:  MOVWF  FE9
+2CC4:  MOVLW  00
+2CC6:  ADDWFC 03,W
+2CC8:  MOVWF  FEA
+2CCA:  MOVF   FEF,F
+2CCC:  BZ    2D1E
+.................... 				led_off(i);
+2CCE:  MOVFF  11B,11C
+2CD2:  MOVLB  0
+2CD4:  CALL   1CA0
+.................... 				timers.led_off[i]--;
+2CD8:  CLRF   03
+2CDA:  MOVLB  1
+2CDC:  MOVF   x1B,W
+2CDE:  ADDLW  D4
+2CE0:  MOVWF  FE9
+2CE2:  MOVLW  00
+2CE4:  ADDWFC 03,W
+2CE6:  MOVWF  FEA
+2CE8:  DECF   FEF,F
+.................... 
+.................... 				if ( 0==timers.led_off[i] ) {
+2CEA:  CLRF   03
+2CEC:  MOVF   x1B,W
+2CEE:  ADDLW  D4
+2CF0:  MOVWF  FE9
+2CF2:  MOVLW  00
+2CF4:  ADDWFC 03,W
+2CF6:  MOVWF  FEA
+2CF8:  MOVF   FEF,W
+2CFA:  BNZ   2D1E
+.................... 					/* hit zero, preload for next */
+.................... 					timers.led_on[i]=BLINK_ON_TIME;
+2CFC:  CLRF   03
+2CFE:  MOVF   x1B,W
+2D00:  ADDLW  D2
+2D02:  MOVWF  FE9
+2D04:  MOVLW  00
+2D06:  ADDWFC 03,W
+2D08:  MOVWF  FEA
+2D0A:  MOVLW  FA
+2D0C:  MOVWF  FEF
+.................... 					/* done with this blink cycle */	
+.................... 					timers.led_blink[i]--;
+2D0E:  CLRF   03
+2D10:  MOVF   x1B,W
+2D12:  ADDLW  D0
+2D14:  MOVWF  FE9
+2D16:  MOVLW  00
+2D18:  ADDWFC 03,W
+2D1A:  MOVWF  FEA
+2D1C:  DECF   FEF,F
+2D1E:  MOVLB  0
 .................... 				}
 .................... 			}
 .................... 		}
-2D36:  INCF   x1F,F
-2D38:  BRA    2BF6
+2D20:  MOVLB  1
+2D22:  INCF   x1B,F
+2D24:  BRA    2C20
 .................... 	}
 .................... 
 .................... 
 .................... 	/* some other random stuff that we don't need to do every cycle in main */
 .................... 	if ( current.interval_milliseconds < 65535 ) {
-2D3A:  MOVLB  0
-2D3C:  INCFSZ xC8,W
-2D3E:  BRA    2D46
-2D40:  INCFSZ xC9,W
-2D42:  BRA    2D46
-2D44:  BRA    2D4C
+2D26:  MOVLB  0
+2D28:  INCFSZ xC8,W
+2D2A:  BRA    2D32
+2D2C:  INCFSZ xC9,W
+2D2E:  BRA    2D32
+2D30:  BRA    2D38
 .................... 		current.interval_milliseconds++;
-2D46:  INCF   xC8,F
-2D48:  BTFSC  FD8.2
-2D4A:  INCF   xC9,F
+2D32:  INCF   xC8,F
+2D34:  BTFSC  FD8.2
+2D36:  INCF   xC9,F
 .................... 	}
 .................... 
 .................... 
 .................... 	/* contactor timeout */
 .................... 	if ( 0 == timers.contactor_powersave[0] ) {
-2D4C:  MOVF   xD8,F
-2D4E:  BNZ   2D5A
+2D38:  MOVF   xD8,F
+2D3A:  BNZ   2D46
 .................... 		output_low(BRIDGE_A_A);
-2D50:  BCF    F94.3
-2D52:  BCF    F8B.3
+2D3C:  BCF    F94.3
+2D3E:  BCF    F8B.3
 .................... 		output_low(BRIDGE_A_B);
-2D54:  BCF    F94.4
-2D56:  BCF    F8B.4
+2D40:  BCF    F94.4
+2D42:  BCF    F8B.4
 .................... 	} else {
-2D58:  BRA    2D5C
+2D44:  BRA    2D48
 .................... 		timers.contactor_powersave[0]--;
-2D5A:  DECF   xD8,F
+2D46:  DECF   xD8,F
 .................... 	}
 .................... 	if ( 0 == timers.contactor_powersave[1] ) {
-2D5C:  MOVF   xD9,F
-2D5E:  BNZ   2D6A
+2D48:  MOVF   xD9,F
+2D4A:  BNZ   2D56
 .................... 		output_low(BRIDGE_B_A);
-2D60:  BCF    F94.5
-2D62:  BCF    F8B.5
+2D4C:  BCF    F94.5
+2D4E:  BCF    F8B.5
 .................... 		output_low(BRIDGE_B_B);
-2D64:  BCF    F94.6
-2D66:  BCF    F8B.6
+2D50:  BCF    F94.6
+2D52:  BCF    F8B.6
 .................... 	} else {
-2D68:  BRA    2D6C
+2D54:  BRA    2D58
 .................... 		timers.contactor_powersave[1]--;
-2D6A:  DECF   xD9,F
+2D56:  DECF   xD9,F
 .................... 	}
 .................... 
 .................... 
@@ -6359,113 +6351,113 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 
 .................... 	/* seconds */
 .................... 	ticks++;
-2D6C:  MOVLB  1
-2D6E:  INCF   x18,F
-2D70:  BTFSC  FD8.2
-2D72:  INCF   x19,F
+2D58:  MOVLB  1
+2D5A:  INCF   x18,F
+2D5C:  BTFSC  FD8.2
+2D5E:  INCF   x19,F
 .................... 	if ( 1000 == ticks ) {
-2D74:  MOVF   x18,W
-2D76:  SUBLW  E8
-2D78:  BNZ   2DD0
-2D7A:  MOVF   x19,W
-2D7C:  SUBLW  03
-2D7E:  BNZ   2DD0
+2D60:  MOVF   x18,W
+2D62:  SUBLW  E8
+2D64:  BNZ   2DBC
+2D66:  MOVF   x19,W
+2D68:  SUBLW  03
+2D6A:  BNZ   2DBC
 .................... 		ticks=0;
-2D80:  CLRF   x19
-2D82:  CLRF   x18
+2D6C:  CLRF   x19
+2D6E:  CLRF   x18
 .................... 
 .................... 		/* set channe[n].state based on logic */
 .................... 		contactor_logic(0);
-2D84:  CLRF   x20
-2D86:  MOVLB  0
-2D88:  CALL   1CB4
+2D70:  CLRF   x1C
+2D72:  MOVLB  0
+2D74:  CALL   1CB4
 .................... 		contactor_logic(1);
-2D8C:  MOVLW  01
-2D8E:  MOVLB  1
-2D90:  MOVWF  x20
-2D92:  MOVLB  0
-2D94:  CALL   1CB4
+2D78:  MOVLW  01
+2D7A:  MOVLB  1
+2D7C:  MOVWF  x1C
+2D7E:  MOVLB  0
+2D80:  CALL   1CB4
 .................... 
 .................... 		/* set contactor outputs based on their state bit field */
 .................... 		contactor_set(0);
-2D98:  MOVLB  1
-2D9A:  CLRF   x20
-2D9C:  MOVLB  0
-2D9E:  RCALL  2910
+2D84:  MOVLB  1
+2D86:  CLRF   x1C
+2D88:  MOVLB  0
+2D8A:  RCALL  2910
 .................... 		contactor_set(1);		
-2DA0:  MOVLW  01
-2DA2:  MOVLB  1
-2DA4:  MOVWF  x20
-2DA6:  MOVLB  0
-2DA8:  RCALL  2910
+2D8C:  MOVLW  01
+2D8E:  MOVLB  1
+2D90:  MOVWF  x1C
+2D92:  MOVLB  0
+2D94:  RCALL  2910
 .................... 
 .................... 		/* uptime counter */
 .................... 		uptimeTicks++;
-2DAA:  MOVLB  1
-2DAC:  INCF   x15,F
+2D96:  MOVLB  1
+2D98:  INCF   x15,F
 .................... 		if ( 60 == uptimeTicks ) {
-2DAE:  MOVF   x15,W
-2DB0:  SUBLW  3C
-2DB2:  BNZ   2DCA
+2D9A:  MOVF   x15,W
+2D9C:  SUBLW  3C
+2D9E:  BNZ   2DB6
 .................... 			uptimeTicks=0;
-2DB4:  CLRF   x15
+2DA0:  CLRF   x15
 .................... 			if ( current.uptime_minutes < 65535 ) 
-2DB6:  MOVLB  0
-2DB8:  INCFSZ xC6,W
-2DBA:  BRA    2DC2
-2DBC:  INCFSZ xC7,W
-2DBE:  BRA    2DC2
-2DC0:  BRA    2DC8
+2DA2:  MOVLB  0
+2DA4:  INCFSZ xC6,W
+2DA6:  BRA    2DAE
+2DA8:  INCFSZ xC7,W
+2DAA:  BRA    2DAE
+2DAC:  BRA    2DB4
 .................... 				current.uptime_minutes++;
-2DC2:  INCF   xC6,F
-2DC4:  BTFSC  FD8.2
-2DC6:  INCF   xC7,F
-2DC8:  MOVLB  1
+2DAE:  INCF   xC6,F
+2DB0:  BTFSC  FD8.2
+2DB2:  INCF   xC7,F
+2DB4:  MOVLB  1
 .................... 		}
 .................... 
 .................... 		/* LED state display update */
 .................... 		led_status_second_update();
-2DCA:  MOVLB  0
-2DCC:  BRA    2A62
-2DCE:  MOVLB  1
+2DB6:  MOVLB  0
+2DB8:  BRA    2A62
+2DBA:  MOVLB  1
 .................... 	}
 .................... 
 .................... 	/* ADC sample counter */
 .................... 	if ( timers.now_adc_reset_count ) {
-2DD0:  MOVLB  0
-2DD2:  BTFSS  xCF.1
-2DD4:  BRA    2DE0
+2DBC:  MOVLB  0
+2DBE:  BTFSS  xCF.1
+2DC0:  BRA    2DCC
 .................... 		timers.now_adc_reset_count=0;
-2DD6:  BCF    xCF.1
+2DC2:  BCF    xCF.1
 .................... 		adcTicks=0;
-2DD8:  MOVLB  1
-2DDA:  CLRF   x17
-2DDC:  CLRF   x16
-2DDE:  MOVLB  0
+2DC4:  MOVLB  1
+2DC6:  CLRF   x17
+2DC8:  CLRF   x16
+2DCA:  MOVLB  0
 .................... 	}
 .................... 
 .................... 	/* ADC sampling trigger */
 .................... 	adcTicks++;
-2DE0:  MOVLB  1
-2DE2:  INCF   x16,F
-2DE4:  BTFSC  FD8.2
-2DE6:  INCF   x17,F
+2DCC:  MOVLB  1
+2DCE:  INCF   x16,F
+2DD0:  BTFSC  FD8.2
+2DD2:  INCF   x17,F
 .................... 	if ( ADC_SAMPLE_TICKS == adcTicks ) {
-2DE8:  MOVF   x16,W
-2DEA:  SUBLW  14
-2DEC:  BNZ   2DFC
-2DEE:  MOVF   x17,F
-2DF0:  BNZ   2DFC
+2DD4:  MOVF   x16,W
+2DD6:  SUBLW  14
+2DD8:  BNZ   2DE8
+2DDA:  MOVF   x17,F
+2DDC:  BNZ   2DE8
 .................... 		adcTicks=0;
-2DF2:  CLRF   x17
-2DF4:  CLRF   x16
+2DDE:  CLRF   x17
+2DE0:  CLRF   x16
 .................... 		timers.now_adc_sample=1;
-2DF6:  MOVLB  0
-2DF8:  BSF    xCF.0
-2DFA:  MOVLB  1
+2DE2:  MOVLB  0
+2DE4:  BSF    xCF.0
+2DE6:  MOVLB  1
 .................... 	}
-2DFC:  MOVLB  0
-2DFE:  GOTO   2FE2 (RETURN)
+2DE8:  MOVLB  0
+2DEA:  GOTO   2FCC (RETURN)
 .................... 
 .................... }
 .................... 
@@ -6524,21 +6516,21 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	/* all initialized to 0 on declaration. Just do this if need non-zero */
 .................... 	for ( i=0 ; i<=1 ; i++ ) {
 15A2:  MOVLB  1
-15A4:  CLRF   x1F
-15A6:  MOVF   x1F,W
+15A4:  CLRF   x1B
+15A6:  MOVF   x1B,W
 15A8:  SUBLW  01
 15AA:  BNC   1600
 .................... 		channel[i].command_off_seconds=65535;
-15AC:  MOVF   x1F,W
+15AC:  MOVF   x1B,W
 15AE:  MULLW  19
 15B0:  MOVF   FF3,W
-15B2:  CLRF   x2B
-15B4:  MOVWF  x2A
+15B2:  CLRF   x27
+15B4:  MOVWF  x26
 15B6:  MOVLW  05
-15B8:  ADDWF  x2A,W
+15B8:  ADDWF  x26,W
 15BA:  MOVWF  01
 15BC:  MOVLW  00
-15BE:  ADDWFC x2B,W
+15BE:  ADDWFC x27,W
 15C0:  MOVWF  03
 15C2:  MOVF   01,W
 15C4:  ADDLW  DA
@@ -6550,16 +6542,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 15D0:  MOVF   FED,F
 15D2:  SETF   FEF
 .................... 		channel[i].command_on_seconds =65535;
-15D4:  MOVF   x1F,W
+15D4:  MOVF   x1B,W
 15D6:  MULLW  19
 15D8:  MOVF   FF3,W
-15DA:  CLRF   x2B
-15DC:  MOVWF  x2A
+15DA:  CLRF   x27
+15DC:  MOVWF  x26
 15DE:  MOVLW  01
-15E0:  ADDWF  x2A,W
+15E0:  ADDWF  x26,W
 15E2:  MOVWF  01
 15E4:  MOVLW  00
-15E6:  ADDWFC x2B,W
+15E6:  ADDWFC x27,W
 15E8:  MOVWF  03
 15EA:  MOVF   01,W
 15EC:  ADDLW  DA
@@ -6570,7 +6562,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 15F6:  SETF   FEC
 15F8:  MOVF   FED,F
 15FA:  SETF   FEF
-15FC:  INCF   x1F,F
+15FC:  INCF   x1B,F
 15FE:  BRA    15A6
 .................... 	}
 .................... 
@@ -6584,7 +6576,7 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	strcpy(buff,__DATE__);
 1600:  MOVLW  01
 1602:  MOVWF  FEA
-1604:  MOVLW  20
+1604:  MOVLW  1C
 1606:  MOVWF  FE9
 1608:  MOVLW  00
 160A:  MOVLB  0
@@ -6597,16 +6589,16 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 161A:  BNZ   1612
 .................... 	i=0;
 161C:  MOVLB  1
-161E:  CLRF   x1F
+161E:  CLRF   x1B
 .................... 	if ( '-' != buff[1] ) {
-1620:  MOVF   x21,W
+1620:  MOVF   x1D,W
 1622:  SUBLW  2D
 1624:  BZ    1644
 .................... 		/* day can be one or two digits */
 .................... 		current.compile_day =(buff[i]-'0')*10;
 1626:  CLRF   03
-1628:  MOVF   x1F,W
-162A:  ADDLW  20
+1628:  MOVF   x1B,W
+162A:  ADDLW  1C
 162C:  MOVWF  FE9
 162E:  MOVLW  01
 1630:  ADDWFC 03,W
@@ -6618,12 +6610,12 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 163E:  MOVLB  0
 .................... 		i++;
 1640:  MOVLB  1
-1642:  INCF   x1F,F
+1642:  INCF   x1B,F
 .................... 	}
 .................... 	current.compile_day+=(buff[i]-'0');
 1644:  CLRF   03
-1646:  MOVF   x1F,W
-1648:  ADDLW  20
+1646:  MOVF   x1B,W
+1648:  ADDLW  1C
 164A:  MOVWF  FE9
 164C:  MOVLW  01
 164E:  ADDWFC 03,W
@@ -6635,13 +6627,13 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	i+=2; /* now points to month */
 165A:  MOVLW  02
 165C:  MOVLB  1
-165E:  ADDWF  x1F,F
+165E:  ADDWF  x1B,F
 .................... 
 .................... 	/* determine month ... how annoying */
 .................... 	if ( 'J'==buff[i+0] ) {
 1660:  CLRF   03
-1662:  MOVF   x1F,W
-1664:  ADDLW  20
+1662:  MOVF   x1B,W
+1664:  ADDLW  1C
 1666:  MOVWF  FE9
 1668:  MOVLW  01
 166A:  ADDWFC 03,W
@@ -6651,9 +6643,9 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1672:  BNZ   16BE
 .................... 		if ( 'A'==buff[i+1] )
 1674:  MOVLW  01
-1676:  ADDWF  x1F,W
+1676:  ADDWF  x1B,W
 1678:  CLRF   03
-167A:  ADDLW  20
+167A:  ADDLW  1C
 167C:  MOVWF  FE9
 167E:  MOVLW  01
 1680:  ADDWFC 03,W
@@ -6669,9 +6661,9 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1692:  MOVLB  1
 .................... 		else if ( 'N'==buff[i+2] )
 1694:  MOVLW  02
-1696:  ADDWF  x1F,W
+1696:  ADDWF  x1B,W
 1698:  CLRF   03
-169A:  ADDLW  20
+169A:  ADDLW  1C
 169C:  MOVWF  FE9
 169E:  MOVLW  01
 16A0:  ADDWFC 03,W
@@ -6694,8 +6686,8 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 16BA:  BRA    17D4
 16BC:  MOVLB  1
 16BE:  CLRF   03
-16C0:  MOVF   x1F,W
-16C2:  ADDLW  20
+16C0:  MOVF   x1B,W
+16C2:  ADDLW  1C
 16C4:  MOVWF  FE9
 16C6:  MOVLW  01
 16C8:  ADDWFC 03,W
@@ -6705,9 +6697,9 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 16D0:  BNZ   16FC
 .................... 		if ( 'P'==buff[i+1] )
 16D2:  MOVLW  01
-16D4:  ADDWF  x1F,W
+16D4:  ADDWF  x1B,W
 16D6:  CLRF   03
-16D8:  ADDLW  20
+16D8:  ADDLW  1C
 16DA:  MOVWF  FE9
 16DC:  MOVLW  01
 16DE:  ADDWFC 03,W
@@ -6730,8 +6722,8 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 16F8:  BRA    17D4
 16FA:  MOVLB  1
 16FC:  CLRF   03
-16FE:  MOVF   x1F,W
-1700:  ADDLW  20
+16FE:  MOVF   x1B,W
+1700:  ADDLW  1C
 1702:  MOVWF  FE9
 1704:  MOVLW  01
 1706:  ADDWFC 03,W
@@ -6741,9 +6733,9 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 170E:  BNZ   173A
 .................... 		if ( 'R'==buff[i+2] )
 1710:  MOVLW  02
-1712:  ADDWF  x1F,W
+1712:  ADDWF  x1B,W
 1714:  CLRF   03
-1716:  ADDLW  20
+1716:  ADDLW  1C
 1718:  MOVWF  FE9
 171A:  MOVLW  01
 171C:  ADDWFC 03,W
@@ -6766,8 +6758,8 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1736:  BRA    17D4
 1738:  MOVLB  1
 173A:  CLRF   03
-173C:  MOVF   x1F,W
-173E:  ADDLW  20
+173C:  MOVF   x1B,W
+173E:  ADDLW  1C
 1740:  MOVWF  FE9
 1742:  MOVLW  01
 1744:  ADDWFC 03,W
@@ -6783,8 +6775,8 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1754:  BRA    17D4
 1756:  MOVLB  1
 1758:  CLRF   03
-175A:  MOVF   x1F,W
-175C:  ADDLW  20
+175A:  MOVF   x1B,W
+175C:  ADDLW  1C
 175E:  MOVWF  FE9
 1760:  MOVLW  01
 1762:  ADDWFC 03,W
@@ -6800,8 +6792,8 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1772:  BRA    17D4
 1774:  MOVLB  1
 1776:  CLRF   03
-1778:  MOVF   x1F,W
-177A:  ADDLW  20
+1778:  MOVF   x1B,W
+177A:  ADDLW  1C
 177C:  MOVWF  FE9
 177E:  MOVLW  01
 1780:  ADDWFC 03,W
@@ -6817,8 +6809,8 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1790:  BRA    17D4
 1792:  MOVLB  1
 1794:  CLRF   03
-1796:  MOVF   x1F,W
-1798:  ADDLW  20
+1796:  MOVF   x1B,W
+1798:  ADDLW  1C
 179A:  MOVWF  FE9
 179C:  MOVLW  01
 179E:  ADDWFC 03,W
@@ -6834,8 +6826,8 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 17AE:  BRA    17D4
 17B0:  MOVLB  1
 17B2:  CLRF   03
-17B4:  MOVF   x1F,W
-17B6:  ADDLW  20
+17B4:  MOVF   x1B,W
+17B6:  ADDLW  1C
 17B8:  MOVWF  FE9
 17BA:  MOVLW  01
 17BC:  ADDWFC 03,W
@@ -6858,9 +6850,9 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	current.compile_year =(buff[i+4]-'0')*10;
 17D4:  MOVLW  04
 17D6:  MOVLB  1
-17D8:  ADDWF  x1F,W
+17D8:  ADDWF  x1B,W
 17DA:  CLRF   03
-17DC:  ADDLW  20
+17DC:  ADDLW  1C
 17DE:  MOVWF  FE9
 17E0:  MOVLW  01
 17E2:  ADDWFC 03,W
@@ -6873,9 +6865,9 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 .................... 	current.compile_year+=(buff[i+5]-'0');
 17F2:  MOVLW  05
 17F4:  MOVLB  1
-17F6:  ADDWF  x1F,W
+17F6:  ADDWF  x1B,W
 17F8:  CLRF   03
-17FA:  ADDLW  20
+17FA:  ADDLW  1C
 17FC:  MOVWF  FE9
 17FE:  MOVLW  01
 1800:  ADDWFC 03,W
@@ -6907,323 +6899,322 @@ CCS PCH C Compiler, Version 5.090, 49113               06-Feb-22 14:26
 1820:  MOVLB  1
 1822:  MOVWF  FC8
 1824:  MOVLB  0
-1826:  GOTO   2EAE (RETURN)
+1826:  GOTO   2E98 (RETURN)
 .................... }
 .................... 
 .................... 
 .................... void main(void) {
 *
-2E1A:  CLRF   FF8
-2E1C:  BCF    FD0.7
-2E1E:  BSF    07.7
-2E20:  BSF    F93.6
-2E22:  BSF    F93.4
-2E24:  CLRF   FC8
-2E26:  MOVLW  36
-2E28:  MOVWF  FC6
-2E2A:  BSF    FC5.0
-2E2C:  BSF    FC5.7
-2E2E:  CLRF   1A
-2E30:  BSF    FB8.3
-2E32:  MOVLW  44
-2E34:  MOVWF  FAF
-2E36:  MOVLW  00
-2E38:  MOVWF  FB0
-2E3A:  MOVLW  A6
-2E3C:  MOVWF  FAC
-2E3E:  MOVLW  90
-2E40:  MOVWF  FAB
-2E42:  MOVLB  1
-2E44:  CLRF   x12
-2E46:  CLRF   x11
-2E48:  MOVLW  00
-2E4A:  MOVWF  F7E
-2E4C:  BCF    FC1.0
-2E4E:  BCF    FC1.1
-2E50:  BCF    FC1.2
-2E52:  BCF    FC1.3
-2E54:  MOVWF  F7F
-2E56:  CLRF   F6C
-2E58:  CLRF   F6B
-2E5A:  CLRF   F6D
-2E5C:  BCF    x13.0
-2E5E:  BRA    2E6A
-2E60:  DATA F6,40
-2E62:  DATA 1B,00
-2E64:  DATA 0A,41
-2E66:  DATA 14,00
-2E68:  DATA 00,00
-2E6A:  MOVLW  00
-2E6C:  MOVWF  FF8
-2E6E:  MOVLW  2E
-2E70:  MOVWF  FF7
-2E72:  MOVLW  60
-2E74:  MOVWF  FF6
-2E76:  TBLRD*+
-2E78:  MOVF   FF5,W
-2E7A:  MOVWF  00
-2E7C:  XORLW  00
-2E7E:  BZ    2EA6
+2E06:  CLRF   FF8
+2E08:  BCF    FD0.7
+2E0A:  BSF    07.7
+2E0C:  BSF    F93.6
+2E0E:  BSF    F93.4
+2E10:  CLRF   FC8
+2E12:  MOVLW  36
+2E14:  MOVWF  FC6
+2E16:  BSF    FC5.0
+2E18:  BSF    FC5.7
+2E1A:  CLRF   1A
+2E1C:  BSF    FB8.3
+2E1E:  MOVLW  44
+2E20:  MOVWF  FAF
+2E22:  MOVLW  00
+2E24:  MOVWF  FB0
+2E26:  MOVLW  A6
+2E28:  MOVWF  FAC
+2E2A:  MOVLW  90
+2E2C:  MOVWF  FAB
+2E2E:  MOVLB  1
+2E30:  CLRF   x12
+2E32:  CLRF   x11
+2E34:  MOVLW  00
+2E36:  MOVWF  F7E
+2E38:  BCF    FC1.0
+2E3A:  BCF    FC1.1
+2E3C:  BCF    FC1.2
+2E3E:  BCF    FC1.3
+2E40:  MOVWF  F7F
+2E42:  CLRF   F6C
+2E44:  CLRF   F6B
+2E46:  CLRF   F6D
+2E48:  BRA    2E54
+2E4A:  DATA F6,40
+2E4C:  DATA 1B,00
+2E4E:  DATA 07,41
+2E50:  DATA 13,00
+2E52:  DATA 00,00
+2E54:  MOVLW  00
+2E56:  MOVWF  FF8
+2E58:  MOVLW  2E
+2E5A:  MOVWF  FF7
+2E5C:  MOVLW  4A
+2E5E:  MOVWF  FF6
+2E60:  TBLRD*+
+2E62:  MOVF   FF5,W
+2E64:  MOVWF  00
+2E66:  XORLW  00
+2E68:  BZ    2E90
+2E6A:  TBLRD*+
+2E6C:  MOVF   FF5,W
+2E6E:  MOVWF  01
+2E70:  BTFSC  FE8.7
+2E72:  BRA    2E7E
+2E74:  ANDLW  3F
+2E76:  MOVWF  FEA
+2E78:  TBLRD*+
+2E7A:  MOVFF  FF5,FE9
+2E7E:  BTFSC  01.6
 2E80:  TBLRD*+
-2E82:  MOVF   FF5,W
-2E84:  MOVWF  01
-2E86:  BTFSC  FE8.7
-2E88:  BRA    2E94
-2E8A:  ANDLW  3F
-2E8C:  MOVWF  FEA
-2E8E:  TBLRD*+
-2E90:  MOVFF  FF5,FE9
-2E94:  BTFSC  01.6
-2E96:  TBLRD*+
-2E98:  BTFSS  01.6
-2E9A:  TBLRD*+
-2E9C:  MOVFF  FF5,FEE
-2EA0:  DCFSNZ 00,F
-2EA2:  BRA    2E76
-2EA4:  BRA    2E98
-2EA6:  CLRF   FF8
+2E82:  BTFSS  01.6
+2E84:  TBLRD*+
+2E86:  MOVFF  FF5,FEE
+2E8A:  DCFSNZ 00,F
+2E8C:  BRA    2E60
+2E8E:  BRA    2E82
+2E90:  CLRF   FF8
 .................... 	int8 i;
 .................... 
 .................... 	init();
-2EA8:  MOVLB  0
-2EAA:  GOTO   1568
+2E92:  MOVLB  0
+2E94:  GOTO   1568
 .................... 
 .................... 
 .................... 	/* read parameters from EEPROM and write defaults if CRC doesn't match */
 .................... 	read_param_file();
-2EAE:  GOTO   1B5C
+2E98:  GOTO   1B5C
 .................... 
 .................... 
 .................... 	/* flash on startup */
 .................... 	for ( i=0 ; i<5 ; i++ ) {
-2EB2:  MOVLB  1
-2EB4:  CLRF   x1E
-2EB6:  MOVF   x1E,W
-2EB8:  SUBLW  04
-2EBA:  BNC   2EE2
+2E9C:  MOVLB  1
+2E9E:  CLRF   x1A
+2EA0:  MOVF   x1A,W
+2EA2:  SUBLW  04
+2EA4:  BNC   2ECC
 .................... 		restart_wdt();
-2EBC:  CLRWDT
+2EA6:  CLRWDT
 .................... 		output_high(LED_A);
-2EBE:  BCF    F94.1
-2EC0:  BSF    F8B.1
+2EA8:  BCF    F94.1
+2EAA:  BSF    F8B.1
 .................... 		delay_ms(200);
-2EC2:  MOVLW  C8
-2EC4:  MOVWF  x2C
-2EC6:  MOVLB  0
-2EC8:  CALL   14CC
+2EAC:  MOVLW  C8
+2EAE:  MOVWF  x28
+2EB0:  MOVLB  0
+2EB2:  CALL   14CC
 .................... 		output_low(LED_A);
-2ECC:  BCF    F94.1
-2ECE:  BCF    F8B.1
+2EB6:  BCF    F94.1
+2EB8:  BCF    F8B.1
 .................... 		delay_ms(200);
-2ED0:  MOVLW  C8
-2ED2:  MOVLB  1
-2ED4:  MOVWF  x2C
-2ED6:  MOVLB  0
-2ED8:  CALL   14CC
-2EDC:  MOVLB  1
-2EDE:  INCF   x1E,F
-2EE0:  BRA    2EB6
+2EBA:  MOVLW  C8
+2EBC:  MOVLB  1
+2EBE:  MOVWF  x28
+2EC0:  MOVLB  0
+2EC2:  CALL   14CC
+2EC6:  MOVLB  1
+2EC8:  INCF   x1A,F
+2ECA:  BRA    2EA0
 .................... 	}
 .................... 
 .................... 	fprintf(STREAM_FTDI,"# dcswc_module_latching_contactor %s\r\n# ",__DATE__);
-2EE2:  MOVLW  20
-2EE4:  MOVWF  FF6
-2EE6:  MOVLW  14
-2EE8:  MOVWF  FF7
-2EEA:  MOVLW  22
-2EEC:  MOVWF  x21
-2EEE:  MOVLB  0
-2EF0:  CALL   1BA2
-2EF4:  MOVLW  4A
-2EF6:  MOVWF  FF6
-2EF8:  MOVLW  14
-2EFA:  MOVWF  FF7
-2EFC:  CALL   1BCC
-2F00:  MOVLW  44
-2F02:  MOVWF  FF6
-2F04:  MOVLW  14
-2F06:  MOVWF  FF7
-2F08:  MOVLW  04
-2F0A:  MOVLB  1
-2F0C:  MOVWF  x21
-2F0E:  MOVLB  0
-2F10:  CALL   1BA2
+2ECC:  MOVLW  20
+2ECE:  MOVWF  FF6
+2ED0:  MOVLW  14
+2ED2:  MOVWF  FF7
+2ED4:  MOVLW  22
+2ED6:  MOVWF  x1D
+2ED8:  MOVLB  0
+2EDA:  CALL   1BA2
+2EDE:  MOVLW  4A
+2EE0:  MOVWF  FF6
+2EE2:  MOVLW  14
+2EE4:  MOVWF  FF7
+2EE6:  CALL   1BCC
+2EEA:  MOVLW  44
+2EEC:  MOVWF  FF6
+2EEE:  MOVLW  14
+2EF0:  MOVWF  FF7
+2EF2:  MOVLW  04
+2EF4:  MOVLB  1
+2EF6:  MOVWF  x1D
+2EF8:  MOVLB  0
+2EFA:  CALL   1BA2
 .................... 	switch ( restart_cause ) {
-2F14:  MOVLW  07
-2F16:  SUBWF  00,W
-2F18:  BZ    2F3E
-2F1A:  MOVLW  0B
-2F1C:  SUBWF  00,W
-2F1E:  BZ    2F4C
-2F20:  MOVLW  0F
-2F22:  SUBWF  00,W
-2F24:  BZ    2F5A
-2F26:  MOVLW  0C
-2F28:  SUBWF  00,W
-2F2A:  BZ    2F68
-2F2C:  MOVLW  0E
-2F2E:  SUBWF  00,W
-2F30:  BZ    2F76
-2F32:  MOVLW  03
-2F34:  SUBWF  00,W
-2F36:  BZ    2F84
-2F38:  MOVF   00,F
-2F3A:  BZ    2F92
-2F3C:  BRA    2FA0
+2EFE:  MOVLW  07
+2F00:  SUBWF  00,W
+2F02:  BZ    2F28
+2F04:  MOVLW  0B
+2F06:  SUBWF  00,W
+2F08:  BZ    2F36
+2F0A:  MOVLW  0F
+2F0C:  SUBWF  00,W
+2F0E:  BZ    2F44
+2F10:  MOVLW  0C
+2F12:  SUBWF  00,W
+2F14:  BZ    2F52
+2F16:  MOVLW  0E
+2F18:  SUBWF  00,W
+2F1A:  BZ    2F60
+2F1C:  MOVLW  03
+2F1E:  SUBWF  00,W
+2F20:  BZ    2F6E
+2F22:  MOVF   00,F
+2F24:  BZ    2F7C
+2F26:  BRA    2F8A
 .................... 		case WDT_TIMEOUT:       fprintf(STREAM_FTDI,"WDT TIMEOUT"); break;
-2F3E:  MOVLW  54
-2F40:  MOVWF  FF6
-2F42:  MOVLW  14
-2F44:  MOVWF  FF7
-2F46:  CALL   1BCC
-2F4A:  BRA    2FAC
+2F28:  MOVLW  54
+2F2A:  MOVWF  FF6
+2F2C:  MOVLW  14
+2F2E:  MOVWF  FF7
+2F30:  CALL   1BCC
+2F34:  BRA    2F96
 .................... 		case MCLR_FROM_SLEEP:   fprintf(STREAM_FTDI,"MCLR FROM SLEEP"); break;
-2F4C:  MOVLW  60
-2F4E:  MOVWF  FF6
-2F50:  MOVLW  14
-2F52:  MOVWF  FF7
-2F54:  CALL   1BCC
-2F58:  BRA    2FAC
+2F36:  MOVLW  60
+2F38:  MOVWF  FF6
+2F3A:  MOVLW  14
+2F3C:  MOVWF  FF7
+2F3E:  CALL   1BCC
+2F42:  BRA    2F96
 .................... 		case MCLR_FROM_RUN:     fprintf(STREAM_FTDI,"MCLR FROM RUN"); break;
-2F5A:  MOVLW  70
-2F5C:  MOVWF  FF6
-2F5E:  MOVLW  14
-2F60:  MOVWF  FF7
-2F62:  CALL   1BCC
-2F66:  BRA    2FAC
+2F44:  MOVLW  70
+2F46:  MOVWF  FF6
+2F48:  MOVLW  14
+2F4A:  MOVWF  FF7
+2F4C:  CALL   1BCC
+2F50:  BRA    2F96
 .................... 		case NORMAL_POWER_UP:   fprintf(STREAM_FTDI,"NORMAL POWER UP"); break;
-2F68:  MOVLW  7E
-2F6A:  MOVWF  FF6
-2F6C:  MOVLW  14
-2F6E:  MOVWF  FF7
-2F70:  CALL   1BCC
-2F74:  BRA    2FAC
+2F52:  MOVLW  7E
+2F54:  MOVWF  FF6
+2F56:  MOVLW  14
+2F58:  MOVWF  FF7
+2F5A:  CALL   1BCC
+2F5E:  BRA    2F96
 .................... 		case BROWNOUT_RESTART:  fprintf(STREAM_FTDI,"BROWNOUT RESTART"); break;
-2F76:  MOVLW  8E
-2F78:  MOVWF  FF6
-2F7A:  MOVLW  14
-2F7C:  MOVWF  FF7
-2F7E:  CALL   1BCC
-2F82:  BRA    2FAC
+2F60:  MOVLW  8E
+2F62:  MOVWF  FF6
+2F64:  MOVLW  14
+2F66:  MOVWF  FF7
+2F68:  CALL   1BCC
+2F6C:  BRA    2F96
 .................... 		case WDT_FROM_SLEEP:    fprintf(STREAM_FTDI,"WDT FROM SLEEP"); break;
-2F84:  MOVLW  A0
-2F86:  MOVWF  FF6
-2F88:  MOVLW  14
-2F8A:  MOVWF  FF7
-2F8C:  CALL   1BCC
-2F90:  BRA    2FAC
+2F6E:  MOVLW  A0
+2F70:  MOVWF  FF6
+2F72:  MOVLW  14
+2F74:  MOVWF  FF7
+2F76:  CALL   1BCC
+2F7A:  BRA    2F96
 .................... 		case RESET_INSTRUCTION: fprintf(STREAM_FTDI,"RESET INSTRUCTION"); break;
-2F92:  MOVLW  B0
-2F94:  MOVWF  FF6
-2F96:  MOVLW  14
-2F98:  MOVWF  FF7
-2F9A:  CALL   1BCC
-2F9E:  BRA    2FAC
+2F7C:  MOVLW  B0
+2F7E:  MOVWF  FF6
+2F80:  MOVLW  14
+2F82:  MOVWF  FF7
+2F84:  CALL   1BCC
+2F88:  BRA    2F96
 .................... 		default:                fprintf(STREAM_FTDI,"UNKNOWN!");
-2FA0:  MOVLW  C2
-2FA2:  MOVWF  FF6
-2FA4:  MOVLW  14
-2FA6:  MOVWF  FF7
-2FA8:  CALL   1BCC
+2F8A:  MOVLW  C2
+2F8C:  MOVWF  FF6
+2F8E:  MOVLW  14
+2F90:  MOVWF  FF7
+2F92:  CALL   1BCC
 .................... 	}
 .................... 	fprintf(STREAM_FTDI,"\r\n");
-2FAC:  MOVLW  0D
-2FAE:  BTFSS  F9E.4
-2FB0:  BRA    2FAE
-2FB2:  MOVWF  FAD
-2FB4:  MOVLW  0A
-2FB6:  BTFSS  F9E.4
-2FB8:  BRA    2FB6
-2FBA:  MOVWF  FAD
+2F96:  MOVLW  0D
+2F98:  BTFSS  F9E.4
+2F9A:  BRA    2F98
+2F9C:  MOVWF  FAD
+2F9E:  MOVLW  0A
+2FA0:  BTFSS  F9E.4
+2FA2:  BRA    2FA0
+2FA4:  MOVWF  FAD
 .................... 
 .................... 	enable_interrupts(GLOBAL);
-2FBC:  MOVLW  C0
-2FBE:  IORWF  FF2,F
+2FA6:  MOVLW  C0
+2FA8:  IORWF  FF2,F
 .................... 
 .................... 	/* Prime ADC filter */
 .................... 	for ( i=0 ; i<30 ; i++ ) {
-2FC0:  MOVLB  1
-2FC2:  CLRF   x1E
-2FC4:  MOVF   x1E,W
-2FC6:  SUBLW  1D
-2FC8:  BNC   2FD6
+2FAA:  MOVLB  1
+2FAC:  CLRF   x1A
+2FAE:  MOVF   x1A,W
+2FB0:  SUBLW  1D
+2FB2:  BNC   2FC0
 .................... 		adc_update();
-2FCA:  MOVLB  0
-2FCC:  CALL   1BEE
-2FD0:  MOVLB  1
-2FD2:  INCF   x1E,F
-2FD4:  BRA    2FC4
+2FB4:  MOVLB  0
+2FB6:  CALL   1BEE
+2FBA:  MOVLB  1
+2FBC:  INCF   x1A,F
+2FBE:  BRA    2FAE
 .................... 	}
 .................... 
 .................... 
 .................... 	/* enable I2C slave interrupt */
 .................... 	enable_interrupts(INT_SSP);
-2FD6:  BSF    F9D.3
+2FC0:  BSF    F9D.3
 .................... 
 .................... 	for ( ; ; ) {
 .................... 		restart_wdt();
-2FD8:  CLRWDT
+2FC2:  CLRWDT
 .................... 
 .................... 		if ( timers.now_millisecond ) {
-2FDA:  MOVLB  0
-2FDC:  BTFSS  xCF.2
-2FDE:  BRA    2FE2
+2FC4:  MOVLB  0
+2FC6:  BTFSS  xCF.2
+2FC8:  BRA    2FCC
 .................... 			periodic_millisecond();
-2FE0:  BRA    2BF0
+2FCA:  BRA    2C1A
 .................... 		}
 .................... 
 .................... 		if ( kbhit() ) {
-2FE2:  BTFSS  F9E.5
-2FE4:  BRA    2FEA
+2FCC:  BTFSS  F9E.5
+2FCE:  BRA    2FD4
 .................... 			getc();
-2FE6:  BRA    2E02
+2FD0:  BRA    2DEE
 .................... 			timers.now_debug_dump=1;
-2FE8:  BSF    xCF.5
+2FD2:  BSF    xCF.5
 .................... 		}
 .................... 
 .................... 		if ( timers.now_debug_dump ) {
-2FEA:  BTFSS  xCF.5
-2FEC:  BRA    2FF0
+2FD4:  BTFSS  xCF.5
+2FD6:  BRA    2FDA
 .................... 			timers.now_debug_dump=0;
-2FEE:  BCF    xCF.5
+2FD8:  BCF    xCF.5
 .................... 
 .................... //			debug_dump();
 .................... 		}
 .................... 
 .................... 		if ( timers.now_adc_sample ) {
-2FF0:  BTFSS  xCF.0
-2FF2:  BRA    2FFA
+2FDA:  BTFSS  xCF.0
+2FDC:  BRA    2FE4
 .................... 			timers.now_adc_sample=0;
-2FF4:  BCF    xCF.0
+2FDE:  BCF    xCF.0
 .................... 			adc_update();
-2FF6:  CALL   1BEE
+2FE0:  CALL   1BEE
 .................... 		}
 .................... 
 .................... 		if ( timers.now_write_config ) {
-2FFA:  BTFSS  xCF.3
-2FFC:  BRA    3004
+2FE4:  BTFSS  xCF.3
+2FE6:  BRA    2FEE
 .................... 			timers.now_write_config=0;
-2FFE:  BCF    xCF.3
+2FE8:  BCF    xCF.3
 .................... 			write_param_file();
-3000:  CALL   194A
+2FEA:  CALL   194A
 .................... 		}
 .................... 		if ( timers.now_reset_config ) {
-3004:  BTFSS  xCF.4
-3006:  BRA    300E
+2FEE:  BTFSS  xCF.4
+2FF0:  BRA    2FF8
 .................... 			timers.now_reset_config=0;
-3008:  BCF    xCF.4
+2FF2:  BCF    xCF.4
 .................... 			write_default_param_file();
-300A:  CALL   1996
+2FF4:  CALL   1996
 .................... 		}
-300E:  MOVLB  1
-3010:  BRA    2FD8
+2FF8:  MOVLB  1
+2FFA:  BRA    2FC2
 .................... 
 .................... 
 .................... 	}
 .................... 
 .................... 
 .................... }
-3012:  BRA    3012
+2FFC:  BRA    2FFC
 
 Configuration Fuses:
    Word  1: 2800   INTRC_IO NOPLLEN PCLKEN NOFCMEN NOIESO
