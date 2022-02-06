@@ -33,6 +33,7 @@ file_005=.
 file_006=.
 file_007=.
 file_008=.
+file_009=.
 [GENERATED_FILES]
 file_000=no
 file_001=no
@@ -42,27 +43,30 @@ file_004=no
 file_005=no
 file_006=no
 file_007=no
-file_008=no
+file_008=yes
+file_009=yes
 [OTHER_FILES]
 file_000=no
 file_001=no
-file_002=no
+file_002=yes
 file_003=yes
 file_004=yes
 file_005=yes
 file_006=yes
 file_007=yes
 file_008=yes
+file_009=yes
 [FILE_INFO]
 file_000=C:\Users\James Jarvis\Desktop\planetPrecision\dcswc_module_latching_contactor\dcswc_module_latching_contactor.c
 file_001=dcswc_module_latching_contactor.h
-file_002=registers_dcswc_module_latching_contactor.h
-file_003=adc_dcswc_module_latching_contactor.c
+file_002=adc_dcswc_module_latching_contactor.c
+file_003=debug_dcswc_module_latching_contactor.c
 file_004=i2c_handler_dcswc_module_latching_contactor.c
 file_005=interrupt_dcswc_module_latching_contactor.c
 file_006=param_dcswc_module_latching_contactor.c
-file_007=C:\Users\James Jarvis\Desktop\planetPrecision\dcswc_module_latching_contactor\dcswc_module_latching_contactor.SYM
-file_008=C:\Users\James Jarvis\Desktop\planetPrecision\dcswc_module_latching_contactor\dcswc_module_latching_contactor.TRE
+file_007=registers_dcswc_module_latching_contactor.h
+file_008=C:\Users\James Jarvis\Desktop\planetPrecision\dcswc_module_latching_contactor\dcswc_module_latching_contactor.SYM
+file_009=C:\Users\James Jarvis\Desktop\planetPrecision\dcswc_module_latching_contactor\dcswc_module_latching_contactor.TRE
 [SUITE_INFO]
 suite_guid={BA86BF99-4C07-4CE2-A9E7-C2A337910996}
 suite_state=

@@ -49,10 +49,17 @@ void write_default_param_file() {
 		config.ch[i].lvd_disconnect_adc=303;
 		config.ch[i].lvd_disconnect_delay=40;
 		config.ch[i].lvd_reconnect_adc=308;
+		config.ch[i].lvd_reconnect_delay=10;
+		
 
 		config.ch[i].hvd_disconnect_adc=410;
-		config.ch[i].hvd_disconnect_delay=15;
+		config.ch[i].hvd_disconnect_delay=65535;
 		config.ch[i].hvd_reconnect_adc=385;
+		config.ch[i].hvd_reconnect_delay=60;
+
+
+		config.ch[i].ltd_disconnect_delay=65535;
+		config.ch[i].htd_disconnect_delay=65535;
 	}
 	
 	/* write them so next time we use from EEPROM */

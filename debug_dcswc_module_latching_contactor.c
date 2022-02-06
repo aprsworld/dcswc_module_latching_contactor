@@ -13,6 +13,7 @@ void debug_dump(void) {
 
 	for ( i=0 ; i<2 ; i++ ) {
 		restart_wdt();
+		fprintf(STREAM_FTDI,"#-------\r\n");
 		fprintf(STREAM_FTDI,"# config.ch[%u]\r\n",i);
 		fprintf(STREAM_FTDI,"# command_off_hold_time=%lu\r\n",config.ch[i].command_off_hold_time);
 
@@ -39,6 +40,7 @@ void debug_dump(void) {
 
 
 		restart_wdt();
+		fprintf(STREAM_FTDI,"#\r\n");
 		fprintf(STREAM_FTDI,"# channel[%u]\r\n",i);
 		fprintf(STREAM_FTDI,"#                        state=0x%02x\r\n",channel[i].state);
 		fprintf(STREAM_FTDI,"#           command_on_seconds=%lu\r\n",channel[i].command_on_seconds);

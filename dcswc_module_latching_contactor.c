@@ -92,15 +92,14 @@ typedef struct {
 
 	int1 now_debug_dump;
 
-	int1 contactor[2]; 	/* contactor states */
-
 
 	/* timers */
 	int8 led_on_a;
 	int8 led_on_b;
 
-
-	int8 contactor_powersave[2]; /* counts down. Off at zero. */
+	/* contactors */
+	int8 contactor[2]; 	         /* current state */
+	int8 contactor_powersave[2]; /* countdown to shut off power to coil at 0 */
 } struct_time_keep;
 
 /* global structures */
@@ -118,44 +117,52 @@ struct_channel channel[2]={0};
 
 void contactor_on(int8 c) {
 	/* only turn on contactor if it isn't on or needs a refresh */
-	if ( 1 == timers.contactor[c] )
+	if ( 1 == timers.contactor[c] ) {
 		return;
-
-	timers.contactor_powersave[c]=CONTACTOR_POWER_SAVE_MS;
-
-	if ( 0==c ) {
-		/* contactor A pins */
-		output_high(BRIDGE_A_A);
-		output_low(BRIDGE_A_B);
-	} else {
-		/* contactor B pins */
-		output_high(BRIDGE_B_A);
-		output_low(BRIDGE_B_B);
 	}
 
+	/* we start the powersave count down */
+	timers.contactor_powersave[c]=CONTACTOR_POWER_SAVE_MS;
+
+	/* control the actual coil depending on what channel we are on */
+	if ( 0==c ) {
+		/* contactor A pins */
+		output_low(BRIDGE_A_A);
+		output_high(BRIDGE_A_B);
+	} else {
+		/* contactor B pins */
+		output_low(BRIDGE_B_A);
+		output_high(BRIDGE_B_B);
+	}
+
+	/* save state for next time */
 	timers.contactor[c]=1;
 }
 
 void contactor_off(int8 c) {
 	/* only turn off contactor if it isn't on or needs a refresh */
-	if ( 0 == timers.contactor[c] )
+	if ( 0 == timers.contactor[c] ) {
 		return;
-
-	timers.contactor_powersave[c]=CONTACTOR_POWER_SAVE_MS;
-
-	if ( 0==c ) {
-		output_low(BRIDGE_A_A);
-		output_high(BRIDGE_A_B);
-	} else {
-		output_low(BRIDGE_B_A);
-		output_high(BRIDGE_B_B);
 	}
 
+	/* we start the powersave count down */
+	timers.contactor_powersave[c]=CONTACTOR_POWER_SAVE_MS;
+
+	/* control the actual coil depending on what channel we are on */
+	if ( 0==c ) {
+		output_high(BRIDGE_A_A);
+		output_low(BRIDGE_A_B);
+	} else {
+		output_high(BRIDGE_B_A);
+		output_low(BRIDGE_B_B);
+	}
+
+	/* save state for next time */
 	timers.contactor[c]=0;
 }
 
 void contactor_set(int8 c) {
-	int1 state=1;
+	int8 state=1;
 
 	/* if nothing is set in channel[c].state, contactor is on */
 	state=1; 
@@ -182,6 +189,8 @@ void contactor_logic(int8 c) {
 	/* override button / switch */
 	if ( (0==c && 0==input(SW_OVERRIDE_A)) || (1==c && 0==input(SW_OVERRIDE_B)) ) {
 		bit_set(channel[c].state,CH_STATE_BIT_OVERRIDE);
+	} else {
+		bit_clear(channel[c].state,CH_STATE_BIT_OVERRIDE);
 	}
 
 	/* command on. 65535 disables */
@@ -343,6 +352,7 @@ void periodic_millisecond(void) {
 		current.interval_milliseconds++;
 	}
 
+
 	/* contactor timeout */
 	if ( 0 == timers.contactor_powersave[0] ) {
 		output_low(BRIDGE_A_A);
@@ -398,7 +408,8 @@ void periodic_millisecond(void) {
 }
 
 void init(void) {
-	int8 buff[32];
+	int8 i;
+	int8 buff[10];
 	setup_oscillator(OSC_16MHZ);
 
 	setup_adc(ADC_CLOCK_DIV_16);
@@ -419,50 +430,62 @@ void init(void) {
 
 	/* data structure initialization */
 	/* all initialized to 0 on declaration. Just do this if need non-zero */
-	channel[0].command_off_seconds=65535;
-	channel[1].command_off_seconds=65535;
-	channel[0].command_on_seconds =65535;
-	channel[1].command_on_seconds =65535;
+	for ( i=0 ; i<=1 ; i++ ) {
+		channel[i].command_off_seconds=65535;
+		channel[i].command_on_seconds =65535;
+	}
 
+	/* get our compiled date from constant  
+	'5-Feb-22'
+	 01234567
 
-	/* get our compiled date from constant */
+	'25-Feb-22'
+	 012345678
+	*/
 	strcpy(buff,__DATE__);
-	current.compile_day =(buff[0]-'0')*10;
-	current.compile_day+=(buff[1]-'0');
+	i=0;
+	if ( '-' != buff[1] ) {
+		/* day can be one or two digits */
+		current.compile_day =(buff[i]-'0')*10;
+		i++;
+	}
+	current.compile_day+=(buff[i]-'0');
+	i+=2; /* now points to month */
+
 	/* determine month ... how annoying */
-	if ( 'J'==buff[3] ) {
-		if ( 'A'==buff[4] )
+	if ( 'J'==buff[i+0] ) {
+		if ( 'A'==buff[i+1] )
 			current.compile_month=1;
-		else if ( 'N'==buff[5] )
+		else if ( 'N'==buff[i+2] )
 			current.compile_month=6;
 		else
 			current.compile_month=7;
-	} else if ( 'A'==buff[3] ) {
-		if ( 'P'==buff[4] )
+	} else if ( 'A'==buff[i+0] ) {
+		if ( 'P'==buff[i+1] )
 			current.compile_month=4;
 		else
 			current.compile_month=8;
-	} else if ( 'M'==buff[3] ) {
-		if ( 'R'==buff[5] )
+	} else if ( 'M'==buff[i+0] ) {
+		if ( 'R'==buff[i+2] )
 			current.compile_month=3;
 		else
 			current.compile_month=5;
-	} else if ( 'F'==buff[3] ) {
+	} else if ( 'F'==buff[i+0] ) {
 		current.compile_month=2;
-	} else if ( 'S'==buff[3] ) {
+	} else if ( 'S'==buff[i+0] ) {
 		current.compile_month=9;
-	} else if ( 'O'==buff[3] ) {
+	} else if ( 'O'==buff[i+0] ) {
 		current.compile_month=10;
-	} else if ( 'N'==buff[3] ) {
+	} else if ( 'N'==buff[i+0] ) {
 		current.compile_month=11;
-	} else if ( 'D'==buff[3] ) {
+	} else if ( 'D'==buff[i+0] ) {
 		current.compile_month=12;
 	} else {
 		/* error parsing, shouldn't happen */
 		current.compile_month=255;
 	}
-	current.compile_year =(buff[7]-'0')*10;
-	current.compile_year+=(buff[8]-'0');
+	current.compile_year =(buff[i+4]-'0')*10;
+	current.compile_year+=(buff[i+5]-'0');
 
 
 	/* one periodic interrupt @ 1mS. Generated from system 16 MHz clock */
@@ -530,6 +553,11 @@ void main(void) {
 
 		if ( timers.now_millisecond ) {
 			periodic_millisecond();
+		}
+
+		if ( kbhit() ) {
+			getc();
+			timers.now_debug_dump=1;
 		}
 
 		if ( timers.now_debug_dump ) {
