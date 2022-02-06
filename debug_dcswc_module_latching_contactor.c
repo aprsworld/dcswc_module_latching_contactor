@@ -4,15 +4,20 @@ void debug_dump(void) {
 
 	
 	restart_wdt();
+#if 0
 	fprintf(STREAM_FTDI,"# '%s'\r\n",__DATE__);
 	fprintf(STREAM_FTDI,"#  compile_year=%u\r\n",current.compile_year);
 	fprintf(STREAM_FTDI,"# compile_month=%u\r\n",current.compile_month);
 	fprintf(STREAM_FTDI,"#   compile_day=%u\r\n",current.compile_day);
+#endif
 	fprintf(STREAM_FTDI,"#       vin adc=%lu\r\n",adc_get(0));
 	fprintf(STREAM_FTDI,"#      temp adc=%lu\r\n",adc_get(1));
+	fprintf(STREAM_FTDI,"#   ch[0].state=0x%2X\r\n",channel[0].state);
+	fprintf(STREAM_FTDI,"#   ch[1].state=0x%2X\r\n",channel[1].state);
 //	fprintf(STREAM_FTDI,"# read_dip_sw()=%u\r\n",read_dip_switch());
 //	fprintf(STREAM_FTDI,"#    dip sw adc=%lu\r\n",adc_get(2));
 
+#if 0
 	for ( i=0 ; i<2 ; i++ ) {
 		restart_wdt();
 		fprintf(STREAM_FTDI,"#-------\r\n");
@@ -63,7 +68,6 @@ void debug_dump(void) {
 
 		fprintf(STREAM_FTDI,"# htd_disconnect_delay_seconds=%lu\r\n",channel[i].htd_disconnect_delay_seconds);
 		fprintf(STREAM_FTDI,"#  htd_reconnect_delay_seconds=%lu\r\n",channel[i].htd_reconnect_delay_seconds);
-
 	}
-	
+	#endif
 }

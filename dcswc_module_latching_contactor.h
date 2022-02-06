@@ -83,5 +83,5 @@ Parameters are stored in EEPROM
 #define CONTACTOR_POWER_SAVE_MS       200 /* milliseconds for contactor be on. Must be >0 and <= 255 */
 #define CONTACTOR_REFRESH_CYCLES      10  /* re-appply contactor coil voltage every N cycles. 65525 disables */
 
-#define BLINK_ON_TIME                 250
-#define BLINK_OFF_TIME                100
+#define BLINK_ON_TIME                 254
+#define BLINK_OFF_TIME                200

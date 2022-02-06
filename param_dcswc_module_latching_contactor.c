@@ -46,19 +46,25 @@ void write_default_param_file() {
 
 
 	for ( i=0 ; i<2 ; i++ ) {
+		/* low voltage disconnect */
 		config.ch[i].lvd_disconnect_adc=606;
-		config.ch[i].lvd_disconnect_delay=20;
+		config.ch[i].lvd_disconnect_delay=20; /* 65535 disables LVD */
 		config.ch[i].lvd_reconnect_adc=616;
 		config.ch[i].lvd_reconnect_delay=10;
 		
-
+		/* high voltage disconnect */
 		config.ch[i].hvd_disconnect_adc=700;
-		config.ch[i].hvd_disconnect_delay=1;
+		config.ch[i].hvd_disconnect_delay=1; /* 65535 disables HVD */
 		config.ch[i].hvd_reconnect_adc=650;
 		config.ch[i].hvd_reconnect_delay=60;
 
+		/* low temperature disconnect */
+		config.ch[i].ltd_disconnect_adc=786; // 0C / 32F
+		config.ch[i].ltd_disconnect_delay=1; /* 65535 disables LTD */
+		config.ch[i].ltd_reconnect_adc=683;  // 10C / 50F
+		config.ch[i].ltd_reconnect_delay=4;
 
-		config.ch[i].ltd_disconnect_delay=65535;
+
 		config.ch[i].htd_disconnect_delay=65535;
 	}
 	

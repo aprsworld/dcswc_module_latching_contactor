@@ -299,6 +299,7 @@ void contactor_logic(int8 c) {
 		adc=adc_get(1);
 
 		if ( adc < config.ch[c].ltd_reconnect_adc ) {
+			/* above reconnect temperature */
 			if ( channel[c].ltd_reconnect_delay_seconds > 0 ) {
 				channel[c].ltd_reconnect_delay_seconds--;
 			} else {
@@ -309,6 +310,7 @@ void contactor_logic(int8 c) {
 		}
 
 		if ( adc > config.ch[c].ltd_disconnect_adc ) {
+			/* below disconnect temperature */
 			if ( channel[c].ltd_disconnect_delay_seconds > 0 ) {
 				channel[c].ltd_disconnect_delay_seconds--;
 			} else {
@@ -329,8 +331,8 @@ void led_status_second_update(void) {
 	static int8 cycle=0;
 	int8 led;
 
-	/* update every other second */
-	if ( second ) {
+	/* update every four seconds */
+	if ( 4==second ) {
 		second=0;
 		return;
 	}
@@ -362,7 +364,7 @@ void led_status_second_update(void) {
 		}
 	}
 
-	fprintf(STREAM_FTDI,"# LED %u A=%03u (0x%02X) B=%03u (0x%02X)\r\n",cycle,timers.led_blink[0],channel[0].state,timers.led_blink[1],channel[1].state);
+//	fprintf(STREAM_FTDI,"# LED %u A=%03u (0x%02X) B=%03u (0x%02X)\r\n",cycle,timers.led_blink[0],channel[0].state,timers.led_blink[1],channel[1].state);
 
 	if ( 10 == cycle ) {
 		cycle=0; 
@@ -643,7 +645,7 @@ void main(void) {
 		if ( timers.now_debug_dump ) {
 			timers.now_debug_dump=0;
 
-//			debug_dump();
+			debug_dump();
 		}
 
 		if ( timers.now_adc_sample ) {
