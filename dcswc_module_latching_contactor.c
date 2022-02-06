@@ -94,8 +94,9 @@ typedef struct {
 
 
 	/* timers */
-	int8 led_on_a;
-	int8 led_on_b;
+	int8 led_blink[2];
+	int8 led_on[2];
+	int8 led_off[2];
 
 	/* contactors */
 	int8 contactor[2]; 	         /* current state */
@@ -323,29 +324,113 @@ void contactor_logic(int8 c) {
 }
 
 
+void led_status_second_update(void) {
+	static int1 second=0;
+	static int8 cycle=0;
+	int8 led;
 
+	/* update every other second */
+	if ( second ) {
+		second=0;
+		return;
+	}
+
+	for ( led=0 ; led<2 ; led++ ) {
+		if ( cycle < 8 ) {
+			/* first 8 cycles are 8 bits of state bit field */
+
+			/* if bit is set, then we blink the number of times+1 of the bit we are in. So bit 1 set means we blink 2 times */
+			if ( bit_test(channel[led].state,cycle) ) {
+				timers.led_blink[led]=cycle+1;
+			} else {
+				timers.led_blink[led]=0;
+			}
+		} else if ( 8 == cycle ) {
+			/* solid light to mark start of next cycle */
+			timers.led_blink[led]=255;
+		} else {
+			/* solid on if contactor state is on, otherwise off */
+			if ( timers.contactor[led] ) {
+				timers.led_blink[led]=255;
+			} else {
+				timers.led_blink[led]=0;
+			}
+		}
+	}
+
+	fprintf(STREAM_FTDI,"# LED %u A=%03u (0x%02X) B=%03u (0x%02X)\r\n",cycle,timers.led_blink[0],channel[0].state,timers.led_blink[1],channel[1].state);
+
+	if ( 9 == cycle ) {
+		cycle=0; 
+	} else {
+		cycle++;
+	}
+
+	second=1;
+}
+
+void led_on(int8 c) {
+	if ( 0==c ) 
+		output_high(LED_A);
+	else
+		output_high(LED_B);
+}
+
+void led_off(int8 c) {
+	if ( 0==c ) 
+		output_low(LED_A);
+	else
+		output_low(LED_B);
+}
 
 void periodic_millisecond(void) {
 	static int8 uptimeticks=0;
 	static int16 adcTicks=0;
 	static int16 ticks=0;
 
+	static int8 led[2]={0};
+	static int8 led_state[2]={0};
+	int8 i;
+
 
 	timers.now_millisecond=0;
 
-	/* LED control */
-	if ( 0==timers.led_on_a ) {
-		output_low(LED_A);
-	} else {
-		output_high(LED_A);
-		timers.led_on_a--;
+	/* set LED output */
+	for ( i=0 ; i<2 ; i++ ) {
+		if ( 255 == timers.led_blink[i] ) {
+			led_on(i);
+		} else if ( 0 == timers.led_blink[i] ) {
+			led_off(i);
+		} else {
+			/* should be blinking */
+			if ( 1 == led_state[i] ) {
+				if ( 0 == led[i] ) {
+					/* have been on, now we are going to rest */
+					led_state[i]=0;
+					led[i]=BLINK_OFF_TIME;
+					led_off(i);
+
+					if ( timers.led_blink[i] > 0 ) {
+						timers.led_blink[i]--;
+					}
+				} else {
+					led[i]--;
+					led_on(i);
+				}
+			} else {
+				if ( 0 == led[i] ) {
+					/* have been off, now we are going to turn on */
+					led_state[i]=1;
+					led[i]=BLINK_ON_TIME;
+					led_on(i);
+				} else {
+					led[i]--;
+					led_off(i);
+				}
+			}
+		}
 	}
-	if ( 0==timers.led_on_b ) {
-		output_low(LED_B);
-	} else {
-		output_high(LED_B);
-		timers.led_on_b--;
-	}
+
 
 	/* some other random stuff that we don't need to do every cycle in main */
 	if ( current.interval_milliseconds < 65535 ) {
@@ -390,6 +475,9 @@ void periodic_millisecond(void) {
 			if ( current.uptime_minutes < 65535 ) 
 				current.uptime_minutes++;
 		}
+
+		/* LED state display update */
+		led_status_second_update();
 	}
 
 	/* ADC sample counter */
@@ -501,7 +589,6 @@ void init(void) {
 
 void main(void) {
 	int8 i;
-	int8 last_a, last_b;
 
 	init();
 
@@ -532,17 +619,12 @@ void main(void) {
 	}
 	fprintf(STREAM_FTDI,"\r\n");
 
-	timers.led_on_a=500;
-
 	enable_interrupts(GLOBAL);
 
 	/* Prime ADC filter */
 	for ( i=0 ; i<30 ; i++ ) {
 		adc_update();
 	}
-
-	last_a = ! input(SW_OVERRIDE_A);
-	last_b = ! input(SW_OVERRIDE_B);
 
 
 	/* enable I2C slave interrupt */
@@ -563,36 +645,8 @@ void main(void) {
 		if ( timers.now_debug_dump ) {
 			timers.now_debug_dump=0;
 
-			debug_dump();
+//			debug_dump();
 		}
-
-#if 0
-		if ( input(SW_OVERRIDE_A) != last_a ) {
-			last_a=input(SW_OVERRIDE_A);
-
-			if ( last_a ) {
-				timers.led_on_a=500;
-				contactor_on_a();
-			} else {
-				timers.led_on_a=0;
-				contactor_off_a();
-			}
-		}
-
-
-		if ( input(SW_OVERRIDE_B) != last_b ) {
-			last_B=input(SW_OVERRIDE_B);
-
-			if ( last_b ) {
-				timers.led_on_b=500;
-				contactor_on_b();
-			} else {
-				timers.led_on_b=0;
-				contactor_off_b();
-			}
-		}
-#endif
-
 
 		if ( timers.now_adc_sample ) {
 			timers.now_adc_sample=0;

@@ -1,5 +1,7 @@
 void debug_dump(void) {
+
 	int8 i;
+
 	
 	restart_wdt();
 	fprintf(STREAM_FTDI,"# '%s'\r\n",__DATE__);

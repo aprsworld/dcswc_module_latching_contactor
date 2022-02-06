@@ -41,20 +41,20 @@ void write_default_param_file() {
 	current.default_params_written=1;
 
 	/* both LEDs on */
-	timers.led_on_a=150;
-	timers.led_on_b=150;
+	timers.led_blink[0]=255;
+	timers.led_blink[1]=255;
 
 
 	for ( i=0 ; i<2 ; i++ ) {
-		config.ch[i].lvd_disconnect_adc=303;
-		config.ch[i].lvd_disconnect_delay=40;
-		config.ch[i].lvd_reconnect_adc=308;
+		config.ch[i].lvd_disconnect_adc=606;
+		config.ch[i].lvd_disconnect_delay=20;
+		config.ch[i].lvd_reconnect_adc=616;
 		config.ch[i].lvd_reconnect_delay=10;
 		
 
-		config.ch[i].hvd_disconnect_adc=410;
-		config.ch[i].hvd_disconnect_delay=65535;
-		config.ch[i].hvd_reconnect_adc=385;
+		config.ch[i].hvd_disconnect_adc=700;
+		config.ch[i].hvd_disconnect_delay=1;
+		config.ch[i].hvd_reconnect_adc=650;
 		config.ch[i].hvd_reconnect_delay=60;
 
 

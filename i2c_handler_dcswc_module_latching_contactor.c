@@ -103,8 +103,6 @@ int16 map_i2c(int8 addr) {
 		c=0;
 	}
 
-	timers.led_on_a=100;
-
 	switch ( addr ) {
 		/* not channel based */
 		case I2C_REG_VOLTAGE_INPUT_AVG: 

@@ -31,7 +31,7 @@
 
 #use standard_io(ALL)
 
-#use rs232(UART1,stream=STREAM_FTDI,baud=9600,errors)	
+#use rs232(UART1,stream=STREAM_FTDI,baud=57600,errors)	
 
 /* program config CRC of 0 and a serial_prefix of 'A' ... that will trigger a write default on first boot */
 #ROM 0xF00000 = { 0x00, 0x00, 0x40, 0x00 }
@@ -81,3 +81,7 @@ Parameters are stored in EEPROM
 
 #define ADC_SAMPLE_TICKS              20
 #define CONTACTOR_POWER_SAVE_MS       200 /* milliseconds for contactor be on. Must be >0 and <= 255 */
+#define CONTACTOR_REFRESH_CYCLES      10  /* re-appply contactor coil voltage every N cycles. 65525 disables */
+
+#define BLINK_ON_TIME                 220
+#define BLINK_OFF_TIME                50
