@@ -1,6 +1,6 @@
 void debug_dump(void) {
 
-	int8 i;
+//	int8 i;
 
 	
 	restart_wdt();

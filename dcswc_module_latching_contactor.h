@@ -7,14 +7,26 @@
 #use i2c(stream=STREAM_SLAVE,SLAVE, I2C1, FORCE_HW)
 /* slave address set based on dip switch in init() */
 
+/* important FUSE notes! 
+MPLAB defaults to DEBUG mode and that will override fuses.
+make sure it is on "BUILD CONFIGURATION" of "RELEASE" under
+"PROJECT" menu.
 
+CCS setup functions can override fuses. Check .LST file
+to see if anything has been overriden!
+*/
+
+#fuses NODEBUG 
 #fuses INTRC_IO
+#fuses NOPCLKEN
 #fuses NOPLLEN
 #fuses NOFCMEN
 #fuses NOIESO
-#fuses PUT
 #fuses BROWNOUT
-#fuses WDT512
+#fuses BORV30
+#fuses NOPUT
+#fuses WDT
+#fuses WDT128     /* this can be override by setup_wdt() */
 #fuses NOHFOFST
 #fuses NOMCLR
 #fuses STVREN
@@ -28,6 +40,8 @@
 #fuses NOWRTD
 #fuses NOEBTR
 #fuses NOEBTRB
+#fuses BBSIZ1K
+
 
 #use standard_io(ALL)
 

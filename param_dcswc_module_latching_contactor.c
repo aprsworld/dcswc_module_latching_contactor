@@ -64,8 +64,11 @@ void write_default_param_file() {
 		config.ch[i].ltd_reconnect_adc=683;  // 10C / 50F
 		config.ch[i].ltd_reconnect_delay=4;
 
-
-		config.ch[i].htd_disconnect_delay=65535;
+		/* high temperature disconnect */
+		config.ch[i].htd_disconnect_adc=405; // 35C / 95F
+		config.ch[i].htd_disconnect_delay=1; /* 65535 disables LTD */
+		config.ch[i].htd_reconnect_adc=512;  // 25C / 77F
+		config.ch[i].htd_reconnect_delay=4;
 	}
 	
 	/* write them so next time we use from EEPROM */

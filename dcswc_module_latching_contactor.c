@@ -244,7 +244,7 @@ void contactor_logic(int8 c) {
 	}
 
 
-	/* LVD. 65535 disables */
+	/* Low Voltage Disconnect. 65535 disables */
 	if ( 65535 != config.ch[c].lvd_disconnect_delay ) {
 		adc=adc_get(0);
 
@@ -269,7 +269,7 @@ void contactor_logic(int8 c) {
 		}
 	}
 
-	/* HVD. 65535 disables */
+	/* High Voltage Disconnect. 65535 disables */
 	if ( 65535 != config.ch[c].hvd_disconnect_delay ) {
 		adc=adc_get(0);
 
@@ -294,7 +294,7 @@ void contactor_logic(int8 c) {
 		}
 	}
 
-	/* LTD. 65535 disables */
+	/* Low Temperature Disconnect. 65535 disables */
 	if ( 65535 != config.ch[c].ltd_disconnect_delay ) {
 		adc=adc_get(1);
 
@@ -321,21 +321,37 @@ void contactor_logic(int8 c) {
 		}
 	}
 
+	/* High Temperature Disconnect. 65535 disables */
+	if ( 65535 != config.ch[c].htd_disconnect_delay ) {
+		adc=adc_get(1);
 
-	/* TODO: implement High Temperature Disconnect (HTD) */
+		if ( adc > config.ch[c].htd_reconnect_adc ) {
+			if ( channel[c].htd_reconnect_delay_seconds > 0 ) {
+				channel[c].htd_reconnect_delay_seconds--;
+			} else {
+				bit_clear(channel[c].state,CH_STATE_BIT_HTD);
+			}
+		} else {
+			channel[c].htd_reconnect_delay_seconds=config.ch[c].htd_reconnect_delay;
+		}
+
+		if ( adc < config.ch[c].htd_disconnect_adc ) {
+			if ( channel[c].htd_disconnect_delay_seconds > 0 ) {
+				channel[c].htd_disconnect_delay_seconds--;
+			} else {
+				bit_set(channel[c].state,CH_STATE_BIT_HTD);
+			}
+		} else {
+			channel[c].htd_disconnect_delay_seconds=config.ch[c].htd_disconnect_delay;
+		}
+	}
+
 }
 
 
-void led_status_second_update(void) {
-	static int8 second=0;
+void led_status_update(void) {
 	static int8 cycle=0;
 	int8 led;
-
-	/* update every four seconds */
-	if ( 4==second ) {
-		second=0;
-		return;
-	}
 
 	for ( led=0 ; led<2 ; led++ ) {
 		if ( cycle < 8 ) {
@@ -371,8 +387,6 @@ void led_status_second_update(void) {
 	} else {
 		cycle++;
 	}
-
-	second++;
 }
 
 void led_on(int8 c) {
@@ -390,7 +404,8 @@ void led_off(int8 c) {
 }
 
 void periodic_millisecond(void) {
-	static int8 uptimeticks=0;
+	static int8  uptimeTicks=0;
+	static int8  statusTicks=0;
 	static int16 adcTicks=0;
 	static int16 ticks=0;
 
@@ -476,8 +491,15 @@ void periodic_millisecond(void) {
 				current.uptime_minutes++;
 		}
 
-		/* LED state display update */
-		led_status_second_update();
+		/* LED status update every 4 seconds */
+		statusTicks++;
+		if ( 4 == statusTicks ) {
+			/* LED state display update */
+			statusTicks=0;
+			led_status_update();
+		}
+
+
 	}
 
 	/* ADC sample counter */
@@ -505,7 +527,7 @@ void init(void) {
 	voltage spans between 0 and Vdd */
 	setup_adc_ports(sAN2 | sAN4 | sAN9,VSS_VDD);
 
-	setup_wdt(WDT_512MS);
+	setup_wdt(WDT_512MS); /* forces the fuse to WDT128 */
 
 	set_tris_a(0b00111111);
 	set_tris_b(0b01110000);
