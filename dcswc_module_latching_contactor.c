@@ -614,6 +614,12 @@ void main(void) {
 
 	init();
 
+	/* force off both contactors */
+	timers.contactor[0]=1;
+	timers.contactor[1]=1;
+	contactor_off(0);
+	contactor_off(1);
+
 
 	/* read parameters from EEPROM and write defaults if CRC doesn't match */
 	read_param_file();
