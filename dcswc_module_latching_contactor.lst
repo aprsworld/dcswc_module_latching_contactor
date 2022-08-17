@@ -1,15 +1,15 @@
-CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
+CCS PCH C Compiler, Version 5.090, 49113               16-Aug-22 17:42
 
                Filename:   C:\Users\James Jarvis\Desktop\planetPrecision\dcswc_module_latching_contactor\dcswc_module_latching_contactor.lst
 
-               ROM used:   12218 bytes (75%)
-                           Largest free fragment is 4162
+               ROM used:   12186 bytes (74%)
+                           Largest free fragment is 4194
                RAM used:   283 (55%) at main() level
                            311 (61%) worst case
                Stack used: 4 locations (2 in main + 2 for interrupts)
                Stack size: 31
 
-0000:  GOTO   2DAC
+0000:  GOTO   2D8C
 *
 0008:  MOVWF  04
 000A:  MOVFF  FD8,05
@@ -81,11 +81,11 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 00C4:  TBLRD*+
 00C6:  MOVF   FF5,W
 00C8:  RETURN 0
-00CA:  DATA 39,2D
-00CC:  DATA 46,65
-00CE:  DATA 62,2D
-00D0:  DATA 32,32
-00D2:  DATA 00,00
+00CA:  DATA 31,36
+00CC:  DATA 2D,41
+00CE:  DATA 75,67
+00D0:  DATA 2D,32
+00D2:  DATA 32,00
 *
 0F5C:  DATA 23,20
 0F5E:  DATA 20,20
@@ -154,11 +154,11 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 0FDC:  DATA 0D,0A
 0FDE:  DATA 23,20
 0FE0:  DATA 00,00
-0FE2:  DATA 39,2D
-0FE4:  DATA 46,65
-0FE6:  DATA 62,2D
-0FE8:  DATA 32,32
-0FEA:  DATA 00,00
+0FE2:  DATA 31,36
+0FE4:  DATA 2D,41
+0FE6:  DATA 75,67
+0FE8:  DATA 2D,32
+0FEA:  DATA 32,00
 0FEC:  DATA 57,44
 0FEE:  DATA 54,20
 0FF0:  DATA 54,49
@@ -220,159 +220,159 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 1060:  DATA 4E,21
 1062:  DATA 00,00
 *
-18AC:  TBLRD*+
-18AE:  MOVFF  FF6,11E
-18B2:  MOVFF  FF7,11F
-18B6:  MOVF   FF5,W
-18B8:  BTFSS  F9E.4
-18BA:  BRA    18B8
-18BC:  MOVWF  FAD
-18BE:  MOVFF  11E,FF6
-18C2:  MOVFF  11F,FF7
-18C6:  MOVLB  1
-18C8:  DECFSZ x1D,F
-18CA:  BRA    18CE
-18CC:  BRA    18D2
-18CE:  MOVLB  0
-18D0:  BRA    18AC
-18D2:  MOVLB  0
-18D4:  RETURN 0
-18D6:  TBLRD*+
-18D8:  MOVF   FF5,F
-18DA:  BZ    18F6
-18DC:  MOVFF  FF6,11B
-18E0:  MOVFF  FF7,11C
-18E4:  MOVF   FF5,W
-18E6:  BTFSS  F9E.4
-18E8:  BRA    18E6
-18EA:  MOVWF  FAD
-18EC:  MOVFF  11B,FF6
-18F0:  MOVFF  11C,FF7
-18F4:  BRA    18D6
-18F6:  RETURN 0
+188C:  TBLRD*+
+188E:  MOVFF  FF6,11E
+1892:  MOVFF  FF7,11F
+1896:  MOVF   FF5,W
+1898:  BTFSS  F9E.4
+189A:  BRA    1898
+189C:  MOVWF  FAD
+189E:  MOVFF  11E,FF6
+18A2:  MOVFF  11F,FF7
+18A6:  MOVLB  1
+18A8:  DECFSZ x1D,F
+18AA:  BRA    18AE
+18AC:  BRA    18B2
+18AE:  MOVLB  0
+18B0:  BRA    188C
+18B2:  MOVLB  0
+18B4:  RETURN 0
+18B6:  TBLRD*+
+18B8:  MOVF   FF5,F
+18BA:  BZ    18D6
+18BC:  MOVFF  FF6,11B
+18C0:  MOVFF  FF7,11C
+18C4:  MOVF   FF5,W
+18C6:  BTFSS  F9E.4
+18C8:  BRA    18C6
+18CA:  MOVWF  FAD
+18CC:  MOVFF  11B,FF6
+18D0:  MOVFF  11C,FF7
+18D4:  BRA    18B6
+18D6:  RETURN 0
 *
-2BA8:  MOVFF  FEA,125
-2BAC:  MOVFF  FE9,124
-2BB0:  MOVLB  1
-2BB2:  SWAPF  x1E,W
-2BB4:  IORLW  F0
-2BB6:  MOVWF  x20
-2BB8:  ADDWF  x20,F
-2BBA:  ADDLW  E2
-2BBC:  MOVWF  x21
-2BBE:  ADDLW  32
-2BC0:  MOVWF  x23
-2BC2:  MOVF   x1E,W
-2BC4:  ANDLW  0F
-2BC6:  ADDWF  x21,F
-2BC8:  ADDWF  x21,F
-2BCA:  ADDWF  x23,F
-2BCC:  ADDLW  E9
-2BCE:  MOVWF  x22
-2BD0:  ADDWF  x22,F
-2BD2:  ADDWF  x22,F
-2BD4:  SWAPF  x1D,W
-2BD6:  ANDLW  0F
-2BD8:  ADDWF  x22,F
-2BDA:  ADDWF  x23,F
-2BDC:  RLCF   x22,F
-2BDE:  RLCF   x23,F
-2BE0:  COMF   x23,F
-2BE2:  RLCF   x23,F
-2BE4:  MOVF   x1D,W
-2BE6:  ANDLW  0F
-2BE8:  ADDWF  x23,F
-2BEA:  RLCF   x20,F
-2BEC:  MOVLW  07
-2BEE:  MOVWF  x1F
-2BF0:  MOVLW  0A
-2BF2:  DECF   x22,F
-2BF4:  ADDWF  x23,F
-2BF6:  BNC   2BF2
-2BF8:  DECF   x21,F
-2BFA:  ADDWF  x22,F
-2BFC:  BNC   2BF8
-2BFE:  DECF   x20,F
-2C00:  ADDWF  x21,F
-2C02:  BNC   2BFE
-2C04:  DECF   x1F,F
-2C06:  ADDWF  x20,F
-2C08:  BNC   2C04
-2C0A:  MOVLW  01
-2C0C:  MOVWF  FEA
-2C0E:  MOVLW  1F
-2C10:  MOVWF  FE9
-2C12:  MOVLW  07
-2C14:  ANDWF  x24,W
-2C16:  BCF    x24.6
-2C18:  ADDWF  FE9,F
-2C1A:  MOVLW  00
-2C1C:  ADDWFC FEA,F
-2C1E:  MOVF   FE9,W
-2C20:  SUBLW  23
-2C22:  BNZ   2C2A
-2C24:  DECFSZ FEA,W
-2C26:  BRA    2C2A
-2C28:  BSF    x24.6
-2C2A:  MOVF   FEF,W
-2C2C:  MOVWF  00
-2C2E:  BNZ   2C40
-2C30:  BTFSC  x24.6
-2C32:  BRA    2C40
-2C34:  BTFSC  x24.4
-2C36:  BRA    2C50
-2C38:  BTFSC  x24.3
-2C3A:  BRA    2C40
-2C3C:  MOVLW  20
-2C3E:  BRA    2C46
-2C40:  BSF    x24.3
-2C42:  BCF    x24.4
-2C44:  MOVLW  30
-2C46:  ADDWF  00,F
-2C48:  MOVF   00,W
-2C4A:  BTFSS  F9E.4
-2C4C:  BRA    2C4A
-2C4E:  MOVWF  FAD
-2C50:  MOVF   FEE,W
-2C52:  BTFSS  x24.6
-2C54:  BRA    2C1E
-2C56:  MOVLB  0
-2C58:  RETURN 0
-2C5A:  MOVLB  1
-2C5C:  BTFSC  x1C.7
-2C5E:  BRA    2C80
+2B88:  MOVFF  FEA,125
+2B8C:  MOVFF  FE9,124
+2B90:  MOVLB  1
+2B92:  SWAPF  x1E,W
+2B94:  IORLW  F0
+2B96:  MOVWF  x20
+2B98:  ADDWF  x20,F
+2B9A:  ADDLW  E2
+2B9C:  MOVWF  x21
+2B9E:  ADDLW  32
+2BA0:  MOVWF  x23
+2BA2:  MOVF   x1E,W
+2BA4:  ANDLW  0F
+2BA6:  ADDWF  x21,F
+2BA8:  ADDWF  x21,F
+2BAA:  ADDWF  x23,F
+2BAC:  ADDLW  E9
+2BAE:  MOVWF  x22
+2BB0:  ADDWF  x22,F
+2BB2:  ADDWF  x22,F
+2BB4:  SWAPF  x1D,W
+2BB6:  ANDLW  0F
+2BB8:  ADDWF  x22,F
+2BBA:  ADDWF  x23,F
+2BBC:  RLCF   x22,F
+2BBE:  RLCF   x23,F
+2BC0:  COMF   x23,F
+2BC2:  RLCF   x23,F
+2BC4:  MOVF   x1D,W
+2BC6:  ANDLW  0F
+2BC8:  ADDWF  x23,F
+2BCA:  RLCF   x20,F
+2BCC:  MOVLW  07
+2BCE:  MOVWF  x1F
+2BD0:  MOVLW  0A
+2BD2:  DECF   x22,F
+2BD4:  ADDWF  x23,F
+2BD6:  BNC   2BD2
+2BD8:  DECF   x21,F
+2BDA:  ADDWF  x22,F
+2BDC:  BNC   2BD8
+2BDE:  DECF   x20,F
+2BE0:  ADDWF  x21,F
+2BE2:  BNC   2BDE
+2BE4:  DECF   x1F,F
+2BE6:  ADDWF  x20,F
+2BE8:  BNC   2BE4
+2BEA:  MOVLW  01
+2BEC:  MOVWF  FEA
+2BEE:  MOVLW  1F
+2BF0:  MOVWF  FE9
+2BF2:  MOVLW  07
+2BF4:  ANDWF  x24,W
+2BF6:  BCF    x24.6
+2BF8:  ADDWF  FE9,F
+2BFA:  MOVLW  00
+2BFC:  ADDWFC FEA,F
+2BFE:  MOVF   FE9,W
+2C00:  SUBLW  23
+2C02:  BNZ   2C0A
+2C04:  DECFSZ FEA,W
+2C06:  BRA    2C0A
+2C08:  BSF    x24.6
+2C0A:  MOVF   FEF,W
+2C0C:  MOVWF  00
+2C0E:  BNZ   2C20
+2C10:  BTFSC  x24.6
+2C12:  BRA    2C20
+2C14:  BTFSC  x24.4
+2C16:  BRA    2C30
+2C18:  BTFSC  x24.3
+2C1A:  BRA    2C20
+2C1C:  MOVLW  20
+2C1E:  BRA    2C26
+2C20:  BSF    x24.3
+2C22:  BCF    x24.4
+2C24:  MOVLW  30
+2C26:  ADDWF  00,F
+2C28:  MOVF   00,W
+2C2A:  BTFSS  F9E.4
+2C2C:  BRA    2C2A
+2C2E:  MOVWF  FAD
+2C30:  MOVF   FEE,W
+2C32:  BTFSS  x24.6
+2C34:  BRA    2BFE
+2C36:  MOVLB  0
+2C38:  RETURN 0
+2C3A:  MOVLB  1
+2C3C:  BTFSC  x1C.7
+2C3E:  BRA    2C60
+2C40:  MOVLW  0F
+2C42:  MOVWF  00
+2C44:  SWAPF  x1B,W
+2C46:  ANDWF  00,F
+2C48:  MOVLW  0A
+2C4A:  SUBWF  00,W
+2C4C:  BC    2C54
+2C4E:  MOVLW  30
+2C50:  ADDWF  00,F
+2C52:  BRA    2C58
+2C54:  MOVF   x1C,W
+2C56:  ADDWF  00,F
+2C58:  MOVF   00,W
+2C5A:  BTFSS  F9E.4
+2C5C:  BRA    2C5A
+2C5E:  MOVWF  FAD
 2C60:  MOVLW  0F
-2C62:  MOVWF  00
-2C64:  SWAPF  x1B,W
-2C66:  ANDWF  00,F
-2C68:  MOVLW  0A
-2C6A:  SUBWF  00,W
-2C6C:  BC    2C74
-2C6E:  MOVLW  30
-2C70:  ADDWF  00,F
-2C72:  BRA    2C78
-2C74:  MOVF   x1C,W
-2C76:  ADDWF  00,F
-2C78:  MOVF   00,W
-2C7A:  BTFSS  F9E.4
-2C7C:  BRA    2C7A
-2C7E:  MOVWF  FAD
-2C80:  MOVLW  0F
-2C82:  ANDWF  x1B,F
-2C84:  MOVLW  0A
-2C86:  SUBWF  x1B,W
-2C88:  BC    2C8E
-2C8A:  MOVLW  30
-2C8C:  BRA    2C92
-2C8E:  BCF    x1C.7
-2C90:  MOVF   x1C,W
-2C92:  ADDWF  x1B,F
-2C94:  MOVF   x1B,W
-2C96:  BTFSS  F9E.4
-2C98:  BRA    2C96
-2C9A:  MOVWF  FAD
-2C9C:  MOVLB  0
-2C9E:  RETURN 0
+2C62:  ANDWF  x1B,F
+2C64:  MOVLW  0A
+2C66:  SUBWF  x1B,W
+2C68:  BC    2C6E
+2C6A:  MOVLW  30
+2C6C:  BRA    2C72
+2C6E:  BCF    x1C.7
+2C70:  MOVF   x1C,W
+2C72:  ADDWF  x1B,F
+2C74:  MOVF   x1B,W
+2C76:  BTFSS  F9E.4
+2C78:  BRA    2C76
+2C7A:  MOVWF  FAD
+2C7C:  MOVLB  0
+2C7E:  RETURN 0
 .................... 
 .................... #list
 .................... 
@@ -457,15 +457,15 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 .................... 
 .................... #use rs232(UART1,stream=STREAM_FTDI,baud=57600,errors)	
 *
-2B90:  BTFSS  F9E.5
-2B92:  BRA    2B90
-2B94:  MOVFF  FAB,1A
-2B98:  MOVFF  FAE,01
-2B9C:  BTFSS  1A.1
-2B9E:  BRA    2BA4
-2BA0:  BCF    FAB.4
-2BA2:  BSF    FAB.4
-2BA4:  GOTO   2F90 (RETURN)
+2B70:  BTFSS  F9E.5
+2B72:  BRA    2B70
+2B74:  MOVFF  FAB,1A
+2B78:  MOVFF  FAE,01
+2B7C:  BTFSS  1A.1
+2B7E:  BRA    2B84
+2B80:  BCF    FAB.4
+2B82:  BSF    FAB.4
+2B84:  GOTO   2F70 (RETURN)
 .................... 
 .................... /* program config CRC of 0 and a serial_prefix of 'A' ... that will trigger a write default on first boot */
 .................... #ROM 0xF00000 = { 0x00, 0x00, 0x40, 0x00 }
@@ -716,93 +716,93 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 .................... 	/* wrap buffer around */
 .................... 	current.adc_buffer_index++;
 *
-18F8:  INCF   xC3,F
+18D8:  INCF   xC3,F
 .................... 	if ( current.adc_buffer_index >= 16 )
-18FA:  MOVF   xC3,W
-18FC:  SUBLW  0F
-18FE:  BC    1902
+18DA:  MOVF   xC3,W
+18DC:  SUBLW  0F
+18DE:  BC    18E2
 .................... 		current.adc_buffer_index=0;
-1900:  CLRF   xC3
+18E0:  CLRF   xC3
 .................... 
 .................... 	set_adc_channel(4);
-1902:  MOVLW  10
-1904:  MOVWF  01
-1906:  MOVF   FC2,W
-1908:  ANDLW  C3
-190A:  IORWF  01,W
-190C:  MOVWF  FC2
+18E2:  MOVLW  10
+18E4:  MOVWF  01
+18E6:  MOVF   FC2,W
+18E8:  ANDLW  C3
+18EA:  IORWF  01,W
+18EC:  MOVWF  FC2
 .................... 	current.adc_buffer[0][current.adc_buffer_index] = read_adc();
-190E:  BCF    FD8.0
-1910:  RLCF   xC3,W
-1912:  CLRF   03
-1914:  ADDLW  63
-1916:  MOVWF  FE9
-1918:  MOVLW  00
-191A:  ADDWFC 03,W
-191C:  MOVWF  FEA
-191E:  BSF    FC2.1
-1920:  BTFSC  FC2.1
-1922:  BRA    1920
-1924:  MOVFF  FC3,FEF
-1928:  MOVFF  FC4,FEC
+18EE:  BCF    FD8.0
+18F0:  RLCF   xC3,W
+18F2:  CLRF   03
+18F4:  ADDLW  63
+18F6:  MOVWF  FE9
+18F8:  MOVLW  00
+18FA:  ADDWFC 03,W
+18FC:  MOVWF  FEA
+18FE:  BSF    FC2.1
+1900:  BTFSC  FC2.1
+1902:  BRA    1900
+1904:  MOVFF  FC3,FEF
+1908:  MOVFF  FC4,FEC
 .................... 
 .................... 
 .................... 	set_adc_channel(2);
-192C:  MOVLW  08
-192E:  MOVWF  01
-1930:  MOVF   FC2,W
-1932:  ANDLW  C3
-1934:  IORWF  01,W
-1936:  MOVWF  FC2
+190C:  MOVLW  08
+190E:  MOVWF  01
+1910:  MOVF   FC2,W
+1912:  ANDLW  C3
+1914:  IORWF  01,W
+1916:  MOVWF  FC2
 .................... 	delay_ms(1);
-1938:  MOVLW  01
-193A:  MOVLB  1
-193C:  MOVWF  x28
-193E:  MOVLB  0
-1940:  CALL   1064
+1918:  MOVLW  01
+191A:  MOVLB  1
+191C:  MOVWF  x28
+191E:  MOVLB  0
+1920:  CALL   1064
 .................... 	current.adc_buffer[1][current.adc_buffer_index] = read_adc();
-1944:  BCF    FD8.0
-1946:  RLCF   xC3,W
-1948:  CLRF   03
-194A:  ADDLW  83
-194C:  MOVWF  FE9
-194E:  MOVLW  00
-1950:  ADDWFC 03,W
-1952:  MOVWF  FEA
-1954:  BSF    FC2.1
-1956:  BTFSC  FC2.1
-1958:  BRA    1956
-195A:  MOVFF  FC3,FEF
-195E:  MOVFF  FC4,FEC
+1924:  BCF    FD8.0
+1926:  RLCF   xC3,W
+1928:  CLRF   03
+192A:  ADDLW  83
+192C:  MOVWF  FE9
+192E:  MOVLW  00
+1930:  ADDWFC 03,W
+1932:  MOVWF  FEA
+1934:  BSF    FC2.1
+1936:  BTFSC  FC2.1
+1938:  BRA    1936
+193A:  MOVFF  FC3,FEF
+193E:  MOVFF  FC4,FEC
 .................... 
 .................... 	set_adc_channel(9);
-1962:  MOVLW  24
-1964:  MOVWF  01
-1966:  MOVF   FC2,W
-1968:  ANDLW  C3
-196A:  IORWF  01,W
-196C:  MOVWF  FC2
+1942:  MOVLW  24
+1944:  MOVWF  01
+1946:  MOVF   FC2,W
+1948:  ANDLW  C3
+194A:  IORWF  01,W
+194C:  MOVWF  FC2
 .................... 	delay_ms(1);
-196E:  MOVLW  01
-1970:  MOVLB  1
-1972:  MOVWF  x28
-1974:  MOVLB  0
-1976:  CALL   1064
+194E:  MOVLW  01
+1950:  MOVLB  1
+1952:  MOVWF  x28
+1954:  MOVLB  0
+1956:  CALL   1064
 .................... 	current.adc_buffer[2][current.adc_buffer_index] = read_adc();
-197A:  BCF    FD8.0
-197C:  RLCF   xC3,W
-197E:  CLRF   03
-1980:  ADDLW  A3
-1982:  MOVWF  FE9
-1984:  MOVLW  00
-1986:  ADDWFC 03,W
-1988:  MOVWF  FEA
-198A:  BSF    FC2.1
-198C:  BTFSC  FC2.1
-198E:  BRA    198C
-1990:  MOVFF  FC3,FEF
-1994:  MOVFF  FC4,FEC
-1998:  RETURN 0
+195A:  BCF    FD8.0
+195C:  RLCF   xC3,W
+195E:  CLRF   03
+1960:  ADDLW  A3
+1962:  MOVWF  FE9
+1964:  MOVLW  00
+1966:  ADDWFC 03,W
+1968:  MOVWF  FEA
+196A:  BSF    FC2.1
+196C:  BTFSC  FC2.1
+196E:  BRA    196C
+1970:  MOVFF  FC3,FEF
+1974:  MOVFF  FC4,FEC
+1978:  RETURN 0
 .................... }
 .................... 
 .................... int8 read_dip_switch(void) {
@@ -958,7 +958,7 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 .................... 	return crc;
 148E:  MOVFF  124,01
 1492:  MOVLB  0
-1494:  GOTO   1882 (RETURN)
+1494:  GOTO   1862 (RETURN)
 .................... }
 .................... 
 .................... char EEPROMDataWrite( int16 address, int8 *data, int16 count ) {
@@ -1100,8 +1100,8 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 158E:  SUBLW  01
 1590:  BTFSS  FD8.0
 1592:  BRA    1840
-.................... 		/* low voltage disconnect */
-.................... 		config.ch[i].lvd_disconnect_adc=606;
+.................... 			/* low voltage disconnect */
+.................... 			config.ch[i].lvd_disconnect_adc=593;  /* 23.16 volts */
 1594:  MOVF   x1C,W
 1596:  MULLW  24
 1598:  MOVF   FF3,W
@@ -1122,9 +1122,9 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 15B6:  MOVLW  02
 15B8:  MOVWF  FEC
 15BA:  MOVF   FED,F
-15BC:  MOVLW  5E
+15BC:  MOVLW  51
 15BE:  MOVWF  FEF
-.................... 		config.ch[i].lvd_disconnect_delay=20; /* 65535 disables LVD */
+.................... 			config.ch[i].lvd_disconnect_delay=20; /* 65535 disables LVD */
 15C0:  MOVF   x1C,W
 15C2:  MULLW  24
 15C4:  MOVF   FF3,W
@@ -1146,7 +1146,7 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 15E4:  MOVF   FED,F
 15E6:  MOVLW  14
 15E8:  MOVWF  FEF
-.................... 		config.ch[i].lvd_reconnect_adc=616;
+.................... 			config.ch[i].lvd_reconnect_adc=602;   /* 23.51 volts */
 15EA:  MOVF   x1C,W
 15EC:  MULLW  24
 15EE:  MOVF   FF3,W
@@ -1167,9 +1167,9 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 160C:  MOVLW  02
 160E:  MOVWF  FEC
 1610:  MOVF   FED,F
-1612:  MOVLW  68
+1612:  MOVLW  5A
 1614:  MOVWF  FEF
-.................... 		config.ch[i].lvd_reconnect_delay=10;
+.................... 			config.ch[i].lvd_reconnect_delay=10;
 1616:  MOVF   x1C,W
 1618:  MULLW  24
 161A:  MOVF   FF3,W
@@ -1463,40 +1463,27 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 1836:  MOVF   FED,F
 1838:  MOVLW  04
 183A:  MOVWF  FEF
-183C:  INCF   x1C,F
-183E:  BRA    158C
 .................... 	}
 .................... 	
 .................... 
+.................... #if 0
+183C:  INCF   x1C,F
+183E:  BRA    158C
 .................... 	/* set the two channels differently */
 .................... 	/* LVD 1 bus (modem, etc) @ Fairway */
 .................... 	config.ch[0].lvd_disconnect_adc=602; /* 23.5 */
-1840:  MOVLW  02
-1842:  MOVWF  20
-1844:  MOVLW  5A
-1846:  MOVWF  1F
 .................... 	config.ch[0].lvd_reconnect_adc=627;  /* 24.5 */
-1848:  MOVLW  02
-184A:  MOVWF  24
-184C:  MOVLW  73
-184E:  MOVWF  23
 ....................  	/* LVD 2 bus (CODAR) @ Fairway */
 .................... 	config.ch[1].lvd_disconnect_adc=614; /* 24.0 */
-1850:  MOVLW  02
-1852:  MOVWF  44
-1854:  MOVLW  66
-1856:  MOVWF  43
 .................... 	config.ch[1].lvd_reconnect_adc=640;  /* 25.0 */		
-1858:  MOVLW  02
-185A:  MOVWF  48
-185C:  MOVLW  80
-185E:  MOVWF  47
+.................... #endif
+.................... 
 .................... 
 .................... 	/* write them so next time we use from EEPROM */
 .................... 	write_param_file();
-1860:  MOVLB  0
-1862:  RCALL  1534
-1864:  RETURN 0
+1840:  MOVLB  0
+1842:  RCALL  1534
+1844:  RETURN 0
 .................... 
 .................... }
 .................... 
@@ -1505,41 +1492,41 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 .................... 	int8 crc;
 .................... 
 .................... 	crc = EEPROMDataRead(PARAM_ADDRESS, (void *)&config, sizeof(config)); 
-1866:  MOVLB  1
-1868:  MOVLW  1B
-186A:  MOVWF  x1C
-186C:  CLRF   x1F
-186E:  MOVLW  02
-1870:  MOVWF  x1E
-1872:  CLRF   x21
-1874:  MOVFF  11C,120
-1878:  CLRF   x23
-187A:  MOVLW  48
-187C:  MOVWF  x22
-187E:  MOVLB  0
-1880:  BRA    1414
-1882:  MOVFF  01,11B
+1846:  MOVLB  1
+1848:  MOVLW  1B
+184A:  MOVWF  x1C
+184C:  CLRF   x1F
+184E:  MOVLW  02
+1850:  MOVWF  x1E
+1852:  CLRF   x21
+1854:  MOVFF  11C,120
+1858:  CLRF   x23
+185A:  MOVLW  48
+185C:  MOVWF  x22
+185E:  MOVLB  0
+1860:  BRA    1414
+1862:  MOVFF  01,11B
 .................... 		
 .................... 	if ( crc != read_eeprom(PARAM_CRC_ADDRESS) ) {
-1886:  MOVFF  FF2,11C
-188A:  BCF    FF2.7
-188C:  CLRF   FA9
-188E:  BCF    FA6.6
-1890:  BCF    FA6.7
-1892:  BSF    FA6.0
-1894:  MOVF   FA8,W
-1896:  MOVLB  1
-1898:  BTFSC  x1C.7
-189A:  BSF    FF2.7
-189C:  SUBWF  x1B,W
-189E:  BZ    18A6
+1866:  MOVFF  FF2,11C
+186A:  BCF    FF2.7
+186C:  CLRF   FA9
+186E:  BCF    FA6.6
+1870:  BCF    FA6.7
+1872:  BSF    FA6.0
+1874:  MOVF   FA8,W
+1876:  MOVLB  1
+1878:  BTFSC  x1C.7
+187A:  BSF    FF2.7
+187C:  SUBWF  x1B,W
+187E:  BZ    1886
 .................... 		write_default_param_file();
-18A0:  MOVLB  0
-18A2:  RCALL  1580
-18A4:  MOVLB  1
+1880:  MOVLB  0
+1882:  RCALL  1580
+1884:  MOVLB  1
 .................... 	}
-18A6:  MOVLB  0
-18A8:  GOTO   2E5A (RETURN)
+1886:  MOVLB  0
+1888:  GOTO   2E3A (RETURN)
 .................... }
 .................... 
 .................... 
@@ -3675,11 +3662,11 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 .................... 	
 .................... 	restart_wdt();
 *
-2CA0:  CLRWDT
-2CA2:  CLRF   19
-2CA4:  BTFSC  FF2.7
-2CA6:  BSF    19.7
-2CA8:  BCF    FF2.7
+2C80:  CLRWDT
+2C82:  CLRF   19
+2C84:  BTFSC  FF2.7
+2C86:  BSF    19.7
+2C88:  BCF    FF2.7
 .................... #if 0
 .................... 	fprintf(STREAM_FTDI,"# '%s'\r\n",__DATE__);
 .................... 	fprintf(STREAM_FTDI,"#  compile_year=%u\r\n",current.compile_year);
@@ -3687,125 +3674,125 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 .................... 	fprintf(STREAM_FTDI,"#   compile_day=%u\r\n",current.compile_day);
 .................... #endif
 .................... 	fprintf(STREAM_FTDI,"#       vin adc=%lu\r\n",adc_get(0));
+2C8A:  MOVLB  1
+2C8C:  CLRF   x2F
+2C8E:  MOVLB  0
+2C90:  CALL   0594
+2C94:  BTFSC  19.7
+2C96:  BSF    FF2.7
+2C98:  MOVFF  02,11C
+2C9C:  MOVFF  01,11B
+2CA0:  MOVLW  5C
+2CA2:  MOVWF  FF6
+2CA4:  MOVLW  0F
+2CA6:  MOVWF  FF7
+2CA8:  MOVLW  10
 2CAA:  MOVLB  1
-2CAC:  CLRF   x2F
+2CAC:  MOVWF  x1D
 2CAE:  MOVLB  0
-2CB0:  CALL   0594
-2CB4:  BTFSC  19.7
-2CB6:  BSF    FF2.7
-2CB8:  MOVFF  02,11C
-2CBC:  MOVFF  01,11B
-2CC0:  MOVLW  5C
-2CC2:  MOVWF  FF6
-2CC4:  MOVLW  0F
-2CC6:  MOVWF  FF7
-2CC8:  MOVLW  10
-2CCA:  MOVLB  1
-2CCC:  MOVWF  x1D
-2CCE:  MOVLB  0
-2CD0:  CALL   18AC
-2CD4:  MOVLW  10
-2CD6:  MOVWF  FE9
-2CD8:  MOVFF  11C,11E
-2CDC:  MOVFF  11B,11D
-2CE0:  RCALL  2BA8
-2CE2:  MOVLW  0D
-2CE4:  BTFSS  F9E.4
-2CE6:  BRA    2CE4
-2CE8:  MOVWF  FAD
-2CEA:  MOVLW  0A
-2CEC:  BTFSS  F9E.4
-2CEE:  BRA    2CEC
-2CF0:  MOVWF  FAD
-2CF2:  CLRF   19
-2CF4:  BTFSC  FF2.7
-2CF6:  BSF    19.7
-2CF8:  BCF    FF2.7
+2CB0:  CALL   188C
+2CB4:  MOVLW  10
+2CB6:  MOVWF  FE9
+2CB8:  MOVFF  11C,11E
+2CBC:  MOVFF  11B,11D
+2CC0:  RCALL  2B88
+2CC2:  MOVLW  0D
+2CC4:  BTFSS  F9E.4
+2CC6:  BRA    2CC4
+2CC8:  MOVWF  FAD
+2CCA:  MOVLW  0A
+2CCC:  BTFSS  F9E.4
+2CCE:  BRA    2CCC
+2CD0:  MOVWF  FAD
+2CD2:  CLRF   19
+2CD4:  BTFSC  FF2.7
+2CD6:  BSF    19.7
+2CD8:  BCF    FF2.7
 .................... 	fprintf(STREAM_FTDI,"#      temp adc=%lu\r\n",adc_get(1));
-2CFA:  MOVLW  01
+2CDA:  MOVLW  01
+2CDC:  MOVLB  1
+2CDE:  MOVWF  x2F
+2CE0:  MOVLB  0
+2CE2:  CALL   0594
+2CE6:  BTFSC  19.7
+2CE8:  BSF    FF2.7
+2CEA:  MOVFF  02,11C
+2CEE:  MOVFF  01,11B
+2CF2:  MOVLW  72
+2CF4:  MOVWF  FF6
+2CF6:  MOVLW  0F
+2CF8:  MOVWF  FF7
+2CFA:  MOVLW  10
 2CFC:  MOVLB  1
-2CFE:  MOVWF  x2F
+2CFE:  MOVWF  x1D
 2D00:  MOVLB  0
-2D02:  CALL   0594
-2D06:  BTFSC  19.7
-2D08:  BSF    FF2.7
-2D0A:  MOVFF  02,11C
-2D0E:  MOVFF  01,11B
-2D12:  MOVLW  72
-2D14:  MOVWF  FF6
-2D16:  MOVLW  0F
-2D18:  MOVWF  FF7
-2D1A:  MOVLW  10
-2D1C:  MOVLB  1
-2D1E:  MOVWF  x1D
-2D20:  MOVLB  0
-2D22:  CALL   18AC
-2D26:  MOVLW  10
-2D28:  MOVWF  FE9
-2D2A:  MOVFF  11C,11E
-2D2E:  MOVFF  11B,11D
-2D32:  RCALL  2BA8
-2D34:  MOVLW  0D
-2D36:  BTFSS  F9E.4
-2D38:  BRA    2D36
-2D3A:  MOVWF  FAD
-2D3C:  MOVLW  0A
-2D3E:  BTFSS  F9E.4
-2D40:  BRA    2D3E
-2D42:  MOVWF  FAD
+2D02:  CALL   188C
+2D06:  MOVLW  10
+2D08:  MOVWF  FE9
+2D0A:  MOVFF  11C,11E
+2D0E:  MOVFF  11B,11D
+2D12:  RCALL  2B88
+2D14:  MOVLW  0D
+2D16:  BTFSS  F9E.4
+2D18:  BRA    2D16
+2D1A:  MOVWF  FAD
+2D1C:  MOVLW  0A
+2D1E:  BTFSS  F9E.4
+2D20:  BRA    2D1E
+2D22:  MOVWF  FAD
 .................... 	fprintf(STREAM_FTDI,"#   ch[0].state=0x%2X\r\n",channel[0].state);
-2D44:  MOVLW  88
-2D46:  MOVWF  FF6
-2D48:  MOVLW  0F
-2D4A:  MOVWF  FF7
-2D4C:  MOVLW  12
-2D4E:  MOVLB  1
-2D50:  MOVWF  x1D
-2D52:  MOVLB  0
-2D54:  CALL   18AC
-2D58:  MOVFF  DA,11B
-2D5C:  MOVLW  37
-2D5E:  MOVLB  1
-2D60:  MOVWF  x1C
-2D62:  MOVLB  0
-2D64:  RCALL  2C5A
-2D66:  MOVLW  0D
-2D68:  BTFSS  F9E.4
-2D6A:  BRA    2D68
-2D6C:  MOVWF  FAD
-2D6E:  MOVLW  0A
-2D70:  BTFSS  F9E.4
-2D72:  BRA    2D70
-2D74:  MOVWF  FAD
+2D24:  MOVLW  88
+2D26:  MOVWF  FF6
+2D28:  MOVLW  0F
+2D2A:  MOVWF  FF7
+2D2C:  MOVLW  12
+2D2E:  MOVLB  1
+2D30:  MOVWF  x1D
+2D32:  MOVLB  0
+2D34:  CALL   188C
+2D38:  MOVFF  DA,11B
+2D3C:  MOVLW  37
+2D3E:  MOVLB  1
+2D40:  MOVWF  x1C
+2D42:  MOVLB  0
+2D44:  RCALL  2C3A
+2D46:  MOVLW  0D
+2D48:  BTFSS  F9E.4
+2D4A:  BRA    2D48
+2D4C:  MOVWF  FAD
+2D4E:  MOVLW  0A
+2D50:  BTFSS  F9E.4
+2D52:  BRA    2D50
+2D54:  MOVWF  FAD
 .................... 	fprintf(STREAM_FTDI,"#   ch[1].state=0x%2X\r\n",channel[1].state);
-2D76:  MOVLW  A0
-2D78:  MOVWF  FF6
-2D7A:  MOVLW  0F
-2D7C:  MOVWF  FF7
-2D7E:  MOVLW  12
-2D80:  MOVLB  1
-2D82:  MOVWF  x1D
-2D84:  MOVLB  0
-2D86:  CALL   18AC
-2D8A:  MOVFF  F3,11B
-2D8E:  MOVLW  37
-2D90:  MOVLB  1
-2D92:  MOVWF  x1C
-2D94:  MOVLB  0
-2D96:  RCALL  2C5A
-2D98:  MOVLW  0D
-2D9A:  BTFSS  F9E.4
-2D9C:  BRA    2D9A
-2D9E:  MOVWF  FAD
-2DA0:  MOVLW  0A
-2DA2:  BTFSS  F9E.4
-2DA4:  BRA    2DA2
-2DA6:  MOVWF  FAD
+2D56:  MOVLW  A0
+2D58:  MOVWF  FF6
+2D5A:  MOVLW  0F
+2D5C:  MOVWF  FF7
+2D5E:  MOVLW  12
+2D60:  MOVLB  1
+2D62:  MOVWF  x1D
+2D64:  MOVLB  0
+2D66:  CALL   188C
+2D6A:  MOVFF  F3,11B
+2D6E:  MOVLW  37
+2D70:  MOVLB  1
+2D72:  MOVWF  x1C
+2D74:  MOVLB  0
+2D76:  RCALL  2C3A
+2D78:  MOVLW  0D
+2D7A:  BTFSS  F9E.4
+2D7C:  BRA    2D7A
+2D7E:  MOVWF  FAD
+2D80:  MOVLW  0A
+2D82:  BTFSS  F9E.4
+2D84:  BRA    2D82
+2D86:  MOVWF  FAD
 .................... //	fprintf(STREAM_FTDI,"# read_dip_sw()=%u\r\n",read_dip_switch());
 .................... //	fprintf(STREAM_FTDI,"#    dip sw adc=%lu\r\n",adc_get(2));
 .................... 
 .................... #if 0
-2DA8:  GOTO   2F9A (RETURN)
+2D88:  GOTO   2F7A (RETURN)
 .................... 	for ( i=0 ; i<2 ; i++ ) {
 .................... 		restart_wdt();
 .................... 		fprintf(STREAM_FTDI,"#-------\r\n");
@@ -3866,68 +3853,68 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 .................... 	/* only turn on contactor if it isn't on or needs a refresh */
 .................... 	if ( 1 == timers.contactor[c] ) {
 *
-2806:  CLRF   03
-2808:  MOVLB  1
-280A:  MOVF   x1E,W
-280C:  ADDLW  D6
-280E:  MOVWF  FE9
-2810:  MOVLW  00
-2812:  ADDWFC 03,W
-2814:  MOVWF  FEA
-2816:  MOVF   FEF,W
-2818:  SUBLW  01
-281A:  BNZ   281E
+27E6:  CLRF   03
+27E8:  MOVLB  1
+27EA:  MOVF   x1E,W
+27EC:  ADDLW  D6
+27EE:  MOVWF  FE9
+27F0:  MOVLW  00
+27F2:  ADDWFC 03,W
+27F4:  MOVWF  FEA
+27F6:  MOVF   FEF,W
+27F8:  SUBLW  01
+27FA:  BNZ   27FE
 .................... 		return;
-281C:  BRA    2858
+27FC:  BRA    2838
 .................... 	}
 .................... 
 .................... 	/* we start the powersave count down */
 .................... 	timers.contactor_powersave[c]=CONTACTOR_POWER_SAVE_MS;
-281E:  CLRF   03
-2820:  MOVF   x1E,W
-2822:  ADDLW  D8
-2824:  MOVWF  FE9
-2826:  MOVLW  00
-2828:  ADDWFC 03,W
-282A:  MOVWF  FEA
-282C:  MOVLW  C8
-282E:  MOVWF  FEF
+27FE:  CLRF   03
+2800:  MOVF   x1E,W
+2802:  ADDLW  D8
+2804:  MOVWF  FE9
+2806:  MOVLW  00
+2808:  ADDWFC 03,W
+280A:  MOVWF  FEA
+280C:  MOVLW  C8
+280E:  MOVWF  FEF
 .................... 
 .................... 	/* control the actual coil depending on what channel we are on */
 .................... 	if ( 0==c ) {
-2830:  MOVF   x1E,F
-2832:  BNZ   283E
+2810:  MOVF   x1E,F
+2812:  BNZ   281E
 .................... 		/* contactor A pins */
 .................... 		output_low(BRIDGE_A_A);
-2834:  BCF    F94.3
-2836:  BCF    F8B.3
+2814:  BCF    F94.3
+2816:  BCF    F8B.3
 .................... 		output_high(BRIDGE_A_B);
-2838:  BCF    F94.4
-283A:  BSF    F8B.4
+2818:  BCF    F94.4
+281A:  BSF    F8B.4
 .................... 	} else {
-283C:  BRA    2846
+281C:  BRA    2826
 .................... 		/* contactor B pins */
 .................... 		output_low(BRIDGE_B_A);
-283E:  BCF    F94.5
-2840:  BCF    F8B.5
+281E:  BCF    F94.5
+2820:  BCF    F8B.5
 .................... 		output_high(BRIDGE_B_B);
-2842:  BCF    F94.6
-2844:  BSF    F8B.6
+2822:  BCF    F94.6
+2824:  BSF    F8B.6
 .................... 	}
 .................... 
 .................... 	/* save state for next time */
 .................... 	timers.contactor[c]=1;
-2846:  CLRF   03
-2848:  MOVF   x1E,W
-284A:  ADDLW  D6
-284C:  MOVWF  FE9
-284E:  MOVLW  00
-2850:  ADDWFC 03,W
-2852:  MOVWF  FEA
-2854:  MOVLW  01
-2856:  MOVWF  FEF
-2858:  MOVLB  0
-285A:  GOTO   28C0 (RETURN)
+2826:  CLRF   03
+2828:  MOVF   x1E,W
+282A:  ADDLW  D6
+282C:  MOVWF  FE9
+282E:  MOVLW  00
+2830:  ADDWFC 03,W
+2832:  MOVWF  FEA
+2834:  MOVLW  01
+2836:  MOVWF  FEF
+2838:  MOVLB  0
+283A:  GOTO   28A0 (RETURN)
 .................... }
 .................... 
 .................... void contactor_off(int8 c) {
@@ -3996,71 +3983,71 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 .................... 
 .................... void contactor_set(int8 c) {
 *
-285E:  MOVLW  01
-2860:  MOVLB  1
-2862:  MOVWF  x1D
+283E:  MOVLW  01
+2840:  MOVLB  1
+2842:  MOVWF  x1D
 .................... 	int8 state=1;
 .................... 
 .................... 	/* if nothing is set in channel[c].state, contactor is on */
 .................... 	state=1; 
-2864:  MOVWF  x1D
+2844:  MOVWF  x1D
 .................... 
 .................... 	if ( channel[c].state & CH_STATE_MASK_ON ) {
-2866:  MOVF   x1C,W
-2868:  MULLW  19
-286A:  MOVF   FF3,W
-286C:  CLRF   x1F
-286E:  MOVWF  x1E
-2870:  MOVLW  DA
-2872:  ADDWF  x1E,W
-2874:  MOVWF  FE9
-2876:  MOVLW  00
-2878:  ADDWFC x1F,W
-287A:  MOVWF  FEA
-287C:  MOVF   FEF,W
-287E:  ANDLW  03
-2880:  BZ    2888
+2846:  MOVF   x1C,W
+2848:  MULLW  19
+284A:  MOVF   FF3,W
+284C:  CLRF   x1F
+284E:  MOVWF  x1E
+2850:  MOVLW  DA
+2852:  ADDWF  x1E,W
+2854:  MOVWF  FE9
+2856:  MOVLW  00
+2858:  ADDWFC x1F,W
+285A:  MOVWF  FEA
+285C:  MOVF   FEF,W
+285E:  ANDLW  03
+2860:  BZ    2868
 .................... 		/* if override button (switch) is set or we are commanded on, then we will be on */
 .................... 		state=1;
-2882:  MOVLW  01
-2884:  MOVWF  x1D
+2862:  MOVLW  01
+2864:  MOVWF  x1D
 .................... 	} else if ( channel[c].state & CH_STATE_MASK_OFF ) {
-2886:  BRA    28A6
-2888:  MOVF   x1C,W
-288A:  MULLW  19
-288C:  MOVF   FF3,W
-288E:  CLRF   x1F
-2890:  MOVWF  x1E
-2892:  MOVLW  DA
-2894:  ADDWF  x1E,W
-2896:  MOVWF  FE9
-2898:  MOVLW  00
-289A:  ADDWFC x1F,W
-289C:  MOVWF  FEA
-289E:  MOVF   FEF,W
-28A0:  ANDLW  7C
-28A2:  BZ    28A6
+2866:  BRA    2886
+2868:  MOVF   x1C,W
+286A:  MULLW  19
+286C:  MOVF   FF3,W
+286E:  CLRF   x1F
+2870:  MOVWF  x1E
+2872:  MOVLW  DA
+2874:  ADDWF  x1E,W
+2876:  MOVWF  FE9
+2878:  MOVLW  00
+287A:  ADDWFC x1F,W
+287C:  MOVWF  FEA
+287E:  MOVF   FEF,W
+2880:  ANDLW  7C
+2882:  BZ    2886
 .................... 		/* if one of the disconnect bits is set, we will be off */
 .................... 		state=0;
-28A4:  CLRF   x1D
+2884:  CLRF   x1D
 .................... 	}
 .................... 
 .................... 	if ( 0==state ) {
-28A6:  MOVF   x1D,F
-28A8:  BNZ   28B8
+2886:  MOVF   x1D,F
+2888:  BNZ   2898
 .................... 		contactor_off(c);
-28AA:  MOVFF  11C,11E
-28AE:  MOVLB  0
-28B0:  CALL   13C2
+288A:  MOVFF  11C,11E
+288E:  MOVLB  0
+2890:  CALL   13C2
 .................... 	} else {
-28B4:  BRA    28C0
-28B6:  MOVLB  1
+2894:  BRA    28A0
+2896:  MOVLB  1
 .................... 		contactor_on(c);
-28B8:  MOVFF  11C,11E
-28BC:  MOVLB  0
-28BE:  BRA    2806
+2898:  MOVFF  11C,11E
+289C:  MOVLB  0
+289E:  BRA    27E6
 .................... 	}
-28C0:  RETURN 0
+28A0:  RETURN 0
 .................... 
 .................... }
 .................... 
@@ -4070,283 +4057,283 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 .................... 	/* override button / switch */
 .................... 	if ( (0==c && 0==input(SW_OVERRIDE_A)) || (1==c && 0==input(SW_OVERRIDE_B)) ) {
 *
-19C2:  MOVLB  1
-19C4:  MOVF   x1C,F
-19C6:  BNZ   19CE
-19C8:  BSF    F92.5
-19CA:  BTFSS  F80.5
-19CC:  BRA    19D8
-19CE:  DECFSZ x1C,W
-19D0:  BRA    19F6
-19D2:  BSF    F92.4
-19D4:  BTFSC  F80.4
-19D6:  BRA    19F6
+19A2:  MOVLB  1
+19A4:  MOVF   x1C,F
+19A6:  BNZ   19AE
+19A8:  BSF    F92.5
+19AA:  BTFSS  F80.5
+19AC:  BRA    19B8
+19AE:  DECFSZ x1C,W
+19B0:  BRA    19D6
+19B2:  BSF    F92.4
+19B4:  BTFSC  F80.4
+19B6:  BRA    19D6
 .................... 		bit_set(channel[c].state,CH_STATE_BIT_OVERRIDE);
-19D8:  MOVF   x1C,W
-19DA:  MULLW  19
-19DC:  MOVF   FF3,W
-19DE:  CLRF   x20
-19E0:  MOVWF  x1F
-19E2:  MOVLW  DA
-19E4:  ADDWF  x1F,W
-19E6:  MOVWF  01
-19E8:  MOVLW  00
-19EA:  ADDWFC x20,W
-19EC:  MOVFF  01,FE9
-19F0:  MOVWF  FEA
-19F2:  BSF    FEF.0
+19B8:  MOVF   x1C,W
+19BA:  MULLW  19
+19BC:  MOVF   FF3,W
+19BE:  CLRF   x20
+19C0:  MOVWF  x1F
+19C2:  MOVLW  DA
+19C4:  ADDWF  x1F,W
+19C6:  MOVWF  01
+19C8:  MOVLW  00
+19CA:  ADDWFC x20,W
+19CC:  MOVFF  01,FE9
+19D0:  MOVWF  FEA
+19D2:  BSF    FEF.0
 .................... 	} else {
-19F4:  BRA    1A12
+19D4:  BRA    19F2
 .................... 		bit_clear(channel[c].state,CH_STATE_BIT_OVERRIDE);
-19F6:  MOVF   x1C,W
-19F8:  MULLW  19
-19FA:  MOVF   FF3,W
-19FC:  CLRF   x20
-19FE:  MOVWF  x1F
-1A00:  MOVLW  DA
-1A02:  ADDWF  x1F,W
-1A04:  MOVWF  01
-1A06:  MOVLW  00
-1A08:  ADDWFC x20,W
-1A0A:  MOVFF  01,FE9
-1A0E:  MOVWF  FEA
-1A10:  BCF    FEF.0
+19D6:  MOVF   x1C,W
+19D8:  MULLW  19
+19DA:  MOVF   FF3,W
+19DC:  CLRF   x20
+19DE:  MOVWF  x1F
+19E0:  MOVLW  DA
+19E2:  ADDWF  x1F,W
+19E4:  MOVWF  01
+19E6:  MOVLW  00
+19E8:  ADDWFC x20,W
+19EA:  MOVFF  01,FE9
+19EE:  MOVWF  FEA
+19F0:  BCF    FEF.0
 .................... 	}
 .................... 
 .................... 	/* command on. 65535 disables */
 .................... 	if ( 65535 != channel[c].command_on_seconds ) {
-1A12:  MOVF   x1C,W
-1A14:  MULLW  19
-1A16:  MOVF   FF3,W
-1A18:  CLRF   x20
-1A1A:  MOVWF  x1F
-1A1C:  MOVLW  01
-1A1E:  ADDWF  x1F,W
-1A20:  MOVWF  01
-1A22:  MOVLW  00
-1A24:  ADDWFC x20,W
-1A26:  MOVWF  03
-1A28:  MOVF   01,W
-1A2A:  ADDLW  DA
-1A2C:  MOVWF  FE9
-1A2E:  MOVLW  00
-1A30:  ADDWFC 03,W
-1A32:  MOVWF  FEA
-1A34:  MOVFF  FEC,03
-1A38:  MOVF   FED,F
-1A3A:  MOVF   FEF,W
-1A3C:  SUBLW  FF
-1A3E:  BNZ   1A46
-1A40:  INCFSZ 03,W
-1A42:  BRA    1A46
-1A44:  BRA    1BDC
+19F2:  MOVF   x1C,W
+19F4:  MULLW  19
+19F6:  MOVF   FF3,W
+19F8:  CLRF   x20
+19FA:  MOVWF  x1F
+19FC:  MOVLW  01
+19FE:  ADDWF  x1F,W
+1A00:  MOVWF  01
+1A02:  MOVLW  00
+1A04:  ADDWFC x20,W
+1A06:  MOVWF  03
+1A08:  MOVF   01,W
+1A0A:  ADDLW  DA
+1A0C:  MOVWF  FE9
+1A0E:  MOVLW  00
+1A10:  ADDWFC 03,W
+1A12:  MOVWF  FEA
+1A14:  MOVFF  FEC,03
+1A18:  MOVF   FED,F
+1A1A:  MOVF   FEF,W
+1A1C:  SUBLW  FF
+1A1E:  BNZ   1A26
+1A20:  INCFSZ 03,W
+1A22:  BRA    1A26
+1A24:  BRA    1BBC
 .................... 		if ( channel[c].command_on_seconds > 0 ) {
-1A46:  MOVF   x1C,W
-1A48:  MULLW  19
-1A4A:  MOVF   FF3,W
-1A4C:  CLRF   x20
-1A4E:  MOVWF  x1F
-1A50:  MOVLW  01
-1A52:  ADDWF  x1F,W
-1A54:  MOVWF  01
-1A56:  MOVLW  00
-1A58:  ADDWFC x20,W
-1A5A:  MOVWF  03
-1A5C:  MOVF   01,W
-1A5E:  ADDLW  DA
-1A60:  MOVWF  FE9
-1A62:  MOVLW  00
-1A64:  ADDWFC 03,W
-1A66:  MOVWF  FEA
-1A68:  MOVFF  FEC,120
-1A6C:  MOVF   FED,F
-1A6E:  MOVFF  FEF,11F
-1A72:  MOVF   x1F,F
-1A74:  BNZ   1A7A
-1A76:  MOVF   x20,F
-1A78:  BZ    1AA8
+1A26:  MOVF   x1C,W
+1A28:  MULLW  19
+1A2A:  MOVF   FF3,W
+1A2C:  CLRF   x20
+1A2E:  MOVWF  x1F
+1A30:  MOVLW  01
+1A32:  ADDWF  x1F,W
+1A34:  MOVWF  01
+1A36:  MOVLW  00
+1A38:  ADDWFC x20,W
+1A3A:  MOVWF  03
+1A3C:  MOVF   01,W
+1A3E:  ADDLW  DA
+1A40:  MOVWF  FE9
+1A42:  MOVLW  00
+1A44:  ADDWFC 03,W
+1A46:  MOVWF  FEA
+1A48:  MOVFF  FEC,120
+1A4C:  MOVF   FED,F
+1A4E:  MOVFF  FEF,11F
+1A52:  MOVF   x1F,F
+1A54:  BNZ   1A5A
+1A56:  MOVF   x20,F
+1A58:  BZ    1A88
 .................... 			/* waiting to power on */
 .................... 			channel[c].command_on_seconds--;
-1A7A:  MOVF   x1C,W
-1A7C:  MULLW  19
-1A7E:  MOVF   FF3,W
-1A80:  CLRF   x20
-1A82:  MOVWF  x1F
-1A84:  MOVLW  01
-1A86:  ADDWF  x1F,W
-1A88:  MOVWF  01
-1A8A:  MOVLW  00
-1A8C:  ADDWFC x20,W
-1A8E:  MOVWF  03
-1A90:  MOVF   01,W
-1A92:  ADDLW  DA
-1A94:  MOVWF  FE9
-1A96:  MOVLW  00
-1A98:  ADDWFC 03,W
-1A9A:  MOVWF  FEA
-1A9C:  MOVLW  FF
-1A9E:  ADDWF  FEF,F
-1AA0:  BC    1AA6
-1AA2:  MOVF   FEE,F
-1AA4:  DECF   FED,F
+1A5A:  MOVF   x1C,W
+1A5C:  MULLW  19
+1A5E:  MOVF   FF3,W
+1A60:  CLRF   x20
+1A62:  MOVWF  x1F
+1A64:  MOVLW  01
+1A66:  ADDWF  x1F,W
+1A68:  MOVWF  01
+1A6A:  MOVLW  00
+1A6C:  ADDWFC x20,W
+1A6E:  MOVWF  03
+1A70:  MOVF   01,W
+1A72:  ADDLW  DA
+1A74:  MOVWF  FE9
+1A76:  MOVLW  00
+1A78:  ADDWFC 03,W
+1A7A:  MOVWF  FEA
+1A7C:  MOVLW  FF
+1A7E:  ADDWF  FEF,F
+1A80:  BC    1A86
+1A82:  MOVF   FEE,F
+1A84:  DECF   FED,F
 .................... 		} else {
-1AA6:  BRA    1BDC
+1A86:  BRA    1BBC
 .................... 			/* timer at zero, ready to power on or already powered on */
 .................... 			if ( ! bit_test(channel[c].state,CH_STATE_BIT_CMD_ON) ) {
-1AA8:  MOVF   x1C,W
-1AAA:  MULLW  19
-1AAC:  MOVF   FF3,W
-1AAE:  CLRF   x20
-1AB0:  MOVWF  x1F
-1AB2:  MOVLW  DA
-1AB4:  ADDWF  x1F,W
-1AB6:  MOVWF  FE9
-1AB8:  MOVLW  00
-1ABA:  ADDWFC x20,W
-1ABC:  MOVWF  FEA
-1ABE:  MOVFF  FEF,121
-1AC2:  BTFSC  x21.1
-1AC4:  BRA    1B3A
+1A88:  MOVF   x1C,W
+1A8A:  MULLW  19
+1A8C:  MOVF   FF3,W
+1A8E:  CLRF   x20
+1A90:  MOVWF  x1F
+1A92:  MOVLW  DA
+1A94:  ADDWF  x1F,W
+1A96:  MOVWF  FE9
+1A98:  MOVLW  00
+1A9A:  ADDWFC x20,W
+1A9C:  MOVWF  FEA
+1A9E:  MOVFF  FEF,121
+1AA2:  BTFSC  x21.1
+1AA4:  BRA    1B1A
 .................... 				/* not currently set, so we set it and start the countdown */
 .................... 				bit_set(channel[c].state,CH_STATE_BIT_CMD_ON);
-1AC6:  MOVF   x1C,W
-1AC8:  MULLW  19
-1ACA:  MOVF   FF3,W
-1ACC:  CLRF   x20
-1ACE:  MOVWF  x1F
-1AD0:  MOVLW  DA
-1AD2:  ADDWF  x1F,W
-1AD4:  MOVWF  01
-1AD6:  MOVLW  00
-1AD8:  ADDWFC x20,W
-1ADA:  MOVFF  01,FE9
-1ADE:  MOVWF  FEA
-1AE0:  BSF    FEF.1
+1AA6:  MOVF   x1C,W
+1AA8:  MULLW  19
+1AAA:  MOVF   FF3,W
+1AAC:  CLRF   x20
+1AAE:  MOVWF  x1F
+1AB0:  MOVLW  DA
+1AB2:  ADDWF  x1F,W
+1AB4:  MOVWF  01
+1AB6:  MOVLW  00
+1AB8:  ADDWFC x20,W
+1ABA:  MOVFF  01,FE9
+1ABE:  MOVWF  FEA
+1AC0:  BSF    FEF.1
 .................... 				channel[c].command_on_hold_seconds=config.ch[c].command_on_hold_time;
-1AE2:  MOVF   x1C,W
-1AE4:  MULLW  19
-1AE6:  MOVF   FF3,W
-1AE8:  CLRF   x20
-1AEA:  MOVWF  x1F
-1AEC:  MOVLW  03
-1AEE:  ADDWF  x1F,W
-1AF0:  MOVWF  01
-1AF2:  MOVLW  00
-1AF4:  ADDWFC x20,W
-1AF6:  MOVWF  03
-1AF8:  MOVF   01,W
-1AFA:  ADDLW  DA
-1AFC:  MOVWF  01
-1AFE:  MOVLW  00
-1B00:  ADDWFC 03,F
-1B02:  MOVFF  03,120
-1B06:  MOVF   x1C,W
-1B08:  MULLW  24
-1B0A:  MOVF   FF3,W
-1B0C:  CLRF   x22
-1B0E:  MOVWF  x21
-1B10:  MOVLW  1B
-1B12:  ADDWF  x21,W
-1B14:  MOVWF  FE9
-1B16:  MOVLW  00
-1B18:  ADDWFC x22,W
-1B1A:  MOVWF  FEA
-1B1C:  MOVFF  FEC,03
-1B20:  MOVF   FED,F
-1B22:  MOVFF  FEF,123
-1B26:  MOVFF  120,FEA
-1B2A:  MOVFF  01,FE9
-1B2E:  MOVFF  03,FEC
-1B32:  MOVF   FED,F
-1B34:  MOVFF  123,FEF
+1AC2:  MOVF   x1C,W
+1AC4:  MULLW  19
+1AC6:  MOVF   FF3,W
+1AC8:  CLRF   x20
+1ACA:  MOVWF  x1F
+1ACC:  MOVLW  03
+1ACE:  ADDWF  x1F,W
+1AD0:  MOVWF  01
+1AD2:  MOVLW  00
+1AD4:  ADDWFC x20,W
+1AD6:  MOVWF  03
+1AD8:  MOVF   01,W
+1ADA:  ADDLW  DA
+1ADC:  MOVWF  01
+1ADE:  MOVLW  00
+1AE0:  ADDWFC 03,F
+1AE2:  MOVFF  03,120
+1AE6:  MOVF   x1C,W
+1AE8:  MULLW  24
+1AEA:  MOVF   FF3,W
+1AEC:  CLRF   x22
+1AEE:  MOVWF  x21
+1AF0:  MOVLW  1B
+1AF2:  ADDWF  x21,W
+1AF4:  MOVWF  FE9
+1AF6:  MOVLW  00
+1AF8:  ADDWFC x22,W
+1AFA:  MOVWF  FEA
+1AFC:  MOVFF  FEC,03
+1B00:  MOVF   FED,F
+1B02:  MOVFF  FEF,123
+1B06:  MOVFF  120,FEA
+1B0A:  MOVFF  01,FE9
+1B0E:  MOVFF  03,FEC
+1B12:  MOVF   FED,F
+1B14:  MOVFF  123,FEF
 .................... 			} else {
-1B38:  BRA    1BDC
+1B18:  BRA    1BBC
 .................... 				/* set, so we clear it once countdown has elapsed */
 .................... 				if ( 0==channel[c].command_on_hold_seconds ) {
-1B3A:  MOVF   x1C,W
-1B3C:  MULLW  19
-1B3E:  MOVF   FF3,W
-1B40:  CLRF   x20
-1B42:  MOVWF  x1F
-1B44:  MOVLW  03
-1B46:  ADDWF  x1F,W
-1B48:  MOVWF  01
-1B4A:  MOVLW  00
-1B4C:  ADDWFC x20,W
-1B4E:  MOVWF  03
-1B50:  MOVF   01,W
-1B52:  ADDLW  DA
-1B54:  MOVWF  FE9
-1B56:  MOVLW  00
-1B58:  ADDWFC 03,W
-1B5A:  MOVWF  FEA
-1B5C:  MOVFF  FEC,03
-1B60:  MOVF   FED,F
-1B62:  MOVF   FEF,W
-1B64:  BNZ   1BB0
-1B66:  MOVF   03,F
-1B68:  BNZ   1BB0
+1B1A:  MOVF   x1C,W
+1B1C:  MULLW  19
+1B1E:  MOVF   FF3,W
+1B20:  CLRF   x20
+1B22:  MOVWF  x1F
+1B24:  MOVLW  03
+1B26:  ADDWF  x1F,W
+1B28:  MOVWF  01
+1B2A:  MOVLW  00
+1B2C:  ADDWFC x20,W
+1B2E:  MOVWF  03
+1B30:  MOVF   01,W
+1B32:  ADDLW  DA
+1B34:  MOVWF  FE9
+1B36:  MOVLW  00
+1B38:  ADDWFC 03,W
+1B3A:  MOVWF  FEA
+1B3C:  MOVFF  FEC,03
+1B40:  MOVF   FED,F
+1B42:  MOVF   FEF,W
+1B44:  BNZ   1B90
+1B46:  MOVF   03,F
+1B48:  BNZ   1B90
 .................... 					/* countdown elapsed, clear the flag and reset the timer */
 .................... 					bit_clear(channel[c].state,CH_STATE_BIT_CMD_ON);
-1B6A:  MOVF   x1C,W
-1B6C:  MULLW  19
-1B6E:  MOVF   FF3,W
-1B70:  CLRF   x20
-1B72:  MOVWF  x1F
-1B74:  MOVLW  DA
-1B76:  ADDWF  x1F,W
-1B78:  MOVWF  01
-1B7A:  MOVLW  00
-1B7C:  ADDWFC x20,W
-1B7E:  MOVFF  01,FE9
-1B82:  MOVWF  FEA
-1B84:  BCF    FEF.1
+1B4A:  MOVF   x1C,W
+1B4C:  MULLW  19
+1B4E:  MOVF   FF3,W
+1B50:  CLRF   x20
+1B52:  MOVWF  x1F
+1B54:  MOVLW  DA
+1B56:  ADDWF  x1F,W
+1B58:  MOVWF  01
+1B5A:  MOVLW  00
+1B5C:  ADDWFC x20,W
+1B5E:  MOVFF  01,FE9
+1B62:  MOVWF  FEA
+1B64:  BCF    FEF.1
 .................... 					channel[c].command_on_seconds=65535;
-1B86:  MOVF   x1C,W
-1B88:  MULLW  19
-1B8A:  MOVF   FF3,W
-1B8C:  CLRF   x20
-1B8E:  MOVWF  x1F
-1B90:  MOVLW  01
-1B92:  ADDWF  x1F,W
-1B94:  MOVWF  01
-1B96:  MOVLW  00
-1B98:  ADDWFC x20,W
-1B9A:  MOVWF  03
-1B9C:  MOVF   01,W
-1B9E:  ADDLW  DA
-1BA0:  MOVWF  FE9
-1BA2:  MOVLW  00
-1BA4:  ADDWFC 03,W
-1BA6:  MOVWF  FEA
-1BA8:  SETF   FEC
-1BAA:  MOVF   FED,F
-1BAC:  SETF   FEF
+1B66:  MOVF   x1C,W
+1B68:  MULLW  19
+1B6A:  MOVF   FF3,W
+1B6C:  CLRF   x20
+1B6E:  MOVWF  x1F
+1B70:  MOVLW  01
+1B72:  ADDWF  x1F,W
+1B74:  MOVWF  01
+1B76:  MOVLW  00
+1B78:  ADDWFC x20,W
+1B7A:  MOVWF  03
+1B7C:  MOVF   01,W
+1B7E:  ADDLW  DA
+1B80:  MOVWF  FE9
+1B82:  MOVLW  00
+1B84:  ADDWFC 03,W
+1B86:  MOVWF  FEA
+1B88:  SETF   FEC
+1B8A:  MOVF   FED,F
+1B8C:  SETF   FEF
 .................... 				} else {
-1BAE:  BRA    1BDC
+1B8E:  BRA    1BBC
 .................... 					channel[c].command_on_hold_seconds--;
-1BB0:  MOVF   x1C,W
-1BB2:  MULLW  19
-1BB4:  MOVF   FF3,W
-1BB6:  CLRF   x20
-1BB8:  MOVWF  x1F
-1BBA:  MOVLW  03
-1BBC:  ADDWF  x1F,W
-1BBE:  MOVWF  01
-1BC0:  MOVLW  00
-1BC2:  ADDWFC x20,W
-1BC4:  MOVWF  03
-1BC6:  MOVF   01,W
-1BC8:  ADDLW  DA
-1BCA:  MOVWF  FE9
-1BCC:  MOVLW  00
-1BCE:  ADDWFC 03,W
-1BD0:  MOVWF  FEA
-1BD2:  MOVLW  FF
-1BD4:  ADDWF  FEF,F
-1BD6:  BC    1BDC
-1BD8:  MOVF   FEE,F
-1BDA:  DECF   FED,F
+1B90:  MOVF   x1C,W
+1B92:  MULLW  19
+1B94:  MOVF   FF3,W
+1B96:  CLRF   x20
+1B98:  MOVWF  x1F
+1B9A:  MOVLW  03
+1B9C:  ADDWF  x1F,W
+1B9E:  MOVWF  01
+1BA0:  MOVLW  00
+1BA2:  ADDWFC x20,W
+1BA4:  MOVWF  03
+1BA6:  MOVF   01,W
+1BA8:  ADDLW  DA
+1BAA:  MOVWF  FE9
+1BAC:  MOVLW  00
+1BAE:  ADDWFC 03,W
+1BB0:  MOVWF  FEA
+1BB2:  MOVLW  FF
+1BB4:  ADDWF  FEF,F
+1BB6:  BC    1BBC
+1BB8:  MOVF   FEE,F
+1BBA:  DECF   FED,F
 .................... 				}
 .................... 			}		
 .................... 		}
@@ -4355,245 +4342,245 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 .................... 
 .................... 	/* command off. 65535 disables */
 .................... 	if ( 65535 != channel[c].command_off_seconds ) {
-1BDC:  MOVF   x1C,W
-1BDE:  MULLW  19
-1BE0:  MOVF   FF3,W
-1BE2:  CLRF   x20
-1BE4:  MOVWF  x1F
-1BE6:  MOVLW  05
-1BE8:  ADDWF  x1F,W
-1BEA:  MOVWF  01
-1BEC:  MOVLW  00
-1BEE:  ADDWFC x20,W
-1BF0:  MOVWF  03
-1BF2:  MOVF   01,W
-1BF4:  ADDLW  DA
-1BF6:  MOVWF  FE9
-1BF8:  MOVLW  00
-1BFA:  ADDWFC 03,W
-1BFC:  MOVWF  FEA
-1BFE:  MOVFF  FEC,03
-1C02:  MOVF   FED,F
-1C04:  MOVF   FEF,W
-1C06:  SUBLW  FF
-1C08:  BNZ   1C10
-1C0A:  INCFSZ 03,W
-1C0C:  BRA    1C10
-1C0E:  BRA    1DB6
+1BBC:  MOVF   x1C,W
+1BBE:  MULLW  19
+1BC0:  MOVF   FF3,W
+1BC2:  CLRF   x20
+1BC4:  MOVWF  x1F
+1BC6:  MOVLW  05
+1BC8:  ADDWF  x1F,W
+1BCA:  MOVWF  01
+1BCC:  MOVLW  00
+1BCE:  ADDWFC x20,W
+1BD0:  MOVWF  03
+1BD2:  MOVF   01,W
+1BD4:  ADDLW  DA
+1BD6:  MOVWF  FE9
+1BD8:  MOVLW  00
+1BDA:  ADDWFC 03,W
+1BDC:  MOVWF  FEA
+1BDE:  MOVFF  FEC,03
+1BE2:  MOVF   FED,F
+1BE4:  MOVF   FEF,W
+1BE6:  SUBLW  FF
+1BE8:  BNZ   1BF0
+1BEA:  INCFSZ 03,W
+1BEC:  BRA    1BF0
+1BEE:  BRA    1D96
 .................... 		if ( channel[c].command_off_seconds > 0 ) {
-1C10:  MOVF   x1C,W
-1C12:  MULLW  19
-1C14:  MOVF   FF3,W
-1C16:  CLRF   x20
-1C18:  MOVWF  x1F
-1C1A:  MOVLW  05
-1C1C:  ADDWF  x1F,W
-1C1E:  MOVWF  01
-1C20:  MOVLW  00
-1C22:  ADDWFC x20,W
-1C24:  MOVWF  03
-1C26:  MOVF   01,W
-1C28:  ADDLW  DA
-1C2A:  MOVWF  FE9
-1C2C:  MOVLW  00
-1C2E:  ADDWFC 03,W
-1C30:  MOVWF  FEA
-1C32:  MOVFF  FEC,120
-1C36:  MOVF   FED,F
-1C38:  MOVFF  FEF,11F
-1C3C:  MOVF   x1F,F
-1C3E:  BNZ   1C44
-1C40:  MOVF   x20,F
-1C42:  BZ    1C72
+1BF0:  MOVF   x1C,W
+1BF2:  MULLW  19
+1BF4:  MOVF   FF3,W
+1BF6:  CLRF   x20
+1BF8:  MOVWF  x1F
+1BFA:  MOVLW  05
+1BFC:  ADDWF  x1F,W
+1BFE:  MOVWF  01
+1C00:  MOVLW  00
+1C02:  ADDWFC x20,W
+1C04:  MOVWF  03
+1C06:  MOVF   01,W
+1C08:  ADDLW  DA
+1C0A:  MOVWF  FE9
+1C0C:  MOVLW  00
+1C0E:  ADDWFC 03,W
+1C10:  MOVWF  FEA
+1C12:  MOVFF  FEC,120
+1C16:  MOVF   FED,F
+1C18:  MOVFF  FEF,11F
+1C1C:  MOVF   x1F,F
+1C1E:  BNZ   1C24
+1C20:  MOVF   x20,F
+1C22:  BZ    1C52
 .................... 			/* waiting to power off */
 .................... 			channel[c].command_off_seconds--;
-1C44:  MOVF   x1C,W
-1C46:  MULLW  19
-1C48:  MOVF   FF3,W
-1C4A:  CLRF   x20
-1C4C:  MOVWF  x1F
-1C4E:  MOVLW  05
-1C50:  ADDWF  x1F,W
-1C52:  MOVWF  01
-1C54:  MOVLW  00
-1C56:  ADDWFC x20,W
-1C58:  MOVWF  03
-1C5A:  MOVF   01,W
-1C5C:  ADDLW  DA
-1C5E:  MOVWF  FE9
-1C60:  MOVLW  00
-1C62:  ADDWFC 03,W
-1C64:  MOVWF  FEA
-1C66:  MOVLW  FF
-1C68:  ADDWF  FEF,F
-1C6A:  BC    1C70
-1C6C:  MOVF   FEE,F
-1C6E:  DECF   FED,F
+1C24:  MOVF   x1C,W
+1C26:  MULLW  19
+1C28:  MOVF   FF3,W
+1C2A:  CLRF   x20
+1C2C:  MOVWF  x1F
+1C2E:  MOVLW  05
+1C30:  ADDWF  x1F,W
+1C32:  MOVWF  01
+1C34:  MOVLW  00
+1C36:  ADDWFC x20,W
+1C38:  MOVWF  03
+1C3A:  MOVF   01,W
+1C3C:  ADDLW  DA
+1C3E:  MOVWF  FE9
+1C40:  MOVLW  00
+1C42:  ADDWFC 03,W
+1C44:  MOVWF  FEA
+1C46:  MOVLW  FF
+1C48:  ADDWF  FEF,F
+1C4A:  BC    1C50
+1C4C:  MOVF   FEE,F
+1C4E:  DECF   FED,F
 .................... 		} else {
-1C70:  BRA    1DB6
+1C50:  BRA    1D96
 .................... 			/* timer at zero, ready to power off or already powered off */
 .................... 			if ( ! bit_test(channel[c].state,CH_STATE_BIT_CMD_OFF) ) {
-1C72:  MOVF   x1C,W
-1C74:  MULLW  19
-1C76:  MOVF   FF3,W
-1C78:  CLRF   x20
-1C7A:  MOVWF  x1F
-1C7C:  MOVLW  DA
-1C7E:  ADDWF  x1F,W
-1C80:  MOVWF  FE9
-1C82:  MOVLW  00
-1C84:  ADDWFC x20,W
-1C86:  MOVWF  FEA
-1C88:  MOVFF  FEF,121
-1C8C:  BTFSC  x21.2
-1C8E:  BRA    1D14
+1C52:  MOVF   x1C,W
+1C54:  MULLW  19
+1C56:  MOVF   FF3,W
+1C58:  CLRF   x20
+1C5A:  MOVWF  x1F
+1C5C:  MOVLW  DA
+1C5E:  ADDWF  x1F,W
+1C60:  MOVWF  FE9
+1C62:  MOVLW  00
+1C64:  ADDWFC x20,W
+1C66:  MOVWF  FEA
+1C68:  MOVFF  FEF,121
+1C6C:  BTFSC  x21.2
+1C6E:  BRA    1CF4
 .................... 				/* not currently set, so we set it and start the countdown */
 .................... 				bit_set(channel[c].state,CH_STATE_BIT_CMD_OFF);
-1C90:  MOVF   x1C,W
-1C92:  MULLW  19
-1C94:  MOVF   FF3,W
-1C96:  CLRF   x20
-1C98:  MOVWF  x1F
-1C9A:  MOVLW  DA
-1C9C:  ADDWF  x1F,W
-1C9E:  MOVWF  01
-1CA0:  MOVLW  00
-1CA2:  ADDWFC x20,W
-1CA4:  MOVFF  01,FE9
-1CA8:  MOVWF  FEA
-1CAA:  BSF    FEF.2
+1C70:  MOVF   x1C,W
+1C72:  MULLW  19
+1C74:  MOVF   FF3,W
+1C76:  CLRF   x20
+1C78:  MOVWF  x1F
+1C7A:  MOVLW  DA
+1C7C:  ADDWF  x1F,W
+1C7E:  MOVWF  01
+1C80:  MOVLW  00
+1C82:  ADDWFC x20,W
+1C84:  MOVFF  01,FE9
+1C88:  MOVWF  FEA
+1C8A:  BSF    FEF.2
 .................... 				channel[c].command_off_hold_seconds=config.ch[c].command_off_hold_time;
-1CAC:  MOVF   x1C,W
-1CAE:  MULLW  19
-1CB0:  MOVF   FF3,W
-1CB2:  CLRF   x20
-1CB4:  MOVWF  x1F
-1CB6:  MOVLW  07
-1CB8:  ADDWF  x1F,W
-1CBA:  MOVWF  01
-1CBC:  MOVLW  00
-1CBE:  ADDWFC x20,W
-1CC0:  MOVWF  03
-1CC2:  MOVF   01,W
-1CC4:  ADDLW  DA
-1CC6:  MOVWF  01
-1CC8:  MOVLW  00
-1CCA:  ADDWFC 03,F
-1CCC:  MOVFF  01,11F
-1CD0:  MOVFF  03,120
-1CD4:  MOVF   x1C,W
-1CD6:  MULLW  24
-1CD8:  MOVF   FF3,W
-1CDA:  CLRF   x22
-1CDC:  MOVWF  x21
-1CDE:  MOVLW  02
-1CE0:  ADDWF  x21,W
-1CE2:  MOVWF  01
-1CE4:  MOVLW  00
-1CE6:  ADDWFC x22,W
-1CE8:  MOVWF  03
-1CEA:  MOVF   01,W
-1CEC:  ADDLW  1B
-1CEE:  MOVWF  FE9
-1CF0:  MOVLW  00
-1CF2:  ADDWFC 03,W
-1CF4:  MOVWF  FEA
-1CF6:  MOVFF  FEC,03
-1CFA:  MOVF   FED,F
-1CFC:  MOVFF  FEF,121
-1D00:  MOVFF  120,FEA
-1D04:  MOVFF  11F,FE9
-1D08:  MOVFF  03,FEC
-1D0C:  MOVF   FED,F
-1D0E:  MOVFF  121,FEF
+1C8C:  MOVF   x1C,W
+1C8E:  MULLW  19
+1C90:  MOVF   FF3,W
+1C92:  CLRF   x20
+1C94:  MOVWF  x1F
+1C96:  MOVLW  07
+1C98:  ADDWF  x1F,W
+1C9A:  MOVWF  01
+1C9C:  MOVLW  00
+1C9E:  ADDWFC x20,W
+1CA0:  MOVWF  03
+1CA2:  MOVF   01,W
+1CA4:  ADDLW  DA
+1CA6:  MOVWF  01
+1CA8:  MOVLW  00
+1CAA:  ADDWFC 03,F
+1CAC:  MOVFF  01,11F
+1CB0:  MOVFF  03,120
+1CB4:  MOVF   x1C,W
+1CB6:  MULLW  24
+1CB8:  MOVF   FF3,W
+1CBA:  CLRF   x22
+1CBC:  MOVWF  x21
+1CBE:  MOVLW  02
+1CC0:  ADDWF  x21,W
+1CC2:  MOVWF  01
+1CC4:  MOVLW  00
+1CC6:  ADDWFC x22,W
+1CC8:  MOVWF  03
+1CCA:  MOVF   01,W
+1CCC:  ADDLW  1B
+1CCE:  MOVWF  FE9
+1CD0:  MOVLW  00
+1CD2:  ADDWFC 03,W
+1CD4:  MOVWF  FEA
+1CD6:  MOVFF  FEC,03
+1CDA:  MOVF   FED,F
+1CDC:  MOVFF  FEF,121
+1CE0:  MOVFF  120,FEA
+1CE4:  MOVFF  11F,FE9
+1CE8:  MOVFF  03,FEC
+1CEC:  MOVF   FED,F
+1CEE:  MOVFF  121,FEF
 .................... 			} else {
-1D12:  BRA    1DB6
+1CF2:  BRA    1D96
 .................... 				/* set, so we clear it once countdown has elapsed */
 .................... 				if ( 0==channel[c].command_off_hold_seconds ) {
-1D14:  MOVF   x1C,W
-1D16:  MULLW  19
-1D18:  MOVF   FF3,W
-1D1A:  CLRF   x20
-1D1C:  MOVWF  x1F
-1D1E:  MOVLW  07
-1D20:  ADDWF  x1F,W
-1D22:  MOVWF  01
-1D24:  MOVLW  00
-1D26:  ADDWFC x20,W
-1D28:  MOVWF  03
-1D2A:  MOVF   01,W
-1D2C:  ADDLW  DA
-1D2E:  MOVWF  FE9
-1D30:  MOVLW  00
-1D32:  ADDWFC 03,W
-1D34:  MOVWF  FEA
-1D36:  MOVFF  FEC,03
-1D3A:  MOVF   FED,F
-1D3C:  MOVF   FEF,W
-1D3E:  BNZ   1D8A
-1D40:  MOVF   03,F
-1D42:  BNZ   1D8A
+1CF4:  MOVF   x1C,W
+1CF6:  MULLW  19
+1CF8:  MOVF   FF3,W
+1CFA:  CLRF   x20
+1CFC:  MOVWF  x1F
+1CFE:  MOVLW  07
+1D00:  ADDWF  x1F,W
+1D02:  MOVWF  01
+1D04:  MOVLW  00
+1D06:  ADDWFC x20,W
+1D08:  MOVWF  03
+1D0A:  MOVF   01,W
+1D0C:  ADDLW  DA
+1D0E:  MOVWF  FE9
+1D10:  MOVLW  00
+1D12:  ADDWFC 03,W
+1D14:  MOVWF  FEA
+1D16:  MOVFF  FEC,03
+1D1A:  MOVF   FED,F
+1D1C:  MOVF   FEF,W
+1D1E:  BNZ   1D6A
+1D20:  MOVF   03,F
+1D22:  BNZ   1D6A
 .................... 					/* countdown elapsed, clear the flag and reset the timer */
 .................... 					bit_clear(channel[c].state,CH_STATE_BIT_CMD_OFF);
-1D44:  MOVF   x1C,W
-1D46:  MULLW  19
-1D48:  MOVF   FF3,W
-1D4A:  CLRF   x20
-1D4C:  MOVWF  x1F
-1D4E:  MOVLW  DA
-1D50:  ADDWF  x1F,W
-1D52:  MOVWF  01
-1D54:  MOVLW  00
-1D56:  ADDWFC x20,W
-1D58:  MOVFF  01,FE9
-1D5C:  MOVWF  FEA
-1D5E:  BCF    FEF.2
+1D24:  MOVF   x1C,W
+1D26:  MULLW  19
+1D28:  MOVF   FF3,W
+1D2A:  CLRF   x20
+1D2C:  MOVWF  x1F
+1D2E:  MOVLW  DA
+1D30:  ADDWF  x1F,W
+1D32:  MOVWF  01
+1D34:  MOVLW  00
+1D36:  ADDWFC x20,W
+1D38:  MOVFF  01,FE9
+1D3C:  MOVWF  FEA
+1D3E:  BCF    FEF.2
 .................... 					channel[c].command_off_seconds=65535;
-1D60:  MOVF   x1C,W
-1D62:  MULLW  19
-1D64:  MOVF   FF3,W
-1D66:  CLRF   x20
-1D68:  MOVWF  x1F
-1D6A:  MOVLW  05
-1D6C:  ADDWF  x1F,W
-1D6E:  MOVWF  01
-1D70:  MOVLW  00
-1D72:  ADDWFC x20,W
-1D74:  MOVWF  03
-1D76:  MOVF   01,W
-1D78:  ADDLW  DA
-1D7A:  MOVWF  FE9
-1D7C:  MOVLW  00
-1D7E:  ADDWFC 03,W
-1D80:  MOVWF  FEA
-1D82:  SETF   FEC
-1D84:  MOVF   FED,F
-1D86:  SETF   FEF
+1D40:  MOVF   x1C,W
+1D42:  MULLW  19
+1D44:  MOVF   FF3,W
+1D46:  CLRF   x20
+1D48:  MOVWF  x1F
+1D4A:  MOVLW  05
+1D4C:  ADDWF  x1F,W
+1D4E:  MOVWF  01
+1D50:  MOVLW  00
+1D52:  ADDWFC x20,W
+1D54:  MOVWF  03
+1D56:  MOVF   01,W
+1D58:  ADDLW  DA
+1D5A:  MOVWF  FE9
+1D5C:  MOVLW  00
+1D5E:  ADDWFC 03,W
+1D60:  MOVWF  FEA
+1D62:  SETF   FEC
+1D64:  MOVF   FED,F
+1D66:  SETF   FEF
 .................... 				} else {
-1D88:  BRA    1DB6
+1D68:  BRA    1D96
 .................... 					channel[c].command_off_hold_seconds--;
-1D8A:  MOVF   x1C,W
-1D8C:  MULLW  19
-1D8E:  MOVF   FF3,W
-1D90:  CLRF   x20
-1D92:  MOVWF  x1F
-1D94:  MOVLW  07
-1D96:  ADDWF  x1F,W
-1D98:  MOVWF  01
-1D9A:  MOVLW  00
-1D9C:  ADDWFC x20,W
-1D9E:  MOVWF  03
-1DA0:  MOVF   01,W
-1DA2:  ADDLW  DA
-1DA4:  MOVWF  FE9
-1DA6:  MOVLW  00
-1DA8:  ADDWFC 03,W
-1DAA:  MOVWF  FEA
-1DAC:  MOVLW  FF
-1DAE:  ADDWF  FEF,F
-1DB0:  BC    1DB6
-1DB2:  MOVF   FEE,F
-1DB4:  DECF   FED,F
+1D6A:  MOVF   x1C,W
+1D6C:  MULLW  19
+1D6E:  MOVF   FF3,W
+1D70:  CLRF   x20
+1D72:  MOVWF  x1F
+1D74:  MOVLW  07
+1D76:  ADDWF  x1F,W
+1D78:  MOVWF  01
+1D7A:  MOVLW  00
+1D7C:  ADDWFC x20,W
+1D7E:  MOVWF  03
+1D80:  MOVF   01,W
+1D82:  ADDLW  DA
+1D84:  MOVWF  FE9
+1D86:  MOVLW  00
+1D88:  ADDWFC 03,W
+1D8A:  MOVWF  FEA
+1D8C:  MOVLW  FF
+1D8E:  ADDWF  FEF,F
+1D90:  BC    1D96
+1D92:  MOVF   FEE,F
+1D94:  DECF   FED,F
 .................... 				}
 .................... 			}		
 .................... 		}
@@ -4602,1305 +4589,1305 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 .................... 
 .................... 	/* Low Voltage Disconnect. 65535 disables */
 .................... 	if ( 65535 != config.ch[c].lvd_disconnect_delay ) {
-1DB6:  MOVF   x1C,W
-1DB8:  MULLW  24
-1DBA:  MOVF   FF3,W
-1DBC:  CLRF   x20
-1DBE:  MOVWF  x1F
-1DC0:  MOVLW  06
-1DC2:  ADDWF  x1F,W
-1DC4:  MOVWF  01
-1DC6:  MOVLW  00
-1DC8:  ADDWFC x20,W
-1DCA:  MOVWF  03
-1DCC:  MOVF   01,W
-1DCE:  ADDLW  1B
-1DD0:  MOVWF  FE9
-1DD2:  MOVLW  00
-1DD4:  ADDWFC 03,W
-1DD6:  MOVWF  FEA
-1DD8:  MOVFF  FEC,03
-1DDC:  MOVF   FED,F
-1DDE:  MOVF   FEF,W
-1DE0:  SUBLW  FF
-1DE2:  BNZ   1DEA
-1DE4:  INCFSZ 03,W
-1DE6:  BRA    1DEA
-1DE8:  BRA    2048
-1DEA:  CLRF   19
-1DEC:  BTFSC  FF2.7
-1DEE:  BSF    19.7
-1DF0:  BCF    FF2.7
+1D96:  MOVF   x1C,W
+1D98:  MULLW  24
+1D9A:  MOVF   FF3,W
+1D9C:  CLRF   x20
+1D9E:  MOVWF  x1F
+1DA0:  MOVLW  06
+1DA2:  ADDWF  x1F,W
+1DA4:  MOVWF  01
+1DA6:  MOVLW  00
+1DA8:  ADDWFC x20,W
+1DAA:  MOVWF  03
+1DAC:  MOVF   01,W
+1DAE:  ADDLW  1B
+1DB0:  MOVWF  FE9
+1DB2:  MOVLW  00
+1DB4:  ADDWFC 03,W
+1DB6:  MOVWF  FEA
+1DB8:  MOVFF  FEC,03
+1DBC:  MOVF   FED,F
+1DBE:  MOVF   FEF,W
+1DC0:  SUBLW  FF
+1DC2:  BNZ   1DCA
+1DC4:  INCFSZ 03,W
+1DC6:  BRA    1DCA
+1DC8:  BRA    2028
+1DCA:  CLRF   19
+1DCC:  BTFSC  FF2.7
+1DCE:  BSF    19.7
+1DD0:  BCF    FF2.7
 .................... 		adc=adc_get(0);
-1DF2:  CLRF   x2F
-1DF4:  MOVLB  0
-1DF6:  CALL   0594
-1DFA:  BTFSC  19.7
-1DFC:  BSF    FF2.7
-1DFE:  MOVFF  02,11E
-1E02:  MOVFF  01,11D
+1DD2:  CLRF   x2F
+1DD4:  MOVLB  0
+1DD6:  CALL   0594
+1DDA:  BTFSC  19.7
+1DDC:  BSF    FF2.7
+1DDE:  MOVFF  02,11E
+1DE2:  MOVFF  01,11D
 .................... 
 .................... 		if ( adc > config.ch[c].lvd_reconnect_adc ) {
-1E06:  MOVLB  1
-1E08:  MOVF   x1C,W
-1E0A:  MULLW  24
-1E0C:  MOVF   FF3,W
-1E0E:  CLRF   x20
-1E10:  MOVWF  x1F
-1E12:  MOVLW  08
-1E14:  ADDWF  x1F,W
-1E16:  MOVWF  01
-1E18:  MOVLW  00
-1E1A:  ADDWFC x20,W
-1E1C:  MOVWF  03
-1E1E:  MOVF   01,W
-1E20:  ADDLW  1B
-1E22:  MOVWF  FE9
-1E24:  MOVLW  00
-1E26:  ADDWFC 03,W
-1E28:  MOVWF  FEA
-1E2A:  MOVFF  FEC,03
-1E2E:  MOVF   FED,F
-1E30:  MOVFF  FEF,01
-1E34:  MOVF   03,W
-1E36:  SUBWF  x1E,W
-1E38:  BNC   1EC2
-1E3A:  BNZ   1E42
-1E3C:  MOVF   x1D,W
-1E3E:  SUBWF  01,W
-1E40:  BC    1EC2
+1DE6:  MOVLB  1
+1DE8:  MOVF   x1C,W
+1DEA:  MULLW  24
+1DEC:  MOVF   FF3,W
+1DEE:  CLRF   x20
+1DF0:  MOVWF  x1F
+1DF2:  MOVLW  08
+1DF4:  ADDWF  x1F,W
+1DF6:  MOVWF  01
+1DF8:  MOVLW  00
+1DFA:  ADDWFC x20,W
+1DFC:  MOVWF  03
+1DFE:  MOVF   01,W
+1E00:  ADDLW  1B
+1E02:  MOVWF  FE9
+1E04:  MOVLW  00
+1E06:  ADDWFC 03,W
+1E08:  MOVWF  FEA
+1E0A:  MOVFF  FEC,03
+1E0E:  MOVF   FED,F
+1E10:  MOVFF  FEF,01
+1E14:  MOVF   03,W
+1E16:  SUBWF  x1E,W
+1E18:  BNC   1EA2
+1E1A:  BNZ   1E22
+1E1C:  MOVF   x1D,W
+1E1E:  SUBWF  01,W
+1E20:  BC    1EA2
 .................... 			if ( channel[c].lvd_reconnect_delay_seconds > 0 ) {
-1E42:  MOVF   x1C,W
-1E44:  MULLW  19
-1E46:  MOVF   FF3,W
-1E48:  CLRF   x20
-1E4A:  MOVWF  x1F
-1E4C:  MOVLW  0B
-1E4E:  ADDWF  x1F,W
-1E50:  MOVWF  01
-1E52:  MOVLW  00
-1E54:  ADDWFC x20,W
-1E56:  MOVWF  03
-1E58:  MOVF   01,W
-1E5A:  ADDLW  DA
-1E5C:  MOVWF  FE9
-1E5E:  MOVLW  00
-1E60:  ADDWFC 03,W
-1E62:  MOVWF  FEA
-1E64:  MOVFF  FEC,120
-1E68:  MOVF   FED,F
-1E6A:  MOVFF  FEF,11F
-1E6E:  MOVF   x1F,F
-1E70:  BNZ   1E76
-1E72:  MOVF   x20,F
-1E74:  BZ    1EA4
+1E22:  MOVF   x1C,W
+1E24:  MULLW  19
+1E26:  MOVF   FF3,W
+1E28:  CLRF   x20
+1E2A:  MOVWF  x1F
+1E2C:  MOVLW  0B
+1E2E:  ADDWF  x1F,W
+1E30:  MOVWF  01
+1E32:  MOVLW  00
+1E34:  ADDWFC x20,W
+1E36:  MOVWF  03
+1E38:  MOVF   01,W
+1E3A:  ADDLW  DA
+1E3C:  MOVWF  FE9
+1E3E:  MOVLW  00
+1E40:  ADDWFC 03,W
+1E42:  MOVWF  FEA
+1E44:  MOVFF  FEC,120
+1E48:  MOVF   FED,F
+1E4A:  MOVFF  FEF,11F
+1E4E:  MOVF   x1F,F
+1E50:  BNZ   1E56
+1E52:  MOVF   x20,F
+1E54:  BZ    1E84
 .................... 				channel[c].lvd_reconnect_delay_seconds--;
-1E76:  MOVF   x1C,W
-1E78:  MULLW  19
-1E7A:  MOVF   FF3,W
-1E7C:  CLRF   x20
-1E7E:  MOVWF  x1F
-1E80:  MOVLW  0B
-1E82:  ADDWF  x1F,W
-1E84:  MOVWF  01
-1E86:  MOVLW  00
-1E88:  ADDWFC x20,W
-1E8A:  MOVWF  03
-1E8C:  MOVF   01,W
-1E8E:  ADDLW  DA
-1E90:  MOVWF  FE9
-1E92:  MOVLW  00
-1E94:  ADDWFC 03,W
-1E96:  MOVWF  FEA
-1E98:  MOVLW  FF
-1E9A:  ADDWF  FEF,F
-1E9C:  BC    1EA2
-1E9E:  MOVF   FEE,F
-1EA0:  DECF   FED,F
+1E56:  MOVF   x1C,W
+1E58:  MULLW  19
+1E5A:  MOVF   FF3,W
+1E5C:  CLRF   x20
+1E5E:  MOVWF  x1F
+1E60:  MOVLW  0B
+1E62:  ADDWF  x1F,W
+1E64:  MOVWF  01
+1E66:  MOVLW  00
+1E68:  ADDWFC x20,W
+1E6A:  MOVWF  03
+1E6C:  MOVF   01,W
+1E6E:  ADDLW  DA
+1E70:  MOVWF  FE9
+1E72:  MOVLW  00
+1E74:  ADDWFC 03,W
+1E76:  MOVWF  FEA
+1E78:  MOVLW  FF
+1E7A:  ADDWF  FEF,F
+1E7C:  BC    1E82
+1E7E:  MOVF   FEE,F
+1E80:  DECF   FED,F
 .................... 			} else {
-1EA2:  BRA    1EC0
+1E82:  BRA    1EA0
 .................... 				bit_clear(channel[c].state,CH_STATE_BIT_LVD);
-1EA4:  MOVF   x1C,W
-1EA6:  MULLW  19
-1EA8:  MOVF   FF3,W
-1EAA:  CLRF   x20
-1EAC:  MOVWF  x1F
-1EAE:  MOVLW  DA
-1EB0:  ADDWF  x1F,W
-1EB2:  MOVWF  01
-1EB4:  MOVLW  00
-1EB6:  ADDWFC x20,W
-1EB8:  MOVFF  01,FE9
-1EBC:  MOVWF  FEA
-1EBE:  BCF    FEF.3
+1E84:  MOVF   x1C,W
+1E86:  MULLW  19
+1E88:  MOVF   FF3,W
+1E8A:  CLRF   x20
+1E8C:  MOVWF  x1F
+1E8E:  MOVLW  DA
+1E90:  ADDWF  x1F,W
+1E92:  MOVWF  01
+1E94:  MOVLW  00
+1E96:  ADDWFC x20,W
+1E98:  MOVFF  01,FE9
+1E9C:  MOVWF  FEA
+1E9E:  BCF    FEF.3
 .................... 			}
 .................... 		} else {
-1EC0:  BRA    1F28
+1EA0:  BRA    1F08
 .................... 			channel[c].lvd_reconnect_delay_seconds=config.ch[c].lvd_reconnect_delay;
-1EC2:  MOVF   x1C,W
-1EC4:  MULLW  19
-1EC6:  MOVF   FF3,W
-1EC8:  CLRF   x20
-1ECA:  MOVWF  x1F
-1ECC:  MOVLW  0B
-1ECE:  ADDWF  x1F,W
-1ED0:  MOVWF  01
-1ED2:  MOVLW  00
-1ED4:  ADDWFC x20,W
-1ED6:  MOVWF  03
-1ED8:  MOVF   01,W
-1EDA:  ADDLW  DA
-1EDC:  MOVWF  01
-1EDE:  MOVLW  00
-1EE0:  ADDWFC 03,F
-1EE2:  MOVFF  01,11F
-1EE6:  MOVFF  03,120
-1EEA:  MOVF   x1C,W
-1EEC:  MULLW  24
-1EEE:  MOVF   FF3,W
-1EF0:  CLRF   x22
-1EF2:  MOVWF  x21
-1EF4:  MOVLW  0A
-1EF6:  ADDWF  x21,W
-1EF8:  MOVWF  01
-1EFA:  MOVLW  00
-1EFC:  ADDWFC x22,W
-1EFE:  MOVWF  03
-1F00:  MOVF   01,W
-1F02:  ADDLW  1B
-1F04:  MOVWF  FE9
-1F06:  MOVLW  00
-1F08:  ADDWFC 03,W
-1F0A:  MOVWF  FEA
-1F0C:  MOVFF  FEC,03
-1F10:  MOVF   FED,F
-1F12:  MOVFF  FEF,121
-1F16:  MOVFF  120,FEA
-1F1A:  MOVFF  11F,FE9
-1F1E:  MOVFF  03,FEC
-1F22:  MOVF   FED,F
-1F24:  MOVFF  121,FEF
+1EA2:  MOVF   x1C,W
+1EA4:  MULLW  19
+1EA6:  MOVF   FF3,W
+1EA8:  CLRF   x20
+1EAA:  MOVWF  x1F
+1EAC:  MOVLW  0B
+1EAE:  ADDWF  x1F,W
+1EB0:  MOVWF  01
+1EB2:  MOVLW  00
+1EB4:  ADDWFC x20,W
+1EB6:  MOVWF  03
+1EB8:  MOVF   01,W
+1EBA:  ADDLW  DA
+1EBC:  MOVWF  01
+1EBE:  MOVLW  00
+1EC0:  ADDWFC 03,F
+1EC2:  MOVFF  01,11F
+1EC6:  MOVFF  03,120
+1ECA:  MOVF   x1C,W
+1ECC:  MULLW  24
+1ECE:  MOVF   FF3,W
+1ED0:  CLRF   x22
+1ED2:  MOVWF  x21
+1ED4:  MOVLW  0A
+1ED6:  ADDWF  x21,W
+1ED8:  MOVWF  01
+1EDA:  MOVLW  00
+1EDC:  ADDWFC x22,W
+1EDE:  MOVWF  03
+1EE0:  MOVF   01,W
+1EE2:  ADDLW  1B
+1EE4:  MOVWF  FE9
+1EE6:  MOVLW  00
+1EE8:  ADDWFC 03,W
+1EEA:  MOVWF  FEA
+1EEC:  MOVFF  FEC,03
+1EF0:  MOVF   FED,F
+1EF2:  MOVFF  FEF,121
+1EF6:  MOVFF  120,FEA
+1EFA:  MOVFF  11F,FE9
+1EFE:  MOVFF  03,FEC
+1F02:  MOVF   FED,F
+1F04:  MOVFF  121,FEF
 .................... 		}
 .................... 
 .................... 		if ( adc < config.ch[c].lvd_disconnect_adc ) {
-1F28:  MOVF   x1C,W
-1F2A:  MULLW  24
-1F2C:  MOVF   FF3,W
-1F2E:  CLRF   x20
-1F30:  MOVWF  x1F
-1F32:  MOVLW  04
-1F34:  ADDWF  x1F,W
-1F36:  MOVWF  01
-1F38:  MOVLW  00
-1F3A:  ADDWFC x20,W
-1F3C:  MOVWF  03
-1F3E:  MOVF   01,W
-1F40:  ADDLW  1B
-1F42:  MOVWF  FE9
-1F44:  MOVLW  00
-1F46:  ADDWFC 03,W
-1F48:  MOVWF  FEA
-1F4A:  MOVFF  FEC,03
-1F4E:  MOVF   FED,F
-1F50:  MOVFF  FEF,01
-1F54:  MOVF   x1E,W
-1F56:  SUBWF  03,W
-1F58:  BNC   1FE2
-1F5A:  BNZ   1F62
-1F5C:  MOVF   01,W
-1F5E:  SUBWF  x1D,W
-1F60:  BC    1FE2
+1F08:  MOVF   x1C,W
+1F0A:  MULLW  24
+1F0C:  MOVF   FF3,W
+1F0E:  CLRF   x20
+1F10:  MOVWF  x1F
+1F12:  MOVLW  04
+1F14:  ADDWF  x1F,W
+1F16:  MOVWF  01
+1F18:  MOVLW  00
+1F1A:  ADDWFC x20,W
+1F1C:  MOVWF  03
+1F1E:  MOVF   01,W
+1F20:  ADDLW  1B
+1F22:  MOVWF  FE9
+1F24:  MOVLW  00
+1F26:  ADDWFC 03,W
+1F28:  MOVWF  FEA
+1F2A:  MOVFF  FEC,03
+1F2E:  MOVF   FED,F
+1F30:  MOVFF  FEF,01
+1F34:  MOVF   x1E,W
+1F36:  SUBWF  03,W
+1F38:  BNC   1FC2
+1F3A:  BNZ   1F42
+1F3C:  MOVF   01,W
+1F3E:  SUBWF  x1D,W
+1F40:  BC    1FC2
 .................... 			if ( channel[c].lvd_disconnect_delay_seconds > 0 ) {
-1F62:  MOVF   x1C,W
-1F64:  MULLW  19
-1F66:  MOVF   FF3,W
-1F68:  CLRF   x20
-1F6A:  MOVWF  x1F
-1F6C:  MOVLW  09
-1F6E:  ADDWF  x1F,W
-1F70:  MOVWF  01
-1F72:  MOVLW  00
-1F74:  ADDWFC x20,W
-1F76:  MOVWF  03
-1F78:  MOVF   01,W
-1F7A:  ADDLW  DA
-1F7C:  MOVWF  FE9
-1F7E:  MOVLW  00
-1F80:  ADDWFC 03,W
-1F82:  MOVWF  FEA
-1F84:  MOVFF  FEC,120
-1F88:  MOVF   FED,F
-1F8A:  MOVFF  FEF,11F
-1F8E:  MOVF   x1F,F
-1F90:  BNZ   1F96
-1F92:  MOVF   x20,F
-1F94:  BZ    1FC4
+1F42:  MOVF   x1C,W
+1F44:  MULLW  19
+1F46:  MOVF   FF3,W
+1F48:  CLRF   x20
+1F4A:  MOVWF  x1F
+1F4C:  MOVLW  09
+1F4E:  ADDWF  x1F,W
+1F50:  MOVWF  01
+1F52:  MOVLW  00
+1F54:  ADDWFC x20,W
+1F56:  MOVWF  03
+1F58:  MOVF   01,W
+1F5A:  ADDLW  DA
+1F5C:  MOVWF  FE9
+1F5E:  MOVLW  00
+1F60:  ADDWFC 03,W
+1F62:  MOVWF  FEA
+1F64:  MOVFF  FEC,120
+1F68:  MOVF   FED,F
+1F6A:  MOVFF  FEF,11F
+1F6E:  MOVF   x1F,F
+1F70:  BNZ   1F76
+1F72:  MOVF   x20,F
+1F74:  BZ    1FA4
 .................... 				channel[c].lvd_disconnect_delay_seconds--;
-1F96:  MOVF   x1C,W
-1F98:  MULLW  19
-1F9A:  MOVF   FF3,W
-1F9C:  CLRF   x20
-1F9E:  MOVWF  x1F
-1FA0:  MOVLW  09
-1FA2:  ADDWF  x1F,W
-1FA4:  MOVWF  01
-1FA6:  MOVLW  00
-1FA8:  ADDWFC x20,W
-1FAA:  MOVWF  03
-1FAC:  MOVF   01,W
-1FAE:  ADDLW  DA
-1FB0:  MOVWF  FE9
-1FB2:  MOVLW  00
-1FB4:  ADDWFC 03,W
-1FB6:  MOVWF  FEA
-1FB8:  MOVLW  FF
-1FBA:  ADDWF  FEF,F
-1FBC:  BC    1FC2
-1FBE:  MOVF   FEE,F
-1FC0:  DECF   FED,F
+1F76:  MOVF   x1C,W
+1F78:  MULLW  19
+1F7A:  MOVF   FF3,W
+1F7C:  CLRF   x20
+1F7E:  MOVWF  x1F
+1F80:  MOVLW  09
+1F82:  ADDWF  x1F,W
+1F84:  MOVWF  01
+1F86:  MOVLW  00
+1F88:  ADDWFC x20,W
+1F8A:  MOVWF  03
+1F8C:  MOVF   01,W
+1F8E:  ADDLW  DA
+1F90:  MOVWF  FE9
+1F92:  MOVLW  00
+1F94:  ADDWFC 03,W
+1F96:  MOVWF  FEA
+1F98:  MOVLW  FF
+1F9A:  ADDWF  FEF,F
+1F9C:  BC    1FA2
+1F9E:  MOVF   FEE,F
+1FA0:  DECF   FED,F
 .................... 			} else {
-1FC2:  BRA    1FE0
+1FA2:  BRA    1FC0
 .................... 				bit_set(channel[c].state,CH_STATE_BIT_LVD);
-1FC4:  MOVF   x1C,W
-1FC6:  MULLW  19
-1FC8:  MOVF   FF3,W
-1FCA:  CLRF   x20
-1FCC:  MOVWF  x1F
-1FCE:  MOVLW  DA
-1FD0:  ADDWF  x1F,W
-1FD2:  MOVWF  01
-1FD4:  MOVLW  00
-1FD6:  ADDWFC x20,W
-1FD8:  MOVFF  01,FE9
-1FDC:  MOVWF  FEA
-1FDE:  BSF    FEF.3
+1FA4:  MOVF   x1C,W
+1FA6:  MULLW  19
+1FA8:  MOVF   FF3,W
+1FAA:  CLRF   x20
+1FAC:  MOVWF  x1F
+1FAE:  MOVLW  DA
+1FB0:  ADDWF  x1F,W
+1FB2:  MOVWF  01
+1FB4:  MOVLW  00
+1FB6:  ADDWFC x20,W
+1FB8:  MOVFF  01,FE9
+1FBC:  MOVWF  FEA
+1FBE:  BSF    FEF.3
 .................... 			}
 .................... 		} else {
-1FE0:  BRA    2048
+1FC0:  BRA    2028
 .................... 			channel[c].lvd_disconnect_delay_seconds=config.ch[c].lvd_disconnect_delay;
-1FE2:  MOVF   x1C,W
-1FE4:  MULLW  19
-1FE6:  MOVF   FF3,W
-1FE8:  CLRF   x20
-1FEA:  MOVWF  x1F
-1FEC:  MOVLW  09
-1FEE:  ADDWF  x1F,W
-1FF0:  MOVWF  01
-1FF2:  MOVLW  00
-1FF4:  ADDWFC x20,W
-1FF6:  MOVWF  03
-1FF8:  MOVF   01,W
-1FFA:  ADDLW  DA
-1FFC:  MOVWF  01
-1FFE:  MOVLW  00
-2000:  ADDWFC 03,F
-2002:  MOVFF  01,11F
-2006:  MOVFF  03,120
-200A:  MOVF   x1C,W
-200C:  MULLW  24
-200E:  MOVF   FF3,W
-2010:  CLRF   x22
-2012:  MOVWF  x21
-2014:  MOVLW  06
-2016:  ADDWF  x21,W
-2018:  MOVWF  01
-201A:  MOVLW  00
-201C:  ADDWFC x22,W
-201E:  MOVWF  03
-2020:  MOVF   01,W
-2022:  ADDLW  1B
-2024:  MOVWF  FE9
-2026:  MOVLW  00
-2028:  ADDWFC 03,W
-202A:  MOVWF  FEA
-202C:  MOVFF  FEC,03
-2030:  MOVF   FED,F
-2032:  MOVFF  FEF,121
-2036:  MOVFF  120,FEA
-203A:  MOVFF  11F,FE9
-203E:  MOVFF  03,FEC
-2042:  MOVF   FED,F
-2044:  MOVFF  121,FEF
+1FC2:  MOVF   x1C,W
+1FC4:  MULLW  19
+1FC6:  MOVF   FF3,W
+1FC8:  CLRF   x20
+1FCA:  MOVWF  x1F
+1FCC:  MOVLW  09
+1FCE:  ADDWF  x1F,W
+1FD0:  MOVWF  01
+1FD2:  MOVLW  00
+1FD4:  ADDWFC x20,W
+1FD6:  MOVWF  03
+1FD8:  MOVF   01,W
+1FDA:  ADDLW  DA
+1FDC:  MOVWF  01
+1FDE:  MOVLW  00
+1FE0:  ADDWFC 03,F
+1FE2:  MOVFF  01,11F
+1FE6:  MOVFF  03,120
+1FEA:  MOVF   x1C,W
+1FEC:  MULLW  24
+1FEE:  MOVF   FF3,W
+1FF0:  CLRF   x22
+1FF2:  MOVWF  x21
+1FF4:  MOVLW  06
+1FF6:  ADDWF  x21,W
+1FF8:  MOVWF  01
+1FFA:  MOVLW  00
+1FFC:  ADDWFC x22,W
+1FFE:  MOVWF  03
+2000:  MOVF   01,W
+2002:  ADDLW  1B
+2004:  MOVWF  FE9
+2006:  MOVLW  00
+2008:  ADDWFC 03,W
+200A:  MOVWF  FEA
+200C:  MOVFF  FEC,03
+2010:  MOVF   FED,F
+2012:  MOVFF  FEF,121
+2016:  MOVFF  120,FEA
+201A:  MOVFF  11F,FE9
+201E:  MOVFF  03,FEC
+2022:  MOVF   FED,F
+2024:  MOVFF  121,FEF
 .................... 		}
 .................... 	}
 .................... 
 .................... 	/* High Voltage Disconnect. 65535 disables */
 .................... 	if ( 65535 != config.ch[c].hvd_disconnect_delay ) {
-2048:  MOVF   x1C,W
-204A:  MULLW  24
-204C:  MOVF   FF3,W
-204E:  CLRF   x20
-2050:  MOVWF  x1F
-2052:  MOVLW  0E
-2054:  ADDWF  x1F,W
-2056:  MOVWF  01
-2058:  MOVLW  00
-205A:  ADDWFC x20,W
-205C:  MOVWF  03
-205E:  MOVF   01,W
-2060:  ADDLW  1B
-2062:  MOVWF  FE9
-2064:  MOVLW  00
-2066:  ADDWFC 03,W
-2068:  MOVWF  FEA
-206A:  MOVFF  FEC,03
-206E:  MOVF   FED,F
-2070:  MOVF   FEF,W
-2072:  SUBLW  FF
-2074:  BNZ   207C
-2076:  INCFSZ 03,W
-2078:  BRA    207C
-207A:  BRA    22DA
-207C:  CLRF   19
-207E:  BTFSC  FF2.7
-2080:  BSF    19.7
-2082:  BCF    FF2.7
+2028:  MOVF   x1C,W
+202A:  MULLW  24
+202C:  MOVF   FF3,W
+202E:  CLRF   x20
+2030:  MOVWF  x1F
+2032:  MOVLW  0E
+2034:  ADDWF  x1F,W
+2036:  MOVWF  01
+2038:  MOVLW  00
+203A:  ADDWFC x20,W
+203C:  MOVWF  03
+203E:  MOVF   01,W
+2040:  ADDLW  1B
+2042:  MOVWF  FE9
+2044:  MOVLW  00
+2046:  ADDWFC 03,W
+2048:  MOVWF  FEA
+204A:  MOVFF  FEC,03
+204E:  MOVF   FED,F
+2050:  MOVF   FEF,W
+2052:  SUBLW  FF
+2054:  BNZ   205C
+2056:  INCFSZ 03,W
+2058:  BRA    205C
+205A:  BRA    22BA
+205C:  CLRF   19
+205E:  BTFSC  FF2.7
+2060:  BSF    19.7
+2062:  BCF    FF2.7
 .................... 		adc=adc_get(0);
-2084:  CLRF   x2F
-2086:  MOVLB  0
-2088:  CALL   0594
-208C:  BTFSC  19.7
-208E:  BSF    FF2.7
-2090:  MOVFF  02,11E
-2094:  MOVFF  01,11D
+2064:  CLRF   x2F
+2066:  MOVLB  0
+2068:  CALL   0594
+206C:  BTFSC  19.7
+206E:  BSF    FF2.7
+2070:  MOVFF  02,11E
+2074:  MOVFF  01,11D
 .................... 
 .................... 		if ( adc < config.ch[c].hvd_reconnect_adc ) {
-2098:  MOVLB  1
-209A:  MOVF   x1C,W
-209C:  MULLW  24
-209E:  MOVF   FF3,W
-20A0:  CLRF   x20
-20A2:  MOVWF  x1F
-20A4:  MOVLW  10
-20A6:  ADDWF  x1F,W
-20A8:  MOVWF  01
-20AA:  MOVLW  00
-20AC:  ADDWFC x20,W
-20AE:  MOVWF  03
-20B0:  MOVF   01,W
-20B2:  ADDLW  1B
-20B4:  MOVWF  FE9
-20B6:  MOVLW  00
-20B8:  ADDWFC 03,W
-20BA:  MOVWF  FEA
-20BC:  MOVFF  FEC,03
-20C0:  MOVF   FED,F
-20C2:  MOVFF  FEF,01
-20C6:  MOVF   x1E,W
-20C8:  SUBWF  03,W
-20CA:  BNC   2154
-20CC:  BNZ   20D4
-20CE:  MOVF   01,W
-20D0:  SUBWF  x1D,W
-20D2:  BC    2154
+2078:  MOVLB  1
+207A:  MOVF   x1C,W
+207C:  MULLW  24
+207E:  MOVF   FF3,W
+2080:  CLRF   x20
+2082:  MOVWF  x1F
+2084:  MOVLW  10
+2086:  ADDWF  x1F,W
+2088:  MOVWF  01
+208A:  MOVLW  00
+208C:  ADDWFC x20,W
+208E:  MOVWF  03
+2090:  MOVF   01,W
+2092:  ADDLW  1B
+2094:  MOVWF  FE9
+2096:  MOVLW  00
+2098:  ADDWFC 03,W
+209A:  MOVWF  FEA
+209C:  MOVFF  FEC,03
+20A0:  MOVF   FED,F
+20A2:  MOVFF  FEF,01
+20A6:  MOVF   x1E,W
+20A8:  SUBWF  03,W
+20AA:  BNC   2134
+20AC:  BNZ   20B4
+20AE:  MOVF   01,W
+20B0:  SUBWF  x1D,W
+20B2:  BC    2134
 .................... 			if ( channel[c].hvd_reconnect_delay_seconds > 0 ) {
-20D4:  MOVF   x1C,W
-20D6:  MULLW  19
-20D8:  MOVF   FF3,W
-20DA:  CLRF   x20
-20DC:  MOVWF  x1F
-20DE:  MOVLW  0F
-20E0:  ADDWF  x1F,W
-20E2:  MOVWF  01
-20E4:  MOVLW  00
-20E6:  ADDWFC x20,W
-20E8:  MOVWF  03
-20EA:  MOVF   01,W
-20EC:  ADDLW  DA
-20EE:  MOVWF  FE9
-20F0:  MOVLW  00
-20F2:  ADDWFC 03,W
-20F4:  MOVWF  FEA
-20F6:  MOVFF  FEC,120
-20FA:  MOVF   FED,F
-20FC:  MOVFF  FEF,11F
-2100:  MOVF   x1F,F
-2102:  BNZ   2108
-2104:  MOVF   x20,F
-2106:  BZ    2136
+20B4:  MOVF   x1C,W
+20B6:  MULLW  19
+20B8:  MOVF   FF3,W
+20BA:  CLRF   x20
+20BC:  MOVWF  x1F
+20BE:  MOVLW  0F
+20C0:  ADDWF  x1F,W
+20C2:  MOVWF  01
+20C4:  MOVLW  00
+20C6:  ADDWFC x20,W
+20C8:  MOVWF  03
+20CA:  MOVF   01,W
+20CC:  ADDLW  DA
+20CE:  MOVWF  FE9
+20D0:  MOVLW  00
+20D2:  ADDWFC 03,W
+20D4:  MOVWF  FEA
+20D6:  MOVFF  FEC,120
+20DA:  MOVF   FED,F
+20DC:  MOVFF  FEF,11F
+20E0:  MOVF   x1F,F
+20E2:  BNZ   20E8
+20E4:  MOVF   x20,F
+20E6:  BZ    2116
 .................... 				channel[c].hvd_reconnect_delay_seconds--;
-2108:  MOVF   x1C,W
-210A:  MULLW  19
-210C:  MOVF   FF3,W
-210E:  CLRF   x20
-2110:  MOVWF  x1F
-2112:  MOVLW  0F
-2114:  ADDWF  x1F,W
-2116:  MOVWF  01
-2118:  MOVLW  00
-211A:  ADDWFC x20,W
-211C:  MOVWF  03
-211E:  MOVF   01,W
-2120:  ADDLW  DA
-2122:  MOVWF  FE9
-2124:  MOVLW  00
-2126:  ADDWFC 03,W
-2128:  MOVWF  FEA
-212A:  MOVLW  FF
-212C:  ADDWF  FEF,F
-212E:  BC    2134
-2130:  MOVF   FEE,F
-2132:  DECF   FED,F
+20E8:  MOVF   x1C,W
+20EA:  MULLW  19
+20EC:  MOVF   FF3,W
+20EE:  CLRF   x20
+20F0:  MOVWF  x1F
+20F2:  MOVLW  0F
+20F4:  ADDWF  x1F,W
+20F6:  MOVWF  01
+20F8:  MOVLW  00
+20FA:  ADDWFC x20,W
+20FC:  MOVWF  03
+20FE:  MOVF   01,W
+2100:  ADDLW  DA
+2102:  MOVWF  FE9
+2104:  MOVLW  00
+2106:  ADDWFC 03,W
+2108:  MOVWF  FEA
+210A:  MOVLW  FF
+210C:  ADDWF  FEF,F
+210E:  BC    2114
+2110:  MOVF   FEE,F
+2112:  DECF   FED,F
 .................... 			} else {
-2134:  BRA    2152
+2114:  BRA    2132
 .................... 				bit_clear(channel[c].state,CH_STATE_BIT_HVD);
-2136:  MOVF   x1C,W
-2138:  MULLW  19
-213A:  MOVF   FF3,W
-213C:  CLRF   x20
-213E:  MOVWF  x1F
-2140:  MOVLW  DA
-2142:  ADDWF  x1F,W
-2144:  MOVWF  01
-2146:  MOVLW  00
-2148:  ADDWFC x20,W
-214A:  MOVFF  01,FE9
-214E:  MOVWF  FEA
-2150:  BCF    FEF.4
+2116:  MOVF   x1C,W
+2118:  MULLW  19
+211A:  MOVF   FF3,W
+211C:  CLRF   x20
+211E:  MOVWF  x1F
+2120:  MOVLW  DA
+2122:  ADDWF  x1F,W
+2124:  MOVWF  01
+2126:  MOVLW  00
+2128:  ADDWFC x20,W
+212A:  MOVFF  01,FE9
+212E:  MOVWF  FEA
+2130:  BCF    FEF.4
 .................... 			}
 .................... 		} else {
-2152:  BRA    21BA
+2132:  BRA    219A
 .................... 			channel[c].hvd_reconnect_delay_seconds=config.ch[c].hvd_reconnect_delay;
-2154:  MOVF   x1C,W
-2156:  MULLW  19
-2158:  MOVF   FF3,W
-215A:  CLRF   x20
-215C:  MOVWF  x1F
-215E:  MOVLW  0F
-2160:  ADDWF  x1F,W
-2162:  MOVWF  01
-2164:  MOVLW  00
-2166:  ADDWFC x20,W
-2168:  MOVWF  03
-216A:  MOVF   01,W
-216C:  ADDLW  DA
-216E:  MOVWF  01
-2170:  MOVLW  00
-2172:  ADDWFC 03,F
-2174:  MOVFF  01,11F
-2178:  MOVFF  03,120
-217C:  MOVF   x1C,W
-217E:  MULLW  24
-2180:  MOVF   FF3,W
-2182:  CLRF   x22
-2184:  MOVWF  x21
-2186:  MOVLW  12
-2188:  ADDWF  x21,W
-218A:  MOVWF  01
-218C:  MOVLW  00
-218E:  ADDWFC x22,W
-2190:  MOVWF  03
-2192:  MOVF   01,W
-2194:  ADDLW  1B
-2196:  MOVWF  FE9
-2198:  MOVLW  00
-219A:  ADDWFC 03,W
-219C:  MOVWF  FEA
-219E:  MOVFF  FEC,03
-21A2:  MOVF   FED,F
-21A4:  MOVFF  FEF,121
-21A8:  MOVFF  120,FEA
-21AC:  MOVFF  11F,FE9
-21B0:  MOVFF  03,FEC
-21B4:  MOVF   FED,F
-21B6:  MOVFF  121,FEF
+2134:  MOVF   x1C,W
+2136:  MULLW  19
+2138:  MOVF   FF3,W
+213A:  CLRF   x20
+213C:  MOVWF  x1F
+213E:  MOVLW  0F
+2140:  ADDWF  x1F,W
+2142:  MOVWF  01
+2144:  MOVLW  00
+2146:  ADDWFC x20,W
+2148:  MOVWF  03
+214A:  MOVF   01,W
+214C:  ADDLW  DA
+214E:  MOVWF  01
+2150:  MOVLW  00
+2152:  ADDWFC 03,F
+2154:  MOVFF  01,11F
+2158:  MOVFF  03,120
+215C:  MOVF   x1C,W
+215E:  MULLW  24
+2160:  MOVF   FF3,W
+2162:  CLRF   x22
+2164:  MOVWF  x21
+2166:  MOVLW  12
+2168:  ADDWF  x21,W
+216A:  MOVWF  01
+216C:  MOVLW  00
+216E:  ADDWFC x22,W
+2170:  MOVWF  03
+2172:  MOVF   01,W
+2174:  ADDLW  1B
+2176:  MOVWF  FE9
+2178:  MOVLW  00
+217A:  ADDWFC 03,W
+217C:  MOVWF  FEA
+217E:  MOVFF  FEC,03
+2182:  MOVF   FED,F
+2184:  MOVFF  FEF,121
+2188:  MOVFF  120,FEA
+218C:  MOVFF  11F,FE9
+2190:  MOVFF  03,FEC
+2194:  MOVF   FED,F
+2196:  MOVFF  121,FEF
 .................... 		}
 .................... 
 .................... 		if ( adc > config.ch[c].hvd_disconnect_adc ) {
-21BA:  MOVF   x1C,W
-21BC:  MULLW  24
-21BE:  MOVF   FF3,W
-21C0:  CLRF   x20
-21C2:  MOVWF  x1F
-21C4:  MOVLW  0C
-21C6:  ADDWF  x1F,W
-21C8:  MOVWF  01
-21CA:  MOVLW  00
-21CC:  ADDWFC x20,W
-21CE:  MOVWF  03
-21D0:  MOVF   01,W
-21D2:  ADDLW  1B
-21D4:  MOVWF  FE9
-21D6:  MOVLW  00
-21D8:  ADDWFC 03,W
-21DA:  MOVWF  FEA
-21DC:  MOVFF  FEC,03
-21E0:  MOVF   FED,F
-21E2:  MOVFF  FEF,01
-21E6:  MOVF   03,W
-21E8:  SUBWF  x1E,W
-21EA:  BNC   2274
-21EC:  BNZ   21F4
-21EE:  MOVF   x1D,W
-21F0:  SUBWF  01,W
-21F2:  BC    2274
+219A:  MOVF   x1C,W
+219C:  MULLW  24
+219E:  MOVF   FF3,W
+21A0:  CLRF   x20
+21A2:  MOVWF  x1F
+21A4:  MOVLW  0C
+21A6:  ADDWF  x1F,W
+21A8:  MOVWF  01
+21AA:  MOVLW  00
+21AC:  ADDWFC x20,W
+21AE:  MOVWF  03
+21B0:  MOVF   01,W
+21B2:  ADDLW  1B
+21B4:  MOVWF  FE9
+21B6:  MOVLW  00
+21B8:  ADDWFC 03,W
+21BA:  MOVWF  FEA
+21BC:  MOVFF  FEC,03
+21C0:  MOVF   FED,F
+21C2:  MOVFF  FEF,01
+21C6:  MOVF   03,W
+21C8:  SUBWF  x1E,W
+21CA:  BNC   2254
+21CC:  BNZ   21D4
+21CE:  MOVF   x1D,W
+21D0:  SUBWF  01,W
+21D2:  BC    2254
 .................... 			if ( channel[c].hvd_disconnect_delay_seconds > 0 ) {
-21F4:  MOVF   x1C,W
-21F6:  MULLW  19
-21F8:  MOVF   FF3,W
-21FA:  CLRF   x20
-21FC:  MOVWF  x1F
-21FE:  MOVLW  0D
-2200:  ADDWF  x1F,W
-2202:  MOVWF  01
-2204:  MOVLW  00
-2206:  ADDWFC x20,W
-2208:  MOVWF  03
-220A:  MOVF   01,W
-220C:  ADDLW  DA
-220E:  MOVWF  FE9
-2210:  MOVLW  00
-2212:  ADDWFC 03,W
-2214:  MOVWF  FEA
-2216:  MOVFF  FEC,120
-221A:  MOVF   FED,F
-221C:  MOVFF  FEF,11F
-2220:  MOVF   x1F,F
-2222:  BNZ   2228
-2224:  MOVF   x20,F
-2226:  BZ    2256
+21D4:  MOVF   x1C,W
+21D6:  MULLW  19
+21D8:  MOVF   FF3,W
+21DA:  CLRF   x20
+21DC:  MOVWF  x1F
+21DE:  MOVLW  0D
+21E0:  ADDWF  x1F,W
+21E2:  MOVWF  01
+21E4:  MOVLW  00
+21E6:  ADDWFC x20,W
+21E8:  MOVWF  03
+21EA:  MOVF   01,W
+21EC:  ADDLW  DA
+21EE:  MOVWF  FE9
+21F0:  MOVLW  00
+21F2:  ADDWFC 03,W
+21F4:  MOVWF  FEA
+21F6:  MOVFF  FEC,120
+21FA:  MOVF   FED,F
+21FC:  MOVFF  FEF,11F
+2200:  MOVF   x1F,F
+2202:  BNZ   2208
+2204:  MOVF   x20,F
+2206:  BZ    2236
 .................... 				channel[c].hvd_disconnect_delay_seconds--;
-2228:  MOVF   x1C,W
-222A:  MULLW  19
-222C:  MOVF   FF3,W
-222E:  CLRF   x20
-2230:  MOVWF  x1F
-2232:  MOVLW  0D
-2234:  ADDWF  x1F,W
-2236:  MOVWF  01
-2238:  MOVLW  00
-223A:  ADDWFC x20,W
-223C:  MOVWF  03
-223E:  MOVF   01,W
-2240:  ADDLW  DA
-2242:  MOVWF  FE9
-2244:  MOVLW  00
-2246:  ADDWFC 03,W
-2248:  MOVWF  FEA
-224A:  MOVLW  FF
-224C:  ADDWF  FEF,F
-224E:  BC    2254
-2250:  MOVF   FEE,F
-2252:  DECF   FED,F
+2208:  MOVF   x1C,W
+220A:  MULLW  19
+220C:  MOVF   FF3,W
+220E:  CLRF   x20
+2210:  MOVWF  x1F
+2212:  MOVLW  0D
+2214:  ADDWF  x1F,W
+2216:  MOVWF  01
+2218:  MOVLW  00
+221A:  ADDWFC x20,W
+221C:  MOVWF  03
+221E:  MOVF   01,W
+2220:  ADDLW  DA
+2222:  MOVWF  FE9
+2224:  MOVLW  00
+2226:  ADDWFC 03,W
+2228:  MOVWF  FEA
+222A:  MOVLW  FF
+222C:  ADDWF  FEF,F
+222E:  BC    2234
+2230:  MOVF   FEE,F
+2232:  DECF   FED,F
 .................... 			} else {
-2254:  BRA    2272
+2234:  BRA    2252
 .................... 				bit_set(channel[c].state,CH_STATE_BIT_HVD);
-2256:  MOVF   x1C,W
-2258:  MULLW  19
-225A:  MOVF   FF3,W
-225C:  CLRF   x20
-225E:  MOVWF  x1F
-2260:  MOVLW  DA
-2262:  ADDWF  x1F,W
-2264:  MOVWF  01
-2266:  MOVLW  00
-2268:  ADDWFC x20,W
-226A:  MOVFF  01,FE9
-226E:  MOVWF  FEA
-2270:  BSF    FEF.4
+2236:  MOVF   x1C,W
+2238:  MULLW  19
+223A:  MOVF   FF3,W
+223C:  CLRF   x20
+223E:  MOVWF  x1F
+2240:  MOVLW  DA
+2242:  ADDWF  x1F,W
+2244:  MOVWF  01
+2246:  MOVLW  00
+2248:  ADDWFC x20,W
+224A:  MOVFF  01,FE9
+224E:  MOVWF  FEA
+2250:  BSF    FEF.4
 .................... 			}
 .................... 		} else {
-2272:  BRA    22DA
+2252:  BRA    22BA
 .................... 			channel[c].hvd_disconnect_delay_seconds=config.ch[c].hvd_disconnect_delay;
-2274:  MOVF   x1C,W
-2276:  MULLW  19
-2278:  MOVF   FF3,W
-227A:  CLRF   x20
-227C:  MOVWF  x1F
-227E:  MOVLW  0D
-2280:  ADDWF  x1F,W
-2282:  MOVWF  01
-2284:  MOVLW  00
-2286:  ADDWFC x20,W
-2288:  MOVWF  03
-228A:  MOVF   01,W
-228C:  ADDLW  DA
-228E:  MOVWF  01
-2290:  MOVLW  00
-2292:  ADDWFC 03,F
-2294:  MOVFF  01,11F
-2298:  MOVFF  03,120
-229C:  MOVF   x1C,W
-229E:  MULLW  24
-22A0:  MOVF   FF3,W
-22A2:  CLRF   x22
-22A4:  MOVWF  x21
-22A6:  MOVLW  0E
-22A8:  ADDWF  x21,W
-22AA:  MOVWF  01
-22AC:  MOVLW  00
-22AE:  ADDWFC x22,W
-22B0:  MOVWF  03
-22B2:  MOVF   01,W
-22B4:  ADDLW  1B
-22B6:  MOVWF  FE9
-22B8:  MOVLW  00
-22BA:  ADDWFC 03,W
-22BC:  MOVWF  FEA
-22BE:  MOVFF  FEC,03
-22C2:  MOVF   FED,F
-22C4:  MOVFF  FEF,121
-22C8:  MOVFF  120,FEA
-22CC:  MOVFF  11F,FE9
-22D0:  MOVFF  03,FEC
-22D4:  MOVF   FED,F
-22D6:  MOVFF  121,FEF
+2254:  MOVF   x1C,W
+2256:  MULLW  19
+2258:  MOVF   FF3,W
+225A:  CLRF   x20
+225C:  MOVWF  x1F
+225E:  MOVLW  0D
+2260:  ADDWF  x1F,W
+2262:  MOVWF  01
+2264:  MOVLW  00
+2266:  ADDWFC x20,W
+2268:  MOVWF  03
+226A:  MOVF   01,W
+226C:  ADDLW  DA
+226E:  MOVWF  01
+2270:  MOVLW  00
+2272:  ADDWFC 03,F
+2274:  MOVFF  01,11F
+2278:  MOVFF  03,120
+227C:  MOVF   x1C,W
+227E:  MULLW  24
+2280:  MOVF   FF3,W
+2282:  CLRF   x22
+2284:  MOVWF  x21
+2286:  MOVLW  0E
+2288:  ADDWF  x21,W
+228A:  MOVWF  01
+228C:  MOVLW  00
+228E:  ADDWFC x22,W
+2290:  MOVWF  03
+2292:  MOVF   01,W
+2294:  ADDLW  1B
+2296:  MOVWF  FE9
+2298:  MOVLW  00
+229A:  ADDWFC 03,W
+229C:  MOVWF  FEA
+229E:  MOVFF  FEC,03
+22A2:  MOVF   FED,F
+22A4:  MOVFF  FEF,121
+22A8:  MOVFF  120,FEA
+22AC:  MOVFF  11F,FE9
+22B0:  MOVFF  03,FEC
+22B4:  MOVF   FED,F
+22B6:  MOVFF  121,FEF
 .................... 		}
 .................... 	}
 .................... 
 .................... 	/* Low Temperature Disconnect. 65535 disables */
 .................... 	if ( 65535 != config.ch[c].ltd_disconnect_delay ) {
-22DA:  MOVF   x1C,W
-22DC:  MULLW  24
-22DE:  MOVF   FF3,W
-22E0:  CLRF   x20
-22E2:  MOVWF  x1F
-22E4:  MOVLW  16
-22E6:  ADDWF  x1F,W
-22E8:  MOVWF  01
-22EA:  MOVLW  00
-22EC:  ADDWFC x20,W
-22EE:  MOVWF  03
-22F0:  MOVF   01,W
-22F2:  ADDLW  1B
-22F4:  MOVWF  FE9
-22F6:  MOVLW  00
-22F8:  ADDWFC 03,W
-22FA:  MOVWF  FEA
-22FC:  MOVFF  FEC,03
-2300:  MOVF   FED,F
-2302:  MOVF   FEF,W
-2304:  SUBLW  FF
-2306:  BNZ   230E
-2308:  INCFSZ 03,W
-230A:  BRA    230E
-230C:  BRA    256E
-230E:  CLRF   19
-2310:  BTFSC  FF2.7
-2312:  BSF    19.7
-2314:  BCF    FF2.7
+22BA:  MOVF   x1C,W
+22BC:  MULLW  24
+22BE:  MOVF   FF3,W
+22C0:  CLRF   x20
+22C2:  MOVWF  x1F
+22C4:  MOVLW  16
+22C6:  ADDWF  x1F,W
+22C8:  MOVWF  01
+22CA:  MOVLW  00
+22CC:  ADDWFC x20,W
+22CE:  MOVWF  03
+22D0:  MOVF   01,W
+22D2:  ADDLW  1B
+22D4:  MOVWF  FE9
+22D6:  MOVLW  00
+22D8:  ADDWFC 03,W
+22DA:  MOVWF  FEA
+22DC:  MOVFF  FEC,03
+22E0:  MOVF   FED,F
+22E2:  MOVF   FEF,W
+22E4:  SUBLW  FF
+22E6:  BNZ   22EE
+22E8:  INCFSZ 03,W
+22EA:  BRA    22EE
+22EC:  BRA    254E
+22EE:  CLRF   19
+22F0:  BTFSC  FF2.7
+22F2:  BSF    19.7
+22F4:  BCF    FF2.7
 .................... 		adc=adc_get(1);
-2316:  MOVLW  01
-2318:  MOVWF  x2F
-231A:  MOVLB  0
-231C:  CALL   0594
-2320:  BTFSC  19.7
-2322:  BSF    FF2.7
-2324:  MOVFF  02,11E
-2328:  MOVFF  01,11D
+22F6:  MOVLW  01
+22F8:  MOVWF  x2F
+22FA:  MOVLB  0
+22FC:  CALL   0594
+2300:  BTFSC  19.7
+2302:  BSF    FF2.7
+2304:  MOVFF  02,11E
+2308:  MOVFF  01,11D
 .................... 
 .................... 		if ( adc < config.ch[c].ltd_reconnect_adc ) {
-232C:  MOVLB  1
-232E:  MOVF   x1C,W
-2330:  MULLW  24
-2332:  MOVF   FF3,W
-2334:  CLRF   x20
-2336:  MOVWF  x1F
-2338:  MOVLW  18
-233A:  ADDWF  x1F,W
-233C:  MOVWF  01
-233E:  MOVLW  00
-2340:  ADDWFC x20,W
-2342:  MOVWF  03
-2344:  MOVF   01,W
-2346:  ADDLW  1B
-2348:  MOVWF  FE9
-234A:  MOVLW  00
-234C:  ADDWFC 03,W
-234E:  MOVWF  FEA
-2350:  MOVFF  FEC,03
-2354:  MOVF   FED,F
-2356:  MOVFF  FEF,01
-235A:  MOVF   x1E,W
-235C:  SUBWF  03,W
-235E:  BNC   23E8
-2360:  BNZ   2368
-2362:  MOVF   01,W
-2364:  SUBWF  x1D,W
-2366:  BC    23E8
+230C:  MOVLB  1
+230E:  MOVF   x1C,W
+2310:  MULLW  24
+2312:  MOVF   FF3,W
+2314:  CLRF   x20
+2316:  MOVWF  x1F
+2318:  MOVLW  18
+231A:  ADDWF  x1F,W
+231C:  MOVWF  01
+231E:  MOVLW  00
+2320:  ADDWFC x20,W
+2322:  MOVWF  03
+2324:  MOVF   01,W
+2326:  ADDLW  1B
+2328:  MOVWF  FE9
+232A:  MOVLW  00
+232C:  ADDWFC 03,W
+232E:  MOVWF  FEA
+2330:  MOVFF  FEC,03
+2334:  MOVF   FED,F
+2336:  MOVFF  FEF,01
+233A:  MOVF   x1E,W
+233C:  SUBWF  03,W
+233E:  BNC   23C8
+2340:  BNZ   2348
+2342:  MOVF   01,W
+2344:  SUBWF  x1D,W
+2346:  BC    23C8
 .................... 			/* above reconnect temperature */
 .................... 			if ( channel[c].ltd_reconnect_delay_seconds > 0 ) {
-2368:  MOVF   x1C,W
-236A:  MULLW  19
-236C:  MOVF   FF3,W
-236E:  CLRF   x20
-2370:  MOVWF  x1F
-2372:  MOVLW  13
-2374:  ADDWF  x1F,W
-2376:  MOVWF  01
-2378:  MOVLW  00
-237A:  ADDWFC x20,W
-237C:  MOVWF  03
-237E:  MOVF   01,W
-2380:  ADDLW  DA
-2382:  MOVWF  FE9
-2384:  MOVLW  00
-2386:  ADDWFC 03,W
-2388:  MOVWF  FEA
-238A:  MOVFF  FEC,120
-238E:  MOVF   FED,F
-2390:  MOVFF  FEF,11F
-2394:  MOVF   x1F,F
-2396:  BNZ   239C
-2398:  MOVF   x20,F
-239A:  BZ    23CA
+2348:  MOVF   x1C,W
+234A:  MULLW  19
+234C:  MOVF   FF3,W
+234E:  CLRF   x20
+2350:  MOVWF  x1F
+2352:  MOVLW  13
+2354:  ADDWF  x1F,W
+2356:  MOVWF  01
+2358:  MOVLW  00
+235A:  ADDWFC x20,W
+235C:  MOVWF  03
+235E:  MOVF   01,W
+2360:  ADDLW  DA
+2362:  MOVWF  FE9
+2364:  MOVLW  00
+2366:  ADDWFC 03,W
+2368:  MOVWF  FEA
+236A:  MOVFF  FEC,120
+236E:  MOVF   FED,F
+2370:  MOVFF  FEF,11F
+2374:  MOVF   x1F,F
+2376:  BNZ   237C
+2378:  MOVF   x20,F
+237A:  BZ    23AA
 .................... 				channel[c].ltd_reconnect_delay_seconds--;
-239C:  MOVF   x1C,W
-239E:  MULLW  19
-23A0:  MOVF   FF3,W
-23A2:  CLRF   x20
-23A4:  MOVWF  x1F
-23A6:  MOVLW  13
-23A8:  ADDWF  x1F,W
-23AA:  MOVWF  01
-23AC:  MOVLW  00
-23AE:  ADDWFC x20,W
-23B0:  MOVWF  03
-23B2:  MOVF   01,W
-23B4:  ADDLW  DA
-23B6:  MOVWF  FE9
-23B8:  MOVLW  00
-23BA:  ADDWFC 03,W
-23BC:  MOVWF  FEA
-23BE:  MOVLW  FF
-23C0:  ADDWF  FEF,F
-23C2:  BC    23C8
-23C4:  MOVF   FEE,F
-23C6:  DECF   FED,F
+237C:  MOVF   x1C,W
+237E:  MULLW  19
+2380:  MOVF   FF3,W
+2382:  CLRF   x20
+2384:  MOVWF  x1F
+2386:  MOVLW  13
+2388:  ADDWF  x1F,W
+238A:  MOVWF  01
+238C:  MOVLW  00
+238E:  ADDWFC x20,W
+2390:  MOVWF  03
+2392:  MOVF   01,W
+2394:  ADDLW  DA
+2396:  MOVWF  FE9
+2398:  MOVLW  00
+239A:  ADDWFC 03,W
+239C:  MOVWF  FEA
+239E:  MOVLW  FF
+23A0:  ADDWF  FEF,F
+23A2:  BC    23A8
+23A4:  MOVF   FEE,F
+23A6:  DECF   FED,F
 .................... 			} else {
-23C8:  BRA    23E6
+23A8:  BRA    23C6
 .................... 				bit_clear(channel[c].state,CH_STATE_BIT_LTD);
-23CA:  MOVF   x1C,W
-23CC:  MULLW  19
-23CE:  MOVF   FF3,W
-23D0:  CLRF   x20
-23D2:  MOVWF  x1F
-23D4:  MOVLW  DA
-23D6:  ADDWF  x1F,W
-23D8:  MOVWF  01
-23DA:  MOVLW  00
-23DC:  ADDWFC x20,W
-23DE:  MOVFF  01,FE9
-23E2:  MOVWF  FEA
-23E4:  BCF    FEF.5
+23AA:  MOVF   x1C,W
+23AC:  MULLW  19
+23AE:  MOVF   FF3,W
+23B0:  CLRF   x20
+23B2:  MOVWF  x1F
+23B4:  MOVLW  DA
+23B6:  ADDWF  x1F,W
+23B8:  MOVWF  01
+23BA:  MOVLW  00
+23BC:  ADDWFC x20,W
+23BE:  MOVFF  01,FE9
+23C2:  MOVWF  FEA
+23C4:  BCF    FEF.5
 .................... 			}
 .................... 		} else {
-23E6:  BRA    244E
+23C6:  BRA    242E
 .................... 			channel[c].ltd_reconnect_delay_seconds=config.ch[c].ltd_reconnect_delay;
-23E8:  MOVF   x1C,W
-23EA:  MULLW  19
-23EC:  MOVF   FF3,W
-23EE:  CLRF   x20
-23F0:  MOVWF  x1F
-23F2:  MOVLW  13
-23F4:  ADDWF  x1F,W
-23F6:  MOVWF  01
-23F8:  MOVLW  00
-23FA:  ADDWFC x20,W
-23FC:  MOVWF  03
-23FE:  MOVF   01,W
-2400:  ADDLW  DA
-2402:  MOVWF  01
-2404:  MOVLW  00
-2406:  ADDWFC 03,F
-2408:  MOVFF  01,11F
-240C:  MOVFF  03,120
-2410:  MOVF   x1C,W
-2412:  MULLW  24
-2414:  MOVF   FF3,W
-2416:  CLRF   x22
-2418:  MOVWF  x21
-241A:  MOVLW  1A
-241C:  ADDWF  x21,W
-241E:  MOVWF  01
-2420:  MOVLW  00
-2422:  ADDWFC x22,W
-2424:  MOVWF  03
-2426:  MOVF   01,W
-2428:  ADDLW  1B
-242A:  MOVWF  FE9
-242C:  MOVLW  00
-242E:  ADDWFC 03,W
-2430:  MOVWF  FEA
-2432:  MOVFF  FEC,03
-2436:  MOVF   FED,F
-2438:  MOVFF  FEF,121
-243C:  MOVFF  120,FEA
-2440:  MOVFF  11F,FE9
-2444:  MOVFF  03,FEC
-2448:  MOVF   FED,F
-244A:  MOVFF  121,FEF
+23C8:  MOVF   x1C,W
+23CA:  MULLW  19
+23CC:  MOVF   FF3,W
+23CE:  CLRF   x20
+23D0:  MOVWF  x1F
+23D2:  MOVLW  13
+23D4:  ADDWF  x1F,W
+23D6:  MOVWF  01
+23D8:  MOVLW  00
+23DA:  ADDWFC x20,W
+23DC:  MOVWF  03
+23DE:  MOVF   01,W
+23E0:  ADDLW  DA
+23E2:  MOVWF  01
+23E4:  MOVLW  00
+23E6:  ADDWFC 03,F
+23E8:  MOVFF  01,11F
+23EC:  MOVFF  03,120
+23F0:  MOVF   x1C,W
+23F2:  MULLW  24
+23F4:  MOVF   FF3,W
+23F6:  CLRF   x22
+23F8:  MOVWF  x21
+23FA:  MOVLW  1A
+23FC:  ADDWF  x21,W
+23FE:  MOVWF  01
+2400:  MOVLW  00
+2402:  ADDWFC x22,W
+2404:  MOVWF  03
+2406:  MOVF   01,W
+2408:  ADDLW  1B
+240A:  MOVWF  FE9
+240C:  MOVLW  00
+240E:  ADDWFC 03,W
+2410:  MOVWF  FEA
+2412:  MOVFF  FEC,03
+2416:  MOVF   FED,F
+2418:  MOVFF  FEF,121
+241C:  MOVFF  120,FEA
+2420:  MOVFF  11F,FE9
+2424:  MOVFF  03,FEC
+2428:  MOVF   FED,F
+242A:  MOVFF  121,FEF
 .................... 		}
 .................... 
 .................... 		if ( adc > config.ch[c].ltd_disconnect_adc ) {
-244E:  MOVF   x1C,W
-2450:  MULLW  24
-2452:  MOVF   FF3,W
-2454:  CLRF   x20
-2456:  MOVWF  x1F
-2458:  MOVLW  14
-245A:  ADDWF  x1F,W
-245C:  MOVWF  01
-245E:  MOVLW  00
-2460:  ADDWFC x20,W
-2462:  MOVWF  03
-2464:  MOVF   01,W
-2466:  ADDLW  1B
-2468:  MOVWF  FE9
-246A:  MOVLW  00
-246C:  ADDWFC 03,W
-246E:  MOVWF  FEA
-2470:  MOVFF  FEC,03
-2474:  MOVF   FED,F
-2476:  MOVFF  FEF,01
-247A:  MOVF   03,W
-247C:  SUBWF  x1E,W
-247E:  BNC   2508
-2480:  BNZ   2488
-2482:  MOVF   x1D,W
-2484:  SUBWF  01,W
-2486:  BC    2508
+242E:  MOVF   x1C,W
+2430:  MULLW  24
+2432:  MOVF   FF3,W
+2434:  CLRF   x20
+2436:  MOVWF  x1F
+2438:  MOVLW  14
+243A:  ADDWF  x1F,W
+243C:  MOVWF  01
+243E:  MOVLW  00
+2440:  ADDWFC x20,W
+2442:  MOVWF  03
+2444:  MOVF   01,W
+2446:  ADDLW  1B
+2448:  MOVWF  FE9
+244A:  MOVLW  00
+244C:  ADDWFC 03,W
+244E:  MOVWF  FEA
+2450:  MOVFF  FEC,03
+2454:  MOVF   FED,F
+2456:  MOVFF  FEF,01
+245A:  MOVF   03,W
+245C:  SUBWF  x1E,W
+245E:  BNC   24E8
+2460:  BNZ   2468
+2462:  MOVF   x1D,W
+2464:  SUBWF  01,W
+2466:  BC    24E8
 .................... 			/* below disconnect temperature */
 .................... 			if ( channel[c].ltd_disconnect_delay_seconds > 0 ) {
-2488:  MOVF   x1C,W
-248A:  MULLW  19
-248C:  MOVF   FF3,W
-248E:  CLRF   x20
-2490:  MOVWF  x1F
-2492:  MOVLW  11
-2494:  ADDWF  x1F,W
-2496:  MOVWF  01
-2498:  MOVLW  00
-249A:  ADDWFC x20,W
-249C:  MOVWF  03
-249E:  MOVF   01,W
-24A0:  ADDLW  DA
-24A2:  MOVWF  FE9
-24A4:  MOVLW  00
-24A6:  ADDWFC 03,W
-24A8:  MOVWF  FEA
-24AA:  MOVFF  FEC,120
-24AE:  MOVF   FED,F
-24B0:  MOVFF  FEF,11F
-24B4:  MOVF   x1F,F
-24B6:  BNZ   24BC
-24B8:  MOVF   x20,F
-24BA:  BZ    24EA
+2468:  MOVF   x1C,W
+246A:  MULLW  19
+246C:  MOVF   FF3,W
+246E:  CLRF   x20
+2470:  MOVWF  x1F
+2472:  MOVLW  11
+2474:  ADDWF  x1F,W
+2476:  MOVWF  01
+2478:  MOVLW  00
+247A:  ADDWFC x20,W
+247C:  MOVWF  03
+247E:  MOVF   01,W
+2480:  ADDLW  DA
+2482:  MOVWF  FE9
+2484:  MOVLW  00
+2486:  ADDWFC 03,W
+2488:  MOVWF  FEA
+248A:  MOVFF  FEC,120
+248E:  MOVF   FED,F
+2490:  MOVFF  FEF,11F
+2494:  MOVF   x1F,F
+2496:  BNZ   249C
+2498:  MOVF   x20,F
+249A:  BZ    24CA
 .................... 				channel[c].ltd_disconnect_delay_seconds--;
-24BC:  MOVF   x1C,W
-24BE:  MULLW  19
-24C0:  MOVF   FF3,W
-24C2:  CLRF   x20
-24C4:  MOVWF  x1F
-24C6:  MOVLW  11
-24C8:  ADDWF  x1F,W
-24CA:  MOVWF  01
-24CC:  MOVLW  00
-24CE:  ADDWFC x20,W
-24D0:  MOVWF  03
-24D2:  MOVF   01,W
-24D4:  ADDLW  DA
-24D6:  MOVWF  FE9
-24D8:  MOVLW  00
-24DA:  ADDWFC 03,W
-24DC:  MOVWF  FEA
-24DE:  MOVLW  FF
-24E0:  ADDWF  FEF,F
-24E2:  BC    24E8
-24E4:  MOVF   FEE,F
-24E6:  DECF   FED,F
+249C:  MOVF   x1C,W
+249E:  MULLW  19
+24A0:  MOVF   FF3,W
+24A2:  CLRF   x20
+24A4:  MOVWF  x1F
+24A6:  MOVLW  11
+24A8:  ADDWF  x1F,W
+24AA:  MOVWF  01
+24AC:  MOVLW  00
+24AE:  ADDWFC x20,W
+24B0:  MOVWF  03
+24B2:  MOVF   01,W
+24B4:  ADDLW  DA
+24B6:  MOVWF  FE9
+24B8:  MOVLW  00
+24BA:  ADDWFC 03,W
+24BC:  MOVWF  FEA
+24BE:  MOVLW  FF
+24C0:  ADDWF  FEF,F
+24C2:  BC    24C8
+24C4:  MOVF   FEE,F
+24C6:  DECF   FED,F
 .................... 			} else {
-24E8:  BRA    2506
+24C8:  BRA    24E6
 .................... 				bit_set(channel[c].state,CH_STATE_BIT_LTD);
-24EA:  MOVF   x1C,W
-24EC:  MULLW  19
-24EE:  MOVF   FF3,W
-24F0:  CLRF   x20
-24F2:  MOVWF  x1F
-24F4:  MOVLW  DA
-24F6:  ADDWF  x1F,W
-24F8:  MOVWF  01
-24FA:  MOVLW  00
-24FC:  ADDWFC x20,W
-24FE:  MOVFF  01,FE9
-2502:  MOVWF  FEA
-2504:  BSF    FEF.5
+24CA:  MOVF   x1C,W
+24CC:  MULLW  19
+24CE:  MOVF   FF3,W
+24D0:  CLRF   x20
+24D2:  MOVWF  x1F
+24D4:  MOVLW  DA
+24D6:  ADDWF  x1F,W
+24D8:  MOVWF  01
+24DA:  MOVLW  00
+24DC:  ADDWFC x20,W
+24DE:  MOVFF  01,FE9
+24E2:  MOVWF  FEA
+24E4:  BSF    FEF.5
 .................... 			}
 .................... 		} else {
-2506:  BRA    256E
+24E6:  BRA    254E
 .................... 			channel[c].ltd_disconnect_delay_seconds=config.ch[c].ltd_disconnect_delay;
-2508:  MOVF   x1C,W
-250A:  MULLW  19
-250C:  MOVF   FF3,W
-250E:  CLRF   x20
-2510:  MOVWF  x1F
-2512:  MOVLW  11
-2514:  ADDWF  x1F,W
-2516:  MOVWF  01
-2518:  MOVLW  00
-251A:  ADDWFC x20,W
-251C:  MOVWF  03
-251E:  MOVF   01,W
-2520:  ADDLW  DA
-2522:  MOVWF  01
-2524:  MOVLW  00
-2526:  ADDWFC 03,F
-2528:  MOVFF  01,11F
-252C:  MOVFF  03,120
-2530:  MOVF   x1C,W
-2532:  MULLW  24
-2534:  MOVF   FF3,W
-2536:  CLRF   x22
-2538:  MOVWF  x21
-253A:  MOVLW  16
-253C:  ADDWF  x21,W
-253E:  MOVWF  01
-2540:  MOVLW  00
-2542:  ADDWFC x22,W
-2544:  MOVWF  03
-2546:  MOVF   01,W
-2548:  ADDLW  1B
-254A:  MOVWF  FE9
-254C:  MOVLW  00
-254E:  ADDWFC 03,W
-2550:  MOVWF  FEA
-2552:  MOVFF  FEC,03
-2556:  MOVF   FED,F
-2558:  MOVFF  FEF,121
-255C:  MOVFF  120,FEA
-2560:  MOVFF  11F,FE9
-2564:  MOVFF  03,FEC
-2568:  MOVF   FED,F
-256A:  MOVFF  121,FEF
+24E8:  MOVF   x1C,W
+24EA:  MULLW  19
+24EC:  MOVF   FF3,W
+24EE:  CLRF   x20
+24F0:  MOVWF  x1F
+24F2:  MOVLW  11
+24F4:  ADDWF  x1F,W
+24F6:  MOVWF  01
+24F8:  MOVLW  00
+24FA:  ADDWFC x20,W
+24FC:  MOVWF  03
+24FE:  MOVF   01,W
+2500:  ADDLW  DA
+2502:  MOVWF  01
+2504:  MOVLW  00
+2506:  ADDWFC 03,F
+2508:  MOVFF  01,11F
+250C:  MOVFF  03,120
+2510:  MOVF   x1C,W
+2512:  MULLW  24
+2514:  MOVF   FF3,W
+2516:  CLRF   x22
+2518:  MOVWF  x21
+251A:  MOVLW  16
+251C:  ADDWF  x21,W
+251E:  MOVWF  01
+2520:  MOVLW  00
+2522:  ADDWFC x22,W
+2524:  MOVWF  03
+2526:  MOVF   01,W
+2528:  ADDLW  1B
+252A:  MOVWF  FE9
+252C:  MOVLW  00
+252E:  ADDWFC 03,W
+2530:  MOVWF  FEA
+2532:  MOVFF  FEC,03
+2536:  MOVF   FED,F
+2538:  MOVFF  FEF,121
+253C:  MOVFF  120,FEA
+2540:  MOVFF  11F,FE9
+2544:  MOVFF  03,FEC
+2548:  MOVF   FED,F
+254A:  MOVFF  121,FEF
 .................... 		}
 .................... 	}
 .................... 
 .................... 	/* High Temperature Disconnect. 65535 disables */
 .................... 	if ( 65535 != config.ch[c].htd_disconnect_delay ) {
-256E:  MOVF   x1C,W
-2570:  MULLW  24
-2572:  MOVF   FF3,W
-2574:  CLRF   x20
-2576:  MOVWF  x1F
-2578:  MOVLW  1E
-257A:  ADDWF  x1F,W
-257C:  MOVWF  01
-257E:  MOVLW  00
-2580:  ADDWFC x20,W
-2582:  MOVWF  03
-2584:  MOVF   01,W
-2586:  ADDLW  1B
-2588:  MOVWF  FE9
-258A:  MOVLW  00
-258C:  ADDWFC 03,W
-258E:  MOVWF  FEA
-2590:  MOVFF  FEC,03
-2594:  MOVF   FED,F
-2596:  MOVF   FEF,W
-2598:  SUBLW  FF
-259A:  BNZ   25A2
-259C:  INCFSZ 03,W
-259E:  BRA    25A2
-25A0:  BRA    2802
-25A2:  CLRF   19
-25A4:  BTFSC  FF2.7
-25A6:  BSF    19.7
-25A8:  BCF    FF2.7
+254E:  MOVF   x1C,W
+2550:  MULLW  24
+2552:  MOVF   FF3,W
+2554:  CLRF   x20
+2556:  MOVWF  x1F
+2558:  MOVLW  1E
+255A:  ADDWF  x1F,W
+255C:  MOVWF  01
+255E:  MOVLW  00
+2560:  ADDWFC x20,W
+2562:  MOVWF  03
+2564:  MOVF   01,W
+2566:  ADDLW  1B
+2568:  MOVWF  FE9
+256A:  MOVLW  00
+256C:  ADDWFC 03,W
+256E:  MOVWF  FEA
+2570:  MOVFF  FEC,03
+2574:  MOVF   FED,F
+2576:  MOVF   FEF,W
+2578:  SUBLW  FF
+257A:  BNZ   2582
+257C:  INCFSZ 03,W
+257E:  BRA    2582
+2580:  BRA    27E2
+2582:  CLRF   19
+2584:  BTFSC  FF2.7
+2586:  BSF    19.7
+2588:  BCF    FF2.7
 .................... 		adc=adc_get(1);
-25AA:  MOVLW  01
-25AC:  MOVWF  x2F
-25AE:  MOVLB  0
-25B0:  CALL   0594
-25B4:  BTFSC  19.7
-25B6:  BSF    FF2.7
-25B8:  MOVFF  02,11E
-25BC:  MOVFF  01,11D
+258A:  MOVLW  01
+258C:  MOVWF  x2F
+258E:  MOVLB  0
+2590:  CALL   0594
+2594:  BTFSC  19.7
+2596:  BSF    FF2.7
+2598:  MOVFF  02,11E
+259C:  MOVFF  01,11D
 .................... 
 .................... 		if ( adc > config.ch[c].htd_reconnect_adc ) {
-25C0:  MOVLB  1
-25C2:  MOVF   x1C,W
-25C4:  MULLW  24
-25C6:  MOVF   FF3,W
-25C8:  CLRF   x20
-25CA:  MOVWF  x1F
-25CC:  MOVLW  20
-25CE:  ADDWF  x1F,W
-25D0:  MOVWF  01
-25D2:  MOVLW  00
-25D4:  ADDWFC x20,W
-25D6:  MOVWF  03
-25D8:  MOVF   01,W
-25DA:  ADDLW  1B
-25DC:  MOVWF  FE9
-25DE:  MOVLW  00
-25E0:  ADDWFC 03,W
-25E2:  MOVWF  FEA
-25E4:  MOVFF  FEC,03
-25E8:  MOVF   FED,F
-25EA:  MOVFF  FEF,01
-25EE:  MOVF   03,W
-25F0:  SUBWF  x1E,W
-25F2:  BNC   267C
-25F4:  BNZ   25FC
-25F6:  MOVF   x1D,W
-25F8:  SUBWF  01,W
-25FA:  BC    267C
+25A0:  MOVLB  1
+25A2:  MOVF   x1C,W
+25A4:  MULLW  24
+25A6:  MOVF   FF3,W
+25A8:  CLRF   x20
+25AA:  MOVWF  x1F
+25AC:  MOVLW  20
+25AE:  ADDWF  x1F,W
+25B0:  MOVWF  01
+25B2:  MOVLW  00
+25B4:  ADDWFC x20,W
+25B6:  MOVWF  03
+25B8:  MOVF   01,W
+25BA:  ADDLW  1B
+25BC:  MOVWF  FE9
+25BE:  MOVLW  00
+25C0:  ADDWFC 03,W
+25C2:  MOVWF  FEA
+25C4:  MOVFF  FEC,03
+25C8:  MOVF   FED,F
+25CA:  MOVFF  FEF,01
+25CE:  MOVF   03,W
+25D0:  SUBWF  x1E,W
+25D2:  BNC   265C
+25D4:  BNZ   25DC
+25D6:  MOVF   x1D,W
+25D8:  SUBWF  01,W
+25DA:  BC    265C
 .................... 			if ( channel[c].htd_reconnect_delay_seconds > 0 ) {
-25FC:  MOVF   x1C,W
-25FE:  MULLW  19
-2600:  MOVF   FF3,W
-2602:  CLRF   x20
-2604:  MOVWF  x1F
-2606:  MOVLW  17
-2608:  ADDWF  x1F,W
-260A:  MOVWF  01
-260C:  MOVLW  00
-260E:  ADDWFC x20,W
-2610:  MOVWF  03
-2612:  MOVF   01,W
-2614:  ADDLW  DA
-2616:  MOVWF  FE9
-2618:  MOVLW  00
-261A:  ADDWFC 03,W
-261C:  MOVWF  FEA
-261E:  MOVFF  FEC,120
-2622:  MOVF   FED,F
-2624:  MOVFF  FEF,11F
-2628:  MOVF   x1F,F
-262A:  BNZ   2630
-262C:  MOVF   x20,F
-262E:  BZ    265E
+25DC:  MOVF   x1C,W
+25DE:  MULLW  19
+25E0:  MOVF   FF3,W
+25E2:  CLRF   x20
+25E4:  MOVWF  x1F
+25E6:  MOVLW  17
+25E8:  ADDWF  x1F,W
+25EA:  MOVWF  01
+25EC:  MOVLW  00
+25EE:  ADDWFC x20,W
+25F0:  MOVWF  03
+25F2:  MOVF   01,W
+25F4:  ADDLW  DA
+25F6:  MOVWF  FE9
+25F8:  MOVLW  00
+25FA:  ADDWFC 03,W
+25FC:  MOVWF  FEA
+25FE:  MOVFF  FEC,120
+2602:  MOVF   FED,F
+2604:  MOVFF  FEF,11F
+2608:  MOVF   x1F,F
+260A:  BNZ   2610
+260C:  MOVF   x20,F
+260E:  BZ    263E
 .................... 				channel[c].htd_reconnect_delay_seconds--;
-2630:  MOVF   x1C,W
-2632:  MULLW  19
-2634:  MOVF   FF3,W
-2636:  CLRF   x20
-2638:  MOVWF  x1F
-263A:  MOVLW  17
-263C:  ADDWF  x1F,W
-263E:  MOVWF  01
-2640:  MOVLW  00
-2642:  ADDWFC x20,W
-2644:  MOVWF  03
-2646:  MOVF   01,W
-2648:  ADDLW  DA
-264A:  MOVWF  FE9
-264C:  MOVLW  00
-264E:  ADDWFC 03,W
-2650:  MOVWF  FEA
-2652:  MOVLW  FF
-2654:  ADDWF  FEF,F
-2656:  BC    265C
-2658:  MOVF   FEE,F
-265A:  DECF   FED,F
+2610:  MOVF   x1C,W
+2612:  MULLW  19
+2614:  MOVF   FF3,W
+2616:  CLRF   x20
+2618:  MOVWF  x1F
+261A:  MOVLW  17
+261C:  ADDWF  x1F,W
+261E:  MOVWF  01
+2620:  MOVLW  00
+2622:  ADDWFC x20,W
+2624:  MOVWF  03
+2626:  MOVF   01,W
+2628:  ADDLW  DA
+262A:  MOVWF  FE9
+262C:  MOVLW  00
+262E:  ADDWFC 03,W
+2630:  MOVWF  FEA
+2632:  MOVLW  FF
+2634:  ADDWF  FEF,F
+2636:  BC    263C
+2638:  MOVF   FEE,F
+263A:  DECF   FED,F
 .................... 			} else {
-265C:  BRA    267A
+263C:  BRA    265A
 .................... 				bit_clear(channel[c].state,CH_STATE_BIT_HTD);
-265E:  MOVF   x1C,W
-2660:  MULLW  19
-2662:  MOVF   FF3,W
-2664:  CLRF   x20
-2666:  MOVWF  x1F
-2668:  MOVLW  DA
-266A:  ADDWF  x1F,W
-266C:  MOVWF  01
-266E:  MOVLW  00
-2670:  ADDWFC x20,W
-2672:  MOVFF  01,FE9
-2676:  MOVWF  FEA
-2678:  BCF    FEF.6
+263E:  MOVF   x1C,W
+2640:  MULLW  19
+2642:  MOVF   FF3,W
+2644:  CLRF   x20
+2646:  MOVWF  x1F
+2648:  MOVLW  DA
+264A:  ADDWF  x1F,W
+264C:  MOVWF  01
+264E:  MOVLW  00
+2650:  ADDWFC x20,W
+2652:  MOVFF  01,FE9
+2656:  MOVWF  FEA
+2658:  BCF    FEF.6
 .................... 			}
 .................... 		} else {
-267A:  BRA    26E2
+265A:  BRA    26C2
 .................... 			channel[c].htd_reconnect_delay_seconds=config.ch[c].htd_reconnect_delay;
-267C:  MOVF   x1C,W
-267E:  MULLW  19
-2680:  MOVF   FF3,W
-2682:  CLRF   x20
-2684:  MOVWF  x1F
-2686:  MOVLW  17
-2688:  ADDWF  x1F,W
-268A:  MOVWF  01
-268C:  MOVLW  00
-268E:  ADDWFC x20,W
-2690:  MOVWF  03
-2692:  MOVF   01,W
-2694:  ADDLW  DA
-2696:  MOVWF  01
-2698:  MOVLW  00
-269A:  ADDWFC 03,F
-269C:  MOVFF  01,11F
-26A0:  MOVFF  03,120
-26A4:  MOVF   x1C,W
-26A6:  MULLW  24
-26A8:  MOVF   FF3,W
-26AA:  CLRF   x22
-26AC:  MOVWF  x21
-26AE:  MOVLW  22
-26B0:  ADDWF  x21,W
-26B2:  MOVWF  01
-26B4:  MOVLW  00
-26B6:  ADDWFC x22,W
-26B8:  MOVWF  03
-26BA:  MOVF   01,W
-26BC:  ADDLW  1B
-26BE:  MOVWF  FE9
-26C0:  MOVLW  00
-26C2:  ADDWFC 03,W
-26C4:  MOVWF  FEA
-26C6:  MOVFF  FEC,03
-26CA:  MOVF   FED,F
-26CC:  MOVFF  FEF,121
-26D0:  MOVFF  120,FEA
-26D4:  MOVFF  11F,FE9
-26D8:  MOVFF  03,FEC
-26DC:  MOVF   FED,F
-26DE:  MOVFF  121,FEF
+265C:  MOVF   x1C,W
+265E:  MULLW  19
+2660:  MOVF   FF3,W
+2662:  CLRF   x20
+2664:  MOVWF  x1F
+2666:  MOVLW  17
+2668:  ADDWF  x1F,W
+266A:  MOVWF  01
+266C:  MOVLW  00
+266E:  ADDWFC x20,W
+2670:  MOVWF  03
+2672:  MOVF   01,W
+2674:  ADDLW  DA
+2676:  MOVWF  01
+2678:  MOVLW  00
+267A:  ADDWFC 03,F
+267C:  MOVFF  01,11F
+2680:  MOVFF  03,120
+2684:  MOVF   x1C,W
+2686:  MULLW  24
+2688:  MOVF   FF3,W
+268A:  CLRF   x22
+268C:  MOVWF  x21
+268E:  MOVLW  22
+2690:  ADDWF  x21,W
+2692:  MOVWF  01
+2694:  MOVLW  00
+2696:  ADDWFC x22,W
+2698:  MOVWF  03
+269A:  MOVF   01,W
+269C:  ADDLW  1B
+269E:  MOVWF  FE9
+26A0:  MOVLW  00
+26A2:  ADDWFC 03,W
+26A4:  MOVWF  FEA
+26A6:  MOVFF  FEC,03
+26AA:  MOVF   FED,F
+26AC:  MOVFF  FEF,121
+26B0:  MOVFF  120,FEA
+26B4:  MOVFF  11F,FE9
+26B8:  MOVFF  03,FEC
+26BC:  MOVF   FED,F
+26BE:  MOVFF  121,FEF
 .................... 		}
 .................... 
 .................... 		if ( adc < config.ch[c].htd_disconnect_adc ) {
-26E2:  MOVF   x1C,W
-26E4:  MULLW  24
-26E6:  MOVF   FF3,W
-26E8:  CLRF   x20
-26EA:  MOVWF  x1F
-26EC:  MOVLW  1C
-26EE:  ADDWF  x1F,W
-26F0:  MOVWF  01
-26F2:  MOVLW  00
-26F4:  ADDWFC x20,W
-26F6:  MOVWF  03
-26F8:  MOVF   01,W
-26FA:  ADDLW  1B
-26FC:  MOVWF  FE9
-26FE:  MOVLW  00
-2700:  ADDWFC 03,W
-2702:  MOVWF  FEA
-2704:  MOVFF  FEC,03
-2708:  MOVF   FED,F
-270A:  MOVFF  FEF,01
-270E:  MOVF   x1E,W
-2710:  SUBWF  03,W
-2712:  BNC   279C
-2714:  BNZ   271C
-2716:  MOVF   01,W
-2718:  SUBWF  x1D,W
-271A:  BC    279C
+26C2:  MOVF   x1C,W
+26C4:  MULLW  24
+26C6:  MOVF   FF3,W
+26C8:  CLRF   x20
+26CA:  MOVWF  x1F
+26CC:  MOVLW  1C
+26CE:  ADDWF  x1F,W
+26D0:  MOVWF  01
+26D2:  MOVLW  00
+26D4:  ADDWFC x20,W
+26D6:  MOVWF  03
+26D8:  MOVF   01,W
+26DA:  ADDLW  1B
+26DC:  MOVWF  FE9
+26DE:  MOVLW  00
+26E0:  ADDWFC 03,W
+26E2:  MOVWF  FEA
+26E4:  MOVFF  FEC,03
+26E8:  MOVF   FED,F
+26EA:  MOVFF  FEF,01
+26EE:  MOVF   x1E,W
+26F0:  SUBWF  03,W
+26F2:  BNC   277C
+26F4:  BNZ   26FC
+26F6:  MOVF   01,W
+26F8:  SUBWF  x1D,W
+26FA:  BC    277C
 .................... 			if ( channel[c].htd_disconnect_delay_seconds > 0 ) {
-271C:  MOVF   x1C,W
-271E:  MULLW  19
-2720:  MOVF   FF3,W
-2722:  CLRF   x20
-2724:  MOVWF  x1F
-2726:  MOVLW  15
-2728:  ADDWF  x1F,W
-272A:  MOVWF  01
-272C:  MOVLW  00
-272E:  ADDWFC x20,W
-2730:  MOVWF  03
-2732:  MOVF   01,W
-2734:  ADDLW  DA
-2736:  MOVWF  FE9
-2738:  MOVLW  00
-273A:  ADDWFC 03,W
-273C:  MOVWF  FEA
-273E:  MOVFF  FEC,120
-2742:  MOVF   FED,F
-2744:  MOVFF  FEF,11F
-2748:  MOVF   x1F,F
-274A:  BNZ   2750
-274C:  MOVF   x20,F
-274E:  BZ    277E
+26FC:  MOVF   x1C,W
+26FE:  MULLW  19
+2700:  MOVF   FF3,W
+2702:  CLRF   x20
+2704:  MOVWF  x1F
+2706:  MOVLW  15
+2708:  ADDWF  x1F,W
+270A:  MOVWF  01
+270C:  MOVLW  00
+270E:  ADDWFC x20,W
+2710:  MOVWF  03
+2712:  MOVF   01,W
+2714:  ADDLW  DA
+2716:  MOVWF  FE9
+2718:  MOVLW  00
+271A:  ADDWFC 03,W
+271C:  MOVWF  FEA
+271E:  MOVFF  FEC,120
+2722:  MOVF   FED,F
+2724:  MOVFF  FEF,11F
+2728:  MOVF   x1F,F
+272A:  BNZ   2730
+272C:  MOVF   x20,F
+272E:  BZ    275E
 .................... 				channel[c].htd_disconnect_delay_seconds--;
-2750:  MOVF   x1C,W
-2752:  MULLW  19
-2754:  MOVF   FF3,W
-2756:  CLRF   x20
-2758:  MOVWF  x1F
-275A:  MOVLW  15
-275C:  ADDWF  x1F,W
-275E:  MOVWF  01
-2760:  MOVLW  00
-2762:  ADDWFC x20,W
-2764:  MOVWF  03
-2766:  MOVF   01,W
-2768:  ADDLW  DA
-276A:  MOVWF  FE9
-276C:  MOVLW  00
-276E:  ADDWFC 03,W
-2770:  MOVWF  FEA
-2772:  MOVLW  FF
-2774:  ADDWF  FEF,F
-2776:  BC    277C
-2778:  MOVF   FEE,F
-277A:  DECF   FED,F
+2730:  MOVF   x1C,W
+2732:  MULLW  19
+2734:  MOVF   FF3,W
+2736:  CLRF   x20
+2738:  MOVWF  x1F
+273A:  MOVLW  15
+273C:  ADDWF  x1F,W
+273E:  MOVWF  01
+2740:  MOVLW  00
+2742:  ADDWFC x20,W
+2744:  MOVWF  03
+2746:  MOVF   01,W
+2748:  ADDLW  DA
+274A:  MOVWF  FE9
+274C:  MOVLW  00
+274E:  ADDWFC 03,W
+2750:  MOVWF  FEA
+2752:  MOVLW  FF
+2754:  ADDWF  FEF,F
+2756:  BC    275C
+2758:  MOVF   FEE,F
+275A:  DECF   FED,F
 .................... 			} else {
-277C:  BRA    279A
+275C:  BRA    277A
 .................... 				bit_set(channel[c].state,CH_STATE_BIT_HTD);
-277E:  MOVF   x1C,W
-2780:  MULLW  19
-2782:  MOVF   FF3,W
-2784:  CLRF   x20
-2786:  MOVWF  x1F
-2788:  MOVLW  DA
-278A:  ADDWF  x1F,W
-278C:  MOVWF  01
-278E:  MOVLW  00
-2790:  ADDWFC x20,W
-2792:  MOVFF  01,FE9
-2796:  MOVWF  FEA
-2798:  BSF    FEF.6
+275E:  MOVF   x1C,W
+2760:  MULLW  19
+2762:  MOVF   FF3,W
+2764:  CLRF   x20
+2766:  MOVWF  x1F
+2768:  MOVLW  DA
+276A:  ADDWF  x1F,W
+276C:  MOVWF  01
+276E:  MOVLW  00
+2770:  ADDWFC x20,W
+2772:  MOVFF  01,FE9
+2776:  MOVWF  FEA
+2778:  BSF    FEF.6
 .................... 			}
 .................... 		} else {
-279A:  BRA    2802
+277A:  BRA    27E2
 .................... 			channel[c].htd_disconnect_delay_seconds=config.ch[c].htd_disconnect_delay;
-279C:  MOVF   x1C,W
-279E:  MULLW  19
-27A0:  MOVF   FF3,W
-27A2:  CLRF   x20
-27A4:  MOVWF  x1F
-27A6:  MOVLW  15
-27A8:  ADDWF  x1F,W
-27AA:  MOVWF  01
-27AC:  MOVLW  00
-27AE:  ADDWFC x20,W
-27B0:  MOVWF  03
-27B2:  MOVF   01,W
-27B4:  ADDLW  DA
-27B6:  MOVWF  01
-27B8:  MOVLW  00
-27BA:  ADDWFC 03,F
-27BC:  MOVFF  01,11F
-27C0:  MOVFF  03,120
-27C4:  MOVF   x1C,W
-27C6:  MULLW  24
-27C8:  MOVF   FF3,W
-27CA:  CLRF   x22
-27CC:  MOVWF  x21
-27CE:  MOVLW  1E
-27D0:  ADDWF  x21,W
-27D2:  MOVWF  01
-27D4:  MOVLW  00
-27D6:  ADDWFC x22,W
-27D8:  MOVWF  03
-27DA:  MOVF   01,W
-27DC:  ADDLW  1B
-27DE:  MOVWF  FE9
-27E0:  MOVLW  00
-27E2:  ADDWFC 03,W
-27E4:  MOVWF  FEA
-27E6:  MOVFF  FEC,03
-27EA:  MOVF   FED,F
-27EC:  MOVFF  FEF,121
-27F0:  MOVFF  120,FEA
-27F4:  MOVFF  11F,FE9
-27F8:  MOVFF  03,FEC
-27FC:  MOVF   FED,F
-27FE:  MOVFF  121,FEF
+277C:  MOVF   x1C,W
+277E:  MULLW  19
+2780:  MOVF   FF3,W
+2782:  CLRF   x20
+2784:  MOVWF  x1F
+2786:  MOVLW  15
+2788:  ADDWF  x1F,W
+278A:  MOVWF  01
+278C:  MOVLW  00
+278E:  ADDWFC x20,W
+2790:  MOVWF  03
+2792:  MOVF   01,W
+2794:  ADDLW  DA
+2796:  MOVWF  01
+2798:  MOVLW  00
+279A:  ADDWFC 03,F
+279C:  MOVFF  01,11F
+27A0:  MOVFF  03,120
+27A4:  MOVF   x1C,W
+27A6:  MULLW  24
+27A8:  MOVF   FF3,W
+27AA:  CLRF   x22
+27AC:  MOVWF  x21
+27AE:  MOVLW  1E
+27B0:  ADDWF  x21,W
+27B2:  MOVWF  01
+27B4:  MOVLW  00
+27B6:  ADDWFC x22,W
+27B8:  MOVWF  03
+27BA:  MOVF   01,W
+27BC:  ADDLW  1B
+27BE:  MOVWF  FE9
+27C0:  MOVLW  00
+27C2:  ADDWFC 03,W
+27C4:  MOVWF  FEA
+27C6:  MOVFF  FEC,03
+27CA:  MOVF   FED,F
+27CC:  MOVFF  FEF,121
+27D0:  MOVFF  120,FEA
+27D4:  MOVFF  11F,FE9
+27D8:  MOVFF  03,FEC
+27DC:  MOVF   FED,F
+27DE:  MOVFF  121,FEF
 .................... 		}
 .................... 	}
-2802:  MOVLB  0
-2804:  RETURN 0
+27E2:  MOVLB  0
+27E4:  RETURN 0
 .................... 
 .................... }
 .................... 
@@ -5911,192 +5898,192 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 .................... 
 .................... 	for ( led=0 ; led<2 ; led++ ) {
 *
-28C2:  MOVLB  1
-28C4:  CLRF   x1C
-28C6:  MOVF   x1C,W
-28C8:  SUBLW  01
-28CA:  BNC   29A0
+28A2:  MOVLB  1
+28A4:  CLRF   x1C
+28A6:  MOVF   x1C,W
+28A8:  SUBLW  01
+28AA:  BNC   2980
 .................... 		if ( cycle < 8 ) {
-28CC:  MOVF   x11,W
-28CE:  SUBLW  07
-28D0:  BNC   2938
+28AC:  MOVF   x11,W
+28AE:  SUBLW  07
+28B0:  BNC   2918
 .................... 			/* first 8 cycles are 8 bits of state bit field */
 .................... 
 .................... 			/* if bit is set, then we blink the number of times+1 of the bit we are in. So bit 1 set means we blink 2 times */
 .................... 			if ( bit_test(channel[led].state,cycle) ) {
-28D2:  MOVF   x1C,W
-28D4:  MULLW  19
-28D6:  MOVF   FF3,W
-28D8:  CLRF   x1E
-28DA:  MOVWF  x1D
-28DC:  MOVLW  DA
-28DE:  ADDWF  x1D,W
-28E0:  MOVWF  FE9
-28E2:  MOVLW  00
-28E4:  ADDWFC x1E,W
-28E6:  MOVWF  FEA
-28E8:  MOVFF  FEF,00
-28EC:  MOVF   x11,W
-28EE:  MOVWF  01
-28F0:  BZ    28FA
-28F2:  BCF    FD8.0
-28F4:  RRCF   00,F
-28F6:  DECFSZ 01,F
-28F8:  BRA    28F2
-28FA:  BTFSS  00.0
-28FC:  BRA    2926
+28B2:  MOVF   x1C,W
+28B4:  MULLW  19
+28B6:  MOVF   FF3,W
+28B8:  CLRF   x1E
+28BA:  MOVWF  x1D
+28BC:  MOVLW  DA
+28BE:  ADDWF  x1D,W
+28C0:  MOVWF  FE9
+28C2:  MOVLW  00
+28C4:  ADDWFC x1E,W
+28C6:  MOVWF  FEA
+28C8:  MOVFF  FEF,00
+28CC:  MOVF   x11,W
+28CE:  MOVWF  01
+28D0:  BZ    28DA
+28D2:  BCF    FD8.0
+28D4:  RRCF   00,F
+28D6:  DECFSZ 01,F
+28D8:  BRA    28D2
+28DA:  BTFSS  00.0
+28DC:  BRA    2906
 .................... 				timers.led_blink[led]=cycle+1;      /* number of blinks */
-28FE:  CLRF   03
-2900:  MOVF   x1C,W
-2902:  ADDLW  D0
-2904:  MOVWF  FE9
-2906:  MOVLW  00
-2908:  ADDWFC 03,W
-290A:  MOVWF  FEA
-290C:  MOVLW  01
-290E:  ADDWF  x11,W
-2910:  MOVWF  FEF
+28DE:  CLRF   03
+28E0:  MOVF   x1C,W
+28E2:  ADDLW  D0
+28E4:  MOVWF  FE9
+28E6:  MOVLW  00
+28E8:  ADDWFC 03,W
+28EA:  MOVWF  FEA
+28EC:  MOVLW  01
+28EE:  ADDWF  x11,W
+28F0:  MOVWF  FEF
 .................... 				timers.led_on[led]=BLINK_ON_TIME;   /* how long to be on */
-2912:  CLRF   03
-2914:  MOVF   x1C,W
-2916:  ADDLW  D2
-2918:  MOVWF  FE9
-291A:  MOVLW  00
-291C:  ADDWFC 03,W
-291E:  MOVWF  FEA
-2920:  MOVLW  FE
-2922:  MOVWF  FEF
+28F2:  CLRF   03
+28F4:  MOVF   x1C,W
+28F6:  ADDLW  D2
+28F8:  MOVWF  FE9
+28FA:  MOVLW  00
+28FC:  ADDWFC 03,W
+28FE:  MOVWF  FEA
+2900:  MOVLW  FE
+2902:  MOVWF  FEF
 .................... 			} else {
-2924:  BRA    2936
+2904:  BRA    2916
 .................... 				timers.led_blink[led]=0;
-2926:  CLRF   03
-2928:  MOVF   x1C,W
-292A:  ADDLW  D0
-292C:  MOVWF  FE9
-292E:  MOVLW  00
-2930:  ADDWFC 03,W
-2932:  MOVWF  FEA
-2934:  CLRF   FEF
+2906:  CLRF   03
+2908:  MOVF   x1C,W
+290A:  ADDLW  D0
+290C:  MOVWF  FE9
+290E:  MOVLW  00
+2910:  ADDWFC 03,W
+2912:  MOVWF  FEA
+2914:  CLRF   FEF
 .................... 			}
 .................... 		} else if ( 8 == cycle ) {
-2936:  BRA    299C
-2938:  MOVF   x11,W
-293A:  SUBLW  08
-293C:  BNZ   2950
+2916:  BRA    297C
+2918:  MOVF   x11,W
+291A:  SUBLW  08
+291C:  BNZ   2930
 .................... 			/* solid light to mark start of next cycle */
 .................... 			timers.led_blink[led]=255;
-293E:  CLRF   03
-2940:  MOVF   x1C,W
-2942:  ADDLW  D0
-2944:  MOVWF  FE9
-2946:  MOVLW  00
-2948:  ADDWFC 03,W
-294A:  MOVWF  FEA
-294C:  SETF   FEF
+291E:  CLRF   03
+2920:  MOVF   x1C,W
+2922:  ADDLW  D0
+2924:  MOVWF  FE9
+2926:  MOVLW  00
+2928:  ADDWFC 03,W
+292A:  MOVWF  FEA
+292C:  SETF   FEF
 .................... 		} else if ( 9 == cycle ) {
-294E:  BRA    299C
-2950:  MOVF   x11,W
-2952:  SUBLW  09
-2954:  BNZ   298C
+292E:  BRA    297C
+2930:  MOVF   x11,W
+2932:  SUBLW  09
+2934:  BNZ   296C
 .................... 			/* solid on if contactor state is on, otherwise off */
 .................... 			if ( timers.contactor[led] ) {
-2956:  CLRF   03
-2958:  MOVF   x1C,W
-295A:  ADDLW  D6
-295C:  MOVWF  FE9
-295E:  MOVLW  00
-2960:  ADDWFC 03,W
-2962:  MOVWF  FEA
-2964:  MOVF   FEF,F
-2966:  BZ    297A
+2936:  CLRF   03
+2938:  MOVF   x1C,W
+293A:  ADDLW  D6
+293C:  MOVWF  FE9
+293E:  MOVLW  00
+2940:  ADDWFC 03,W
+2942:  MOVWF  FEA
+2944:  MOVF   FEF,F
+2946:  BZ    295A
 .................... 				timers.led_blink[led]=255;
-2968:  CLRF   03
-296A:  MOVF   x1C,W
-296C:  ADDLW  D0
-296E:  MOVWF  FE9
-2970:  MOVLW  00
-2972:  ADDWFC 03,W
-2974:  MOVWF  FEA
-2976:  SETF   FEF
+2948:  CLRF   03
+294A:  MOVF   x1C,W
+294C:  ADDLW  D0
+294E:  MOVWF  FE9
+2950:  MOVLW  00
+2952:  ADDWFC 03,W
+2954:  MOVWF  FEA
+2956:  SETF   FEF
 .................... 			} else {
-2978:  BRA    298A
+2958:  BRA    296A
 .................... 				timers.led_blink[led]=0;
-297A:  CLRF   03
-297C:  MOVF   x1C,W
-297E:  ADDLW  D0
-2980:  MOVWF  FE9
-2982:  MOVLW  00
-2984:  ADDWFC 03,W
-2986:  MOVWF  FEA
-2988:  CLRF   FEF
+295A:  CLRF   03
+295C:  MOVF   x1C,W
+295E:  ADDLW  D0
+2960:  MOVWF  FE9
+2962:  MOVLW  00
+2964:  ADDWFC 03,W
+2966:  MOVWF  FEA
+2968:  CLRF   FEF
 .................... 			}
 .................... 		} else {
-298A:  BRA    299C
+296A:  BRA    297C
 .................... 			/* blank period before starting the bit field */
 .................... 			timers.led_blink[led]=0;
-298C:  CLRF   03
-298E:  MOVF   x1C,W
-2990:  ADDLW  D0
-2992:  MOVWF  FE9
-2994:  MOVLW  00
-2996:  ADDWFC 03,W
-2998:  MOVWF  FEA
-299A:  CLRF   FEF
+296C:  CLRF   03
+296E:  MOVF   x1C,W
+2970:  ADDLW  D0
+2972:  MOVWF  FE9
+2974:  MOVLW  00
+2976:  ADDWFC 03,W
+2978:  MOVWF  FEA
+297A:  CLRF   FEF
 .................... 		}
-299C:  INCF   x1C,F
-299E:  BRA    28C6
+297C:  INCF   x1C,F
+297E:  BRA    28A6
 .................... 	}
 .................... 
 .................... //	fprintf(STREAM_FTDI,"# LED %u A=%03u (0x%02X) B=%03u (0x%02X)\r\n",cycle,timers.led_blink[0],channel[0].state,timers.led_blink[1],channel[1].state);
 .................... 
 .................... 	if ( 10 == cycle ) {
-29A0:  MOVF   x11,W
-29A2:  SUBLW  0A
-29A4:  BNZ   29AA
+2980:  MOVF   x11,W
+2982:  SUBLW  0A
+2984:  BNZ   298A
 .................... 		cycle=0; 
-29A6:  CLRF   x11
+2986:  CLRF   x11
 .................... 	} else {
-29A8:  BRA    29AC
+2988:  BRA    298C
 .................... 		cycle++;
-29AA:  INCF   x11,F
+298A:  INCF   x11,F
 .................... 	}
-29AC:  MOVLB  0
-29AE:  GOTO   2B5C (RETURN)
+298C:  MOVLB  0
+298E:  GOTO   2B3C (RETURN)
 .................... }
 .................... 
 .................... void led_on(int8 c) {
 .................... 	if ( 0==c ) 
 *
-199A:  MOVLB  1
-199C:  MOVF   x1C,F
-199E:  BNZ   19A6
+197A:  MOVLB  1
+197C:  MOVF   x1C,F
+197E:  BNZ   1986
 .................... 		output_high(LED_A);
-19A0:  BCF    F94.1
-19A2:  BSF    F8B.1
-19A4:  BRA    19AA
+1980:  BCF    F94.1
+1982:  BSF    F8B.1
+1984:  BRA    198A
 .................... 	else
 .................... 		output_high(LED_B);
-19A6:  BCF    F94.2
-19A8:  BSF    F8B.2
-19AA:  MOVLB  0
-19AC:  RETURN 0
+1986:  BCF    F94.2
+1988:  BSF    F8B.2
+198A:  MOVLB  0
+198C:  RETURN 0
 .................... }
 .................... 
 .................... void led_off(int8 c) {
 .................... 	if ( 0==c ) 
-19AE:  MOVLB  1
-19B0:  MOVF   x1C,F
-19B2:  BNZ   19BA
+198E:  MOVLB  1
+1990:  MOVF   x1C,F
+1992:  BNZ   199A
 .................... 		output_low(LED_A);
-19B4:  BCF    F94.1
-19B6:  BCF    F8B.1
-19B8:  BRA    19BE
+1994:  BCF    F94.1
+1996:  BCF    F8B.1
+1998:  BRA    199E
 .................... 	else
 .................... 		output_low(LED_B);
-19BA:  BCF    F94.2
-19BC:  BCF    F8B.2
-19BE:  MOVLB  0
-19C0:  RETURN 0
+199A:  BCF    F94.2
+199C:  BCF    F8B.2
+199E:  MOVLB  0
+19A0:  RETURN 0
 .................... }
 .................... 
 .................... void periodic_millisecond(void) {
@@ -6110,209 +6097,209 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 .................... 
 .................... 	timers.now_millisecond=0;
 *
-29B2:  BCF    xCF.2
+2992:  BCF    xCF.2
 .................... 
 .................... 	/* set LED output */
 .................... 	for ( i=0 ; i<2 ; i++ ) {
-29B4:  MOVLB  1
-29B6:  CLRF   x1B
-29B8:  MOVF   x1B,W
-29BA:  SUBLW  01
-29BC:  BTFSS  FD8.0
-29BE:  BRA    2ABE
+2994:  MOVLB  1
+2996:  CLRF   x1B
+2998:  MOVF   x1B,W
+299A:  SUBLW  01
+299C:  BTFSS  FD8.0
+299E:  BRA    2A9E
 .................... 		if ( 255 == timers.led_blink[i] ) {
-29C0:  CLRF   03
-29C2:  MOVF   x1B,W
-29C4:  ADDLW  D0
-29C6:  MOVWF  FE9
-29C8:  MOVLW  00
-29CA:  ADDWFC 03,W
-29CC:  MOVWF  FEA
-29CE:  MOVF   FEF,W
-29D0:  SUBLW  FF
-29D2:  BNZ   29E2
+29A0:  CLRF   03
+29A2:  MOVF   x1B,W
+29A4:  ADDLW  D0
+29A6:  MOVWF  FE9
+29A8:  MOVLW  00
+29AA:  ADDWFC 03,W
+29AC:  MOVWF  FEA
+29AE:  MOVF   FEF,W
+29B0:  SUBLW  FF
+29B2:  BNZ   29C2
 .................... 			led_on(i);
+29B4:  MOVFF  11B,11C
+29B8:  MOVLB  0
+29BA:  CALL   197A
+.................... 		} else if ( 0 == timers.led_blink[i] ) {
+29BE:  BRA    2A98
+29C0:  MOVLB  1
+29C2:  CLRF   03
+29C4:  MOVF   x1B,W
+29C6:  ADDLW  D0
+29C8:  MOVWF  FE9
+29CA:  MOVLW  00
+29CC:  ADDWFC 03,W
+29CE:  MOVWF  FEA
+29D0:  MOVF   FEF,W
+29D2:  BNZ   29E2
+.................... 			led_off(i);
 29D4:  MOVFF  11B,11C
 29D8:  MOVLB  0
-29DA:  CALL   199A
-.................... 		} else if ( 0 == timers.led_blink[i] ) {
-29DE:  BRA    2AB8
+29DA:  CALL   198E
+.................... 		} else {
+29DE:  BRA    2A98
 29E0:  MOVLB  1
+.................... 			/* led_blink[i] is somewhere between 1 and 254 */
+.................... 			if ( timers.led_on[i] > 0 ) {
 29E2:  CLRF   03
 29E4:  MOVF   x1B,W
-29E6:  ADDLW  D0
+29E6:  ADDLW  D2
 29E8:  MOVWF  FE9
 29EA:  MOVLW  00
 29EC:  ADDWFC 03,W
 29EE:  MOVWF  FEA
-29F0:  MOVF   FEF,W
-29F2:  BNZ   2A02
-.................... 			led_off(i);
+29F0:  MOVF   FEF,F
+29F2:  BZ    2A34
+.................... 				led_on(i);
 29F4:  MOVFF  11B,11C
 29F8:  MOVLB  0
-29FA:  CALL   19AE
-.................... 		} else {
-29FE:  BRA    2AB8
-2A00:  MOVLB  1
-.................... 			/* led_blink[i] is somewhere between 1 and 254 */
-.................... 			if ( timers.led_on[i] > 0 ) {
-2A02:  CLRF   03
-2A04:  MOVF   x1B,W
-2A06:  ADDLW  D2
-2A08:  MOVWF  FE9
-2A0A:  MOVLW  00
-2A0C:  ADDWFC 03,W
-2A0E:  MOVWF  FEA
-2A10:  MOVF   FEF,F
-2A12:  BZ    2A54
-.................... 				led_on(i);
-2A14:  MOVFF  11B,11C
-2A18:  MOVLB  0
-2A1A:  CALL   199A
+29FA:  CALL   197A
 .................... 				timers.led_on[i]--;
-2A1E:  CLRF   03
-2A20:  MOVLB  1
-2A22:  MOVF   x1B,W
-2A24:  ADDLW  D2
-2A26:  MOVWF  FE9
-2A28:  MOVLW  00
-2A2A:  ADDWFC 03,W
-2A2C:  MOVWF  FEA
-2A2E:  DECF   FEF,F
+29FE:  CLRF   03
+2A00:  MOVLB  1
+2A02:  MOVF   x1B,W
+2A04:  ADDLW  D2
+2A06:  MOVWF  FE9
+2A08:  MOVLW  00
+2A0A:  ADDWFC 03,W
+2A0C:  MOVWF  FEA
+2A0E:  DECF   FEF,F
 .................... 
 .................... 				if ( 0==timers.led_on[i] ) {
-2A30:  CLRF   03
-2A32:  MOVF   x1B,W
-2A34:  ADDLW  D2
-2A36:  MOVWF  FE9
-2A38:  MOVLW  00
-2A3A:  ADDWFC 03,W
-2A3C:  MOVWF  FEA
-2A3E:  MOVF   FEF,W
-2A40:  BNZ   2A54
+2A10:  CLRF   03
+2A12:  MOVF   x1B,W
+2A14:  ADDLW  D2
+2A16:  MOVWF  FE9
+2A18:  MOVLW  00
+2A1A:  ADDWFC 03,W
+2A1C:  MOVWF  FEA
+2A1E:  MOVF   FEF,W
+2A20:  BNZ   2A34
 .................... 					/* hit zero, switch to our off timer */
 .................... 					timers.led_off[i]=BLINK_OFF_TIME;
-2A42:  CLRF   03
-2A44:  MOVF   x1B,W
-2A46:  ADDLW  D4
-2A48:  MOVWF  FE9
-2A4A:  MOVLW  00
-2A4C:  ADDWFC 03,W
-2A4E:  MOVWF  FEA
-2A50:  MOVLW  C8
-2A52:  MOVWF  FEF
+2A22:  CLRF   03
+2A24:  MOVF   x1B,W
+2A26:  ADDLW  D4
+2A28:  MOVWF  FE9
+2A2A:  MOVLW  00
+2A2C:  ADDWFC 03,W
+2A2E:  MOVWF  FEA
+2A30:  MOVLW  C8
+2A32:  MOVWF  FEF
 .................... 				}
 .................... 			}
 .................... 
 .................... 			if ( timers.led_off[i] > 0 ) {
-2A54:  CLRF   03
-2A56:  MOVF   x1B,W
-2A58:  ADDLW  D4
-2A5A:  MOVWF  FE9
-2A5C:  MOVLW  00
-2A5E:  ADDWFC 03,W
-2A60:  MOVWF  FEA
-2A62:  MOVF   FEF,F
-2A64:  BZ    2AB6
+2A34:  CLRF   03
+2A36:  MOVF   x1B,W
+2A38:  ADDLW  D4
+2A3A:  MOVWF  FE9
+2A3C:  MOVLW  00
+2A3E:  ADDWFC 03,W
+2A40:  MOVWF  FEA
+2A42:  MOVF   FEF,F
+2A44:  BZ    2A96
 .................... 				led_off(i);
-2A66:  MOVFF  11B,11C
-2A6A:  MOVLB  0
-2A6C:  CALL   19AE
+2A46:  MOVFF  11B,11C
+2A4A:  MOVLB  0
+2A4C:  CALL   198E
 .................... 				timers.led_off[i]--;
-2A70:  CLRF   03
-2A72:  MOVLB  1
-2A74:  MOVF   x1B,W
-2A76:  ADDLW  D4
-2A78:  MOVWF  FE9
-2A7A:  MOVLW  00
-2A7C:  ADDWFC 03,W
-2A7E:  MOVWF  FEA
-2A80:  DECF   FEF,F
+2A50:  CLRF   03
+2A52:  MOVLB  1
+2A54:  MOVF   x1B,W
+2A56:  ADDLW  D4
+2A58:  MOVWF  FE9
+2A5A:  MOVLW  00
+2A5C:  ADDWFC 03,W
+2A5E:  MOVWF  FEA
+2A60:  DECF   FEF,F
 .................... 
 .................... 				if ( 0==timers.led_off[i] ) {
-2A82:  CLRF   03
-2A84:  MOVF   x1B,W
-2A86:  ADDLW  D4
-2A88:  MOVWF  FE9
-2A8A:  MOVLW  00
-2A8C:  ADDWFC 03,W
-2A8E:  MOVWF  FEA
-2A90:  MOVF   FEF,W
-2A92:  BNZ   2AB6
+2A62:  CLRF   03
+2A64:  MOVF   x1B,W
+2A66:  ADDLW  D4
+2A68:  MOVWF  FE9
+2A6A:  MOVLW  00
+2A6C:  ADDWFC 03,W
+2A6E:  MOVWF  FEA
+2A70:  MOVF   FEF,W
+2A72:  BNZ   2A96
 .................... 					/* hit zero, preload for next */
 .................... 					timers.led_on[i]=BLINK_ON_TIME;
-2A94:  CLRF   03
-2A96:  MOVF   x1B,W
-2A98:  ADDLW  D2
-2A9A:  MOVWF  FE9
-2A9C:  MOVLW  00
-2A9E:  ADDWFC 03,W
-2AA0:  MOVWF  FEA
-2AA2:  MOVLW  FE
-2AA4:  MOVWF  FEF
+2A74:  CLRF   03
+2A76:  MOVF   x1B,W
+2A78:  ADDLW  D2
+2A7A:  MOVWF  FE9
+2A7C:  MOVLW  00
+2A7E:  ADDWFC 03,W
+2A80:  MOVWF  FEA
+2A82:  MOVLW  FE
+2A84:  MOVWF  FEF
 .................... 					/* done with this blink cycle */	
 .................... 					timers.led_blink[i]--;
-2AA6:  CLRF   03
-2AA8:  MOVF   x1B,W
-2AAA:  ADDLW  D0
-2AAC:  MOVWF  FE9
-2AAE:  MOVLW  00
-2AB0:  ADDWFC 03,W
-2AB2:  MOVWF  FEA
-2AB4:  DECF   FEF,F
-2AB6:  MOVLB  0
+2A86:  CLRF   03
+2A88:  MOVF   x1B,W
+2A8A:  ADDLW  D0
+2A8C:  MOVWF  FE9
+2A8E:  MOVLW  00
+2A90:  ADDWFC 03,W
+2A92:  MOVWF  FEA
+2A94:  DECF   FEF,F
+2A96:  MOVLB  0
 .................... 				}
 .................... 			}
 .................... 		}
-2AB8:  MOVLB  1
-2ABA:  INCF   x1B,F
-2ABC:  BRA    29B8
+2A98:  MOVLB  1
+2A9A:  INCF   x1B,F
+2A9C:  BRA    2998
 .................... 	}
 .................... 
 .................... 
 .................... 	/* some other random stuff that we don't need to do every cycle in main */
 .................... 	if ( current.interval_milliseconds < 65535 ) {
-2ABE:  MOVLB  0
-2AC0:  INCFSZ xC8,W
-2AC2:  BRA    2ACA
-2AC4:  INCFSZ xC9,W
-2AC6:  BRA    2ACA
-2AC8:  BRA    2AD0
+2A9E:  MOVLB  0
+2AA0:  INCFSZ xC8,W
+2AA2:  BRA    2AAA
+2AA4:  INCFSZ xC9,W
+2AA6:  BRA    2AAA
+2AA8:  BRA    2AB0
 .................... 		current.interval_milliseconds++;
-2ACA:  INCF   xC8,F
-2ACC:  BTFSC  FD8.2
-2ACE:  INCF   xC9,F
+2AAA:  INCF   xC8,F
+2AAC:  BTFSC  FD8.2
+2AAE:  INCF   xC9,F
 .................... 	}
 .................... 
 .................... 
 .................... 	/* contactor timeout */
 .................... 	if ( 0 == timers.contactor_powersave[0] ) {
-2AD0:  MOVF   xD8,F
-2AD2:  BNZ   2ADE
+2AB0:  MOVF   xD8,F
+2AB2:  BNZ   2ABE
 .................... 		output_low(BRIDGE_A_A);
-2AD4:  BCF    F94.3
-2AD6:  BCF    F8B.3
+2AB4:  BCF    F94.3
+2AB6:  BCF    F8B.3
 .................... 		output_low(BRIDGE_A_B);
-2AD8:  BCF    F94.4
-2ADA:  BCF    F8B.4
+2AB8:  BCF    F94.4
+2ABA:  BCF    F8B.4
 .................... 	} else {
-2ADC:  BRA    2AE0
+2ABC:  BRA    2AC0
 .................... 		timers.contactor_powersave[0]--;
-2ADE:  DECF   xD8,F
+2ABE:  DECF   xD8,F
 .................... 	}
 .................... 	if ( 0 == timers.contactor_powersave[1] ) {
-2AE0:  MOVF   xD9,F
-2AE2:  BNZ   2AEE
+2AC0:  MOVF   xD9,F
+2AC2:  BNZ   2ACE
 .................... 		output_low(BRIDGE_B_A);
-2AE4:  BCF    F94.5
-2AE6:  BCF    F8B.5
+2AC4:  BCF    F94.5
+2AC6:  BCF    F8B.5
 .................... 		output_low(BRIDGE_B_B);
-2AE8:  BCF    F94.6
-2AEA:  BCF    F8B.6
+2AC8:  BCF    F94.6
+2ACA:  BCF    F8B.6
 .................... 	} else {
-2AEC:  BRA    2AF0
+2ACC:  BRA    2AD0
 .................... 		timers.contactor_powersave[1]--;
-2AEE:  DECF   xD9,F
+2ACE:  DECF   xD9,F
 .................... 	}
 .................... 
 .................... 
@@ -6320,84 +6307,84 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 .................... 
 .................... 	/* seconds */
 .................... 	ticks++;
-2AF0:  MOVLB  1
-2AF2:  INCF   x16,F
-2AF4:  BTFSC  FD8.2
-2AF6:  INCF   x17,F
+2AD0:  MOVLB  1
+2AD2:  INCF   x16,F
+2AD4:  BTFSC  FD8.2
+2AD6:  INCF   x17,F
 .................... 	if ( 1000 == ticks ) {
-2AF8:  MOVF   x16,W
-2AFA:  SUBLW  E8
-2AFC:  BNZ   2B5E
-2AFE:  MOVF   x17,W
-2B00:  SUBLW  03
-2B02:  BNZ   2B5E
+2AD8:  MOVF   x16,W
+2ADA:  SUBLW  E8
+2ADC:  BNZ   2B3E
+2ADE:  MOVF   x17,W
+2AE0:  SUBLW  03
+2AE2:  BNZ   2B3E
 .................... 		ticks=0;
-2B04:  CLRF   x17
-2B06:  CLRF   x16
+2AE4:  CLRF   x17
+2AE6:  CLRF   x16
 .................... 
 .................... 		/* set channe[n].state based on logic */
 .................... 		contactor_logic(0);
-2B08:  CLRF   x1C
-2B0A:  MOVLB  0
-2B0C:  CALL   19C2
+2AE8:  CLRF   x1C
+2AEA:  MOVLB  0
+2AEC:  CALL   19A2
 .................... 		contactor_logic(1);
-2B10:  MOVLW  01
-2B12:  MOVLB  1
-2B14:  MOVWF  x1C
-2B16:  MOVLB  0
-2B18:  CALL   19C2
+2AF0:  MOVLW  01
+2AF2:  MOVLB  1
+2AF4:  MOVWF  x1C
+2AF6:  MOVLB  0
+2AF8:  CALL   19A2
 .................... 
 .................... 		/* set contactor outputs based on their state bit field */
 .................... 		contactor_set(0);
-2B1C:  MOVLB  1
-2B1E:  CLRF   x1C
-2B20:  MOVLB  0
-2B22:  RCALL  285E
+2AFC:  MOVLB  1
+2AFE:  CLRF   x1C
+2B00:  MOVLB  0
+2B02:  RCALL  283E
 .................... 		contactor_set(1);		
-2B24:  MOVLW  01
-2B26:  MOVLB  1
-2B28:  MOVWF  x1C
-2B2A:  MOVLB  0
-2B2C:  RCALL  285E
+2B04:  MOVLW  01
+2B06:  MOVLB  1
+2B08:  MOVWF  x1C
+2B0A:  MOVLB  0
+2B0C:  RCALL  283E
 .................... 
 .................... 		/* uptime counter */
 .................... 		uptimeTicks++;
-2B2E:  MOVLB  1
-2B30:  INCF   x12,F
+2B0E:  MOVLB  1
+2B10:  INCF   x12,F
 .................... 		if ( 60 == uptimeTicks ) {
-2B32:  MOVF   x12,W
-2B34:  SUBLW  3C
-2B36:  BNZ   2B4E
+2B12:  MOVF   x12,W
+2B14:  SUBLW  3C
+2B16:  BNZ   2B2E
 .................... 			uptimeTicks=0;
-2B38:  CLRF   x12
+2B18:  CLRF   x12
 .................... 			if ( current.uptime_minutes < 65535 ) 
-2B3A:  MOVLB  0
-2B3C:  INCFSZ xC6,W
-2B3E:  BRA    2B46
-2B40:  INCFSZ xC7,W
-2B42:  BRA    2B46
-2B44:  BRA    2B4C
+2B1A:  MOVLB  0
+2B1C:  INCFSZ xC6,W
+2B1E:  BRA    2B26
+2B20:  INCFSZ xC7,W
+2B22:  BRA    2B26
+2B24:  BRA    2B2C
 .................... 				current.uptime_minutes++;
-2B46:  INCF   xC6,F
-2B48:  BTFSC  FD8.2
-2B4A:  INCF   xC7,F
-2B4C:  MOVLB  1
+2B26:  INCF   xC6,F
+2B28:  BTFSC  FD8.2
+2B2A:  INCF   xC7,F
+2B2C:  MOVLB  1
 .................... 		}
 .................... 
 .................... 		/* LED status update every 4 seconds */
 .................... 		statusTicks++;
-2B4E:  INCF   x13,F
+2B2E:  INCF   x13,F
 .................... 		if ( 4 == statusTicks ) {
-2B50:  MOVF   x13,W
-2B52:  SUBLW  04
-2B54:  BNZ   2B5E
+2B30:  MOVF   x13,W
+2B32:  SUBLW  04
+2B34:  BNZ   2B3E
 .................... 			/* LED state display update */
 .................... 			statusTicks=0;
-2B56:  CLRF   x13
+2B36:  CLRF   x13
 .................... 			led_status_update();
-2B58:  MOVLB  0
-2B5A:  BRA    28C2
-2B5C:  MOVLB  1
+2B38:  MOVLB  0
+2B3A:  BRA    28A2
+2B3C:  MOVLB  1
 .................... 		}
 .................... 
 .................... 
@@ -6405,40 +6392,40 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 .................... 
 .................... 	/* ADC sample counter */
 .................... 	if ( timers.now_adc_reset_count ) {
-2B5E:  MOVLB  0
-2B60:  BTFSS  xCF.1
-2B62:  BRA    2B6E
+2B3E:  MOVLB  0
+2B40:  BTFSS  xCF.1
+2B42:  BRA    2B4E
 .................... 		timers.now_adc_reset_count=0;
-2B64:  BCF    xCF.1
+2B44:  BCF    xCF.1
 .................... 		adcTicks=0;
-2B66:  MOVLB  1
-2B68:  CLRF   x15
-2B6A:  CLRF   x14
-2B6C:  MOVLB  0
+2B46:  MOVLB  1
+2B48:  CLRF   x15
+2B4A:  CLRF   x14
+2B4C:  MOVLB  0
 .................... 	}
 .................... 
 .................... 	/* ADC sampling trigger */
 .................... 	adcTicks++;
-2B6E:  MOVLB  1
-2B70:  INCF   x14,F
-2B72:  BTFSC  FD8.2
-2B74:  INCF   x15,F
+2B4E:  MOVLB  1
+2B50:  INCF   x14,F
+2B52:  BTFSC  FD8.2
+2B54:  INCF   x15,F
 .................... 	if ( ADC_SAMPLE_TICKS == adcTicks ) {
-2B76:  MOVF   x14,W
-2B78:  SUBLW  14
-2B7A:  BNZ   2B8A
-2B7C:  MOVF   x15,F
-2B7E:  BNZ   2B8A
+2B56:  MOVF   x14,W
+2B58:  SUBLW  14
+2B5A:  BNZ   2B6A
+2B5C:  MOVF   x15,F
+2B5E:  BNZ   2B6A
 .................... 		adcTicks=0;
-2B80:  CLRF   x15
-2B82:  CLRF   x14
+2B60:  CLRF   x15
+2B62:  CLRF   x14
 .................... 		timers.now_adc_sample=1;
-2B84:  MOVLB  0
-2B86:  BSF    xCF.0
-2B88:  MOVLB  1
+2B64:  MOVLB  0
+2B66:  BSF    xCF.0
+2B68:  MOVLB  1
 .................... 	}
-2B8A:  MOVLB  0
-2B8C:  GOTO   2F8A (RETURN)
+2B6A:  MOVLB  0
+2B6C:  GOTO   2F6A (RETURN)
 .................... 
 .................... }
 .................... 
@@ -6880,339 +6867,339 @@ CCS PCH C Compiler, Version 5.090, 49113               09-Feb-22 11:42
 13B8:  MOVLB  1
 13BA:  MOVWF  FC8
 13BC:  MOVLB  0
-13BE:  GOTO   2E3A (RETURN)
+13BE:  GOTO   2E1A (RETURN)
 .................... }
 .................... 
 .................... 
 .................... void main(void) {
 *
-2DAC:  CLRF   FF8
-2DAE:  BCF    FD0.7
-2DB0:  BSF    07.7
-2DB2:  BSF    F93.6
-2DB4:  BSF    F93.4
-2DB6:  CLRF   FC8
-2DB8:  MOVLW  36
-2DBA:  MOVWF  FC6
-2DBC:  BSF    FC5.0
-2DBE:  BSF    FC5.7
-2DC0:  CLRF   1A
-2DC2:  BSF    FB8.3
-2DC4:  MOVLW  44
-2DC6:  MOVWF  FAF
-2DC8:  MOVLW  00
-2DCA:  MOVWF  FB0
-2DCC:  MOVLW  A6
-2DCE:  MOVWF  FAC
-2DD0:  MOVLW  90
-2DD2:  MOVWF  FAB
-2DD4:  MOVLB  1
-2DD6:  CLRF   x19
-2DD8:  CLRF   x18
-2DDA:  MOVLW  00
-2DDC:  MOVWF  F7E
-2DDE:  BCF    FC1.0
-2DE0:  BCF    FC1.1
-2DE2:  BCF    FC1.2
-2DE4:  BCF    FC1.3
-2DE6:  MOVWF  F7F
-2DE8:  CLRF   F6C
-2DEA:  CLRF   F6B
-2DEC:  CLRF   F6D
-2DEE:  BRA    2DF6
-2DF0:  DATA FD,40
-2DF2:  DATA 1B,00
-2DF4:  DATA 00,00
-2DF6:  MOVLW  00
-2DF8:  MOVWF  FF8
-2DFA:  MOVLW  2D
-2DFC:  MOVWF  FF7
-2DFE:  MOVLW  F0
-2E00:  MOVWF  FF6
+2D8C:  CLRF   FF8
+2D8E:  BCF    FD0.7
+2D90:  BSF    07.7
+2D92:  BSF    F93.6
+2D94:  BSF    F93.4
+2D96:  CLRF   FC8
+2D98:  MOVLW  36
+2D9A:  MOVWF  FC6
+2D9C:  BSF    FC5.0
+2D9E:  BSF    FC5.7
+2DA0:  CLRF   1A
+2DA2:  BSF    FB8.3
+2DA4:  MOVLW  44
+2DA6:  MOVWF  FAF
+2DA8:  MOVLW  00
+2DAA:  MOVWF  FB0
+2DAC:  MOVLW  A6
+2DAE:  MOVWF  FAC
+2DB0:  MOVLW  90
+2DB2:  MOVWF  FAB
+2DB4:  MOVLB  1
+2DB6:  CLRF   x19
+2DB8:  CLRF   x18
+2DBA:  MOVLW  00
+2DBC:  MOVWF  F7E
+2DBE:  BCF    FC1.0
+2DC0:  BCF    FC1.1
+2DC2:  BCF    FC1.2
+2DC4:  BCF    FC1.3
+2DC6:  MOVWF  F7F
+2DC8:  CLRF   F6C
+2DCA:  CLRF   F6B
+2DCC:  CLRF   F6D
+2DCE:  BRA    2DD6
+2DD0:  DATA FD,40
+2DD2:  DATA 1B,00
+2DD4:  DATA 00,00
+2DD6:  MOVLW  00
+2DD8:  MOVWF  FF8
+2DDA:  MOVLW  2D
+2DDC:  MOVWF  FF7
+2DDE:  MOVLW  D0
+2DE0:  MOVWF  FF6
+2DE2:  TBLRD*+
+2DE4:  MOVF   FF5,W
+2DE6:  MOVWF  00
+2DE8:  XORLW  00
+2DEA:  BZ    2E12
+2DEC:  TBLRD*+
+2DEE:  MOVF   FF5,W
+2DF0:  MOVWF  01
+2DF2:  BTFSC  FE8.7
+2DF4:  BRA    2E00
+2DF6:  ANDLW  3F
+2DF8:  MOVWF  FEA
+2DFA:  TBLRD*+
+2DFC:  MOVFF  FF5,FE9
+2E00:  BTFSC  01.6
 2E02:  TBLRD*+
-2E04:  MOVF   FF5,W
-2E06:  MOVWF  00
-2E08:  XORLW  00
-2E0A:  BZ    2E32
-2E0C:  TBLRD*+
-2E0E:  MOVF   FF5,W
-2E10:  MOVWF  01
-2E12:  BTFSC  FE8.7
-2E14:  BRA    2E20
-2E16:  ANDLW  3F
-2E18:  MOVWF  FEA
-2E1A:  TBLRD*+
-2E1C:  MOVFF  FF5,FE9
-2E20:  BTFSC  01.6
-2E22:  TBLRD*+
-2E24:  BTFSS  01.6
-2E26:  TBLRD*+
-2E28:  MOVFF  FF5,FEE
-2E2C:  DCFSNZ 00,F
-2E2E:  BRA    2E02
-2E30:  BRA    2E24
-2E32:  CLRF   FF8
+2E04:  BTFSS  01.6
+2E06:  TBLRD*+
+2E08:  MOVFF  FF5,FEE
+2E0C:  DCFSNZ 00,F
+2E0E:  BRA    2DE2
+2E10:  BRA    2E04
+2E12:  CLRF   FF8
 .................... 	int8 i;
 .................... 
 .................... 	init();
-2E34:  MOVLB  0
-2E36:  GOTO   1100
+2E14:  MOVLB  0
+2E16:  GOTO   1100
 .................... 
 .................... 	/* force off both contactors */
 .................... 	timers.contactor[0]=1;
-2E3A:  MOVLW  01
-2E3C:  MOVWF  xD6
+2E1A:  MOVLW  01
+2E1C:  MOVWF  xD6
 .................... 	timers.contactor[1]=1;
-2E3E:  MOVWF  xD7
+2E1E:  MOVWF  xD7
 .................... 	contactor_off(0);
-2E40:  MOVLB  1
-2E42:  CLRF   x1E
-2E44:  MOVLB  0
-2E46:  CALL   13C2
+2E20:  MOVLB  1
+2E22:  CLRF   x1E
+2E24:  MOVLB  0
+2E26:  CALL   13C2
 .................... 	contactor_off(1);
-2E4A:  MOVLW  01
-2E4C:  MOVLB  1
-2E4E:  MOVWF  x1E
-2E50:  MOVLB  0
-2E52:  CALL   13C2
+2E2A:  MOVLW  01
+2E2C:  MOVLB  1
+2E2E:  MOVWF  x1E
+2E30:  MOVLB  0
+2E32:  CALL   13C2
 .................... 
 .................... 
 .................... 	/* read parameters from EEPROM and write defaults if CRC doesn't match */
 .................... 	read_param_file();
-2E56:  GOTO   1866
+2E36:  GOTO   1846
 .................... 
 .................... 
 .................... 	/* flash on startup */
 .................... 	for ( i=0 ; i<5 ; i++ ) {
-2E5A:  MOVLB  1
-2E5C:  CLRF   x1A
-2E5E:  MOVF   x1A,W
-2E60:  SUBLW  04
-2E62:  BNC   2E8A
+2E3A:  MOVLB  1
+2E3C:  CLRF   x1A
+2E3E:  MOVF   x1A,W
+2E40:  SUBLW  04
+2E42:  BNC   2E6A
 .................... 		restart_wdt();
-2E64:  CLRWDT
+2E44:  CLRWDT
 .................... 		output_high(LED_A);
-2E66:  BCF    F94.1
-2E68:  BSF    F8B.1
+2E46:  BCF    F94.1
+2E48:  BSF    F8B.1
 .................... 		delay_ms(200);
-2E6A:  MOVLW  C8
-2E6C:  MOVWF  x28
-2E6E:  MOVLB  0
-2E70:  CALL   1064
+2E4A:  MOVLW  C8
+2E4C:  MOVWF  x28
+2E4E:  MOVLB  0
+2E50:  CALL   1064
 .................... 		output_low(LED_A);
-2E74:  BCF    F94.1
-2E76:  BCF    F8B.1
+2E54:  BCF    F94.1
+2E56:  BCF    F8B.1
 .................... 		delay_ms(200);
-2E78:  MOVLW  C8
-2E7A:  MOVLB  1
-2E7C:  MOVWF  x28
-2E7E:  MOVLB  0
-2E80:  CALL   1064
-2E84:  MOVLB  1
-2E86:  INCF   x1A,F
-2E88:  BRA    2E5E
+2E58:  MOVLW  C8
+2E5A:  MOVLB  1
+2E5C:  MOVWF  x28
+2E5E:  MOVLB  0
+2E60:  CALL   1064
+2E64:  MOVLB  1
+2E66:  INCF   x1A,F
+2E68:  BRA    2E3E
 .................... 	}
 .................... 
 .................... 	fprintf(STREAM_FTDI,"# dcswc_module_latching_contactor %s\r\n# ",__DATE__);
-2E8A:  MOVLW  B8
-2E8C:  MOVWF  FF6
-2E8E:  MOVLW  0F
-2E90:  MOVWF  FF7
-2E92:  MOVLW  22
+2E6A:  MOVLW  B8
+2E6C:  MOVWF  FF6
+2E6E:  MOVLW  0F
+2E70:  MOVWF  FF7
+2E72:  MOVLW  22
+2E74:  MOVWF  x1D
+2E76:  MOVLB  0
+2E78:  CALL   188C
+2E7C:  MOVLW  E2
+2E7E:  MOVWF  FF6
+2E80:  MOVLW  0F
+2E82:  MOVWF  FF7
+2E84:  CALL   18B6
+2E88:  MOVLW  DC
+2E8A:  MOVWF  FF6
+2E8C:  MOVLW  0F
+2E8E:  MOVWF  FF7
+2E90:  MOVLW  04
+2E92:  MOVLB  1
 2E94:  MOVWF  x1D
 2E96:  MOVLB  0
-2E98:  CALL   18AC
-2E9C:  MOVLW  E2
-2E9E:  MOVWF  FF6
-2EA0:  MOVLW  0F
-2EA2:  MOVWF  FF7
-2EA4:  CALL   18D6
-2EA8:  MOVLW  DC
-2EAA:  MOVWF  FF6
-2EAC:  MOVLW  0F
-2EAE:  MOVWF  FF7
-2EB0:  MOVLW  04
-2EB2:  MOVLB  1
-2EB4:  MOVWF  x1D
-2EB6:  MOVLB  0
-2EB8:  CALL   18AC
+2E98:  CALL   188C
 .................... 	switch ( restart_cause ) {
-2EBC:  MOVLW  07
-2EBE:  SUBWF  00,W
-2EC0:  BZ    2EE6
-2EC2:  MOVLW  0B
-2EC4:  SUBWF  00,W
-2EC6:  BZ    2EF4
-2EC8:  MOVLW  0F
-2ECA:  SUBWF  00,W
-2ECC:  BZ    2F02
-2ECE:  MOVLW  0C
-2ED0:  SUBWF  00,W
-2ED2:  BZ    2F10
-2ED4:  MOVLW  0E
-2ED6:  SUBWF  00,W
-2ED8:  BZ    2F1E
-2EDA:  MOVLW  03
-2EDC:  SUBWF  00,W
-2EDE:  BZ    2F2C
-2EE0:  MOVF   00,F
-2EE2:  BZ    2F3A
-2EE4:  BRA    2F48
+2E9C:  MOVLW  07
+2E9E:  SUBWF  00,W
+2EA0:  BZ    2EC6
+2EA2:  MOVLW  0B
+2EA4:  SUBWF  00,W
+2EA6:  BZ    2ED4
+2EA8:  MOVLW  0F
+2EAA:  SUBWF  00,W
+2EAC:  BZ    2EE2
+2EAE:  MOVLW  0C
+2EB0:  SUBWF  00,W
+2EB2:  BZ    2EF0
+2EB4:  MOVLW  0E
+2EB6:  SUBWF  00,W
+2EB8:  BZ    2EFE
+2EBA:  MOVLW  03
+2EBC:  SUBWF  00,W
+2EBE:  BZ    2F0C
+2EC0:  MOVF   00,F
+2EC2:  BZ    2F1A
+2EC4:  BRA    2F28
 .................... 		case WDT_TIMEOUT:       fprintf(STREAM_FTDI,"WDT TIMEOUT"); break;
-2EE6:  MOVLW  EC
-2EE8:  MOVWF  FF6
-2EEA:  MOVLW  0F
-2EEC:  MOVWF  FF7
-2EEE:  CALL   18D6
-2EF2:  BRA    2F54
+2EC6:  MOVLW  EC
+2EC8:  MOVWF  FF6
+2ECA:  MOVLW  0F
+2ECC:  MOVWF  FF7
+2ECE:  CALL   18B6
+2ED2:  BRA    2F34
 .................... 		case MCLR_FROM_SLEEP:   fprintf(STREAM_FTDI,"MCLR FROM SLEEP"); break;
-2EF4:  MOVLW  F8
-2EF6:  MOVWF  FF6
-2EF8:  MOVLW  0F
-2EFA:  MOVWF  FF7
-2EFC:  CALL   18D6
-2F00:  BRA    2F54
+2ED4:  MOVLW  F8
+2ED6:  MOVWF  FF6
+2ED8:  MOVLW  0F
+2EDA:  MOVWF  FF7
+2EDC:  CALL   18B6
+2EE0:  BRA    2F34
 .................... 		case MCLR_FROM_RUN:     fprintf(STREAM_FTDI,"MCLR FROM RUN"); break;
-2F02:  MOVLW  08
-2F04:  MOVWF  FF6
-2F06:  MOVLW  10
-2F08:  MOVWF  FF7
-2F0A:  CALL   18D6
-2F0E:  BRA    2F54
+2EE2:  MOVLW  08
+2EE4:  MOVWF  FF6
+2EE6:  MOVLW  10
+2EE8:  MOVWF  FF7
+2EEA:  CALL   18B6
+2EEE:  BRA    2F34
 .................... 		case NORMAL_POWER_UP:   fprintf(STREAM_FTDI,"NORMAL POWER UP"); break;
-2F10:  MOVLW  16
-2F12:  MOVWF  FF6
-2F14:  MOVLW  10
-2F16:  MOVWF  FF7
-2F18:  CALL   18D6
-2F1C:  BRA    2F54
+2EF0:  MOVLW  16
+2EF2:  MOVWF  FF6
+2EF4:  MOVLW  10
+2EF6:  MOVWF  FF7
+2EF8:  CALL   18B6
+2EFC:  BRA    2F34
 .................... 		case BROWNOUT_RESTART:  fprintf(STREAM_FTDI,"BROWNOUT RESTART"); break;
-2F1E:  MOVLW  26
-2F20:  MOVWF  FF6
-2F22:  MOVLW  10
-2F24:  MOVWF  FF7
-2F26:  CALL   18D6
-2F2A:  BRA    2F54
+2EFE:  MOVLW  26
+2F00:  MOVWF  FF6
+2F02:  MOVLW  10
+2F04:  MOVWF  FF7
+2F06:  CALL   18B6
+2F0A:  BRA    2F34
 .................... 		case WDT_FROM_SLEEP:    fprintf(STREAM_FTDI,"WDT FROM SLEEP"); break;
-2F2C:  MOVLW  38
-2F2E:  MOVWF  FF6
-2F30:  MOVLW  10
-2F32:  MOVWF  FF7
-2F34:  CALL   18D6
-2F38:  BRA    2F54
+2F0C:  MOVLW  38
+2F0E:  MOVWF  FF6
+2F10:  MOVLW  10
+2F12:  MOVWF  FF7
+2F14:  CALL   18B6
+2F18:  BRA    2F34
 .................... 		case RESET_INSTRUCTION: fprintf(STREAM_FTDI,"RESET INSTRUCTION"); break;
-2F3A:  MOVLW  48
-2F3C:  MOVWF  FF6
-2F3E:  MOVLW  10
-2F40:  MOVWF  FF7
-2F42:  CALL   18D6
-2F46:  BRA    2F54
+2F1A:  MOVLW  48
+2F1C:  MOVWF  FF6
+2F1E:  MOVLW  10
+2F20:  MOVWF  FF7
+2F22:  CALL   18B6
+2F26:  BRA    2F34
 .................... 		default:                fprintf(STREAM_FTDI,"UNKNOWN!");
-2F48:  MOVLW  5A
-2F4A:  MOVWF  FF6
-2F4C:  MOVLW  10
-2F4E:  MOVWF  FF7
-2F50:  CALL   18D6
+2F28:  MOVLW  5A
+2F2A:  MOVWF  FF6
+2F2C:  MOVLW  10
+2F2E:  MOVWF  FF7
+2F30:  CALL   18B6
 .................... 	}
 .................... 	fprintf(STREAM_FTDI,"\r\n");
-2F54:  MOVLW  0D
-2F56:  BTFSS  F9E.4
-2F58:  BRA    2F56
-2F5A:  MOVWF  FAD
-2F5C:  MOVLW  0A
-2F5E:  BTFSS  F9E.4
-2F60:  BRA    2F5E
-2F62:  MOVWF  FAD
+2F34:  MOVLW  0D
+2F36:  BTFSS  F9E.4
+2F38:  BRA    2F36
+2F3A:  MOVWF  FAD
+2F3C:  MOVLW  0A
+2F3E:  BTFSS  F9E.4
+2F40:  BRA    2F3E
+2F42:  MOVWF  FAD
 .................... 
 .................... 	enable_interrupts(GLOBAL);
-2F64:  MOVLW  C0
-2F66:  IORWF  FF2,F
+2F44:  MOVLW  C0
+2F46:  IORWF  FF2,F
 .................... 
 .................... 	/* Prime ADC filter */
 .................... 	for ( i=0 ; i<30 ; i++ ) {
-2F68:  MOVLB  1
-2F6A:  CLRF   x1A
-2F6C:  MOVF   x1A,W
-2F6E:  SUBLW  1D
-2F70:  BNC   2F7E
+2F48:  MOVLB  1
+2F4A:  CLRF   x1A
+2F4C:  MOVF   x1A,W
+2F4E:  SUBLW  1D
+2F50:  BNC   2F5E
 .................... 		adc_update();
-2F72:  MOVLB  0
-2F74:  CALL   18F8
-2F78:  MOVLB  1
-2F7A:  INCF   x1A,F
-2F7C:  BRA    2F6C
+2F52:  MOVLB  0
+2F54:  CALL   18D8
+2F58:  MOVLB  1
+2F5A:  INCF   x1A,F
+2F5C:  BRA    2F4C
 .................... 	}
 .................... 
 .................... 
 .................... 	/* enable I2C slave interrupt */
 .................... 	enable_interrupts(INT_SSP);
-2F7E:  BSF    F9D.3
+2F5E:  BSF    F9D.3
 .................... 
 .................... 	for ( ; ; ) {
 .................... 		restart_wdt();
-2F80:  CLRWDT
+2F60:  CLRWDT
 .................... 
 .................... 		if ( timers.now_millisecond ) {
-2F82:  MOVLB  0
-2F84:  BTFSS  xCF.2
-2F86:  BRA    2F8A
+2F62:  MOVLB  0
+2F64:  BTFSS  xCF.2
+2F66:  BRA    2F6A
 .................... 			periodic_millisecond();
-2F88:  BRA    29B2
+2F68:  BRA    2992
 .................... 		}
 .................... 
 .................... 		if ( kbhit() ) {
-2F8A:  BTFSS  F9E.5
-2F8C:  BRA    2F92
+2F6A:  BTFSS  F9E.5
+2F6C:  BRA    2F72
 .................... 			getc();
-2F8E:  BRA    2B90
+2F6E:  BRA    2B70
 .................... 			timers.now_debug_dump=1;
-2F90:  BSF    xCF.5
+2F70:  BSF    xCF.5
 .................... 		}
 .................... 
 .................... 		if ( timers.now_debug_dump ) {
-2F92:  BTFSS  xCF.5
-2F94:  BRA    2F9A
+2F72:  BTFSS  xCF.5
+2F74:  BRA    2F7A
 .................... 			timers.now_debug_dump=0;
-2F96:  BCF    xCF.5
+2F76:  BCF    xCF.5
 .................... 
 .................... 			debug_dump();
-2F98:  BRA    2CA0
+2F78:  BRA    2C80
 .................... 		}
 .................... 
 .................... 		if ( timers.now_adc_sample ) {
-2F9A:  BTFSS  xCF.0
-2F9C:  BRA    2FA4
+2F7A:  BTFSS  xCF.0
+2F7C:  BRA    2F84
 .................... 			timers.now_adc_sample=0;
-2F9E:  BCF    xCF.0
+2F7E:  BCF    xCF.0
 .................... 			adc_update();
-2FA0:  CALL   18F8
+2F80:  CALL   18D8
 .................... 		}
 .................... 
 .................... 		if ( timers.now_write_config ) {
-2FA4:  BTFSS  xCF.3
-2FA6:  BRA    2FAE
+2F84:  BTFSS  xCF.3
+2F86:  BRA    2F8E
 .................... 			timers.now_write_config=0;
-2FA8:  BCF    xCF.3
+2F88:  BCF    xCF.3
 .................... 			write_param_file();
-2FAA:  CALL   1534
+2F8A:  CALL   1534
 .................... 		}
 .................... 		if ( timers.now_reset_config ) {
-2FAE:  BTFSS  xCF.4
-2FB0:  BRA    2FB8
+2F8E:  BTFSS  xCF.4
+2F90:  BRA    2F98
 .................... 			timers.now_reset_config=0;
-2FB2:  BCF    xCF.4
+2F92:  BCF    xCF.4
 .................... 			write_default_param_file();
-2FB4:  CALL   1580
+2F94:  CALL   1580
 .................... 		}
-2FB8:  MOVLB  1
-2FBA:  BRA    2F80
+2F98:  MOVLB  1
+2F9A:  BRA    2F60
 .................... 
 .................... 
 .................... 	}
 .................... 
 .................... 
 .................... }
-2FBC:  SLEEP 
+2F9C:  SLEEP 
 
 Configuration Fuses:
    Word  1: 0800   INTRC_IO NOPLLEN NOPCLKEN NOFCMEN NOIESO

@@ -46,11 +46,11 @@ void write_default_param_file() {
 
 
 	for ( i=0 ; i<2 ; i++ ) {
-		/* low voltage disconnect */
-		config.ch[i].lvd_disconnect_adc=606;
-		config.ch[i].lvd_disconnect_delay=20; /* 65535 disables LVD */
-		config.ch[i].lvd_reconnect_adc=616;
-		config.ch[i].lvd_reconnect_delay=10;
+			/* low voltage disconnect */
+			config.ch[i].lvd_disconnect_adc=593;  /* 23.16 volts */
+			config.ch[i].lvd_disconnect_delay=20; /* 65535 disables LVD */
+			config.ch[i].lvd_reconnect_adc=602;   /* 23.51 volts */
+			config.ch[i].lvd_reconnect_delay=10;
 		
 		/* high voltage disconnect */
 		config.ch[i].hvd_disconnect_adc=700; 
@@ -72,6 +72,7 @@ void write_default_param_file() {
 	}
 	
 
+#if 0
 	/* set the two channels differently */
 	/* LVD 1 bus (modem, etc) @ Fairway */
 	config.ch[0].lvd_disconnect_adc=602; /* 23.5 */
@@ -79,6 +80,8 @@ void write_default_param_file() {
  	/* LVD 2 bus (CODAR) @ Fairway */
 	config.ch[1].lvd_disconnect_adc=614; /* 24.0 */
 	config.ch[1].lvd_reconnect_adc=640;  /* 25.0 */		
+#endif
+
 
 	/* write them so next time we use from EEPROM */
 	write_param_file();
