@@ -228,7 +228,7 @@ int16 map_i2c(int8 addr) {
 			return (int16) current.factory_unlocked; 	
 
 		/* we should have range checked, and never gotten here ... or read unimplemented (future) register */
-		default: return (int16) 0xffff;
+		default: return (int16) addr;
 	}
 
 

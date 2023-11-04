@@ -71,7 +71,8 @@ void ssp_interrupt () {
 		}
 
 		if ( 1 == state ) {             
-			address = incoming<<1;
+			/* first byte is address */                
+			address = incoming;
 		} else if ( state >= 2 && 0x80 != state ) {
 			/* received byte is data */
 		
@@ -80,10 +81,7 @@ void ssp_interrupt () {
 				lastMSB=incoming;
 			} else if ( 3 == state ) {
 				/* 16 bit value made of previous byte and this byte */
-				write_i2c(address>>1,make16(lastMSB,incoming));
-
-				/* this write only works for a single register per I2C transaction */
-				/* this is not a BUG, but it would need to be implemented if this functionality is needed */
+				write_i2c(address,make16(lastMSB,incoming));
 			}
 		}
 	}
