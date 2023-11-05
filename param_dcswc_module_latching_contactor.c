@@ -46,11 +46,14 @@ void write_default_param_file() {
 
 
 	for ( i=0 ; i<2 ; i++ ) {
-			/* low voltage disconnect */
-			config.ch[i].lvd_disconnect_adc=593;  /* 23.16 volts */
-			config.ch[i].lvd_disconnect_delay=20; /* 65535 disables LVD */
-			config.ch[i].lvd_reconnect_adc=602;   /* 23.51 volts */
-			config.ch[i].lvd_reconnect_delay=10;
+		config.ch[i].command_on_hold_time=60;
+		config.ch[i].command_off_hold_time=15;
+
+		/* low voltage disconnect */
+		config.ch[i].lvd_disconnect_adc=593;  /* 23.16 volts */
+		config.ch[i].lvd_disconnect_delay=20; /* 65535 disables LVD */
+		config.ch[i].lvd_reconnect_adc=602;   /* 23.51 volts */
+		config.ch[i].lvd_reconnect_delay=10;
 		
 		/* high voltage disconnect */
 		config.ch[i].hvd_disconnect_adc=700; 

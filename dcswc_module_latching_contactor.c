@@ -543,6 +543,7 @@ void init(void) {
 	for ( i=0 ; i<=1 ; i++ ) {
 		channel[i].command_off_seconds=65535;
 		channel[i].command_on_seconds =65535;
+		channel[i].state=0;
 	}
 
 	/* get our compiled date from constant  

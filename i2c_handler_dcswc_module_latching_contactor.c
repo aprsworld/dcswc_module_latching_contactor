@@ -18,53 +18,69 @@ void write_i2c(int8 addr, int16 value) {
 		c=0;
 	}
 
+	fputc(addr,STREAM_FTDI);
+
 	switch ( addr ) {
 		case I2C_REG_CH0_COMMAND_ON:
 			channel[c].command_on_seconds=value;
+			break;
 		case I2C_REG_CH0_COMMAND_ON_HOLD:
 			channel[c].command_on_hold_seconds=value;
-	
+			break;	
 		case I2C_REG_CH0_COMMAND_OFF:
 			channel[c].command_off_seconds=value;
+			break;
 		case I2C_REG_CH0_COMMAND_OFF_HOLD:
 			channel[c].command_off_hold_seconds=value;
-
+			break;
 		case I2C_REG_CH0_LVD_DISCONNECT_ADC:
 			config.ch[c].lvd_disconnect_adc=value;
+			break;
 		case I2C_REG_CH0_LVD_DISCONNECT_DELAY:
 			config.ch[c].lvd_disconnect_delay=value;
+			break;
 		case I2C_REG_CH0_LVD_RECONNECT_ADC:
 			config.ch[c].lvd_reconnect_adc=value;
+			break;
 		case I2C_REG_CH0_LVD_RECONNECT_DELAY:
 			config.ch[c].lvd_reconnect_delay=value;
-
+			break;
 		case I2C_REG_CH0_HVD_DISCONNECT_ADC:
 			config.ch[c].hvd_disconnect_adc=value;
+			break;
 		case I2C_REG_CH0_HVD_DISCONNECT_DELAY:
 			config.ch[c].hvd_disconnect_delay=value;
+			break;
 		case I2C_REG_CH0_HVD_RECONNECT_ADC:
 			config.ch[c].hvd_reconnect_adc=value;
+			break;
 		case I2C_REG_CH0_HVD_RECONNECT_DELAY:
 			config.ch[c].hvd_reconnect_delay=value;
-
+			break;
 		case I2C_REG_CH0_LTD_DISCONNECT_ADC:
 			config.ch[c].ltd_disconnect_adc=value;
+			break;
 		case I2C_REG_CH0_LTD_DISCONNECT_DELAY:
 			config.ch[c].ltd_disconnect_delay=value;
+			break;
 		case I2C_REG_CH0_LTD_RECONNECT_ADC:
 			config.ch[c].ltd_reconnect_adc=value;
+			break;
 		case I2C_REG_CH0_LTD_RECONNECT_DELAY:
 			config.ch[c].ltd_reconnect_delay=value;
-
+			break;
 		case I2C_REG_CH0_HTD_DISCONNECT_ADC:
 			config.ch[c].htd_disconnect_adc=value;
+			break;
 		case I2C_REG_CH0_HTD_DISCONNECT_DELAY:
 			config.ch[c].htd_disconnect_delay=value;
+			break;
 		case I2C_REG_CH0_HTD_RECONNECT_ADC:
 			config.ch[c].htd_reconnect_adc=value;
+			break;
 		case I2C_REG_CH0_HTD_RECONNECT_DELAY:
 			config.ch[c].htd_reconnect_delay=value;
-
+			break;
 		/* don't need to implement FUT ... there is nowhere for it to go anyhow */
 
 		case I2C_REG_CONFIG_PARAM_WRITE:

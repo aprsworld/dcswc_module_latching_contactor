@@ -1,6 +1,6 @@
 void debug_dump(void) {
 
-//	int8 i;
+	int8 i;
 
 	
 	restart_wdt();
@@ -17,13 +17,15 @@ void debug_dump(void) {
 //	fprintf(STREAM_FTDI,"# read_dip_sw()=%u\r\n",read_dip_switch());
 //	fprintf(STREAM_FTDI,"#    dip sw adc=%lu\r\n",adc_get(2));
 
-#if 0
+
 	for ( i=0 ; i<2 ; i++ ) {
 		restart_wdt();
 		fprintf(STREAM_FTDI,"#-------\r\n");
 		fprintf(STREAM_FTDI,"# config.ch[%u]\r\n",i);
+		fprintf(STREAM_FTDI,"#  command_on_hold_time=%lu\r\n",config.ch[i].command_on_hold_time);
 		fprintf(STREAM_FTDI,"# command_off_hold_time=%lu\r\n",config.ch[i].command_off_hold_time);
 
+#if 0
 		fprintf(STREAM_FTDI,"#    lvd_disconnect_adc=%lu\r\n",config.ch[i].lvd_disconnect_adc);
 		fprintf(STREAM_FTDI,"#  lvd_disconnect_delay=%lu\r\n",config.ch[i].lvd_disconnect_delay);
 		fprintf(STREAM_FTDI,"#     lvd_reconnect_adc=%lu\r\n",config.ch[i].lvd_reconnect_adc);
@@ -44,7 +46,7 @@ void debug_dump(void) {
 		fprintf(STREAM_FTDI,"#  htd_disconnect_delay=%lu\r\n",config.ch[i].htd_disconnect_delay);
 		fprintf(STREAM_FTDI,"#     htd_reconnect_adc=%lu\r\n",config.ch[i].htd_reconnect_adc);
 		fprintf(STREAM_FTDI,"#   htd_reconnect_delay=%lu\r\n",config.ch[i].htd_reconnect_delay);
-
+#endif
 
 		restart_wdt();
 		fprintf(STREAM_FTDI,"#\r\n");
@@ -69,5 +71,4 @@ void debug_dump(void) {
 		fprintf(STREAM_FTDI,"# htd_disconnect_delay_seconds=%lu\r\n",channel[i].htd_disconnect_delay_seconds);
 		fprintf(STREAM_FTDI,"#  htd_reconnect_delay_seconds=%lu\r\n",channel[i].htd_reconnect_delay_seconds);
 	}
-	#endif
 }
